@@ -16,3 +16,63 @@ The length of the output sequence $s'$ is $n+m$. In order to zip $s_1$ and $s_2$
 
 \subsection{Algorithms}
 \label{tree:merging:k=2:alg}
+
+We consider the case where $n \leq m$. We build an algorithm $\in$ \BigO{log \binom{n+m}{n}}.
+
+\begin{lemma}
+\begin{align*}
+\log\binom{n+m}{n} &\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{m}\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{n+m}{n} &= \log\frac{(n+m)!}{n!m!}\\
+&= \log(n+m)! - \log n! - \log m!\\
+&\leq (n+m) \log(n+m) - n \log n - m \log m\\
+&\leq (n+m) \log(n+m) - n \log n - m \log m + (m \log n - m \log n)\\
+&\leq (n+m) \log(n+m) - (n + m) \log n - m (\log m - \log n)\\
+&\leq (n+m) \log\frac{n+m}{n} - m (\log m - \log n)\\
+&\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{n} - m (\log m - \log n)\\
+&\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{\sfrac{n}{n} \times m}\\
+&\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{m}\\
+\end{align*}
+\end{proof}
+
+\subsubsection{$n = m$}
+
+\begin{lemma}
+\begin{align*}
+n = m &\implies \log\binom{n+m}{n} \leq n + m = 2n\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{n+m}{n} &\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{m}\\
+&\leq n \log\frac{2n}{n} + m \log\frac{2m}{m}\\
+&\leq n \log 2 + m \log 2\\
+&\leq n + m\\
+&\leq 2n\\
+\end{align*}
+\end{proof}
+
+An algorithm performing \BigO{n} is Sequential Merge.
+
+\subsubsection{$n \ll m$}
+
+\begin{lemma}
+\begin{align*}
+n \ll m &\implies \log\binom{n+m}{n} \leq n \log\frac{m}{n}\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{n+m}{n} &\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{m}\\
+&\leq n \log\frac{m}{n} + m \log\frac{m}{m}\\
+&\leq n \log\frac{m}{n}\\
+\end{align*}
+\end{proof}
+
+An algorithm performing \BigO{n \log\frac{m}{n}} is Multiple Binary Search.
