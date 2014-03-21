@@ -6,16 +6,19 @@
 
 \newcommand{\theoremname}{Theorem}
 \newcommand{\lemmaname}{Lemma}
+\newcommand{\corollaryname}{Corollary}
 \newcommand{\conjecturename}{Conjecture}
 
 \addto\captionsfrench{
 	\renewcommand{\theoremname}{Théorème}
 	\renewcommand{\lemmaname}{Lemme}
+	\renewcommand{\corollaryname}{Corollaire}
 	\renewcommand{\conjecturename}{Conjecture}
 }
 
 \newtheorem{theorem}{\theoremname}[chapter]
 \newtheorem{lemma}[theorem]{\lemmaname}
+\newtheorem{corollary}[theorem]{\corollaryname}
 \newtheorem{conjecture}[theorem]{\conjecturename}
 
 \newcommand\makethm[0]{
@@ -64,9 +67,13 @@
 }
 
 
-\usepackage{array,tabularx}
+\usepackage{array,tabularx,tablefootnote}
 
 \newenvironment{conditions}
   {\par\vspace{\abovedisplayskip}\noindent
    \tabularx{\columnwidth}{>{$}l<{$} @{${}={}$} >{\raggedright\arraybackslash}X}}
   {\endtabularx\par\vspace{\belowdisplayskip}}
+
+% fix footnotes multiple places ref
+
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}

@@ -1,0 +1,24 @@
+\section{Stirling}
+\label{tree:sorting:stirling}
+
+\begin{theorem}
+\begin{align*}
+\log(n!) &\leq n \log n
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+\begin{align*}
+n! & \leq n^n\\
+\log(n!) & \leq \log(n^n)\\
+\log(n!) & \leq n \log n\\
+\end{align*}
+\end{proof}
+
+
+
+\begin{corollary}
+\begin{align*}
+\BigO{\log(n!)} &\in \BigO{n \log n}
+\end{align*}
+\end{corollary}

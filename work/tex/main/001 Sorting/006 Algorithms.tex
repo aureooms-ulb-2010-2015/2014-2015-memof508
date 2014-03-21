@@ -1,0 +1,30 @@
+\section{Algorithms}
+\label{tree:sorting:alg}
+
+According to our model (\ref{tree:sorting:model}) we only consider comparison based sorting algorithms.
+
+
+\begin{table}
+	\begin{center}
+	\caption{Comparison sorts complexity}
+	\label{tree:sorting:alg/table}
+	\begin{tabular}{|c|c|c|c|}
+
+	\hline
+	Name & Best\tablefootnote{\label{tree:sorting:alg/table!bestisn} The reason some of those algorithms have a best case of \BigO{n} is that they make use of already ordered subsequences, e.g. for an already ordered sequence only a linear check is required. This gives us some clue that will be expanded in \ref{tree:SUPI}.} & Average & Worst\\\hline\hline
+	Merge sort & $n \log n$ & $n \log n$ & $n \log n$\\\hline
+	Heapsort & $n \log n$ & $n \log n$ & $n \log n$\\\hline
+	Introsort & $n \log n$ & $n \log n$ & $n \log n$\\\hline
+	Timsort & $n$ & $n \log n$ & $n \log n$\\\hline
+	Binary tree sort & $n$ & $n \log n$ & $n \log n$\\\hline
+	Patience sorting & — & — & $n \log n$\\\hline
+	Smoothsort & $n$ & $n \log n$ & $n \log n$\\\hline
+	Tournament sort	& — & $n \log n$ & $n \log n$\\\hline
+
+	\end{tabular}
+	\end{center}
+\end{table}
+
+
+
+In \ref{tree:sorting:alg/table} you can see a list of algorithms for which the worst case execution complexity matches the Stirling's approximation of the \concept{ITLB}.
