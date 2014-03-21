@@ -75,4 +75,26 @@ n \ll m &\implies \log\binom{n+m}{n} \leq n \log\frac{m}{n}\\
 \end{align*}
 \end{proof}
 
-An algorithm performing \BigO{n \log\frac{m}{n}} is Multiple Binary Search.
+An algorithm performing \BigO{n \log\frac{m}{n}} is Two-way Binary Search.
+
+
+\subsubsection{$n \ll m \land n = 1$}
+
+\begin{lemma}
+\begin{align*}
+n \ll m \land n = 1 &\implies \log\binom{n+m}{n} \leq \log m\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{n+m}{n} &\leq n \log\frac{m}{n}\\
+&\leq \log m\\
+\end{align*}
+\end{proof}
+
+An algorithm performing \BigO{\log m} is Binary Search.
+
+\subsubsection{Hwang-Lin}
+
+From now on we have explored special cases, it would be nice if we could combine the disparate solutions to build an algorithm that works for any input in \BigO{log \binom{n+m}{n}}.
