@@ -13,6 +13,8 @@ The ITLB for the merging problem when $k = 2$ with $|s_1| = n, |s_2| = m$ is \Bi
 The length of the output sequence $s'$ is $n+m$. In order to zip $s_1$ and $s_2$ we have to choose the $n$ among $n+m$ positions in $s'$ for the elements of $s_1$ and then fill the remaining $(n+m) - n = m$ positions with the elements of $s_2$. The number of leaves of the decision tree is $\binom{n+m}{n}$ hence the worst minimal height of the tree is $log \binom{n+m}{n}$.
 \end{proof}
 
+\nb{Giving $log \binom{n+m}{n}$ in the form of the Stirling's approximation gives us $(n+m) \log(n+m) - n \log n - m \log m$ which clearly express that we want to sort $n+m$ elements minus the effort of sorting the two separate sequences.}
+
 
 \subsection{Algorithms}
 \label{tree:merging:k=2:alg}
@@ -34,7 +36,7 @@ We consider the case where $n \leq m$. We build an algorithm $\in$ \BigO{log \bi
 &\leq (n+m) \log(n+m) - (n + m) \log n - m (\log m - \log n)\\
 &\leq (n+m) \log\frac{n+m}{n} - m (\log m - \log n)\\
 &\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{n} - m (\log m - \log n)\\
-&\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{\sfrac{n}{n} \times m}\\
+&\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{\sfrac{n}{n} \cdot m}\\
 &\leq n \log\frac{n+m}{n} + m \log\frac{n+m}{m}\\
 \end{align*}
 \end{proof}
@@ -97,4 +99,6 @@ An algorithm performing \BigO{\log m} is Binary Search.
 
 \subsubsection{Hwang-Lin}
 
-From now on we have explored special cases, it would be nice if we could combine the disparate solutions to build an algorithm $\in$ \BigO{log \binom{n+m}{n}} that works for any input .
+From now on we have explored special cases, it would be nice if we could combine the disparate solutions to build an algorithm $\in$ \BigO{log \binom{n+m}{n}} that works for any input.
+
+Hwang and Lin give such an algorithm \cite{DBLP:journals/siamcomp/HwangL72}.
