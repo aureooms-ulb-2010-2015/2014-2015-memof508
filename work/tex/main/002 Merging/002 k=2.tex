@@ -6,7 +6,7 @@
 
 
 \begin{theorem}
-The ITLB for the merging problem when $k = 2$ with $|s_1| = m, |s_2| = n$ is \BigOmega{log \binom{m+n}{m}}.
+The ITLB for the merging problem when $k = 2$ with $|s_1| = m, |s_2| = n$ is \BigOmega{\log \binom{m+n}{m}}.
 \end{theorem}
 
 \begin{proof}
@@ -19,7 +19,7 @@ The length of the output sequence $s'$ is $m+n$. In order to zip $s_1$ and $s_2$
 \subsection{Algorithms}
 \label{tree:merging:k=2:alg}
 
-We consider the case where $m \leq n$. We build an algorithm $\in$ \BigO{log \binom{m+n}{m}}.
+We consider the case where $m \leq n$. We build an algorithm $\in$ \BigO{\log \binom{m+n}{m}}.
 
 \begin{lemma}
 \begin{align*}
@@ -99,7 +99,7 @@ An algorithm performing \BigO{\log n} is Binary Search.
 
 \subsubsection{Hwang-Lin}
 
-From now on we have explored special cases, it would be nice if we could combine the disparate solutions to build an algorithm $\in$ \BigO{log \binom{m+n}{m}} that works for any input.
+From now on we have explored special cases, it would be nice if we could combine the disparate solutions to build an algorithm $\in$ \BigO{\log \binom{m+n}{m}} that works for any input.
 
 The idea is that the algorithm should behave like :
 
