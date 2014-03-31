@@ -7,13 +7,16 @@
 
 
 \begin{theorem}
-The ITLB for the merging problem when $k \geq 3$ \dots
+The ITLB for the merging problem when $k \geq 3$ with $|s_i| = m_i$ and $m' = \sum_{i=1}^{k} m_i$ \dots
 \end{theorem}
 
 \begin{proof}
-\dots
+The length of the output sequence $s'$ is $m'$. In order to zip all the $s_i$ we have to choose the $m_1$ among $m'$ positions in $s'$ for the elements of $s_1$ and then apply the algorithm recursively on the remaining $m'-m_1$ positions with the elements of $Q' = \{s_2, \dots, s_k\}$. The number of leaves of the decision tree is $\binom{m'}{m_1} + \dots$ hence the worst minimal height of the tree is $\dots$.
 \end{proof}
 
+% TODO proof
+
+\nb{Giving $\dots$ in the form of the Stirling's approximation gives us $(m') \log(m') - \sum_{i=1}^{k} m_i \log m_i$ which clearly express the information contained in the sorted sequence $s'$ of $m'$ elements minus the information we already have.}
 
 \subsection{Algorithms}
 \label{tree:merging:kgeq3:alg}
