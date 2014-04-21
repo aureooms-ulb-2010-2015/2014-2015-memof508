@@ -1,0 +1,32 @@
+
+An other problem is the following,
+
+Given a poset $P$ find a linear extension that is an ordered set.
+
+This problem is the complement of partial order production.
+
+\begin{align*}
+& \concept{ITLB}(\text{partial order production}) + \concept{ITLB}(\text{sorting under partial information}) \\
+&= \log(n!) - \log(e(P)) + \log(e(P)) \\
+&= \log(n!) \\
+&= \concept{ITLB}(\text{sorting})
+\label{eq:complementarity}
+\end{align*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{fig/entropy:set}
+	\caption{\label{fig:entropy:set} Illustration of the complementarity of the 2 problems.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.2\textwidth]{fig/sorting-under-partial-information:diag}
+	\caption{\label{fig:sorting-under-partial-information:diag} A sorting under partial information problem.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{fig/sorting-under-partial-information-reduction:diag}
+	\caption{\label{fig:sorting-under-partial-information-reduction:diag} Reduction from a sorting under partial information problem to a merge problem.}
+\end{figure}

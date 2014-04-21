@@ -10,7 +10,7 @@ The ITLB for the merging problem when $k = 2$ with $|s_1| = m, |s_2| = n$ is \Bi
 \end{theorem}
 
 \begin{proof}
-The length of the output sequence $s'$ is $m+n$. In order to zip $s_1$ and $s_2$ we have to choose the $m$ among $m+m$ positions in $s'$ for the elements of $s_1$ and then fill the remaining $(m+n) - m = n$ positions with the elements of $s_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$ hence the worst minimal height of the tree is $log \binom{m+n}{m}$.
+The length of the output sequence $s'$ is $m+n$. In order to zip $s_1$ and $s_2$ we have to choose the $m$ among $m+n$ positions in $s'$ for the elements of $s_1$ and then fill the remaining $(m+n) - m = n$ positions with the elements of $s_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$ hence the worst minimal height of the tree is $log \binom{m+n}{m}$.
 \end{proof}
 
 \nb{Giving $log \binom{m+n}{m}$ in the form of the Stirling's approximation gives us $(m+n) \log(m+n) - m \log m - n \log n$ which clearly express the information contained in the sorted sequence $s'$ of $m+n$ elements minus the information we already have.}
