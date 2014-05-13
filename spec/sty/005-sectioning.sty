@@ -54,3 +54,41 @@
 	\vspace{\stretch{#2}}\null
 	\end{flushright}
 }
+
+
+
+
+% to determine current parent label %
+
+\def\determinecurrentlevel{%
+  \ifnum\value{section}=0
+    0
+  \else
+    \ifnum\value{subsection}=0
+      1
+    \else
+      \ifnum\value{subsubsection}=0
+        2
+      \else
+        \ifnum\value{paragraph}=0
+          3
+        \else
+          4
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\def\showparent{%
+  \ifcase\determinecurrentlevel
+  \or
+    \ifdefined\chapter\thechapter\fi
+  \or
+    \thesection
+  \or
+    \thesubsection
+  \or
+    \thesubsubsection
+  \or
+    \theparagraph
+  \fi}

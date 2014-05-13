@@ -1,4 +1,4 @@
-\section{$k=2$}
+\section{Simple case : $k=2$}
 \label{tree:merging:k=2}
 
 \subsection{ITLB}
@@ -41,7 +41,7 @@ We consider the case where $m \leq n$. We build an algorithm $\in$ \BigO{\log \b
 \end{align*}
 \end{proof}
 
-\subsubsection{$m = n$}
+\subsubsection{Case 1\texorpdfstring{ : $m = n$}{}}
 
 \begin{lemma}
 \begin{align*}
@@ -61,7 +61,7 @@ m = n &\implies \log\binom{m+n}{m} \leq m + n = 2m\\
 
 An algorithm performing \BigO{m} is Sequential Merge.
 
-\subsubsection{$m \ll n$}
+\subsubsection{Case 2\texorpdfstring{ : $m \ll n$}{}}
 
 \begin{lemma}
 \begin{align*}
@@ -80,7 +80,7 @@ m \ll n &\implies \log\binom{m+n}{m} \leq m \log\frac{n}{m}\\
 An algorithm performing \BigO{m \log\frac{n}{m}} is Two-Way Binary Search.
 
 
-\subsubsection{$m \ll n \land m = 1$}
+\subsubsection{Case 3\texorpdfstring{ : $m \ll n \land m = 1$}{}}
 
 \begin{lemma}
 \begin{align*}
