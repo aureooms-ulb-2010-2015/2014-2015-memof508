@@ -1,5 +1,7 @@
 \section{(In)Comparability Graphs}
 
+
+
 \subsection{Definition}
 
 We define the comparability graph ${G}(P)$ to be an undirected graph where all comparable elements in $P$ are represented as adjacent elements.
@@ -7,6 +9,11 @@ We define the comparability graph ${G}(P)$ to be an undirected graph where all c
 Similarly, we define the incomparability graph $\widetilde{G}(P)$ to be an undirected graph where all incomparable elements in $P$ are represented as adjacent elements.
 
 By abuse of notation we write ${G}$ instead of ${G}(P)$.
+
+\emph{add example + figure}
+
+
+
 
 
 \subsection{Cliques and Stable Sets}
@@ -26,29 +33,50 @@ A stable set in incomparability graph $\widetilde{G}$ is a subset of comparable 
 
 A stable set in ${G}$ is thus a clique in $\widetilde{G}$ and vice versa.
 
+\emph{add example + figure}
+
+
+
+
 
 \subsection{$\operatorname{STAB}(G)$}
+
+
 \begin{equation}
 \operatorname{STAB}(G) := \operatorname{conv}\{\chi^S \in \mathbb{R}^V : S\text{ stable set in }G\}
 \label{eq:stab}
 \end{equation}
 
-\ref{eq:stab} is the definition of the \emph{stable set polytope} of an arbitrary graph $G$ with vertex set $V$ and order $n$ ($\mathbb{R}^V = \mathbb{R}^n, n = \#V$) i.e. the convex hull (an $n$-dimensional polytope) of stable set characteristic vectors $\chi^S \in \mathbb{R}^n$ where
+\ref{eq:stab} is the definition of the \emph{stable set polytope} of an arbitrary graph $G$ with vertex set $V = \left\{{v_1, \cdots, v_n }\right\}$ and order $n$ ($\mathbb{R}^V = \mathbb{R}^n, n = \#V$) i.e. the convex hull (an $n$-dimensional polytope) of stable set characteristic vectors $\chi^S \in \mathbb{R}^n$ where
 
-$$ \chi^S_i =\begin{cases}
-      1, & \text{if}\ V_i \in S\\
+$$ \chi^S_v =\begin{cases}
+      1, & \text{if}\ v \in S\\
       0, & \text{otherwise}
     \end{cases}$$
 
 
+\emph{add example + figure}
+
+
 \subsection{Entropy for Comparability Graphs}
+
+In \ref{eq:entropy:graph} we find $x^*$ which minimize the average on $\log \frac{1}{x_v}$.
+
 \begin{equation}
-{H}(G) := \min_{x \in \operatorname{STAB}(G)}~ -\frac{1}{n} \sum_{v \in V} \log x_v
+{H}(G) \coloneqq \min_{x \in \operatorname{STAB}(G)}~ -\frac{1}{n} \sum_{v \in V} \log x_v
 \label{eq:entropy:graph}
 \end{equation}
 
+
+\emph{add explanation + figure}
+
+
 \subsection{Entropy for posets}
+
+
+As we defined ${H}(G)$ in \ref{eq:entropy:graph}, we write ${H}(P)$ to mean ${H}(G(P))$.
+
 \begin{equation}
-{H}(P) := {H}({G}(P))
+{H}(P) \coloneqq {H}({G}(P))
 \label{eq:entropy:poset}
 \end{equation}
