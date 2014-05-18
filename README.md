@@ -9,5 +9,4 @@ Sorting under Partial Information in the Decision Tree Model (SUPI)
 
  > spec : 2013-2014 MEMOF403 course spec
  > code : implementation of encountered algorithms
- > ref  : reference papers
 
