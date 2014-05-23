@@ -9,7 +9,7 @@
 
 The problem is the following,
 
-Find a bijective relation between a Hasse diagram and an set of elements.
+Find a bijective relation between a Hasse diagram and a set of elements.
 
 The input is thus composed of a partial order in form of a Hasse diagram and a set $A$ of elements (see \ref{fig:pop:diag}).
 
@@ -19,3 +19,6 @@ The input is thus composed of a partial order in form of a Hasse diagram and a s
 \item Produce a weak order $W$ from the partial order in O($n^3$);
 \item Run a multiple selection algorithm on ($W$,$A$).
 \end{enumerate}
+
+
+Note that if the same partial order has to be produced for more than one set of elements, the first step does only have to be run once as this step only depends on the input Hasse diagram and not on the set of elements.

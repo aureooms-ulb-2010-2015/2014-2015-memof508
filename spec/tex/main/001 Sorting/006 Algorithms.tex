@@ -28,7 +28,7 @@ According to our model (\ref{tree:sorting:model}) we only consider comparison-ba
 
 In \ref{tree:sorting:alg/table} you can see a list of algorithms for which the average case execution complexity matches the Stirling's approximation of the \concept{ITLB} up to a $\BigO{1}$ factor.
 
-Considering practical use of these algorithms, even though quicksort has a much higher multiplicative coefficient it is still a good candidate due to it's simplicity and cache locality of it's operations.
+Considering practical use of these algorithms, even though quicksort has a much higher multiplicative coefficient it is still a good candidate due to its simplicity and cache locality of its operations.
 
 The average complexity of shellsort is not known for the moment, depending on the implementation one can achieve a complexity of eiter $\BigO{n \log^2 n}$ or $\BigO{n^{\frac{3}{2}}}$, the main changing parameter of different implementations being a sequence of integer called a \emph{gap sequence}. An open problem is to find whether or not there exist a gap sequence that makes the algorithm run in $\BigO{n \log n}$.
 

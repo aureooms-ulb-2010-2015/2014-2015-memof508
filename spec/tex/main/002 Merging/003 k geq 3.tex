@@ -11,7 +11,7 @@ The ITLB for the merging problem when $k \geq 3$ with $|s_i| = m_i$ and $m' = \s
 \end{theorem}
 
 \begin{proof}
-The length of the output sequence $s'$ is $m'$. In order to zip all the $s_i$ we have to choose the $m_1$ among $m'$ positions in $s'$ for the elements of $s_1$ and then recursively call ourselves on the remaining $m'-m_1$ positions with the elements of $Q' = \{s_2, \dots, s_k\}$. The number of leaves of the decision tree is $\frac{m'}{m_1 \cdot m_2 \dots m_k}$ hence the worst minimal height of the tree is $\log \frac{m'}{m_1 \cdot m_2 \dots m_k}$.
+We have to choose the $m_1$ among $m'$ positions in $s'$ for the elements of $s_1$ and then recursively call our algorithm on the remaining $m'-m_1$ positions with the elements of $Q' = \{s_2, \dots, s_k\}$. The number of leaves of the decision tree is $\frac{m'}{m_1 \cdot m_2 \dots m_k}$ hence the worst-case minimal height of the tree is $\log \frac{m'}{m_1 \cdot m_2 \dots m_k}$.
 \end{proof}
 
 \nb{Giving $\log \frac{m'}{m_1 \cdot m_2 \dots m_k}$ in the form of the Stirling's approximation gives us $m' \log m' - \sum_{i=1}^{k} m_i \log m_i$ which clearly express the information contained in the sorted sequence $s'$ of $m'$ elements minus the information we already have.}
@@ -43,7 +43,7 @@ The algorithm is thus building the huffman tree and then merge the two deepest l
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{fig/merging/huffman-2-trim}
-	\caption{\label{tree:merging:fig/huffman-2} Complexity of the merging problem as a difference between the whole merge process and it's subprocesses.}
+	\caption{\label{tree:merging:fig/huffman-2} Complexity of the merging problem as a difference between the whole merge process and its subprocesses.}
 \end{figure}
 
 Looking at \ref{tree:merging:fig/huffman-2} we can deduce the complexity of the algorithm. Since the dashed steps do not need to be processed and since the complexity of the merge sort is $\BigO{n \log n}$ we have a total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} = \BigO{ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set of the input.
