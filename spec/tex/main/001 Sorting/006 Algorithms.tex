@@ -6,7 +6,7 @@ According to our model (\ref{tree:sorting:model}) we only consider comparison-ba
 
 \begin{table}
 	\begin{center}
-	\caption{Comparison sorts complexity}
+	\caption{Comparison sorting algorithms time complexity}
 	\label{tree:sorting:alg/table}
 	\begin{tabular}{|c|c|c|c|c|}
 
@@ -26,13 +26,13 @@ According to our model (\ref{tree:sorting:model}) we only consider comparison-ba
 \end{table}
 
 
-In \ref{tree:sorting:alg/table} you can see a list of algorithms for which the average case execution complexity matches the Stirling's approximation of the \concept{ITLB} up to a $\BigO{1}$ factor.
+In \ref{tree:sorting:alg/table} you can see a list of algorithms for which the average case time complexity matches the Stirling's approximation of the \concept{ITLB} up to a $\BigO{1}$ factor.
 
-Considering practical use of these algorithms, even though quicksort has a much higher multiplicative coefficient it is still a good candidate due to its simplicity and cache locality of its operations.
+Considering practical use of these algorithms, quicksort is one of the most efficient algorithms on real world computers due to its simplicity and cache locality of its operations, even though quicksort has a much higher multiplicative coefficient.
 
-The average complexity of shellsort is not known for the moment, depending on the implementation one can achieve a complexity of eiter $\BigO{n \log^2 n}$ or $\BigO{n^{\frac{3}{2}}}$, the main changing parameter of different implementations being a sequence of integer called a \emph{gap sequence}. An open problem is to find whether or not there exist a gap sequence that makes the algorithm run in $\BigO{n \log n}$.
+The average time complexity of shellsort is not known for the moment. Indeed, there are multiple ways of implementing this algorithm because of its definition. The shellsort algorithm is configurable with a sequence of integers called a \emph{gap sequence}. This gap sequence parameter leads to different time complexities. For example, depending on the implementation one can achieve a complexity of eiter $\BigO{n \log^2 n}$ or $\BigO{n^{\frac{3}{2}}}$. There are some practical variants of this algorithm for which the time complexity is not known. An open problem is to find whether or not there exist a gap sequence that makes the algorithm run in $\BigO{n \log n}$.
 
-In addition to algorithms found in \ref{tree:sorting:alg/table}, we may also mention that any data structure allowing to retrieve inserted elements following a total order with insertion and retrieve operations in $\BigO{\log n}$ can be used to build an algorithm whose complexity is $\BigO{n \log n}$. Examples are,
+In addition to algorithms found in \ref{tree:sorting:alg/table}, we may also mention that any data structure allowing to retrieve inserted elements in an ordered fashion (according to some total order) with insertion and retrieve operations in $\BigO{\log n}$ time complexity can be used to build an algorithm whose time complexity is $\BigO{n \log n}$. Examples are,
 
 \begin{itemize}
 \item Binary tree sort which uses a \emph{binary tree};
@@ -40,4 +40,4 @@ In addition to algorithms found in \ref{tree:sorting:alg/table}, we may also men
 \item Patience sorting which uses a \emph{van Emde Boas tree}.
 \end{itemize}
 
-For materials on those data structure see \cite{sleator1985self}, \cite{leiserson2001introduction} and \cite{van1975preserving}.
+For information on those data structures see \cite{sleator1985self}, \cite{leiserson2001introduction} and \cite{van1975preserving}.
