@@ -8,3 +8,9 @@
 	linkcolor    = darkblue, %Colour of internal links
 	citecolor    = darkblue   %Colour of citations
 }
+
+
+% we use this for our refernces as well
+\let\sref\ref
+\AtBeginDocument{\renewcommand{\ref}[1]{\mbox{\autoref{#1}}}}
+\usepackage[nameinlink]{cleveref}

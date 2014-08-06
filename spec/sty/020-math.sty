@@ -32,8 +32,6 @@
 
 \numberwithin{equation}{chapter}
 
-% we use this for our refernces as well
-\AtBeginDocument{\renewcommand{\ref}[1]{\mbox{\autoref{#1}}}}
 
 % redefinition of \equation for convenience
 \let\oldequation = \equation
@@ -80,8 +78,8 @@
 
 
 \usepackage{xfrac}
-
-\usepackage{amsfonts, amssymb}
+\usepackage{amsfonts, amssymb, bm}
+%\usepackage[bold-style=ISO]{unicode-math}
 
 %\usepackage{unicode-math}
 %\setmathfont{xits-math.otf}
