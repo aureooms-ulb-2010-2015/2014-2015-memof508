@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20140806212321" modified="D:20140806214210"/>
+<info created="D:20140806212321" modified="D:20140807214841"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -232,56 +232,56 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" fill="black">
+<path layer="alpha" matrix="1 0 0 1 -16 0" fill="black">
 4 0 0 4 288 480 e
 </path>
-<path fill="black">
+<path matrix="1 0 0 1 -16 -16" fill="black">
 4 0 0 4 288 464 e
 </path>
-<path fill="black">
+<path matrix="1 0 0 1 -16 -32" fill="black">
 4 0 0 4 288 448 e
 </path>
 <path fill="black">
 4 0 0 4 320 480 e
 </path>
-<path fill="black">
+<path matrix="1 0 0 1 0 -48" fill="black">
 4 0 0 4 320 464 e
 </path>
 <path fill="black">
 4 0 0 4 320 448 e
 </path>
-<path fill="black">
+<path matrix="1 0 0 1 -16 0" fill="black">
 288 476 m
 288 468 l
 </path>
-<path fill="black">
+<path matrix="1 0 0 1 -16 0" fill="black">
 288 460 m
 288 452 l
 288 452 l
 </path>
-<path stroke="black" pen="heavier">
+<text matrix="1 0 0 1 48 -8" transformations="translations" pos="280 488" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$4$</text>
+<text matrix="1 0 0 1 16 -36" transformations="translations" pos="240 484" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$2$</text>
+<text matrix="1 0 0 1 64 -48" transformations="translations" pos="264 464" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$1$</text>
+<text matrix="1 0 0 1 24 -44" transformations="translations" pos="232 460" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$1$</text>
+<text matrix="1 0 0 1 104 -32" transformations="translations" pos="224 480" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$2$</text>
+<text matrix="1 0 0 1 -12 -24" transformations="translations" pos="268 504" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$3$</text>
+<text matrix="1 0 0 1 0 28" transformations="translations" pos="264 484" stroke="black" type="label" width="19" height="16" depth="0" valign="baseline" size="Huge">$P$</text>
+<text matrix="1 0 0 1 48 40" transformations="translations" pos="264 472" stroke="black" type="label" width="19" height="16.18" depth="4.82" valign="baseline" size="Huge">$Q$</text>
+<path matrix="1 0 0 1 -16 0" stroke="black">
 288 476 m
-288 468 l
+288 452 l
 </path>
-<path stroke="black" pen="heavier">
-288 452 m
-288 460 l
+<path matrix="1 0 0 1 -16 0" stroke="black">
+288 444 m
+288 420 l
 </path>
-<path stroke="black" pen="heavier">
-320 452 m
-320 460 l
+<path stroke="black">
+320 476 m
+320 452 l
 </path>
-<path stroke="black" pen="heavier">
-320 468 m
-320 476 l
+<path stroke="black">
+320 444 m
+320 420 l
 </path>
-<text matrix="1 0 0 1 44 -40" transformations="translations" pos="280 488" stroke="black" type="label" width="5" height="7" depth="0" valign="baseline" size="large">$4$</text>
-<text matrix="1 0 0 1 40 -20" transformations="translations" pos="240 484" stroke="black" type="label" width="5" height="7" depth="0" valign="baseline" size="large">$2$</text>
-<text matrix="1 0 0 1 60 16" transformations="translations" pos="264 464" stroke="black" type="label" width="5" height="7" depth="0" valign="baseline" size="large">$1$</text>
-<text matrix="1 0 0 1 48 20" transformations="translations" pos="232 460" stroke="black" type="label" width="5" height="7" depth="0" valign="baseline" size="large">$1$</text>
-<text matrix="1 0 0 1 100 -16" transformations="translations" pos="224 480" stroke="black" type="label" width="5" height="7" depth="0" valign="baseline" size="large">$2$</text>
-<text matrix="1 0 0 1 12 -56" transformations="translations" pos="268 504" stroke="black" type="label" width="5" height="7" depth="0" valign="baseline" size="large">$3$</text>
-<text matrix="1 0 0 1 20 8" transformations="translations" pos="264 484" stroke="black" type="label" width="11" height="9" depth="0" valign="baseline" size="Large">$P$</text>
-<text matrix="1 0 0 1 52 20" transformations="translations" pos="264 472" stroke="black" type="label" width="11" height="9.21" depth="2.79" valign="baseline" size="Large">$Q$</text>
 </page>
 </ipe>
