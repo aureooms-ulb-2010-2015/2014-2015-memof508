@@ -1,4 +1,4 @@
-\section{Extending to an arbitrary $k$}
+\section{Extending to an Arbitrary $k$}
 \label{tree:merging:kgeq3}
 
 
@@ -16,7 +16,7 @@ We have to choose the $m_1$ among $m'$ positions in $S'$ for the elements of $S_
 
 \nb{Giving $\log \frac{m'}{m_1 \cdot m_2 \dots m_k}$ in the form of the Stirling's approximation gives us $m' \log m' - \sum_{i=1}^{k} m_i \log m_i$ which clearly express the information contained in the sorted sequence $S'$ of $m'$ elements minus the information we already have.}
 
-\subsection{An algorithm for the general merging problem}
+\subsection{An Algorithm for the General Merging Problem}
 \label{tree:merging:kgeq3:alg}
 
 Remember the input is a set of $k$ totally ordered sets. This should remind us of something. The merge sort algorithm for sure! More precisely, a specific state in the resolution of the recursion of this algorithm.
@@ -27,13 +27,15 @@ Since \emph{the number of times $2$ divides $n$} corresponds to $\log n$, the al
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{fig/merging/huffman-1-trim}
-	\caption{\label{tree:merging:fig/huffman-1} Initial state of the merge sort algorithm.}
+	\caption{Initial state of the merge sort algorithm.}
+	\label{tree:merging:fig/huffman-1}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.4\textwidth]{fig/merging/huffman-3-trim}
-	\caption{\label{tree:merging:fig/huffman-3} Intermediary state of the merge sort algorithm.}
+	\includegraphics[width=0.4\textwidth, bb= 0mm 0mm 131mm 74mm]{fig/merging/huffman-3-trim}
+	\caption{Intermediary state of the merge sort algorithm.}
+	\label{tree:merging:fig/huffman-3}
 \end{figure}
 
 We can visualize the execution of merge sort as a tree that shrinks up to the root as the algorithm progresses to the solution. \ref{tree:merging:fig/huffman-1} shows the algorithm in the initial state $k = n, i = 1$. \ref{tree:merging:fig/huffman-3} shows the algorithm in an intermediary state where some totally ordered sets have been merged. Notice that this intermediary tree, where deeper leaves corresponds to smaller subsets, ressembles much like a Huffman tree (see \cite{huffman1952method}). From the beginning we assumed that $k = 2^m$ for some natural integer $m$. But this was wihout loss of generality since even for a non \emph{dyadic distribution} ($p(u) = 2^{-n_u}, n_u \in \mathbb{N}$, see \cite{cover2012elements}) the Huffman code is optimal.
@@ -43,7 +45,8 @@ The algorithm is thus building the huffman tree and then merges the two deepest 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\textwidth]{fig/merging/huffman-2-trim}
-	\caption{\label{tree:merging:fig/huffman-2} Complexity of the merging problem as a difference between the whole merge process and its subprocesses.}
+	\caption{Complexity of the merging problem as a difference between the whole merge process and its subprocesses.}
+	\label{tree:merging:fig/huffman-2}
 \end{figure}
 
 Looking at \ref{tree:merging:fig/huffman-2} we can deduce the complexity of the algorithm. The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps producing information we already have. Since those steps do not need to be processed and since the complexity of the merge sort is $\BigO{n \log n}$ we have a total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} = \BigO{ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set of the input.
