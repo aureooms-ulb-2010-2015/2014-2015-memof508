@@ -4,13 +4,13 @@
 \section{Algorithms}
 
 
-The second question was anwered positively when the first polynomial-time algorithm achieving the bound $\BigO{\log e(P)}$ up to a constant factor was given by \cite{kahnkim1}. But due to the use of the ellipsoid algorithm, a costly optimization method, for choosing the right comparisons to make it could be considered inpractical.
+\cite{kahnkim1} gave the the first polynomial-time algorithm achieving the bound $\BigO{\log e(P)}$ up to a constant factor in 1995. Their algorithm uses the ellipsoid algorithm to choose a good comparison at each step which makes this algorithm only of theoretical interest. 
 
-Finally, in \cite{cardinal2013sorting}, new methods are developed. Three new algorithms having the same canvas : a first poly-time preprocessing phase followed by a $\BigO{\log e(P)}$ query phase. Caution has to be made though : each of the three different algorithms match the ITLB for a subset of the problem instances.
+Finally, in 2013, \cite{cardinal2013sorting}, new methods are developed. Three new algorithms having the same canvas : a first poly-time preprocessing phase followed by a $\BigO{\log e(P)}$ query phase. Caution has to be made though : each of the three different algorithms match the ITLB for a subset of the problem instances.
 
 \begin{table}
 	\begin{center}
-	\caption{We denote by $E A(n)$ the time needed for the ellipsoid algorithm to compute the entropy of a poset of order $n$. The original bound given by \cite{kahnkim1} on the number of comparisons performed by their algorithm is $54.45 \cdot \log e(P)$. The improved bound given in the table is a byproduct of the results of \cite{cardinal2013sorting}. (The notation $\BigOe{n}$ means that the hidden constant may depend on $\epsilon$.) (\cite{cardinal2013sorting})}
+	\caption{We denote by $E A(n)$ the time needed for the ellipsoid algorithm to compute the entropy of a poset of order $n$. The original bound given by \cite{kahnkim1} on the number of comparisons performed by their algorithm is $54.45 \cdot \log e(P)$. The improved bound given in the table is a byproduct of the results of \cite{cardinal2013sorting}. (The notation $\BigOe{n}$ means that the hidden constant may depend on $\epsilon$.)}
 	\label{tree:supi:table/jcardin}
 	\begin{tabular}{|c|c|c|}
 
@@ -39,23 +39,15 @@ Finally, in \cite{cardinal2013sorting}, new methods are developed. Three new alg
 \end{itemize}
 
 
-Looking at \ref{fig:supi/alg2}, algorithm 2 very much ressembles to what is done in \cite{jcardin1} for the Partial Order Production problem if we swap the roles of chains and antichains. This is explained in detail in \cite{DBLP:conf/birthday/CardinalF13}.
+Looking at \ref{fig:supi/alg2}, algorithm 2 looks like to what is done in \cite{jcardin1} for the Partial Order Production problem if we swap the roles of chains and antichains. This is explained in detail in \cite{DBLP:conf/birthday/CardinalF13}.
 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{fig/supi/alg2}
-	\caption{\label{fig:supi/alg2} Illustration of algorithm 2. (\cite{cardinal2013sorting})}
+	\includegraphics[height=0.2\textheight]{fig/supi/reduction:diag}
+	\caption{\label{fig:supi/alg2} Illustration of the second algorithm in \cite{cardinal2013sorting}.}
 \end{figure}
 
 
+Note that randomized algorithms also exist for this purpose. The idea is to evaluate the quality of a comparison by generating a sample of possible linear extensions, count the number of times the answer to this question ``$x \stackrel{?}{\le} y$'' is true and then only ask the question if the ratio of this count over the total number of sampled linear extensions lies within a fixed interval $[q, 1-q], 0 < q \le \frac{1}{3}$. See \cite{huber2006fast} for more.
 
-Indeed, Sorting Under Partial Information is the complement of Partial Order Production see \cite{jcardin1}.
-
-\begin{align*}
-& \concept{ITLB}(\text{partial order production}) + \concept{ITLB}(\text{sorting under partial information}) \\
-&= \log(n!) - \log(e(P)) + \log(e(P)) \\
-&= \log(n!) \\
-&= \concept{ITLB}(\text{sorting})
-\label{eq:complementarity}
-\end{align*}

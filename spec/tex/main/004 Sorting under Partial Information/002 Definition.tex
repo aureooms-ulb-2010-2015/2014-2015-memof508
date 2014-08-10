@@ -1,13 +1,21 @@
 
 \section{Definition}
 
-A second problem is the following,
+We already explained the idea of the problem in the introduction, hereunder we formally define Sorting Under Partial Information.
 
-Let $V = \left\{{v_1 , \cdots , v_n }\right\}$ be a set equipped with an unknown linear order. Given a subset of the relations $v_i \leq v_j$, determine the complete linear order by queries of the form: ``is $v_i \leq v_j$ ?''. (\cite{cardinal2013sorting})
+Quoting from \cite{cardinal2013sorting},
+
+\begin{quotation}
+	Let $V = \left\{{v_1 , \cdots , v_n }\right\}$ be a set equipped with an unknown linear order. Given a subset of the relations $v_i \leq v_j$, determine the complete linear order by queries of the form: ``is $v_i \leq v_j$ ?''.
+\end{quotation}
 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{fig/supi/ex1}
-	\caption{\label{fig:supi/ex1} An instance of the problem of sorting under partial information. In this example, we use 4 comparisons (dashed edges). At every step, the Hasse diagram of the currently known partial order is shown. (\cite{cardinal2013sorting})}
+	\includegraphics[height=0.2\textheight]{fig/supi/ex2}
+	\caption{An instance of the problem of sorting under partial information. In this example, we use 2 comparisons (dashed edges). At every step, the Hasse diagram of the currently known partial order is shown.}
+	\label{fig:supi:def:ex2}
 \end{figure}
+
+
+\ref{fig:supi:def:ex2} shows an example of an instance of Sorting Under Partial Information. Note that in this example we only ask the minimal number of questions needed to solve the problem. We could have asked $a \stackrel{?}{\le} d$ as the first question but then we would have still had to ask 2 more questions.
