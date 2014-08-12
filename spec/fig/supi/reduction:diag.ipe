@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20131207114109" modified="D:20140807222924"/>
+<info created="D:20131207114109" modified="D:20140812235151"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -335,90 +335,74 @@ h
 236 656 m
 244 656 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 20 -96" stroke="black">
 336 700 m
 336 676 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 368 732 m
 368 708 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 368 700 m
 368 676 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 368 668 m
 368 644 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 400 700 m
 400 676 l
 400 676 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 360 736 m
 360 640 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 376 640 m
 376 736 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 392 704 m
 392 672 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 408 672 m
 408 704 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 20 -96" stroke="black">
 328 704 m
 328 672 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 20 -96" stroke="black">
 344 672 m
 344 704 l
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 20 -96" stroke="black">
 328 704 m
 8 0 0 -8 336 704 344 704 a
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 20 -96" stroke="black">
 344 672 m
 8 0 0 -8 336 672 328 672 a
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 360 736 m
 8 0 0 -8 368 736 376 736 a
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 376 640 m
 8 0 0 -8 368 640 360 640 a
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 392 704 m
 8 0 0 -8 400 704 408 704 a
 </path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
+<path matrix="1 0 0 1 -76 -96" stroke="black">
 408 672 m
 8 0 0 -8 400 672 392 672 a
-</path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
-336 712 m
-352 768 l
-</path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
-352 768 m
-368 744 l
-</path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
-400 712 m
-384 792 l
-</path>
-<path matrix="1 0 0 1 -48 -96" stroke="black">
-384 792 m
-352 768 l
 </path>
 <path matrix="1 0 0 1 -48 -96" stroke="black">
 232 648 m
@@ -488,37 +472,45 @@ h
 <path matrix="1 0 0 1 176 -168" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 64 -96" stroke="black" fill="green">
+<path matrix="1 0 0 1 36 -96" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 64 -64" stroke="black" fill="green">
+<path matrix="1 0 0 1 36 -64" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 32 -32" stroke="black" fill="green">
+<path matrix="1 0 0 1 4 -32" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 32 -64" stroke="black" fill="green">
+<path matrix="1 0 0 1 4 -64" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 32 -96" stroke="black" fill="green">
+<path matrix="1 0 0 1 4 -96" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 32 -128" stroke="black" fill="green">
+<path matrix="1 0 0 1 4 -128" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 0 -96" stroke="black" fill="green">
+<path matrix="1 0 0 1 68 -96" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path matrix="1 0 0 1 0 -64" stroke="black" fill="green">
+<path matrix="1 0 0 1 68 -64" stroke="black" fill="green">
 4 0 0 4 288 672 e
 </path>
-<path stroke="black">
-136 648 m
-11.3137 0 0 -11.3137 144 640 152 632 a
+<path matrix="1 0 0 1 -28 0" stroke="black">
+352 616 m
+368 648 l
 </path>
-<path stroke="black">
-104 600 m
-11.3137 0 0 -11.3137 112 608 104 616 a
+<path matrix="1 0 0 1 -28 0" stroke="black">
+368 648 m
+384 616 l
+</path>
+<path matrix="1 0 0 1 -28 0" stroke="black">
+368 648 m
+344 680 l
+</path>
+<path matrix="1 0 0 1 -28 0" stroke="black">
+320 648 m
+344 680 l
 </path>
 <path stroke="black">
 72 568 m
@@ -533,16 +525,24 @@ h
 11.3137 0 0 -11.3137 176 544 168 536 a
 </path>
 <path stroke="black">
-216 584 m
-11.3137 0 0 -11.3137 208 576 200 568 a
+104 600 m
+11.3137 0 0 -11.3137 112 608 104 616 a
+</path>
+<path stroke="black">
+136 648 m
+11.3137 0 0 -11.3137 144 640 152 632 a
+</path>
+<path stroke="black">
+132 604 m
+5.65685 0 0 -5.65685 136 608 132 612 a
 </path>
 <path stroke="black">
 168 600 m
 11.3137 0 0 -11.3137 176 608 184 616 a
 </path>
 <path stroke="black">
-132 604 m
-5.65685 0 0 -5.65685 136 608 132 612 a
+216 584 m
+11.3137 0 0 -11.3137 208 576 200 568 a
 </path>
 </page>
 </ipe>

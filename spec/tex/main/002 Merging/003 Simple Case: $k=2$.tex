@@ -48,13 +48,13 @@ We begin by computing the general case expression of the number of comparison re
 
 
 
-In order to feed our intuition on this expression we will analyze it's behaviour on several corner cases.
+In order to feed our intuition on this expression we will analyze its behaviour on several corner cases.
 
 
 \subsubsection{First case\texorpdfstring{ : $m = n$}{}}
 
 
-The first case we wil analyze is the case where $m = n$. This case is similar to what happens during the merge phase of the merge sort algorithm.
+The first case we will analyze is the case where $m = n$. This case is similar to what happens during the merge phase of the merge sort algorithm.
 
 \begin{lemma}
 \begin{align*}
@@ -96,7 +96,7 @@ m \ll n &\implies \log\binom{m+n}{m} \leq m \log\frac{n}{m}\\
 \end{proof}
 
 
-This could be intuitively understood as doing $m$ binary searchs on sets of size $\frac{n}{m}$.
+This could be intuitively understood as doing $m$ binary searches on sets of size $\frac{n}{m}$.
 
 
 
@@ -136,7 +136,7 @@ The idea is that the algorithm should behave like :
 
 \begin{itemize}
 \item Sequential Merge in case $\frac{n}{m} = 1$
-\item $m$ binary searchs on sets of size $\frac{n}{m}$ in case $m \ll n$
+\item $m$ binary searches on sets of size $\frac{n}{m}$ in case $m \ll n$
 \item Binary Search in case $m \ll n \land m = 1$
 \end{itemize}
 

@@ -2,7 +2,7 @@
 \label{tree:poset:sub}
 
 
-Since a poset is the combination $(S, \le_S)$ of a set $S$ and an order $\le_S$, we might be intersted to apply standard set operations to posets.
+Since a poset is the combination $(S, \le_S)$ of a set $S$ and an order $\le_S$, we might be interested to apply standard set operations to posets.
 
 The binary operations Union ($\cup$), Intersection ($\cap$) and Complement ($\setminus$) for posets $P = (S, \le_S)$ and $Q = (T, \le_T)$ only make sense when $\le_S = \le_T$. For example, when we run the algorithm merge sort at each recursion step we merge (read ``make the union of'') two posets having the same total order. We thus only define those operations for posets having the same order relation, and the result of any of those three binary operations on $P$ and $Q$ is a new poset $(U, \le_U)$ where $U = S~\text{op}~T$ and $\le_U = \le_S = \le_T$.
 
@@ -19,7 +19,7 @@ By an induced subposet of $P$, we mean a subset $Q$ of $P$ and a partial orderin
 
 \end{quotation}
 
-This definition is homologous to the definition of an induced subgraph. If you represent a poset $P$ as a directed graph $G = (V, E)$ (see \ref{tree:poset:graph}), each edge represents an element of an order relation and when you remove a vertex from one of those graphs you also have to remove incident edges since one of their endpoints is missing. Considering that $P$ is finite, there are $2^{\#V}$ induced subgraphs of $G$, thus the poset $P$ has exactly $2^{\#P}$ induced subposets.
+This definition is similar to the definition of an induced subgraph. If you represent a poset $P$ as a directed graph $G = (V, E)$ (see \ref{tree:poset:graph}), each edge represents an element of an order relation and when you remove a vertex from one of those graphs you also have to remove incident edges since one of their endpoints is missing. Considering that $P$ is finite, there are $2^{\#V}$ induced subgraphs of $G$, thus the poset $P$ has exactly $2^{\#P}$ induced subposets.
 
 \nb{Note that when using the expression ``a subposet of $P$'', we will always mean ``an induced subposet of $P$''.}
 

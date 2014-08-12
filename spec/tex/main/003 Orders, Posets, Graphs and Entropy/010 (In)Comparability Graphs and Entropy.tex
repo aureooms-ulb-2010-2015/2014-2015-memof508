@@ -10,11 +10,11 @@ To help understand the structure of a poset we introduce the comparability graph
 Formally,
 
 \defbox{
-	The comparability graph ${G}(P)$ is an undirected graph where all comparable elements in $P$ are represented as adjacent elements.
+	The comparability graph ${G}(P)$ of a poset $P$ is an undirected graph whose vertices are the poset elements, and in which two vertices are adjacent if and only if the elements are comparable.
 }
 
 \defbox{
-	The incomparability graph $\widetilde{G}(P)$ is an undirected graph where all incomparable elements in $P$ are represented as adjacent elements.
+	The incomparability graph $\widetilde{G}(P)$ of a poset $P$ is an undirected graph whose vertices are the poset elements, and in which two vertices are adjacent if and only if the elements are incomparable.
 }
 
 
@@ -35,7 +35,7 @@ Those graphs explicitely represents all relations (or pairs of incomparable elem
 \subsection{Cliques and Stable Sets}
 
 
-Now that we have new tools to represent a poset, we are interested in analyzing remarkable structures like we did before for Hasse diagrams. Indeed, we define hereunder the homologs of chains and antichains in posets for (in)comparability graphs.
+Now that we have new tools to represent a poset, we are interested in analyzing remarkable structures like we did before for Hasse diagrams. Indeed, we define hereunder the counterparts of chains and antichains in posets for (in)comparability graphs.
 
 \defbox{A clique $C$ of graph $G$ is a subset of pairwise adjacent vertices in $G$, i.e. the subgraph induced by $C$ is complete.}
 
@@ -59,7 +59,7 @@ A stable set in an incomparability graph $\widetilde{G}$ is a subset of comparab
 
 In what follows we will see that from the internal structure of a graph $G$ expressed using its stable sets we can deduce a discrete distribution look-alike object. With the help of this object we will be able to compute the entropy of graph $G$.
 
-Let us suppose we want to describe our graph $G$ by a \emph{composition of the stable sets it contains}. This leads us to define \emph{the set of compositions of stable sets} of $G$. We call it $\operatorname{STAB}(G)$. $\operatorname{STAB}(G)$ is a set containing all linear combinations (normalized, coefficients summing up to $1$) of characteristic vectors $\chi^S$, where $S$ is a stable set. $\chi^S$ is a point in $\mathbb{R}^n$ where
+Let us suppose we want to describe our graph $G$ by a \emph{composition of the stable sets it contains}. This leads us to define \emph{the set of convex combinations of stable sets} of $G$. We call it $\operatorname{STAB}(G)$. $\operatorname{STAB}(G)$ is a set containing all convex combinations (positive, coefficients summing up to $1$) of characteristic vectors $\chi^S$, where $S$ is a stable set. $\chi^S$ is a point in $\mathbb{R}^n$ where
 
 $$ \chi^S_v =\begin{cases}
       1, & \text{if}\ v \in S\\

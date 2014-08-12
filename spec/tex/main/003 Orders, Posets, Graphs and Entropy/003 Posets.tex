@@ -24,7 +24,7 @@ We use the obvious notation $t \geq s$ to mean $s \leq t$, $s < t$ to mean $s \l
 
 \end{quotation}
 
-Taking other properties aside, the most interesting feature of a partial order (with respect to our point of view) is the transitivity axiom it must satisfy. Let us explain why it is interesting. The goal of sorting and merging is to, starting from a partially ordered set, find the underlying total order. To find this total order, we are allowed to query an oracle that answers to yes---no questions of the type ``is $x~R\text{-related to}~y$?'' in the unknown total order. This has to be done efficiently. By efficiently we mean that we do not want to ask more question than necessary.
+Taking other properties aside, the most interesting feature of a partial order (with respect to our point of view) is the transitivity axiom it must satisfy. Let us explain why it is interesting. The goal of sorting and merging is to, starting from a partially ordered set, find the underlying total order. To find this total order, we are allowed to query an oracle that answers to yes---no questions of the type ``is $x~R\text{-related to}~y$?'' in the unknown total order. This has to be done efficiently. By efficiently we mean that we do not want to ask more questions than necessary.
 
 Before continuing further note also that since we are trying to find a total order, at least one of the question $(x, y) \stackrel{?}{\in} G$ and $(y, x) \stackrel{?}{\in} G$ will have a positive answer, hence we can already discard half of all the questions we could ask.
 
