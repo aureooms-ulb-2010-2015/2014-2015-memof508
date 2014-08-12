@@ -9,13 +9,14 @@ To help understand the structure of a poset we introduce the comparability graph
 
 Formally,
 
-\defbox{
+\begin{quotation}
 	The comparability graph ${G}(P)$ of a poset $P$ is an undirected graph whose vertices are the poset elements, and in which two vertices are adjacent if and only if the elements are comparable.
-}
+\end{quotation}
 
-\defbox{
+\begin{quotation}
 	The incomparability graph $\widetilde{G}(P)$ of a poset $P$ is an undirected graph whose vertices are the poset elements, and in which two vertices are adjacent if and only if the elements are incomparable.
-}
+\end{quotation}
+
 
 
 Those graphs explicitely represents all relations (or pairs of incomparable elements) which may be inferred from the Hasse diagram of ${P}$. For example, the comparability graph of a totally ordered set is the complete graph. See \ref{fig:comp-graph} for a visual example.
@@ -37,13 +38,17 @@ Those graphs explicitely represents all relations (or pairs of incomparable elem
 
 Now that we have new tools to represent a poset, we are interested in analyzing remarkable structures like we did before for Hasse diagrams. Indeed, we define hereunder the counterparts of chains and antichains in posets for (in)comparability graphs.
 
-\defbox{A clique $C$ of graph $G$ is a subset of pairwise adjacent vertices in $G$, i.e. the subgraph induced by $C$ is complete.}
+\begin{quotation}
+	A clique $C$ of graph $G$ is a subset of pairwise adjacent vertices in $G$, i.e. the subgraph induced by $C$ is complete.
+\end{quotation}
 
 A clique in a comparability graph ${G}$ is a subset of comparable  elements in ${P}$, i.e. a chain in ${P}$.
 
 A clique in an incomparability graph $\widetilde{G}$ is a subset of incomparable  elements in ${P}$, i.e. an antichain in ${P}$.
 
-\defbox{A set $S$ is stable (or independent) if the vertices in $S$ are pairwise nonadjacent, i.e. the subgraph induced by $S$ has $\#S$ connected components.}
+\begin{quotation}
+	A set $S$ is stable (or independent) if the vertices in $S$ are pairwise nonadjacent, i.e. the subgraph induced by $S$ has $\#S$ connected components.
+\end{quotation}
 
 A stable set in a comparability graph ${G}$ is a subset of incomparable elements in ${P}$, i.e. an antichain in ${P}$.
 
