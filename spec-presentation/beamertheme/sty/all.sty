@@ -1,0 +1,210 @@
+\mode<presentation>
+
+\newdimen\beamer@sidebarwidth
+\newdimen\beamer@headheight
+\newdimen\patheight
+\usebeamerfont{frametitle}
+\beamer@sidebarwidth=2.5\baselineskip
+\beamer@headheight=2.5\baselineskip
+\patheight=0.4\baselineskip
+\reset@font
+
+\def\beamer@lefttext{left}
+
+\DeclareOptionBeamer{hideothersubsections}[]{\beamer@nav@subsectionstyle{show/show/hide}}
+\DeclareOptionBeamer{hideallsubsections}[]{\beamer@nav@subsectionstyle{hide}}
+
+\DeclareOptionBeamer{width}{\beamer@sidebarwidth=#1}
+\DeclareOptionBeamer{height}{\beamer@headheight=#1}
+\DeclareOptionBeamer{left}{\def\beamer@sidebarside{left}}
+\DeclareOptionBeamer{right}{\def\beamer@sidebarside{right}}
+\ExecuteOptionsBeamer{left}
+\ProcessOptionsBeamer
+
+%\pgfdeclareimage[height=60mm,width=60mm]{fond}{sceau_a_quadri}				% Image de fond
+%  \setbeamertemplate{background}{\pgfuseimage{fond}}
+
+%\mode<presentation>
+
+\ifdim\beamer@headheight>0pt
+% if head height is 0pt, use default frame title
+
+  \setbeamercolor*{frametitle}{parent=sidebar}
+
+  \defbeamertemplate*{frametitle}{sidebar theme}
+  {%
+    \nointerlineskip%
+    \vskip-\patheight %\beamer@headheight%
+    \vskip-\patheight%0.5pt
+    \vbox to \beamer@headheight{%
+      \vfil
+      \leftskip=-\beamer@leftmargin%
+      \advance\leftskip by0.3cm%
+      \rightskip=-\beamer@rightmargin%
+      \advance\rightskip by0.3cm plus1fil%
+      \center
+      {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}%
+      {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+      \vbox{}%
+      \vskip-1em%
+      \vfil
+    }%
+  }
+
+  \defbeamertemplate*{headline}{sidebar theme}
+  {%
+  
+   \begin{beamercolorbox}[wd=\paperwidth%-\beamer@sidebarwidth%
+    ]{frametitle}
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \hfill%
+      \fi%
+  \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+          \beamer@headheight{\vss\hbox{\color{fg}\includegraphics[width=1.58cm]{img/ulbquadri_mini}}\vss}\hss}%
+      \else%
+        \vrule width0pt height \beamer@headheight%  
+      \fi%
+      \end{beamercolorbox}  
+     
+    \vskip-\beamer@headheight 
+    \hskip+1pt
+    \hskip+\beamer@sidebarwidth 
+     \begin{beamercolorbox}[ht=\patheight,wd=11.16cm,dp=1.125ex,%
+      leftskip=.2cm
+      ]{title in head}%
+      \advance\rightskip by0.3cm plus1fil%
+      \leavevmode{\usebeamerfont{title in head}\insertshorttitle}%
+      \hfill%
+       {\usebeamerfont{institute in head}\usebeamercolor{institute in head}  \insertframenumber{} / \inserttotalframenumber}% \insertshortinstitute}%     
+    \end{beamercolorbox}% 
+    
+    \vskip-1pt
+    \hskip+1pt
+    \hskip+\beamer@sidebarwidth 
+    \begin{beamercolorbox}[ht=\patheight,wd=11.16cm,dp=1.125ex,%
+      leftskip=.2cm
+	]{author in head}%
+      \advance\rightskip by0.3cm plus1fil%
+      \leavevmode{\usebeamerfont{author in head}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{date in head}\usebeamercolor{date in head}\insertshortdate}% 
+           \end{beamercolorbox}%
+  }
+\fi
+
+
+\def\beamer@sidebarformat#1#2#3{%
+  %\hskip-1.1pt
+  \begin{beamercolorbox}[wd=\beamer@sidebarwidth,leftskip=#1,rightskip=1ex plus1fil,vmode]{#2}
+    \vbox{}%
+    #3\par%
+    \vbox{}%
+    \vskip-1.5ex%
+  \end{beamercolorbox}
+}
+
+\defbeamertemplate*{section in sidebar}{sidebar theme}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar}{\insertsectionhead}%
+  }%
+}
+
+\defbeamertemplate*{section in sidebar shaded}{sidebar theme}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar shaded}{\insertsectionhead}%
+  }%
+}
+
+\defbeamertemplate*{subsection in sidebar}{sidebar theme}
+{%
+  \beamer@sidebarformat{5pt}{subsection in sidebar}{\insertsubsectionhead}%
+}
+
+\defbeamertemplate*{subsection in sidebar shaded}{sidebar theme}
+{%
+  \beamer@sidebarformat{5pt}{subsection in sidebar shaded}{\insertsubsectionhead}%
+}
+
+
+\ifdim\beamer@sidebarwidth>0pt
+
+                                % Sidebar
+  \setbeamersize{sidebar width \beamer@sidebarside=\beamer@sidebarwidth}
+  \defbeamertemplate*{sidebar \beamer@sidebarside}{sidebar theme}
+  {
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    
+    \vskip9em%
+    
+   \insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    %\hskip10pt  \insertframenumber{} / \inserttotalframenumber
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%
+  
+  \ifx\beamer@sidebarside\beamer@lefttext%
+    \defbeamertemplate*{sidebar right}{sidebar theme}
+    {%
+      \vfill%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt}
+  \fi
+                                % Margins
+  \setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
+\fi
+
+\useinnertheme{rectangles}
+
+\definecolor{PatBlue}{RGB}{50,106,165}%{30,86,145}
+\definecolor{PatYellow}{RGB}{255,255,115}
+\definecolor{ULB@Blue}{RGB}{41,69,142}%{0,56,115}
+\definecolor{ULB@White}{RGB}{255,255,255}
+\definecolor{ULB@Black}{RGB}{0,0,0}
+
+\usecolortheme{whale}
+\usecolortheme{orchid}
+
+\setbeamercolor*{frametitle}{parent=palette primary}
+
+\usecolortheme[RGB={50,106,165}]{structure}
+\setbeamercolor{title in head}{fg=ULB@White,bg=PatBlue}
+\setbeamercolor{author in head}{fg=ULB@White,bg=PatBlue}
+\setbeamercolor{frametitle}{fg=ULB@White,bg=PatBlue}
+\setbeamercolor{framesubtitle}{fg=ULB@Black,bg=PatBlue}
+\setbeamercolor{section in sidebar shaded}{fg=ULB@White,bg=PatBlue}
+\setbeamercolor{subsection in sidebar shaded}{fg=ULB@White,bg=PatBlue}
+\setbeamercolor{section in sidebar}{fg=ULB@Blue,bg=ULB@White}
+\setbeamercolor{subsection in sidebar}{fg=ULB@Blue,bg=ULB@White}
+
+\definecolor{ULB@Grey}{RGB}{35,35,95}
+\definecolor{ULB@LightGrey}{RGB}{225,225,255}
+\setbeamercolor{block title}{fg=white,bg=ULB@Grey}
+\setbeamercolor{block body}{fg=black,bg=ULB@LightGrey}
+
+\setbeamerfont{block title}{size={}}
+
+\mode
+<all>
+
+\usefonttheme[onlymath]{serif}
+
+\beamertemplatetheoremsunnumbered 
+
+\newcommand\smallcaps[1]{
+  {\fontspec{GFS Didot}\textsc{#1}}
+}
