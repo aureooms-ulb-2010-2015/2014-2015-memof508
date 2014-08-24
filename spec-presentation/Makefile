@@ -69,11 +69,11 @@ $(FILENAME).pdf: $(FILENAME).tex $(STYLESHEET).sty bib/touch.bbl
 
 $(FILENAME).tex: $(TEXFILES)
 	echo "$(ACTION_COLOR)"tex files changed"$(NO_COLOR)"
-	$$ txt concat $(TEX) $(FILENAME).tex
+	$$ text concat $(TEX) $(FILENAME).tex
 
 $(STYLESHEET).sty: $(STYFILES)
 	echo "$(ACTION_COLOR)"sty files changed"$(NO_COLOR)"
-	$$ txt concat $(STY) $(STYLESHEET).sty
+	$$ text concat $(STY) $(STYLESHEET).sty
 
 ifeq ($(BIBFILES),)
 bib/touch.bbl: $(BIBFILES)
