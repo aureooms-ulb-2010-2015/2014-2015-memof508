@@ -23,38 +23,79 @@
 \end{frame}
 }
 
-\section{Introduction}
-
-%introduction
-\begin{frame}[c]{Introduction}
+\section{The Model}
+\subsection{Numbers}
+\begin{frame}[c]{The Model}{Numbers}
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.4]{img/UnderwaterHappyFish.png}
-\caption{Interesting Underwater Environment}
+\includegraphics[width=0.7\textwidth]{fig/number/cloud}
+% \caption{Interesting Underwater Environment}
 \end{figure}
 \end{frame}
 
-\begin{frame}[c]{Introduction}
+\subsection{Numbers Comparison}
+\begin{frame}[c]{The Model}{Numbers Comparison}
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.4]{img/UnderwaterScaryFishandDiver.png}
-\caption{Human Underwater Observation}
+\includegraphics[width=0.7\textwidth]{fig/number/comp}
+% \caption{Human Underwater Observation}
 \end{figure}
 \end{frame}
 
-\begin{frame}[c]{Introduction}
+\begin{frame}[c]{The Model}
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.4]{img/UnderwaterResult.png} 
-\caption{Inevitable Damaging and Unexpected Behavior}
+\includegraphics[width=0.7\textwidth]{fig/number/put}
+% \caption{Inevitable Damaging and Unexpected Behavior}
 \end{figure}
 \end{frame}
 
-\begin{frame}[c]{Introduction}
+\begin{frame}[c]{The Model}
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.4]{img/UnderwaterSolution.png}
-\caption{Automated Fish Filming}
+\includegraphics[width=0.7\textwidth]{fig/number/close}
+% \caption{Automated Fish Filming}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{The Model}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{fig/box/cloud}
+% \caption{Automated Fish Filming}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{The Model}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{fig/box/comp}
+% \caption{Automated Fish Filming}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[c]{The Model}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{fig/box/ask}
+% \caption{Automated Fish Filming}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{The Model}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{fig/box/yes}
+% \caption{Automated Fish Filming}
+\end{figure}
+\end{frame}
+
+\begin{frame}[c]{The Model}
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.7\textwidth]{fig/box/no}
+% \caption{Automated Fish Filming}
 \end{figure}
 \end{frame}
 
@@ -126,7 +167,7 @@
 \begin{frame}[c]{Methodology : Frame Analysis}
 \center
 Video Stream $=$ an images flow $I_{0:t}$ at a rate $\tau$ \\
-%\includegraphics[scale=0.4]{img/VideoStream.png} \\
+\includegraphics[height=0.25\textheight]{fig/number/cloud} \\
 \pause
 \bigskip
 Each image $i_k$ is called a \textit{frame}, each \textit{frame} is a matrix $n*m$ 
@@ -139,7 +180,7 @@ p_{0,m} & \ldots & p_{n,m} \end{array} \right)\]
 \begin{frame}[c]{Methodology : Frame Analysis}
 \center
 Whole \textbf{Image} $-$ \textit{static} \textbf{Background} $=$ moving \textbf{Foreground}\\
-\centering %\includegraphics[scale=0.5]{img/foregroundBackground.png} \\
+\center \includegraphics[width=0.7\textwidth]{fig/number/cloud} \\
 \end{frame}
 
 
@@ -163,7 +204,7 @@ $$
 \center \textbf{Color} comparison\\
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.3]{img/colorcomparison.png}
+\includegraphics[width=0.7\textwidth]{fig/number/cloud}
 \pause
 \center We \textbf{can't} use this!
 \end{figure}
@@ -173,8 +214,8 @@ $$
 \center Target \textbf{features} extraction\\
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.5]{img/fishFeatures.png} 
-\caption{Invariants Features}
+\includegraphics[width=0.7\textwidth]{fig/number/cloud}
+% \caption{Invariants Features}
 \end{figure}
 \end{frame}
 
@@ -182,7 +223,7 @@ $$
 \center \textbf{Contours} \\
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.4]{img/contour.png}
+\includegraphics[width=0.7\textwidth]{fig/number/cloud}
 \end{figure}
 \end{frame}
 
@@ -190,7 +231,7 @@ $$
 \center An \textbf{invariant} point \\
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.4]{img/feature.png}
+\includegraphics[width=0.7\textwidth]{fig/number/cloud}
 \end{figure}
 \end{frame}
 
@@ -215,8 +256,8 @@ $$
 \center Tracking $=$ identifying a set of pixels \\as \textit{identical} between 2 frames\\
 \begin{figure}[hbtp]
 \centering
-%\includegraphics[scale=0.5]{img/fishTracking.png} 
-\caption{Target's Features Tracking}
+\includegraphics[width=0.7\textwidth]{fig/number/cloud}
+% \caption{Target's Features Tracking}
 \end{figure}
 \end{frame}
 
