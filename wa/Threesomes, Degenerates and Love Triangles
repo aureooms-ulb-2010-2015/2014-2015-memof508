@@ -1,0 +1,1 @@
+Plot[{n^2, n^(3/2) Sqrt[Log[n]], n^2 / (Log[n]/Log[Log[n]])^(2/3), n^2 Log[Log[n]]^2 / Log[n]}, {n, 0, 200}]
