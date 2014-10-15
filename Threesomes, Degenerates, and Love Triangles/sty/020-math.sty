@@ -6,18 +6,21 @@
 
 \newcommand{\theoremname}{Theorem}
 \newcommand{\lemmaname}{Lemma}
+\newcommand{\problemname}{Problem}
 \newcommand{\corollaryname}{Corollary}
 \newcommand{\conjecturename}{Conjecture}
 
 \addto\captionsfrench{
 	\renewcommand{\theoremname}{Théorème}
 	\renewcommand{\lemmaname}{Lemme}
+	\newcommand{\problemname}{Problème}
 	\renewcommand{\corollaryname}{Corollaire}
 	\renewcommand{\conjecturename}{Conjecture}
 }
 
 \newtheorem{theorem}{\theoremname}[chapter]
 \newtheorem{lemma}[theorem]{\lemmaname}
+\newtheorem{problem}[theorem]{\problemname}
 \newtheorem{corollary}[theorem]{\corollaryname}
 \newtheorem{conjecture}[theorem]{\conjecturename}
 

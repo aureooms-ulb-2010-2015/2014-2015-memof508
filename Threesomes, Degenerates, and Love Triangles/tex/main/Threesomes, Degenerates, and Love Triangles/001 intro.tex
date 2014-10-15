@@ -1,0 +1,33 @@
+\section{Introduction to the subject}
+
+The problem is the following,
+
+\begin{problem}
+The 3\textsc{sum} problem consists in finding three numbers $a$, $b$ and $c$, for
+$a \in A, b \in B, c \in C$ and where $A, B, C \subset \mathbb{R}$, that sum
+up to $0$, i.e. $a + b + c = 0$.
+\end{problem}
+
+In a recent paper (\cite{DBLP:journals/corr/JorgensenP14}) it is proved that
+the 3\textsc{sum} conjecture does not hold true. As a reminder,
+
+\begin{conjecture}
+The 3\textsc{sum} conjecture states that the lower bound on the number of
+comparisons in the decision tree model for the 3\textsc{sum} problem
+is \BigOmega{n^2}.
+\end{conjecture}
+
+It was indeed proved that this lower bound holds for a particular case of the
+decision tree model. By restricting himself to a $3$-linear decision tree model,
+Jeff Erickson proves that 3\textsc{sum} is \BigOmega{n^2} in this particular
+model.
+
+In fact, in \cite{cj99-08}, he proves that in the $k$-linear decision tree model
+, for any $k > 0$, the $k\textsc{sum}$ problem is \BigOmega{n^{\sfrac{k}{2}}}
+for even $k$ and \BigOmega{n^{\sfrac{(k+1)}{2}}} for odd $k$.
+
+Although the 3\textsc{sum} problem has not a lot of practical applications, many
+other problems are reducible from 3\textsc{sum} and thus a lower bound for
+3\textsc{sum} would imply lower bounds for those other problems.
+
+In April 2014, Pettie and Grønlund \dots
