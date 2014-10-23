@@ -22,12 +22,24 @@ decision tree model. By restricting himself to a $3$-linear decision tree model,
 Jeff Erickson proves that 3\textsc{sum} is \BigOmega{n^2} in this particular
 model.
 
-In fact, in \cite{cj99-08}, he proves that in the $k$-linear decision tree model
-, for any $k > 0$, the $k\textsc{sum}$ problem is \BigOmega{n^{\sfrac{k}{2}}}
-for even $k$ and \BigOmega{n^{\sfrac{(k+1)}{2}}} for odd $k$.
+Note that for $3\textsc{sum}$ we consider a $3$-linear decision model
+since the function we evaluate at each step is linear and accepts 3 arguments.
+Here the function is $f(a, b, c) = a + b + c$ and we make decisions depending on
+the sign of the output of this function ( $<0, =0, >0$ ).
+
+More generally, in \cite{cj99-08}, Jeff Erickson proves that in the $k$-linear
+decision tree model, for any $k > 0$, the $k\textsc{sum}$ problem,
+whose definition can be easily deduced from the $3\textsc{sum}$ problem
+definition, is \BigOmega{n^{\sfrac{k}{2}}} for even $k$ and
+\BigOmega{n^{\sfrac{(k+1)}{2}}} for odd $k$.
 
 Although the 3\textsc{sum} problem has not a lot of practical applications, many
 other problems are reducible from 3\textsc{sum} and thus a lower bound for
 3\textsc{sum} would imply lower bounds for those other problems.
 
-In April 2014, Pettie and Grønlund \dots
+In April 2014, Pettie and Grønlund released a publication that showed that there
+exists an algorithm making a subquadratic amount of evaluation of the function
+$f(a, b, c, d)$.
+
+http://cs.smith.edu/~orourke/TOPP/P11.html
+http://cs.smith.edu/~orourke/TOPP/P41.html
