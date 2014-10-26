@@ -1,4 +1,6 @@
-\section{Introduction to the subject}
+
+
+\section{The 3SUM Problem}
 
 The problem is the following,
 
@@ -7,6 +9,9 @@ The 3\textsc{sum} problem consists in finding three numbers $a$, $b$ and $c$, fo
 $a \in A, b \in B, c \in C$ and where $A, B, C \subset \mathbb{R}$, that sum
 up to $0$, i.e. $a + b + c = 0$.
 \end{problem}
+
+
+\section{The 3SUM Conjecture}
 
 In a recent paper (\cite{DBLP:journals/corr/JorgensenP14}) it is proved that
 the 3\textsc{sum} conjecture does not hold true. As a reminder,
@@ -22,24 +27,85 @@ decision tree model. By restricting himself to a $3$-linear decision tree model,
 Jeff Erickson proves that 3\textsc{sum} is \BigOmega{n^2} in this particular
 model.
 
-Note that for $3\textsc{sum}$ we consider a $3$-linear decision model
-since the function we evaluate at each step is linear and accepts 3 arguments.
-Here the function is $f(a, b, c) = a + b + c$ and we make decisions depending on
+
+\section{Variations of the Decision Tree Model}
+
+Note that for $3\textsc{sum}$ we consider a $3$-linear decision tree model
+since the function we evaluate at each step is linear and has 3 variables.
+Here the function is $f( a, b, c ) = a + b + c$ and we make decisions depending on
 the sign of the output of this function ( $<0, =0, >0$ ).
 
 More generally, in \cite{cj99-08}, Jeff Erickson proves that in the $k$-linear
 decision tree model, for any $k > 0$, the $k\textsc{sum}$ problem,
 whose definition can be easily deduced from the $3\textsc{sum}$ problem
-definition, is \BigOmega{n^{\sfrac{k}{2}}} for even $k$ and
+definition, has a \BigOmega{n^{\sfrac{k}{2}}} lower bound for even $k$ and
 \BigOmega{n^{\sfrac{(k+1)}{2}}} for odd $k$.
+
+
+\section{Why The Fuss?}
 
 Although the 3\textsc{sum} problem has not a lot of practical applications, many
 other problems are reducible from 3\textsc{sum} and thus a lower bound for
 3\textsc{sum} would imply lower bounds for those other problems.
 
-In April 2014, Pettie and Grønlund released a publication that showed that there
-exists an algorithm making a subquadratic amount of evaluation of the function
-$f(a, b, c, d)$.
+One of these problem is the $3$-points-on-line problem,
+
+\begin{problem}
+In the plane, the $3$-points-on-line problem consists in finding
+three colinear points $a$, $b$ and $c$, for $a, b and c \in S, |S| = n$.
+\end{problem}
+
+We can reduce 3\textsc{sum} to $3$-points-on-line by mapping all
+$a \in A, b \in B, c \in C$ to the points $a' = (a, a^3)$, $b' = (b, b^3)$
+and $c' = (c, c^3)$.
+
+This works because if $a'$, $b'$ and $c'$ are colinear we have,
+
+\begin{eqnarray*}
+	a'_x ( b'_y - c'_y ) + b'_x ( c'_y - a'_y ) + c'_x ( a'_y - b'_y ) & = & 0 \\
+	a ( b^3 - c^3 ) + b ( c^3 - a^3 ) + c ( a^3 - b^3 ) & = & 0 \\
+\end{eqnarray*}
+
+When $ a + b + c = 0 \iff c = - ( a + b )$ we have,
+
+\begin{eqnarray*}
+	a b^3 + a ( a^3 + 3 a^2 b + 3 a b^2 + b^3 ) & & \\
+	- b ( a^3 + 3 a^2 b + 3 a b^2 + b^3 ) - a^3 b - a^4 - a^3 b + b^4 + a b^3 & = & 0 \\
+	\mathunderline{cyan}{a b^3} + \mathunderline{green}{a^4} + \mathunderline{blue}{3 a^3 b} + \mathunderline{red}{3 a^2 b^2} + \mathunderline{cyan}{a b^3} - \mathoverline{blue}{a^3 b} - \mathoverline{red}{3 a^2 b^2} & & \\
+	- \mathoverline{cyan}{3 a b^3} - \mathoverline{yellow}{b^4} - \mathoverline{blue}{a^3 b} - \mathoverline{green}{a^4} - \mathoverline{blue}{a^3 b} + \mathunderline{yellow}{b^4} + \mathunderline{cyan}{a b^3} & = & 0 \\
+	0 & = & 0 \\
+\end{eqnarray*}
+
+\cite{king2004survey} proproses a survey of 3\textsc{sum}-HARD problem, i.e.
+problems that can be reduced from 3\textsc{sum}.
+
+It means that all those 3\textsc{sum}-HARD problems are doomed to have
+a \BigOmega{n^2} lower bound.
+
+
+\section{Subquadratic Algorithms and Thinking Outside of the Box}
+
+In April 2014, Pettie and Grønlund released a paper that showed that there
+exists an algorithm for 3\textsc{sum} making a subquadratic amount of evaluation
+of the function $f( a, b, c, d ) \in \{ <0, =0, >0 \}$.
+
+Here, the secret lies thus in using a $k+1$-linear decision tree instead of the
+classical $k$-linear decision tree approach.
+
+The first algorithm they propose in \cite{DBLP:journals/corr/JorgensenP14} solves
+the problem using a clever multi-$X + Y$ sorting procedure.
+
+In their algorithm, they partition a set $A$ in $\ceil{\sfrac{n}{g}}$ groups
+$A_i$ for $i \in [0, \ceil{\sfrac{n}{g}}[$ of size at most $g$ and need to sort
+each
+$A_{i,j} \buildrel \text{d{}ef}\over = A_i + A_j \forall i, j \in [0, \ceil{\sfrac{n}{g}}[$
+.
+
+Using a simple trick attributed to Fredman i.e.
+$a_i + a_j < b_i + b_j \iff a_i - b_i < b_j - a_j$ they manage to do only
+\BigO{n \log n + gn} comparisons.
+
 
 http://cs.smith.edu/~orourke/TOPP/P11.html
+
 http://cs.smith.edu/~orourke/TOPP/P41.html

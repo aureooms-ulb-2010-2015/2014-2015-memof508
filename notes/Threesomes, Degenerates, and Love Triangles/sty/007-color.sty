@@ -28,3 +28,17 @@
 %\definecolor{monokai_literal.date}{HTML}{e6db74}
 %\definecolor{monokai_string}{HTML}{e6db74}
 %\definecolor{monokai_string.escape}{HTML}{ae81ff}
+
+
+% color underline %
+
+% http://tex.stackexchange.com/a/9472
+
+\newsavebox\MBox
+\newcommand\Cline[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% http://tex.stackexchange.com/a/9477
+
+\def\mathunderline#1#2{\color{#1}\underline{{\color{black}#2}}\color{black}}
+\def\mathoverline#1#2{\color{#1}\overline{{\color{black}#2}}\color{black}}

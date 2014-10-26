@@ -1,8 +1,13 @@
 % maths %
 
+% captions
+
 \addto\captionsfrench{
 	\renewcommand\listtheoremname{Table des théorèmes}
 }
+
+
+% headings
 
 \newcommand{\theoremname}{Theorem}
 \newcommand{\lemmaname}{Lemma}
@@ -17,6 +22,28 @@
 	\renewcommand{\corollaryname}{Corollaire}
 	\renewcommand{\conjecturename}{Conjecture}
 }
+
+
+% style
+
+% http://tex.stackexchange.com/a/13687
+
+\newtheoremstyle{slplain}% name
+  {.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space above
+  {.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space below
+  {\slshape}% Body font
+  {}%Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}%  Thm head font
+  {.}%       Punctuation after thm head
+  { }%      Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%       Thm head spec
+
+
+\theoremstyle{slplain}
+
+
+% types
 
 \newtheorem{theorem}{\theoremname}[chapter]
 \newtheorem{lemma}[theorem]{\lemmaname}
