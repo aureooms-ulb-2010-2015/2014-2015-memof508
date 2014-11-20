@@ -1,8 +1,6 @@
-beamertheme/ULB.sty
-spec-presentation.pdf
-spec-presentation.tex
-*.nav
-*.snm
+perso.sty
+spec.pdf
+spec.tex
 *.aux
 *.lof
 *.log
