@@ -1,0 +1,148 @@
+\section{Simple Case : $k=2$}
+\label{tree:merging:k=2}
+
+\subsection{ITLB}
+\label{tree:merging:k=2:ITLB}
+
+Analogously to what was shown in \ref{tree:sorting}, we can compute the logarithm of the number of possible solution for this problem, i.e.
+
+\begin{theorem}
+The ITLB for the merging problem when $k = 2$ with $|S_1| = m, |S_2| = n$ is \BigOmega{\log \binom{m+n}{m}}.
+\end{theorem}
+
+\begin{proof}
+We have to choose the $m$ among $m+n$ positions in $S'$ for the elements of $S_1$ and then fill the remaining $(m+n) - m = n$ positions with the elements of $S_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$ hence the worst minimal height of the tree is $\log \binom{m+n}{m}$.
+\end{proof}
+
+\nb{Giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation gives us $(m+n) \log(m+n) - m \log m - n \log n$ which clearly express the information contained in the sorted sequence $S'$ of $m+n$ elements minus the information we already have.}
+
+
+\subsection{Algorithms}
+\label{tree:merging:k=2:alg}
+
+Without loss of generality, we consider the case where $m \leq n$. We build an algorithm whose complexity is \BigO{\log \binom{m+n}{m}}.
+
+
+We begin by computing the general case expression of the number of comparison required by our ITLB.
+
+
+\begin{lemma}
+\begin{align*}
+\log\binom{m+n}{m} &\leq m \log\frac{m+n}{m} + n \log\frac{m+n}{n}\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{m+n}{m} &= \log\frac{(m+n)!}{m!n!}\\
+&= \log(m+n)! - \log m! - \log n!\\
+&\leq (m+n) \log(m+n) - m \log m - n \log n\\
+&\leq (m+n) \log(m+n) - m \log m - n \log n + (n \log m - n \log m)\\
+&\leq (m+n) \log(m+n) - (m+n) \log m - n (\log n - \log m)\\
+&\leq (m+n) \log\frac{m+n}{m} - n (\log n - \log m)\\
+&\leq m \log\frac{m+n}{m} + n \log\frac{m+n}{m} - n (\log n - \log m)\\
+&\leq m \log\frac{m+n}{m} + n \log\frac{m+n}{\sfrac{m}{m} \cdot n}\\
+&\leq m \log\frac{m+n}{m} + n \log\frac{m+n}{n}\\
+\end{align*}
+\end{proof}
+
+
+
+In order to feed our intuition on this expression we will analyze its behaviour on several corner cases.
+
+
+\subsubsection{First case\texorpdfstring{ : $m = n$}{}}
+
+
+The first case we will analyze is the case where $m = n$. This case is similar to what happens during the merge phase of the merge sort algorithm.
+
+\begin{lemma}
+\begin{align*}
+m = n &\implies \log\binom{m+n}{m} \leq m + n = 2n\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{m+n}{m} &\leq m \log\frac{m+n}{m} + n \log\frac{m+n}{n}\\
+&\leq m \log\frac{2m}{m} + n \log\frac{2n}{n}\\
+&\leq m \log 2 + n \log 2\\
+&\leq m + n\\
+&\leq 2n\\
+\end{align*}
+\end{proof}
+
+An algorithm performing \BigO{m} is Sequential Merge, 
+
+
+\subsubsection{Second case\texorpdfstring{ : $m \ll n$}{}}
+
+
+Now we want to see what the bound becomes when $n$ start to grow relatively to $m$. In the following proof we will assume that $m$ is negligible before $n$.
+
+
+\begin{lemma}
+\begin{align*}
+m \ll n &\implies \log\binom{m+n}{m} \leq m \log\frac{n}{m}\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{m+n}{m} &\leq m \log\frac{m+n}{m} + n \log\frac{m+n}{n}\\
+&\leq m \log\frac{n}{m} + n \log\frac{n}{n}\\
+&\leq m \log\frac{n}{m}\\
+\end{align*}
+\end{proof}
+
+
+This could be intuitively understood as doing $m$ binary searches on sets of size $\frac{n}{m}$.
+
+
+
+\subsubsection{Third case\texorpdfstring{ : $m \ll n \land m = 1$}{}}
+
+Now observe what happens when $m = 1$.
+
+\begin{lemma}
+\begin{align*}
+m \ll n \land m = 1 &\implies \log\binom{m+n}{m} \leq \log n\\
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+\log\binom{m+n}{m} &\leq m \log\frac{n}{m}\\
+&\leq \log n\\
+\end{align*}
+\end{proof}
+
+An algorithm performing \BigO{\log n} is Binary Search.
+
+
+
+
+
+
+In conclusion, we need an algorithm performing \BigO{m \log\frac{n}{m}}. Ideally this algorithm should compete with Sequential Merge for the case where $m = n$ and with Binary Search for the case where $m = 1$.
+
+
+
+\subsubsection{Hwang-Lin}
+
+From now on we have explored special cases, it would be nice if we could combine the different solutions to build an algorithm of complexity \BigO{\log \binom{m+n}{m}} that works for any input.
+
+The idea is that the algorithm should behave like :
+
+\begin{itemize}
+\item Sequential Merge in case $\frac{n}{m} = 1$
+\item $m$ binary searches on sets of size $\frac{n}{m}$ in case $m \ll n$
+\item Binary Search in case $m \ll n \land m = 1$
+\end{itemize}
+
+Hwang and Lin give such an algorithm in \cite{DBLP:journals/siamcomp/HwangL72}.
+
+The algorithm proceeds by reading sequentially every $\frac{n}{m}$ elements of $S_2$. Once the algorithm finds the interval of size $\frac{n}{m}$ where the first element of $S_1$ is to be found, it applies a binary search algorithm on this interval. We have the position of the first element.
+We now want the position of the second element of $S_1$. The position of this second element is necessarily after the position we just found. Thus, if we proceed in the same manner for all the other elements of $S_1$ we will only iterate over the $m$ intervals once and will at most perform $m \log\frac{n}{m}$ comparisons inside the intervals, hence we get an algorithm whose complexity is $c \cdot \text{ITLB} + m - 1 = \BigO{ITLB}$.
+
+\nb{We can check that this algorithm matches the \concept{ITLB} found for our special cases.}

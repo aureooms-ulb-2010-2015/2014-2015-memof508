@@ -1,0 +1,42 @@
+\section{Algorithms}
+\label{tree:sorting:alg}
+
+According to our model (\ref{tree:sorting:model}) we only consider comparison-based sorting algorithms.
+
+
+\begin{table}
+	\begin{center}
+	\caption{Comparison sorting algorithms time complexity}
+	\label{tree:sorting:alg/table}
+	\begin{tabular}{|c|c|c|c|c|}
+
+	\hline
+	Name & Best\tablefootnote{\label{tree:sorting:alg/table!bestisn} The reason some of those algorithms have a best case of \BigO{n} is that they make use of already ordered subsequences, e.g. for an already ordered sequence only a linear check is required. This gives us some clue that will be expanded in \ref{tree:supi}.} & Average & Worst & Source\\\hline\hline
+	Quicksort & $n \log n$ & $1.39~n \log n$ & $n^2$ & \cite{hoare1962quicksort}\\\hline
+	Dual Pivot Quicksort & $n \log n$ & $1.32~n \log n$ & $n^2$ & \cite{yaroslavskiy2009dual}\\\hline
+	Merge sort & $n \log n$ & $1~n \log n$ & $n \log n$ & \begin{tabular}{@{}l@{}} \cite{leiserson2001introduction} \\ \cite{goldstine1948planning} \end{tabular} \\\hline
+	Heapsort & $n \log n$ & $1~n \log n$ & $n \log n$ & \cite{leiserson2001introduction}\\\hline
+	Introsort & $n \log n$ & $1~n \log n$ & $n \log n$ & \cite{musser1997introspective}\\\hline
+	Timsort & $n$ & $1~n \log n$ & $n \log n$ & \cite{martelli2006python}\\\hline
+	Smoothsort & $n$ & $1~n \log n$ & $n \log n$ & \cite{dijkstra1982smoothsort}\\\hline
+	Shellsort & $n$ & — & — & \cite{shell1959high}\\\hline
+
+	\end{tabular}
+	\end{center}
+\end{table}
+
+
+In \ref{tree:sorting:alg/table} you can see a list of algorithms for which the average case time complexity matches the Stirling's approximation of the \concept{ITLB} up to a $\BigO{1}$ factor.
+
+Considering practical use of these algorithms, quicksort is one of the most efficient algorithms on real world computers due to its simplicity and cache locality of its operations, even though quicksort has a much higher multiplicative coefficient.
+
+The average time complexity of shellsort is not known for the moment. Indeed, there are multiple ways of implementing this algorithm because of its definition. The shellsort algorithm is configurable with a sequence of integers called a \emph{gap sequence}. This gap sequence parameter leads to different time complexities. For example, depending on the implementation one can achieve a complexity of eiter $\BigO{n \log^2 n}$ or $\BigO{n^{\frac{3}{2}}}$. There are some practical variants of this algorithm for which the time complexity is not known. An open problem is to find whether or not there exist a gap sequence that makes the algorithm run in $\BigO{n \log n}$.
+
+In addition to algorithms found in \ref{tree:sorting:alg/table}, we may also mention that any data structure allowing to retrieve inserted elements in an ordered fashion (according to some total order) with insertion and retrieve operations in $\BigO{\log n}$ time complexity can be used to build an algorithm whose time complexity is $\BigO{n \log n}$. Examples are,
+
+\begin{itemize}
+\item Binary tree sort which uses a \emph{binary tree};
+\item Tournament sort which uses a \emph{priority queue}.
+\end{itemize}
+
+For information on those data structures see \cite{sleator1985self}, \cite{leiserson2001introduction}.

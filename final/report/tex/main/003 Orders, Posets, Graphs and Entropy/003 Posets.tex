@@ -1,0 +1,35 @@
+\section{Posets}
+
+The word \concept{poset} stands for \emph{Partially Ordered Set}. Starting from what we already know, the only new term is \emph{partial}. \emph{Partial} can both reflect our ignorance about a more \emph{complete} order on our data set and the \emph{incomplete} nature of the ordered set we consider. By \emph{incomplete} we mean that there could exist some $x, y \in S$ for which neither $(x, y) \in G$ nor $(y, x) \in G$. $x$ and $y$ are thus incomparable in this specific partially ordered set.
+
+\nb{Do not mix completeness of partial orders with the informal \emph{completeness} we are referring to, \emph{complete} and \emph{incomplete} are just words that help to express what we mean by partial.}
+
+When however a partial order is \emph{complete}, we will say that it is a total order.
+
+Quoting the definition from \cite{Stanley:2011:ECV:2124415},
+
+\begin{quotation}
+
+A partially ordered set $P$ is a set (which by abuse of notation we also call $P$), together with a binary relation denoted $\leq$ (or $\leq_P$ when there is a possibility of confusion), satisfying the following three axioms:
+
+\begin{enumerate}
+\item For all $t \in P, t \leq t$ (reflexivity).
+\item If $s \leq t$ and $t \leq s$, then $s = t$ (antisymmetry).
+\item If $s \leq t$ and $t \leq u$, then $s \leq u$ (transitivity).
+\end{enumerate}
+
+We say that two elements $s$ and $t$ of $P$ are comparable if $s \leq t$ or $t \leq s$; otherwise, $s$ and $t$ are incomparable, denoted $s \parallel t$.
+
+We use the obvious notation $t \geq s$ to mean $s \leq t$, $s < t$ to mean $s \leq t$ and $s \neq t$, and $t > s$ to mean $s < t$.
+
+\end{quotation}
+
+Taking other properties aside, the most interesting feature of a partial order (with respect to our point of view) is the transitivity axiom it must satisfy. Let us explain why it is interesting. The goal of sorting and merging is to, starting from a partially ordered set, find the underlying total order. To find this total order, we are allowed to query an oracle that answers to yes---no questions of the type ``is $x~R\text{-related to}~y$?'' in the unknown total order. This has to be done efficiently. By efficiently we mean that we do not want to ask more questions than necessary.
+
+Before continuing further note also that since we are trying to find a total order, at least one of the question $(x, y) \stackrel{?}{\in} G$ and $(y, x) \stackrel{?}{\in} G$ will have a positive answer, hence we can already discard half of all the questions we could ask.
+
+Once we have restricted the number of useful questions to approximately the half of all the possible questions, there are still \BigO{n^2} questions we might want to ask. That is where transitivity comes into play. Without it we would have had to ask all the $\frac{n (n-1)}{2}$ questions to unveil the total order.
+
+For example, due to the transitivity axiom, every time we ask the two questions $(x, y) \stackrel{?}{\in} G$ and $(y, z) \stackrel{?}{\in} G$ and both give the same answer it is not necessary anymore to ask the third question $(x, z) \stackrel{?}{\in} G$ . Indeed the information carried by the answer of the third question has dropped to 0 bit at the very moment we brought answers for the first and second question to our knowledge.
+
+This is really what we do when we sort a random sequence of elements efficiently with quicksort or any other \BigO{n \log n} comparison sort algorithm. We exploit the transitive nature of partial orders.

@@ -1,0 +1,32 @@
+\section{Examples of Orders, Sets and Posets}
+
+
+The following examples will try to remove any doubt you might still have on the concepts we just introduced. All of them can be found in \cite{Stanley:2011:ECV:2124415}.
+
+
+\nb{For all examples, $[n] = \left\{{1, 2, \cdots, n}\right\}$, $\mathbb{N}$ is the set of natural numbers and $P$ is the set of positive numbers (also called the set of 1-based natural numbers).}
+
+
+\begin{example}
+\label{ex:poset:def}
+
+\item \label{ex:poset:def:a} Let $n \in \mathbb{P}$. The set $[n]$ with its usual order, namely the ordering on natural numbers of this set, forms an $n$-element poset with the special property that any two elements are comparable. This poset is denoted $\bm{n}$. Of course $\bm{n}$ and $[n]$ coincide as sets, but we use the notation $\bm{n}$ to emphasize the order structure. 
+
+\item \label{ex:poset:def:b} Let $n \in \mathbb{N}$. We can make the set $2^{[n]}$ of all subsets of $[n]$ into a poset $B_n$ by defining $S \leq T$ in $B_n$ if $S \subseteq T$ as sets. One says that $B_n$ consists of the subsets of $[n]$ ``ordered by inclusion''. 
+
+\item \label{ex:poset:def:c}  Let $n \in \mathbb{P}$. The set of all positive integer divisors of $n$ can be made into a poset $D_n$ in a natural way by defining $i \leq j$ in $D_n$ if $j$ is divisible by $i$ (denoted $i \mid j$). 
+
+\item \label{ex:poset:def:d}  Let $n \in \mathbb{P}$. We can make the set $\Pi_n$ of all partitions of $[n]$ into a poset (also denoted $\Pi_n$) by defining $\pi \leq \sigma$ in $\Pi_n$ if every block of $\pi$ is contained in a block of $\sigma$. For instance, if $n = 9$ and if $\pi$ has blocks $137, 2, 46, 58, 9$, and $\sigma$ has blocks $13467, 2589$, then $\pi \leq \sigma$. We then say that $\pi$ is a \emph{refinement} of $\sigma$ and that $\Pi_n$ consists of the partitions of $[n]$ ``ordered by refinement''. 
+\end{example}
+
+
+In \sref{ex:poset:def:a}, $[n]$ is thus the set, the \emph{ordering on natural numbers of this set} is the order and \emph{the conjunction of the set together with the order} is the poset. A poset is thus a relational structure $(S, R)$ and in this special case $S = \mathbb{N}$ and $R = \le$. Any two elements from this poset are comparable since the order of this poset is a (weak) total order. We say that this order is weak because it is not strict, where a strict order is a trichotomy. An example of trichotomy would have been $R = <$, because then only one of $x R y$, $x = y$ and $y R x$ can be true.
+
+
+\sref{ex:poset:def:b} is a classical example to show that posets do not only work with numbers but also with more complex objects like sets. However, unlike $\bm{n}$ (\sref{ex:poset:def:a}), the order of this poset is not a total order. Indeed, let us consider $S$ and $T$ two subsets of $[n]$ that each contain an element of $[n]$ that is not in the other subsets ($\exists s \in S, s \notin T$ and $\exists t \in T, t \notin S$). We observe $S \nsubseteq T$ and $T \nsubseteq S$ which means that $S$ and $T$ are incomparable, and since a totally ordered set cannot contain incomparable elements the set $B_n$ is only partially ordered. This is a good example since we now understand what \emph{incomparable} can mean for a pair of elements.
+
+
+When we started to explain \sref{ex:poset:def:b} we said that we were working with sets of more complex objects, but this is not the reason why we found incomparable objects. With \sref{ex:poset:def:c} we show that even simple objects like numbers can be considered incomparable. For this to be true, we simply need to change the relation we consider. If we take for example $n = 12$, we have $D_n = \left\{{1, 2, 3, 4, 6, 12}\right\}$ and neither $3 \mid 4$ nor $4 \mid 3$.
+
+
+\sref{ex:poset:def:d} is yet another example of a poset that is not total. With this example we also see that we could give a more abstract meaning to the order relation (we describe the relation with words that do not refer to a mathematical operation).

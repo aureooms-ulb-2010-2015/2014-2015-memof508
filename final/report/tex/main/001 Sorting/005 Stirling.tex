@@ -1,0 +1,52 @@
+\section{Stirling}
+\label{tree:sorting:stirling}
+
+Later on in \ref{tree:supi} we will be interested by counting elements in finite sets. By counting we mean for an infinite collection of finite sets $S_i$ where $i$ ranges over some index set $I$ (e.g. $I = \mathbb{N}$) finding a counting function $f(i)$ that is valid for all $S_i$. In general we will only use the most satisfactory such formula. By most satisfactory we mean a completely explicit closed formula involving only well-known functions, and free from summation (and product) symbols. But, be aware, only in rare cases will such a formula exist, and the most complicated an expression of $f(i)$ becomes the less we are willing to accept it as a determination. \cite{Stanley:2011:ECV:2124415}
+
+If we take the example of counting \emph{the number of ways a pile of books can be rearranged} (i.e. by permutation of the relative places of books) we can conclude that for $S_i$ being the set of all piles containing the same $i$ books we could manage to build by rearranging these $i$ books,
+
+$$ f(i) = i \cdot (i-1) \cdot (i-1) \cdots 3 \cdot 2 \cdot 1 = \prod_{k=1}^i k = i! $$
+
+is an exact formulation. However this formulation contains a product over range $[1, i]$ meaning that the computation of the value $f(i)$ would require $i$ multiplications. In fact this is what we wanted to avoid when we said that there shouldn't be such symbols in the \emph{most satisfactory} formulation.
+
+So, is there a better way? Not always. Considering the general case, only a few rare case will expose a formulation able to satisfy us. But, for the example we gave, there is!
+
+
+\begin{theorem}
+\label{tree:sorting:theorem/stirling}
+\begin{align*}
+n! \simeq \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n\\
+\end{align*}
+\end{theorem}
+
+
+Where $\simeq$ means that the ratio of the two sides tends to $1$ for asymptoticaly large $n$.
+
+This satisfactory formula is known as Stirling's approximation (1730). Details about the proof can be found in \cite{feller1967direct}.
+
+\ref{tree:sorting:theorem/stirling} gives rise to several corollaries from which we will retain two for their usefulness later in \ref{tree:supi}.
+
+
+
+\begin{corollary}
+\begin{align*}
+\BigO{\ln(n!)} &= n \ln n - n + \BigO{n}\\
+\end{align*}
+\end{corollary}
+
+
+
+\begin{corollary}
+\label{tree:sorting:corollary/stirling}
+\begin{align*}
+\BigTheta{\log(n!)} &= \BigTheta{n \log n}\\
+\end{align*}
+\end{corollary}
+
+
+For example, \ref{tree:sorting:corollary/stirling} will be particulary useful when proving asymptotic complexity of sorting and merging algorithms, because of the way these problems are optimally tackled (divide and conquer).
+
+Note that another way of looking at \ref{tree:sorting:corollary/stirling} is saying that for some constant $c \in \mathbb{R}$ and for $N \in \mathbb{R}$,
+
+
+$$c \cdot n \log n \leq \log(n!) \leq n \log n, \Forall n \geq N$$.

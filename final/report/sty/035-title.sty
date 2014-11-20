@@ -1,0 +1,75 @@
+\pgfkeys{
+	/titlepages/.is family, /titlepages,
+	% Here are the options that a user can pass
+	default/.style = {
+		title = Title,
+		student = student name,
+		sponsor = sponsor name,
+		bg = bg,
+		logo = logo,
+		university = University,
+		COURSE = COURSE,
+		course = course,
+		faculty = Faculty,
+		department = Departement,
+		academicyear = academicyear
+	},
+	title/.estore in = \titlepagestitle,
+	student/.estore in = \titlepagesstudent,
+	sponsor/.estore in = \titlepagessponsor,
+	bg/.estore in = \titlepagesbg,
+	logo/.estore in = \titlepageslogo,
+	university/.estore in = \titlepagesuniversity,
+	COURSE/.estore in = \titlepagesCOURSE,
+	course/.estore in = \titlepagescourse,
+	faculty/.estore in = \titlepagesfaculty,
+	department/.estore in = \titlepagesdepartment,
+	academicyear/.estore in = \titlepagesacademicyear
+}
+
+
+\newcommand{\titlepagesstudentsname}{Student}
+
+\addto\captionsfrench{
+	\renewcommand{\titlepagesstudentsname}{Étudiant}
+}
+
+\newcommand{\titlepagessponsorsname}{Sponsor}
+
+\addto\captionsfrench{
+	\renewcommand{\titlepagessponsorsname}{Promoteur}
+}
+
+\newcommand\titlepages[1][]{
+	\pgfkeys{/titlepages, default, #1}
+	\begin{titlepage}
+	\pagestyle{empty}
+	\begin{center}
+	\topimg{\titlepageslogo}
+	\smallcaps{\Large \titlepagesuniversity}\\[0.942cm]
+	{\large \titlepagesfaculty}\\[0.314cm]
+	{\large \titlepagesdepartment}\\[0.314cm]
+	\rule{0.314\linewidth}{0.314mm}\\[0.5cm]
+	{\smallcaps{\titlepagescourse}}\\[1.8cm]
+	\begin{spacing}{1.5}
+	\smallcaps{\LARGE \titlepagestitle}\\[1.8cm]
+	\end{spacing}
+	\begin{tabular}{p{9.5cm}}
+	{\titlepagessponsorsname} \\
+	\end{tabular}\\[0.26cm]
+	\begin{tabular}{p{0.5cm} p{4.5cm} p{4cm} p{0.5cm}}
+	& {\large\titlepagessponsor} & \dotfill &\\
+	\end{tabular}\\[0.5cm]
+	\begin{tabular}{p{9.5cm}}
+	{\titlepagesstudentsname} \\
+	\end{tabular}\\[0.26cm]
+	\begin{tabular}{p{0.5cm} p{4.5cm} p{4cm} p{0.5cm}}
+	& {\large\titlepagesstudent} & \dotfill &\\
+	\end{tabular}\\[0.4cm]
+	\vfill
+	\rule{0.2\linewidth}{0.314mm}\\[0.4cm]
+	\today\\[0.3cm]
+	\textbf{\titlepagesacademicyear}
+	\end{center}
+	\end{titlepage}
+}
