@@ -5,7 +5,7 @@ The subset sum problem is the following
 
 \begin{problem}
 Given a set $S \subset \mathbb{R}$, $\left\vert{S}\right\vert = n$, find all
-$S' \subseteq S$ such that $\sum{s \in S'} s = 0$.
+$S' \subseteq S$ such that $\sum\limits_{s \in S'} s = 0$.
 \end{problem}
 
 
@@ -13,13 +13,16 @@ The $k$-SUM problem is the following
 
 \begin{problem}
 Given a set $S \subset \mathbb{R}$, $\left\vert{S}\right\vert = n$, find all
-$S' \subseteq S$, $\left\vert{S'}\right\vert = k$, such that $\sum{s \in S'} s = 0$.
+$S' \subseteq S$, $\left\vert{S'}\right\vert = k$, such that $\sum\limits_{s \in S'} s = 0$.
 \end{problem}
+
 
 The $k$-LDT problem is the following
 
 \begin{problem}
 Given a set $S \subset \mathbb{R}$, $\left\vert{S}\right\vert = n$, and $k$
-coefficients $\alpha_1, \dots, \alpha_k$, find all $k$-tuples $S' = (s_1, \dots, s_k)$, $s_i \in S, \forall i \in [1,k]$, such that $\sum{i=1}{k} \alpha_i s_i = 0$.
+coefficients $\alpha_1, \dots, \alpha_k$, find all $k$-tuples
+$S' = (s_1, \dots, s_k)$, $s_i \in S$, such that
+$\sum_{i=1}^{k} \alpha_i s_i = 0$.
 \end{problem}
 
