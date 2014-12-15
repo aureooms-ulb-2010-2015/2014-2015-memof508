@@ -6,18 +6,40 @@
 
 \newcommand{\theoremname}{Theorem}
 \newcommand{\lemmaname}{Lemma}
+\newcommand{\problemname}{Problem}
 \newcommand{\corollaryname}{Corollary}
 \newcommand{\conjecturename}{Conjecture}
 
 \addto\captionsfrench{
 	\renewcommand{\theoremname}{Théorème}
 	\renewcommand{\lemmaname}{Lemme}
+	\newcommand{\problemname}{Problème}
 	\renewcommand{\corollaryname}{Corollaire}
 	\renewcommand{\conjecturename}{Conjecture}
 }
 
+
+% style
+
+% http://tex.stackexchange.com/a/13687
+
+\newtheoremstyle{slplain}% name
+  {.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space above
+  {.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space below
+  {\slshape}% Body font
+  {}%Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}%  Thm head font
+  {.}%       Punctuation after thm head
+  { }%      Space after thm head: " " = normal interword space;
+        %       \newline = linebreak
+  {}%       Thm head spec
+
+
+\theoremstyle{slplain}
+
 \newtheorem{theorem}{\theoremname}[chapter]
 \newtheorem{lemma}[theorem]{\lemmaname}
+\newtheorem{problem}[theorem]{\problemname}
 \newtheorem{corollary}[theorem]{\corollaryname}
 \newtheorem{conjecture}[theorem]{\conjecturename}
 
