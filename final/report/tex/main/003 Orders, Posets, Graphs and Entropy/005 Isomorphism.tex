@@ -1,10 +1,20 @@
 \section{Isomorphism}
 
-When we compare two posets $P$ and $Q$ we might come to the conclusion that they \emph{behave the same way}, that they \emph{have the same structure}, meaning that to go from poset $P$ to poset $Q$ only a bijection-like renaming operation on the relation and the elements would have to be performed. In such a case, we say that $P$ and $Q$ are \concept{isomorphic}.
+When we compare two posets $P$ and $Q$ we might come to the conclusion that
+they \emph{behave the same way}, that they \emph{have the same structure},
+meaning that to go from poset $P$ to poset $Q$ only a bijection-like renaming
+operation on the relation and the elements would have to be performed. In such
+a case, we say that $P$ and $Q$ are \concept{isomorphic}.
 
-Let us try to build an example. We want two posets $P = (S, \le_S)$ and $Q = (T, \le_T)$ such that they are intrinsincly different (because the case where $P = Q$ is trivial) while their structures look the same. If we want two posets to be different, at least one of $S \neq T$ or $\le_S \neq \le_T$ must be true.
+Let us try to build an example. We want two posets $P = (S, \le_S)$ and $Q =
+(T, \le_T)$ such that they are intrinsincly different (because the case where
+$P = Q$ is trivial) while their structures look the same. If we want two posets
+to be different, at least one of $S \neq T$ or $\le_S \neq \le_T$ must be true.
 
-For example, if we take the notations used in \sref{ex:poset:def:a} and we define $P$ a poset on the set ${1, 2}$ and $Q$ a poset on the set ${1, 2, 3}$ we would not be able to find a bijection between the two posets $P$ and $Q$ because the cardinality of their respective sets differ.
+For example, if we take the notations used in \sref{ex:poset:def:a} and we
+define $P$ a poset on the set ${1, 2}$ and $Q$ a poset on the set ${1, 2, 3}$
+we would not be able to find a bijection between the two posets $P$ and $Q$
+because the cardinality of their respective sets differ.
 
 \begin{table}
 \centering
@@ -38,7 +48,12 @@ For example, if we take the notations used in \sref{ex:poset:def:a} and we defin
 \end{tabular}
 \end{table}
 
-Since we need sets of the same cardinality, let us define the sets $S = {1, 2, 3}$ (the set of $P$) and $T = {1, 2, 4}$ (the set of $Q$). If we now consider the relation $\le_S = \le_T = \le$ we can construct a table mapping elements of $P$ to elements of $Q$, we name this mapping $\phi$, in such a way that $x \le_S y \iff \phi(x) \le_T \phi(y)$. \cref{table:poset:iso:a,table:poset:iso:b} proove that the construction of this mapping is possible.
+Since we need sets of the same cardinality, let us define the sets $S = {1, 2,
+3}$ (the set of $P$) and $T = {1, 2, 4}$ (the set of $Q$). If we now consider
+the relation $\le_S = \le_T = \le$ we can construct a table mapping elements of
+$P$ to elements of $Q$, we name this mapping $\phi$, in such a way that $x
+\le_S y \iff \phi(x) \le_T \phi(y)$. \cref{table:poset:iso:a,table:poset:iso:b}
+proove that the construction of this mapping is possible.
 
 \begin{figure}
 	\centering
@@ -47,18 +62,41 @@ Since we need sets of the same cardinality, let us define the sets $S = {1, 2, 3
 	\label{fig:poset:iso:a}
 \end{figure}
 
-\ref{fig:poset:iso:a} shows two small diagrams for the example we just gave. Those diagrams provide an illustration of what we mean by \emph{posets having the same structure}. Looking at a poset ($P$ or $Q$), an edge from an upper node $x$ to a lower node $y$ implies that $x R y$ holds, where $R$ is the order of the considered poset.
+\ref{fig:poset:iso:a} shows two small diagrams for the example we just gave.
+Those diagrams provide an illustration of what we mean by \emph{posets having
+the same structure}. Looking at a poset ($P$ or $Q$), an edge from an upper
+node $x$ to a lower node $y$ implies that $x R y$ holds, where $R$ is the order
+of the considered poset.
 
-\nb{\ref{fig:poset:iso:a} shows two Hasse diagrams. In those diagrams, we notice that edges that can be deduced by the transitivity property are not drawn. The topic of Hasse diagrams will be covered in detail in \ref{tree:poset:hasse}.}
+\nb{\ref{fig:poset:iso:a} shows two Hasse diagrams. In those diagrams, we
+notice that edges that can be deduced by the transitivity property are not
+drawn. The topic of Hasse diagrams will be covered in detail in
+\ref{tree:poset:hasse}.}
 
-We currently only gave examples of finite posets, we could show what can be achieved with infinite posets. For this example we choose $S = T = \mathbb{R}$, $\le_S = \le$ and $\le_T = \ge$. We notice that by negating the relation $\le_S$ and thus mapping $x \in \mathbb{R}$ in $S$ to $-x$ in $T$ we get a bijection between the sets of $S$-relations and $T$-relations, namely for all $x, y \in \mathbb{R}$ we have $x \le y \iff -x \ge -y$.
+We currently only gave examples of finite posets, we could show what can be
+achieved with infinite posets. For this example we choose $S = T = \R$,
+$\le_S = \le$ and $\le_T = \ge$. We notice that by negating the relation
+$\le_S$ and thus mapping $x \in \R$ in $S$ to $-x$ in $T$ we get a
+bijection between the sets of $S$-relations and $T$-relations, namely for all
+$x, y \in \R$ we have $x \le y \iff -x \ge -y$.
 
-In general, posets must have the \emph{same size} to be isomorphic. This remark is trivial for finite sets, but for infinite sets, countable sets cannot be isomorphic to uncountable sets and vice versa. Another general remark is that those posets must have the same bounds, e.g. a closed interval cannot be isomorphic to an open interval and vice versa because a closed interval has a least and greatest element, while an open one has not (see \ref{tree:poset:leastandgreatest} for an illustration).
+In general, posets must have the \emph{same size} to be isomorphic. This remark
+is trivial for finite sets, but for infinite sets, countable sets cannot be
+isomorphic to uncountable sets and vice versa. Another general remark is that
+those posets must have the same bounds, e.g. a closed interval cannot be
+isomorphic to an open interval and vice versa because a closed interval has a
+least and greatest element, while an open one has not (see
+\ref{tree:poset:leastandgreatest} for an illustration).
 
-Now that we see what isomorphism means for posets, we can quote the definition from \cite{Stanley:2011:ECV:2124415}, 
+Now that we see what isomorphism means for posets, we can quote the definition
+from \cite{Stanley:2011:ECV:2124415},
 
 \begin{quotation}
 
-Two posets $P$ and $Q$ are \defineconcept{isomorphic}, denoted $P \cong Q$, if there exists an \emph{order-preserving bijection} $\phi : P \to Q$ whose inverse is order-preserving; that is, $$s \leq t~\text{in}~P \iff \phi(s) \leq \phi(t)~\text{in}~Q.$$ For example, if $B_S$ denotes the poset of all subsets of the set $S$ ordered by inclusion, then $B_S \cong B_T$ whenever $\#S = \#T$.
+Two posets $P$ and $Q$ are \defineconcept{isomorphic}, denoted $P \cong Q$, if
+there exists an \emph{order-preserving bijection} $\phi : P \to Q$ whose
+inverse is order-preserving; that is, $$s \leq t~\text{in}~P \iff \phi(s) \leq
+\phi(t)~\text{in}~Q.$$ For example, if $B_S$ denotes the poset of all subsets
+of the set $S$ ordered by inclusion, then $B_S \cong B_T$ whenever $\#S = \#T$.
 
 \end{quotation}

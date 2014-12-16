@@ -1,7 +1,7 @@
 \section{Stirling}
 \label{tree:sorting:stirling}
 
-Later on in \ref{tree:supi} we will be interested by counting elements in finite sets. By counting we mean for an infinite collection of finite sets $S_i$ where $i$ ranges over some index set $I$ (e.g. $I = \mathbb{N}$) finding a counting function $f(i)$ that is valid for all $S_i$. In general we will only use the most satisfactory such formula. By most satisfactory we mean a completely explicit closed formula involving only well-known functions, and free from summation (and product) symbols. But, be aware, only in rare cases will such a formula exist, and the most complicated an expression of $f(i)$ becomes the less we are willing to accept it as a determination. \cite{Stanley:2011:ECV:2124415}
+Later on in \ref{tree:supi} we will be interested by counting elements in finite sets. By counting we mean for an infinite collection of finite sets $S_i$ where $i$ ranges over some index set $I$ (e.g. $I = \N$) finding a counting function $f(i)$ that is valid for all $S_i$. In general we will only use the most satisfactory such formula. By most satisfactory we mean a completely explicit closed formula involving only well-known functions, and free from summation (and product) symbols. But, be aware, only in rare cases will such a formula exist, and the most complicated an expression of $f(i)$ becomes the less we are willing to accept it as a determination. \cite{Stanley:2011:ECV:2124415}
 
 If we take the example of counting \emph{the number of ways a pile of books can be rearranged} (i.e. by permutation of the relative places of books) we can conclude that for $S_i$ being the set of all piles containing the same $i$ books we could manage to build by rearranging these $i$ books,
 
@@ -46,7 +46,7 @@ This satisfactory formula is known as Stirling's approximation (1730). Details a
 
 For example, \ref{tree:sorting:corollary/stirling} will be particulary useful when proving asymptotic complexity of sorting and merging algorithms, because of the way these problems are optimally tackled (divide and conquer).
 
-Note that another way of looking at \ref{tree:sorting:corollary/stirling} is saying that for some constant $c \in \mathbb{R}$ and for $N \in \mathbb{R}$,
+Note that another way of looking at \ref{tree:sorting:corollary/stirling} is saying that for some constant $c \in \R$ and for $N \in \R$,
 
 
 $$c \cdot n \log n \leq \log(n!) \leq n \log n, \Forall n \geq N$$.
