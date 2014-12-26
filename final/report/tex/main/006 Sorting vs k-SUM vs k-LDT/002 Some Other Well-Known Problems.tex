@@ -1,1 +1,38 @@
 \section{Some Other Well-Known Problems}
+
+
+\begin{table}
+	\begin{center}
+	\caption{Algorithms for the point location in an arrangement of hyperplanes
+problem}
+	\label{tree:sortsumldt:other:pointlocation/algorithms}
+	\begin{tabular}{|c|c|c|c|}
+
+	\hline
+	Name & Preprocessing the arrangement & Time-Complexity & Query-Complexity\\\hline\hline
+	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
+	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
+	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
+	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
+	\end{tabular}
+	\end{center}
+\end{table}
+
+
+We now describe a problem which, we will see later, can be used to model
+various kind of set sum (including linear degeneracy testing problems)
+problems.
+
+We define the point location in an arrangement of hyperplanes as follows,
+
+\begin{problem}
+Given a point $x \in \R^n$ and an arrangement of hyperplanes $\H = \left\{ H_i
+| 1 \leq i \leq m \right\}$ determine the position vector of $x$, $\pv(x) \in
+\signset^n$ where $\pv(x)_i = \sigma, \sigma \in \signset$ iff $x \in
+H_i^{\sigma}$. We define $H_i^{0}$, $H_i^{-}$ and $H_i^{+}$ to be
+respectively $H_i$ itself, the half-space under $H_i$ and the half-space above
+$H_i$.
+\end{problem}
+
+There exist several methods to solve this problem. We classify them
+in~\ref{tree:sortsumldt:other:pointlocation/algorithms}.
