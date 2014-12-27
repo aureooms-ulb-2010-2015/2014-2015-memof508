@@ -1,0 +1,25 @@
+\section{Sorting $X+Y$ is a $4$-LDT problem}
+
+Similarly to how the sorting problem is a linear degeneracy testing problem,
+sorting $X+Y$ is a $4$-LDT problem. Let us define the $4$-LDT problem,
+
+\begin{problem}
+Given a set $S \subset \R$, $\card{S} = n$, and coefficients $\alpha_0,
+\alpha_1, \alpha_2, \alpha_3, \alpha_4$ find all $(a,b,c,d) \in S^4$ such that
+$\alpha_0 + \alpha_1 a + \alpha_2 b + \alpha_3 c + \alpha_4 d = 0$.
+\end{problem}
+
+When sorting $X+Y$ we need to determine whether $a + b < c + d$ for all
+$(a,b,c,d) \in (X \times Y)^2$, this sums up to determine the sign of $(a+b) -
+(c+d)$, i.e. asking questions of the kind $a + b - c - d = 0$. We can thus
+reformulate sorting $X+Y$ the following way,
+
+\begin{problem}
+Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b,c,d) \in S^4$ such
+that $a + b - c - d = 0$.
+\end{problem}
+
+All sorting $X+Y$ problem instances are thus instances of the $4$-LDT problem
+with $\alpha_0 = 0, \alpha_1 = \alpha_2 = 1, \alpha_3 = \alpha_4 = -1 and S = X
+\cup Y$.
+
