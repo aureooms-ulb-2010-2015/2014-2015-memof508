@@ -1,0 +1,26 @@
+\section{Sorting $X+Y$ is $4$-SUM}
+
+Similarly to how sorting is $2$-SUM, sorting $X+Y$ is $4$-SUM. Let us define
+the $4$-SUM problem,
+
+\begin{problem}
+Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b,c,d) \in S^4$ such that
+$a + b + c + d = 0$.
+\end{problem}
+
+When sorting $X+Y$ we need to determine whether $a + b < c + d$ for all
+$(a,b,c,d) \in (X \times Y)^2$, this sums up to determine the sign of $(a+b) -
+(c+d)$, i.e. asking questions of the kind $a + b - c - d = 0$. We can thus
+reformulate sorting $X+Y$ the following way,
+
+\begin{problem}
+Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b,c,d) \in S^4$ such
+that $a + b - c - d = 0$.
+\end{problem}
+
+However there could be some misunderstanding. While it was clear earlier that
+there was no more $a+b=0$ than $a-b=0$ questions and that determining the sign
+of $f(a,b)$ was tantamount to determining the sign of $f(b,a)$, here the order
+of $(a,b,c,d)$ tuples could matter. The above problem statement is in fact
+lacking some constraints that are implicit to the structure of the set $(X
+\times Y)^2$. This will be further explained in the next section.
