@@ -1,1 +1,31 @@
-\section{$2$-LDT vs Sorting}
+\section{Sorting is $2$-SUM}
+
+As we will see right now, sorting is $2$-SUM. Let us define the $2$-SUM
+problem,
+
+\begin{problem}
+Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b) \in S^2$ such that
+$a + b = 0$.
+\end{problem}
+
+
+In the sorting problem we need to determine whether $a < b$ for all $(a,b)$
+pairs, this sums up to determine the sign of $a-b$. If we would like to rewrite
+the sorting problem definition in the same fashion we would come up with the
+following definition,
+
+\begin{problem}
+Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b) \in S^2$ such that
+$a - b = 0$.
+\end{problem}
+
+The intuition is correct even though $a \neq b$ implies $a-b \neq 0$ for all
+$(a,b) \in S^2$, and so there can not be such pair $(a,b)$, but, the important
+bit is that computing $a-b$ reveals the answer to the question $a<b$ as we
+noticed earlier. An algorithm that determines the sign of $a-b$ for all $(a,b)$
+pairs is thus effectively retrieving the information required to sort the set
+$S$.
+
+Sorting and $2$-SUM are thus very similar problems. While sorting $S$ amounts
+to determine the sign of $a-b$ for all $(a,b)$ pairs, solving the $2$-SUM
+problem on set $S$ amounts to determine the sign of $a+b$ for the same pairs.
