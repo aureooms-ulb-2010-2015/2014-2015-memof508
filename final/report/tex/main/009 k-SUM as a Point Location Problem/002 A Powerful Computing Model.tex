@@ -7,5 +7,43 @@ polynomial time.
 
 Since the beginning of this writing, we were only interested by the number of
 questions we ask to an oracle, and we will continue to take the same point of
-view here. We wonder how many times we will need to effectively ask an oracle
+view here. We wonder how many times we need to effectively ask an oracle
 whether a point lies above, on or under a certain hyperplane.
+
+The algorithm we will describe determines the position vector $\pv(x) \in
+\signset^{\binom{n}{k}} $ of input vertex $x = {x_1, \dots, x_n}$, effectively
+solving the $k$-SUM problem using \BigO{n^3} $n$-variate linear queries.
+
+For fixed $k$ we draw all hyperplanes having equation involving exactly $k$
+coordinates of $\R^n$ with coefficient $1$, we have thus $\card{\H} =
+\binom{n}{k}$. We can do this without involving the input vertex at all, this
+costs us $0$ queries.
+
+We give each hyperplane an orientation such that when point $x$ is below
+hyperplane $H_i$, it is in the lower half-space defined by $H_i$ denoted
+$\Him$. When point $x$ is above hyperplane $H_i$ it is in the upper
+half-space defined by $H_i$ denoted $\Hip$. We define $\Hiz$ to be the
+hyperplane $H_i$ itself. The $i^{th}$ component of the position vector is
+$\pv(x)_i = \sigma$ if and only if $x \in \His$.
+
+Our first idea to determine the components of $\pv(x)$ is to iteratively
+select a random subset of size \BigO{\poly(n)} constitued of hyperplanes of the
+arrangement $\Ht$ for which the relative position of $x$ has not yet been
+determined and compute a position vector for this subset. Once we have located
+vertex $x$ inside $\Ht$ we have effectively determined in
+which cell of the arrangement $\Ht$ $x$ lies.
+
+We are left with hyperplanes of the set $\H \setminus \Ht$. They can be
+partitioned in two disjoint sets: set $\M$ of hyperplanes that meet the cell of
+$\Ht$ containing $x$ and set $\O$ for the others. The relative position of $x$ to each
+hyperplane belonging to $\O$ can be deduced without the need to query the oracle, the answer
+to the queries we would make can be computed by looking at the structure of
+the arrangement itself. For the first group of hyperplanes we just call the
+procedure again with $\H \gets \M$.
+
+If we stop our explanation here we still have a worst case \BigO{\binom{n}{k}}
+bound on the number of queries made. Hopefully, the next step of our
+explanation will show that it is possible to lower this bound.
+
+
+
