@@ -12,7 +12,8 @@ whether a point lies above, on or under a certain hyperplane.
 
 The algorithm we will describe determines the position vector $\pv(x) \in
 \signset^{\binom{n}{k}} $ of input vertex $x = {x_1, \dots, x_n}$, effectively
-solving the $k$-SUM problem using \BigO{n^3} $n$-variate linear queries.
+solving the $k$-SUM problem using \BigO{n^3 \log^2 n} $n$-variate linear
+queries.
 
 For fixed $k$ we draw all hyperplanes having equation involving exactly $k$
 coordinates of $\R^n$ with coefficient $1$, we have thus $\card{\H} =
@@ -35,15 +36,56 @@ which cell of the arrangement $\Ht$ $x$ lies.
 
 We are left with hyperplanes of the set $\H \setminus \Ht$. They can be
 partitioned in two disjoint sets: set $\M$ of hyperplanes that meet the cell of
-$\Ht$ containing $x$ and set $\O$ for the others. The relative position of $x$ to each
-hyperplane belonging to $\O$ can be deduced without the need to query the oracle, the answer
-to the queries we would make can be computed by looking at the structure of
-the arrangement itself. For the first group of hyperplanes we just call the
-procedure again with $\H \gets \M$.
+$\Ht$ containing $x$ and set $\O$ for the others. The relative position of $x$
+to each hyperplane belonging to $\O$ can be deduced without the need to query
+the oracle, the answer to the queries we would make can be computed by looking
+at the structure of the arrangement itself. For the first group of hyperplanes
+we just call the procedure again with $\H \gets \M$.
 
 If we stop our explanation here we still have a worst case \BigO{\binom{n}{k}}
 bound on the number of queries made. Hopefully, the next step of our
 explanation will show that it is possible to lower this bound.
 
+The problem we have with our current algorithm is that there is no guarantee
+on the number of queries we avoid at each step.
 
+We will use a result on $\epsilon$-nets to make our algorithm achieve an
+upperbound of \BigO{n^3 \log^2 n} queries.
+
+\begin{theorem}
+Suppose we have a set $\H$ of $m$ hyperplanes in $\R^n$, if we choose
+$\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}$ hyperplanes uniformly at
+random from our $m$ hyperplanes and denote this selection $\H^{*}$ then for
+any simplex intersecting at least $\epsilon$ hyperplanes of $\H$ there is a
+high probability that at least one of them is contained in $\H^{*}$.
+\end{theorem}
+
+If we take the contraposition of this theorem we obtain the following
+corollary,
+
+\begin{corollary}
+If there is no hyperplane $\in \H^{*}$ intersecting a given simplex then, with
+high probability, the number of hyperplanes of $\H$ intersecting the simplex
+is less than $\epsilon$.
+\end{corollary}
+
+We can use this corollary in the algorithm we were just describing earlier. We
+now make two changes to the previous algorithm, we explicitely define the
+cardinality of $\Ht$ and we include an additional step where we replace cell
+$\cell$ with a simplex $\simplex$.
+
+We choose $\card{\Ht} = \frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}$,
+remember $\Ht$ is the set of hyperplanes for which we will query the oracle in
+the current step of the algorithm, and instead of directly discarding
+hyperplanes not meeting the cell $\cell$ of the arrangement $\Ht$ containing $x$ we
+refine the cell around point $x$ by computing a simplex $\simplex$ inscribed
+to $\cell$ and containing $x$, and only after that discard hyperplanes that do
+not meet the simplex.
+
+By proceeding this way we have now the guarantee that we will keep at most a
+constant fraction ($\epsilon$) of the hyperplanes and thus, by geometric
+series, the total number of queries made to determine the enclosing cell of
+each step is \BigO{\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}}. However, we
+still need to explicit how we find a simplex $\simplex$ containing $x$ and
+inscribed to $\cell$.
 
