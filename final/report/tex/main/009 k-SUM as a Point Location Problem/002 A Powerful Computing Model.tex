@@ -11,7 +11,8 @@ view here. We wonder how many times we need to effectively ask an oracle
 whether a point lies above, on or under a certain hyperplane.
 
 The algorithm we will describe determines the position vector $\pv(x) \in
-\signset^{\binom{n}{k}} $ of input vertex $x = {x_1, \dots, x_n}$, effectively
+\signset^{m}$ of input vertex $x = {x_1, \dots, x_n}$ inside an
+arrangement of hyperplanes $\H$ of cardinality $\card{\H} = m = \binom{n}{k}$, effectively
 solving the $k$-SUM problem using \BigO{n^3 \log^2 n} $n$-variate linear
 queries.
 
@@ -42,7 +43,7 @@ the oracle, the answer to the queries we would make can be computed by looking
 at the structure of the arrangement itself. For the first group of hyperplanes
 we just call the procedure again with $\H \gets \M$.
 
-If we stop our explanation here we still have a worst case \BigO{\binom{n}{k}}
+If we stop our explanation here we still have a worst case \BigO{m}
 bound on the number of queries made. Hopefully, the next step of our
 explanation will show that it is possible to lower this bound.
 
@@ -102,4 +103,28 @@ opposite face of $\cell$.
 \item[3.$\;$] Induction on $x'$.
 \end{description}
 
-\dots
+We can solve step \textbf{1.} by using linear programming with our
+\BigO{\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}} hyperplanes and the
+answers to queries $x \mathop{\in}^{?} \His, \sigma \in \signset$ as
+constraints of the linear program. We just look for any realizable solution.
+
+In step \textbf{2.} we find the projection of $x$ on $\cell$ by computing the
+closest hyperplane to $x$ in direction $\vec{\nu x}$.
+
+In step \textbf{3.} the base case is $n = 0$. In $\R^0$ we have only one point
+and this point is the last vertex of our simplex.
+
+Remember that once we have the simplex $\simplex$, we do not need to query the input point
+$x$ to sort out what meets the $\simplex$ or not. The simplex is composed
+entirely of vertices and faces from the hyperplane arrangement $\Ht$ hence its
+structure does not depend on $x$.
+
+
+
+
+
+
+
+
+
+
