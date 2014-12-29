@@ -92,12 +92,14 @@ inscribed to $\cell$.
 We will now explain how to build $\simplex$. The algorithm can be sketched as
 follows,
 
-
 \setdescription{leftmargin=1.5cm,labelindent=\parindent}
 \begin{description}
 \addtolength{\itemsep}{-0.5\baselineskip}
 \item[1.$\;$] Find a vertex $\nu$ of the cell containing $x$, $\nu$ is one of
 the vertices of our simplex.
-\item[2.$\;$] Compute $x'$, the projection of $x$ along $\nu
-\item[3.$\;$] If no witnesses were found report ``no witness.''
+\item[2.$\;$] Compute $x'$, the projection of $x$ along $\vec{\nu x}$ on the
+opposite face of $\cell$.
+\item[3.$\;$] Induction on $x'$.
 \end{description}
+
+\dots
