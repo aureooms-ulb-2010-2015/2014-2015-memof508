@@ -80,7 +80,7 @@ the current step of the algorithm, and instead of directly discarding
 hyperplanes not meeting the cell $\cell$ of the arrangement $\Ht$ containing $x$ we
 refine the cell around point $x$ by computing a simplex $\simplex$ inscribed
 to $\cell$ and containing $x$, and only after that discard hyperplanes that do
-not meet the simplex.
+not meet this simplex.
 
 By proceeding this way we have now the guarantee that we will keep at most a
 constant fraction ($\epsilon$) of the hyperplanes and thus, by geometric
@@ -89,3 +89,15 @@ each step is \BigO{\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}}. However, we
 still need to explicit how we find a simplex $\simplex$ containing $x$ and
 inscribed to $\cell$.
 
+We will now explain how to build $\simplex$. The algorithm can be sketched as
+follows,
+
+
+\setdescription{leftmargin=1.5cm,labelindent=\parindent}
+\begin{description}
+\addtolength{\itemsep}{-0.5\baselineskip}
+\item[1.$\;$] Find a vertex $\nu$ of the cell containing $x$, $\nu$ is one of
+the vertices of our simplex.
+\item[2.$\;$] Compute $x'$, the projection of $x$ along $\nu
+\item[3.$\;$] If no witnesses were found report ``no witness.''
+\end{description}
