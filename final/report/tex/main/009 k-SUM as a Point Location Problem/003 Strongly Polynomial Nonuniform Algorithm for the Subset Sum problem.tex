@@ -1,4 +1,26 @@
 \section{Strongly Polynomial Nonuniform Algorithm for the Subset Sum problem}
 
-\nb{talk about problems already covered by burgisser and meiser and add note
-on subset sum}
+We now apply Meiser's Algorithm to the subset sum problem. In the subset sum
+problem with input set $S \subset \R$ of cardinality $\card{S} = n$ we want to
+find all subsets $S' \subset S$ whose elements sum up to zero, hence we have
+to search through $2^n$ subsets of $S$. Reducing to the point location in an
+arrangement of hyperplanes problem, we have now to locate input point $x \in
+\R^n$ inside an arrangement of $2^n$ hyperplanes, i.e. all hyperplanes with
+equation having combinations of $0$ or $1$ as coefficients. Meiser's Algorithm
+solves this problem using only \BigO{n^4 \log^2 n} queries, i.e. $\poly$-time
+in our decision tree model.
+
+The subset sum problem is of interest here because it is an NP-complete problem
+(\cite{karp:1972}), while our model of computation gives a polynomial time
+algorithm. When the algorithm is described in \cite{burgisser:1997} it is not
+assumed that the analysis is made in a different model than the classical
+bit-model but rather than the size of the input $n$ is not part of the input
+but rather known in advance, allowing one to construct an efficient data
+structure for $\A(\H)$ for any instance of the problem with fixed $n$. This
+kind of algorithme is refered as a \emph{nonuniform polynomial time algorithm}.
+In this specific case it is also strongly polynomial since the computations
+involved produce only real numbers whose size is bounded by the size of the
+input.
+
+\cite{burgisser:1997} and \cite{meiser:1993} give other examples of
+NP-complete problems that can be solved with Meiser's algorithm.
