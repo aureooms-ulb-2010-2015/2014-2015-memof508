@@ -28,7 +28,7 @@ hyperplane $H_i$, it is in the lower half-space defined by $H_i$ denoted
 $\Him$. When point $x$ is above hyperplane $H_i$ it is in the upper
 half-space defined by $H_i$ denoted $\Hip$. We define $\Hiz$ to be the
 hyperplane $H_i$ itself. The $i^{th}$ component of the position vector is
-$\pv(x)_i = \sigma$ if and only if $x \in \His$.
+$\pv_i(x) = \sigma$ if and only if $x \in \His$.
 
 Our first idea to determine the components of $\pv(x)$ is to iteratively
 select a random subset of size \BigO{\poly(n)} constitued of hyperplanes of the
@@ -156,7 +156,7 @@ $x$, effectively computing cell $\cell$ containing $x$ \textbf{(\BigO{n^2
 \log^2 n} q.)}
 \item[2.] recursively build simplex $\simplex$ containing $x$ and inscribed to $\cell$
 \textbf{(\BigO{n^3 \log^2 n} q.)}
-\item[3.] for any hyperplane $H_i$ not meeting the simplex, deduce $\pv(x)_i$
+\item[3.] for any hyperplane $H_i$ not meeting the simplex, deduce $\pv_i(x)$
 \textbf{($0$ q.)}
 \item[4.] discard all hyperplanes that do not meet the inside of the
 simplex \textbf{($0$ q.)}

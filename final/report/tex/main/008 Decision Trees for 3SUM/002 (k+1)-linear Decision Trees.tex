@@ -1,15 +1,8 @@
 \section{$(k+1)$-linear Decision Trees}
 
-In \cite{gronlund:2014}, a new algorithm solving the $3$-SUM problem using a
-subquadratic number of linear queries is shown. Moreover, two algorithms
-solving the problem in subquadratic time are demonstrated.
-
-Those results refute a conjecture by \dots stating that the $3$-SUM problem can
-not be solved in subquadratic time.
-
-In the classical quadratic algorithm for $3$-SUM, $3$-linear queries of the
-form \emph{do these $3$ numbers sum up to $0$} are used. In their first
-algorithm, breaking the \BigOmega{n^2} bound on the number of queries, Gronlund
-and Pettie use $4$-linear queries.
-
-\dots
+\cite{ailon:2005} makes a study of $s$-linear decision trees to solve the $k$-SUM
+problem when $s > k$. In particular, it gives an additional proof for the
+\BigOmega{n^{\ceil{\frac{k}{2}}}} of \cite{erickson:1999} and establishes new
+lower bounds for all $s > k$. The case $s = k+1$ leads to a subquadratic
+lower bound for $3$-SUM. However, at that point, we are still missing an actual
+subquadratic algorithm for $3$-SUM.

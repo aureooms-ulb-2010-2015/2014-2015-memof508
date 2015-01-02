@@ -2,6 +2,10 @@
 \DeclareMathOperator{\Exists}{\exists}
 \DeclareMathOperator{\Forall}{\forall}
 
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\enum}[1]{\left\{#1\right\}}
+\def\st{\mid}
+
 \def\0{\emptyset}
 \def\R{\mathbb{R}}
 \def\C{\mathbb{C}}
@@ -12,23 +16,27 @@
 \newcommand{\ask}[1]{\mathop{#1}^{?}}
 
 \def\A{\mathcal{A}}
-\def\H{\mathcal{H}}
+\def\H{\set{H}}
 \def\Him{H_i^{-}}
 \def\Hiz{H_i^{0}}
 \def\Hip{H_i^{+}}
 \def\His{H_i^{\sigma}}
 \def\Ht{\widetilde{\H}}
-\def\M{\mathcal{M}}
-\def\O{\mathcal{O}}
-\def\NH{\mathcal{N}}
+\def\M{\set{M}}
+\def\O{\set{O}}
+\def\NH{\set{N}}
 
 \def\pv{\mathit{pv}}
-\def\signset{\left\{-, 0, +\right\}}
+\def\signset{\enum{-, 0, +}}
 
 \def\poly{\mathit{poly}}
-\def\cell{\mathcal{C}}
-\def\simplex{\mathcal{S}}
+\def\cell{C}
+\def\simplex{S}
 
 \def\enet{$\epsilon$-net}
 \def\enets{$\epsilon$-nets}
 \def\enetsize{\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
