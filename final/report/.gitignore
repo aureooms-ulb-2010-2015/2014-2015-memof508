@@ -1,6 +1,9 @@
-perso.sty
-final.pdf
+
 final.tex
+stylesheet.sty
+bibliography.bib
+
+final.pdf
 *.aux
 *.lof
 *.log
@@ -19,5 +22,7 @@ final.tex
 *.lomintedobject
 *.loalgobject
 *.loe
-bib/touch.bbl
-bib/touchtmp.bbl
+
+bib/.changed
+sys.err
+sys.out

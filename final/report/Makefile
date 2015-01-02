@@ -1,15 +1,16 @@
 $(VERBOSE).SILENT:
 
 FILENAME = final
-STYLESHEET = perso
+STYLESHEET = stylesheet
+BIBLIOGRAPHY = bibliography
 
-#DONOTTOUCH
+TEX = tex
+STY = sty
+BIB = bib
 
-
-
-OK_STRING=$(OK_COLOR)✔
-ERROR_STRING=$(ERROR_COLOR)✖
-WARN_STRING=$(WARN_COLOR)⚑
+OK_STRING = $(OK_COLOR)✔
+WARN_STRING = $(WARN_COLOR)⚑
+ERROR_STRING = $(ERROR_COLOR)✖
 
 ifneq ($(nocolor),true)
 	NO_COLOR=\033[0m
@@ -20,11 +21,8 @@ ifneq ($(nocolor),true)
 endif
 
 
-TEX = tex
-STY = sty
-BIB = bib
 TEXFILES = $(shell find $(TEX) -regex .*\\.tex | sed 's/:/\\:/g' | sed 's/ /\\ /g')
-STYFILES = $(shell find $(STY) -regex .*\\.sty | sed 's/:/\\:/g' | sed 's/ /\\ /g')
+STYFILES = $(shell find $(STY) -regex .*\\.sty 2>/dev/null | sed 's/:/\\:/g' | sed 's/ /\\ /g')
 BIBFILES = $(shell find $(BIB) -regex .*\\.bib 2>/dev/null | sed 's/:/\\:/g' | sed 's/ /\\ /g')
 
 RERUN = "(There were undefined references|Rerun to get (cross-references|the bars) right)"
@@ -38,52 +36,70 @@ default: all
 
 all: $(FILENAME).pdf
 
-$(FILENAME).pdf: $(FILENAME).tex $(STYLESHEET).sty bib/touch.bbl
+$(FILENAME).pdf: $(FILENAME).tex $(STYLESHEET).sty $(BIBLIOGRAPHY).bib
 
 	echo -n "$(ACTION_COLOR)"link \#1"$(NO_COLOR) "
-	$(LATEX) $(FILENAME).tex 1> temp.log || touch temp.errors
-	if [ -e temp.errors ]; then echo "$(ERROR_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; fi;
-	if [ -e temp.errors ]; then rm -f temp.errors temp.log && false; fi;
-	if [ -e bib/touchtmp.bbl ]; then echo -n "\n$(ACTION_COLOR)"bibtex"$(NO_COLOR) " \
-	&& $(BIBTEX) $(FILENAME) 1> temp.log && rm bib/touchtmp.bbl \
-	|| (touch temp.errors && rm bib/touchtmp.bbl); fi
-	if [ -e temp.errors ]; then echo "$(ERROR_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; fi;
-	if [ -e temp.errors ]; then rm -f temp.errors temp.log && false; fi;
+	$(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err
+	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
+	if [ -e $(BIB)/.changed ]; then echo -n "\n$(ACTION_COLOR)"bibtex"$(NO_COLOR) " \
+	&& $(BIBTEX) $(FILENAME) 1> sys.out && rm $(BIB)/.changed \
+	|| (touch sys.err && rm $(BIB)/.changed); fi
+	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
 	if [ -e $(FILENAME).idx ]; then echo -n "\n$(ACTION_COLOR)"makeindex"$(NO_COLOR) " \
-	&& $(MAKEINDEX) $(FILENAME) 2> temp.log || touch temp.errors; fi
-	if [ -e temp.errors ]; then echo "$(ERROR_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; fi;
-	if [ -e temp.errors ]; then rm -f temp.errors temp.log && false; fi;
+	&& $(MAKEINDEX) $(FILENAME) 2> sys.out || touch sys.err; fi
+	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
 	echo -n "\n$(ACTION_COLOR)"link \#2"$(NO_COLOR) "
-	$(LATEX) $(FILENAME).tex 1> temp.log || touch temp.errors
-	if [ -e temp.errors ]; then echo "$(ERROR_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; fi;
-	if [ -e temp.errors ]; then rm -f temp.errors temp.log && false; fi;
+	$(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err
+	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
 	if egrep -q $(RERUN) $(FILENAME).log ; then echo -n "\n$(ACTION_COLOR)"link \#3"$(NO_COLOR) " \
-	&& $(LATEX) $(FILENAME).tex 1> temp.log || touch temp.errors; fi
-	if [ -e temp.errors ]; then echo "$(ERROR_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; fi;
-	if [ -e temp.errors ]; then rm -f temp.errors temp.log && false; fi;
+	&& $(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err; fi
+	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
 	if egrep -q $(RERUN) $(FILENAME).log ; then echo -n "\n$(ACTION_COLOR)"link \#4"$(NO_COLOR) " \
-	&& $(LATEX) $(FILENAME).tex 1> temp.log || touch temp.errors; fi
-	if [ -e temp.errors ]; then echo "$(ERROR_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; elif [ -s temp.log ]; then echo "$(WARN_STRING)" && cat temp.log && echo -n "$(NO_COLOR)"; else echo "$(OK_STRING)$(NO_COLOR)"; fi;
-	if [ -e temp.errors ]; then rm -f temp.errors temp.log && false; else rm -f temp.errors temp.log; fi;
+	&& $(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err; fi
+	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n \
+	"$(NO_COLOR)"; elif [ -s sys.out ]; then echo "$(WARN_STRING)" && \
+	cat sys.out && echo -n "$(NO_COLOR)"; \
+	else echo "$(OK_STRING)$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then rm -f sys.err sys.out && false; else rm -f \
+	sys.err sys.out; fi;
 	egrep -i $(UNDEFINED) $(FILENAME).log || true
+
 
 $(FILENAME).tex: $(TEXFILES)
 	echo "$(ACTION_COLOR)"tex files changed"$(NO_COLOR)"
 	$$ tex build $(TEX) $(FILENAME).tex
 
+ifeq ($(STYFILES),)
+
+$(STYLESHEET).sty: $(STYFILES)
+
+else
+
 $(STYLESHEET).sty: $(STYFILES)
 	echo "$(ACTION_COLOR)"sty files changed"$(NO_COLOR)"
 	$$ sty build $(STY) $(STYLESHEET).sty
 
+endif
+
 ifeq ($(BIBFILES),)
-bib/touch.bbl: $(BIBFILES)
+
+$(BIBLIOGRAPHY).bib: $(BIBFILES)
 
 else
-bib/touch.bbl: $(BIBFILES)
+
+$(BIBLIOGRAPHY).bib: $(BIBFILES)
 	echo "$(ACTION_COLOR)"bib files changed"$(NO_COLOR)"
-	touch bib/touch.bbl
-	touch bib/touchtmp.bbl
+	$$ txt concat $(BIB) $(BIBLIOGRAPHY).bib
+	touch $(BIB)/.changed
+
 endif
 
 clean:
-	rm -f *.aux *.lof *.log *.bbl *.blg *.toc *.idx *.ilg *.ind *.lol *.out *.loa *.equ *.pyg *.alg *.lomintedobject *.loalgobject *.loe $(FILENAME).tex $(FILENAME).pdf $(STYLESHEET).sty *.asy bib/touch.bbl bib/touchtmp.bbl
+	rm -f *.aux *.lof *.log *.bbl *.blg *.toc *.idx *.ilg *.ind *.lol *.out \
+	*.loa *.equ *.pyg *.alg *.lomintedobject *.loalgobject *.loe *.asy \
+	$(FILENAME).tex $(FILENAME).pdf $(STYLESHEET).sty $(BIBLIOGRAPHY).bib
