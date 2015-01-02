@@ -1,9 +1,24 @@
 \chapter{Decision Trees for $3$-SUM}
 
 In this chapter, we will talk about lower bounds for $3$-SUM implied by
-a reasoning on the decision tree model. We will first explain results due to
-Erickson, Ailon and Chazelle about $3$-linear decision trees. Secondly we will
-talk about recent results, due to Gronlund and Pettie, that refutes the $3$-SUM
-conjecture using $4$-linear decision trees.
+a reasoning on the decision tree model. The $3$-SUM problem having (almost) no
+direct application to real world problems, the study of a lower bound for this
+problem might seem childish. However, this would be true if not taking into
+account the myriad of problem that have been proved to be $3$-SUM-hard. In
+other words, a strong lower bound for the $3$-SUM problem would imply strong
+lower bounds for a multitude of other problems.
 
-\dots
+For a long time we thought that it was not possible to solve the $3$-SUM
+problem in subquadratic time. This strong thought takes the form of a
+conjecture named \emph{the $3$-SUM conjecture}. In 2014, \citet*{gronlund:2014}
+proved that this conjecture was false, pushing away the
+boundaries and leaving us with new things to explore.
+
+On this matter, we will first explain results due to
+Erickson \cite{erickson:1999} commenting the lack of power of $k$-linear
+decision trees when it comes to solving $k$-SUM. Secondly we will expose
+results by Ailon and
+Chazelle \cite{ailon:2005} using $(k+1)$-linear decision trees.
+Lastly we will talk about recent results, due to Gronlund and
+Pettie \cite{gronlund:2014}, that refutes the $3$-SUM conjecture using
+$(2k-2)$-linear decision trees.
