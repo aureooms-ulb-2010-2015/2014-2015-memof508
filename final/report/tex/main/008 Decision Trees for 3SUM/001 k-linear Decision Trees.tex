@@ -7,6 +7,32 @@ is featured. The proof is made using an adversary argument. In the case of $k$
 even, a bound of \BigOmega{n^{\frac{k}{2}}} is demonstrated. For odd $k$, the
 bound is \BigOmega{n^{\frac{k+1}{2}}}.
 
-At the end of \cite{erickson:1999}, it is asked whether other forms of
+For information, we hereunder detail the classical \BigO{n^2} algorithm for
+$3$-SUM, successfully attaining the lower bound demonstrated in
+\cite{erickson:1999} for $3$-linear decision trees. In this description we
+handle the three-set version of $3$-SUM, \ie the case where $a$, $b$ and $c$
+are taken from the three sets $\A$, $\B$ and $\C$ instead of a single set $S$.
+The description comes from \cite{gronlund:2014}.
+
+
+\begin{algorithm}
+\item[1.] Sort $\A$ and $\B$ in increasing order as $\A_1 < \ldots <
+\A_{\card{\A}}$ and $\B_1 < \ldots < \B_{\card{\B}}$
+\item[2.] For each $c \in \C$,
+\item[2.1.] Initialize $\lo \gets 1$ and $\hi \gets \card{\B}$
+\item[2.2.] Repeat until $\lo > \card{\A}$ or $\hi < 1$:
+\item[2.2.1.] If $\A_{\lo} + \B_{\hi} + c = 0$, report witness $(\A_{\lo},
+\B_{\hi}, c)$
+\item[2.2.2.] If $\A_{\lo} + \B_{\hi} + c > 0$ then decrement $\hi$, otherwise
+increment $\lo$.
+\end{algorithm}
+
+
+The running time complexity of this algorithm is
+\BigO{\card{\C}(\card{\A}+\card{\B})}, hence for the case where
+$\A = \B = \C$, \ie the one-set version of $3$-SUM, its complexity is
+\BigO{n^2}.
+
+At the end of \cite{erickson:1999}, it is asked whether other kinds of
 decision trees would prove to be more powerful. The next section exposes a
 progress in this direction made by \cite{ailon:2005}.
