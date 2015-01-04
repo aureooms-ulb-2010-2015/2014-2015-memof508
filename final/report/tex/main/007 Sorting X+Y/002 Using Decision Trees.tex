@@ -3,7 +3,12 @@
 
 In this section we will sketch a proof stating that there is an upperbound of \BigO{n^{8n}}
 on the number of linear extensions of the poset $X + Y$. We will also
-illustrate an algorithm due to Fredman (1976) that solves sorting problems
-making at most $\log\card{\Gamma} + 2n$ queries, where $\Gamma$ is the set of
-possible linear extensions. This implies, that there exists an
+illustrate an algorithm due to \citet*{fredman:1976} that solves sorting problems
+making at most $\log\card{\Gamma} + 2N$ queries, where $\Gamma$ is the set of
+possible linear extensions of the input. This implies, that there exists an
 algorithm making \BigO{n^2} queries for sorting $X + Y$.
+
+\begin{theorem}[Fredman 1976 \cite{fredman:1976}]\label{theorem:fredman:1976}
+A poset of cardinality $N$, whose linear extension is known to be contained in
+$\Gamma$ can be sorted with $\log \card{\Gamma} + 2N$ pairwise comparisons.
+\end{theorem}
