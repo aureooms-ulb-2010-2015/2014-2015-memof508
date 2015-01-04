@@ -1,18 +1,18 @@
 \section{$k$-linear Decision Trees}
 
-In \cite{erickson:1999}, it is shown that we cannot solve $3$-SUM in
+In \citet*{erickson:1999}, it is shown that we cannot solve \threeSUM in
 subquadratic time using only the $3$-linear decision tree as a model. A
-general proof for the $k$-LDT problem in the $k$-linear decision tree model
+general proof for the \kLDT problem in the $k$-linear decision tree model
 is featured. The proof is made using an adversary argument. In the case of $k$
 even, a bound of \BigOmega{n^{\frac{k}{2}}} is demonstrated. For odd $k$, the
 bound is \BigOmega{n^{\frac{k+1}{2}}}.
 
 For information, we hereunder detail the classical \BigO{n^2} algorithm for
-$3$-SUM, successfully attaining the lower bound demonstrated in
+\threeSUM, successfully attaining the lower bound demonstrated in
 \cite{erickson:1999} for $3$-linear decision trees. In this description we
-handle the three-set version of $3$-SUM, \ie the case where $a$, $b$ and $c$
-are taken from the three sets $\A$, $\B$ and $\C$ instead of a single set $S$.
-The description comes from \cite{gronlund:2014}.
+handle the three-set version of \threeSUM, \ie the case where $a$, $b$ and $c$
+are taken from the three sets $\A$, $\B$ and $\C$ instead of a single set $\U$.
+The description comes from \citet*{gronlund:2014}.
 
 
 \begin{algorithm}
@@ -30,9 +30,9 @@ increment $\lo$.
 
 The running time complexity of this algorithm is
 \BigO{\card{\C}(\card{\A}+\card{\B})}, hence for the case where
-$\A = \B = \C$, \ie the one-set version of $3$-SUM, its complexity is
+$\A = \B = \C$, \ie the one-set version of \threeSUM, its complexity is
 \BigO{n^2}.
 
 At the end of \cite{erickson:1999}, it is asked whether other kinds of
 decision trees would prove to be more powerful. The next section exposes a
-progress in this direction made by \cite{ailon:2005}.
+progress in this direction made by \citet*{ailon:2005}.

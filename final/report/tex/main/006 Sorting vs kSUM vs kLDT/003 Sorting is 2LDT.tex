@@ -1,7 +1,7 @@
-\section{Sorting is a $2$-LDT problem}
+\section{Sorting is a \twoLDT problem}
 
-As we will see right now, sorting is a $2$-LDT problem. Let us define the
-$2$-LDT problem,
+As we will see right now, sorting is a \twoLDT problem. Let us define the
+\twoLDT problem,
 
 \begin{problem}
 Given a set $S \subset \R$, $\card{S} = n$ and real coefficients $\alpha_0,
@@ -19,7 +19,7 @@ Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b) \in S^2$ such that
 $a - b = 0$.
 \end{problem}
 
-All sorting problem instances are thus instances of the $2$-LDT problem with
+All sorting problem instances are thus instances of the \twoLDT problem with
 $\alpha_0 = 0, \alpha_1 = 1, \alpha_2 = -1$.
 
 The intuition is correct even though $a \neq b$ implies $a-b \neq 0$ for all
@@ -29,7 +29,7 @@ noticed earlier. An algorithm that determines the sign of $a-b$ for all $(a,b)$
 pairs is thus effectively retrieving the information required to sort the set
 $S$.
 
-Sorting and $2$-LDT are thus very similar problems. While sorting $S$ amounts
-to determine the sign of $a-b$ for all $(a,b)$ pairs, solving the $2$-LDT
+Sorting and \twoLDT are thus very similar problems. While sorting $S$ amounts
+to determine the sign of $a-b$ for all $(a,b)$ pairs, solving the \twoLDT
 problem on set $S$ amounts to determine the sign of $\alpha_0 + \alpha_1 a +
 \alpha_2 b = 0$ for the same pairs.

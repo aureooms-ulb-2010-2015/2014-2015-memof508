@@ -1,0 +1,19 @@
+\section{The Conjecture}
+
+With the lack of an algorithm that would perform better than the intuitive
+\BigO{n^2} one, a conjecture eventually emerged,
+
+\begin{conjecture}
+The \threeSUM conjecture states that the lower bound on the number of
+comparisons in the decision tree model for the \threeSUM problem
+is \BigOmega{n^2}.
+\end{conjecture}
+
+It was indeed proved that this lower bound holds for a particular case of the
+decision tree model. By restricting himself to a $3$-linear decision tree
+model, \citet{erickson:1999} proves that \threeSUM is \BigOmega{n^2} in this
+particular model. A second proof for this particular case is given by
+\citet{ailon:2005}.
+
+It this conjecture is true, it would mean that all the \threeSUM-hard
+problems are doomed to have a \BigOmega{n^2} complexity lower bound.

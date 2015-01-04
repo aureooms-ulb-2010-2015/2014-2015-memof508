@@ -16,11 +16,11 @@ Given two sets of numbers, each of size $n$, how quickly can the set of all
 pairwise sums be sorted? In symbols, given two sets $X$ and $Y$, our goal is to
 sort the set
 
-$$ X + Y = \left\{{x + y \mid x \in X, y \in Y }\right\} $$
+$$ X + Y = \enum{x + y \st x \in X, y \in Y} $$
 
 \end{quotation}
 
-The earliest known reference is Fredman \cite{fredman1976good}, who attributes
+The earliest known reference is \citet*{fredman:1976}, who attributes
 the problem to Elwyn Berlekamp. As we can see in \ref{fig:open:xy}, this
 problem is a special case of \concept{SUPI}.
 
@@ -33,8 +33,8 @@ inside another, determining whether one convex polygon can be rotated to fit
 inside another, sorting the vertices of a line arrangement, or sorting the
 interpoint distances between $n$ points in $\R^d$.
 
-Fredman also mentions an immediate application to multiplying sparse
-polynomials in \cite{fredman1976good}. Let us explain. When we multiply
+\citet{fredman:1976} also mentions an immediate application to multiplying sparse
+polynomials. Let us explain. When we multiply
 polynomials, each of the operands can be decomposed in terms. If polynomials
 $p$ and $q$ are of size $n$ and $m$, then the resulting polynomial contains
 $nm$ terms and the degree of each term in the resulting polynomial is the sum

@@ -1,0 +1,56 @@
+\section{$(2k-2)$-linear Decision Trees}
+
+In \cite{gronlund:2014}, \citeauthor{gronlund:2014} build a decision tree
+solving the \threeSUM problem using
+a subquadratic number of linear queries. Moreover, two algorithms
+solving the \threeSUM problem in subquadratic time are demonstrated.
+
+Those results refute a long-lived conjecture stating that the \threeSUM problem
+can not be solved in subquadratic time on a \emph{Random Access Machine}.
+
+In the classical quadratic algorithm for \threeSUM, $3$-linear queries of the
+form \emph{do these $3$ numbers sum up to $0$} are used. In their first
+algorithm, breaking the \BigOmega{n^2} bound on the number of queries,
+\citeauthor{gronlund:2014} use $4$-linear queries.
+
+We list hereunder the steps of an hypothetical algorithm deciding the one-set
+version of \threeSUM with input sets $\A$, $\card{\A} = n$. By looking at the
+number of queries this algorithm requires to finish, we will proove the
+decision three complexity of \threeSUM is \BigO{n^{\sfrac{3}{2}}
+\sqrt{\log n}}.
+
+The algorithm goes as follows,
+
+\begin{algorithm}
+
+\item[1.] Sort $\A$ in increasing order as $\A(1) < \ldots < \A(n)$.
+
+\item[2.] Partition $\A$ into $\ceil{\sfrac{n}{g}}$ groups $\A_1, \ldots,
+\A_{\ceil{\sfrac{n}{g}}}$ of size at most $g$, where $\A_i \bydef \enum{\A(1 + (i-1)g),
+\ldots, \A(ig)}$ and $\A_{\ceil{\sfrac{n}{g}}}$ may contain less than $g$ elements.
+The first and last elements of $\A_i$ are $\min(A_i) = \A(1 + (i-1)g)$ and
+$\max(\A_i) = \A(ig)$.
+
+\item[3.] Sort $\D \bydef \bigcup\limits_{i = 1}^{\ceil{\sfrac{n}{g}}}
+\group{\A_i-\A_i} = \enum{a - a' \st a, a' \in \A_i}$.
+
+\item[4.] For all $i,j \in \enum{1, \ldots \ceil{\sfrac{n}{g}}}$, sort $\A_{i,j}
+\bydef \A_i + \A_j = \enum{a + b \st a \in \A_i \text{ and } b \in \A_j}$.
+
+\item[5.] For $k$ from 1 to $n$,
+
+\item[5.1.] Initialize $\lo \gets 1$ and $\hi \gets \ceil{\sfrac{k}{g}}$ to be
+the group index of $\A(k)$.
+
+\item[5.2.] Repeat until $\hi < \lo$:
+
+\item[5.2.1.] If $-\A(k) \in \A_{\lo,\hi}$, report ``solution found'' and halt.
+
+\item[5.2.2.] If $\max(\A_{\lo}) + \min(\A_{\hi}) > -\A(k)$ then decrement
+$\hi$, otherwise increment $\lo$.
+
+\item[6.] Report ``no solution'' and halt.
+
+\end{algorithm}
+
+\dots
