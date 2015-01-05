@@ -1,14 +1,53 @@
 \section{Using Decision Trees}
 \label{tree:xy:dt}
 
-In this section we will sketch a proof stating that there is an upperbound of \BigO{n^{8n}}
-on the number of linear extensions of the poset $X + Y$. We will also
-illustrate an algorithm due to \citet*{fredman:1976} that solves sorting problems
-making at most $\log\card{\Gamma} + 2N$ queries, where $\Gamma$ is the set of
-possible linear extensions of the input. This implies, that there exists an
-algorithm making \BigO{n^2} queries for sorting $X + Y$.
+In this section we will illustrate an algorithm due to \citet*{fredman:1976}
+that solves sorting problems making at most $\log\card{\Gamma} + 2n$ queries,
+where $\Gamma$ is the set of possible linear extensions of the input. We will
+also sketch a proof stating that there is an upperbound of \BigO{n^{8n}} on the
+number of linear extensions of the poset $X + Y$. This implies that there
+exists an algorithm making \BigO{n^2} queries for sorting $X + Y$.
+
+\citet{fredman:1976} defines the sorting problem as follows,
+
+\begin{problem}
+Let $\S = \enum{x_1, \ldots, x_n}$ be an $n$ element set. We define a sorting
+problem on these element to be a pair $(\Gamma, P)$, where $\Gamma$ is a
+subset of the $n!$ possible linear orderings on $\S$, and
+$P$ is a family $\family{\A_1, \ldots, \A_r}$ of disjoint nonempty sets that
+partition $\Gamma$, so that $\Gamma = \A_1 \cup \ldots \cup \A_r$. Given an
+ordering $\omega \in \Gamma$, we want to determine to which set $\A_j$ the
+ordering $\omega$ belongs by performing a sequence of comparisons between
+pairs of elements, $x_i \ask{\le} x_j$. A comparison algorithm is said to
+solve $(\Gamma, P)$ if the following condition is satisfied. Upon representing
+the algorithm as a comparison tree $T$, we associate with each leaf $L$ of $T$
+the subset $\Gamma_L$ consisting of the orderings in $\Gamma$ that define the
+path through $T$ ending at $L$. For each $L$ we must have $\Gamma_L \subseteq
+\A_j$ for some $\A_j \in P$.
+\end{problem}
+
+As usual, we will be interested in the decision tree complexity of this
+problem, which we will denote $N(\Gamma, P)$.
+
+In order to solve our \XY problem, we will only be interested in the case
+where $P$ is a partition of $\Gamma$ into singleton sets, as we desire to
+compute the correct linear extension of poset \XY out of all viable linear
+extensions of \XY. As $P$ is fixed for every $\Gamma$ in this case, we will
+always write $N(\Gamma)$ to mean $N(\Gamma, P)$.
+
+\citet{fredman:1976} proves the following theorem,
 
 \begin{theorem}[Fredman 1976 \cite{fredman:1976}]\label{theorem:fredman:1976}
-A poset of cardinality $N$, whose linear extension is known to be contained in
-$\Gamma$ can be sorted with $\log \card{\Gamma} + 2N$ pairwise comparisons.
+A poset of cardinality $n$, whose linear extension is known to be contained in
+$\Gamma$ can be sorted with $N(\Gamma) = \log \card{\Gamma} + 2n$ pairwise
+comparisons.
 \end{theorem}
+
+For our use case, the $n$ of the theorem will be the $n^2$ elements of the set
+\XY. We will prove later what $\card{\Gamma}$ is for the sorting \XY problem.
+
+To prove the correctness of the theorem, \citet{fredman:1976} builds a biased
+insertion sort algorithm that we will now explain.
+
+The algorithm is an insertion working as follows \dots
+
