@@ -1,5 +1,21 @@
 \section{Introduction}
 \label{tree:merging:intro}
 
-If we ignore the merge sort algorithm which was presented in \ref{tree:sorting:alg/table} there are not so many example of practical merging procedures. Indeed, this problem seems impopular and outdated. Even wikipedia states that merge algorithms are \emph{a family of algorithms that run sequentially over multiple sorted lists, typically producing more sorted lists as output}, which are not the only algorithms that we will consider. If we want for example to build a sorted output sequence from two sorted input sequences, a common, practical and simple way to do it is to read both input sequences sequentially, as if they were priority queues, iteratively removing the smallest element out of the two input sequences head and adding it to the end of the output sequence. This approach has \BigO{n} time complexity for comparisons and other computation operations. In this chapter, we will analyze the number of comparison operations really needed to merge two totally ordered sets. Here, we will define the ITLB as some formula expressing a lower bound on the number of comparisons required to merge two totally ordered sets of cardinality $m$ and $n$. We will then find that there exists an algorithm whose time complexity is \BigO{ITLB}.
+If we ignore the merge sort algorithm which was presented in
+\ref{tree:sorting:alg/table} there are not so many example of practical merging
+procedures. Indeed, this problem seems impopular and outdated. Even wikipedia
+states that merge algorithms are \emph{a family of algorithms that run
+sequentially over multiple sorted lists, typically producing more sorted lists
+as output}, which are not the only algorithms that we will consider. If we want
+for example to build a sorted output sequence from two sorted input sequences,
+a common, practical and simple way to do it is to read both input sequences
+sequentially, as if they were priority queues, iteratively removing the
+smallest element out of the two input sequences head and adding it to the end
+of the output sequence. This approach has \BigO{n} time complexity for
+comparisons and other computation operations. In this chapter, we will analyze
+the number of comparison operations really needed to merge two totally ordered
+sets. Here, we will define the ITLB as some formula expressing a lower bound on
+the number of comparisons required to merge two totally ordered sets of
+cardinality $m$ and $n$. We will then find that there exists an algorithm whose
+time complexity is \BigO{ITLB}.
 

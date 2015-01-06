@@ -8,7 +8,7 @@ understand it this way : if we want to sort a poset, sorting it means acquiring
 information on the relation $\le$. If our poset is totally ordered, then we
 have all the information needed to describe relation $\le$ completely. If the
 poset contains no information at all then it means any first $x
-\stackrel{?}{\le} y$ question we might ask will give us exactly $1$ bit of
+\ask{\le} y$ question we might ask will give us exactly $1$ bit of
 information, hence we cannot deduce any $x \le y$ relation from this poset,
 hence it is totally unordered.
 
@@ -110,12 +110,13 @@ $$ \chi^S_v =\begin{cases}
 stable set $S$.
 
 \begin{equation}
-\operatorname{STAB}(G) := \operatorname{conv}\{\chi^S \in \R^V : S\text{ stable set in }G\}
+\operatorname{STAB}(G) \bydef \operatorname{conv}\enum{\chi^S \in \R^V \st
+S\text{ stable set in }G}
 \label{eq:stab}
 \end{equation}
 
 Formally, \ref{eq:stab} is the definition of the \emph{stable set polytope} of
-an arbitrary graph $G$ with vertex set $V = \left\{{v_1, \cdots, v_n }\right\}$
+an arbitrary graph $G$ with vertex set $V = \enum{v_1, \ldots, v_n }$
 and order $n$ ($\R^V = \R^n, n = \#V$) i.e. the convex hull (an $n$-dimensional
 polytope) of stable set characteristic vectors $\chi^S \in \R^n$.
 
