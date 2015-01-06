@@ -123,9 +123,9 @@ l$ to be the number of interval midpoints lying to the left of $r$.
 \item[3.] Search and find $b_1 = i$ by applying binary search to the partitioned
 interval.
 
-\item[Induction] If $n > 1$, we call the procedure again with $\S \gets
-\enum{(b_2, \ldots, b_n) \st (b_1, b_2, \ldots, b_n) \in \S \text{ and } b_1 =
-i}$
+\item[Induction] If $n > 1$, we call the procedure again with\\
+$\enum{(b_2, \ldots, b_n) \st (b_1, b_2, \ldots, b_n) \in \S \text{ and } b_1 =
+i}$ as the input set.
 
 \end{algorithm}
 
@@ -153,7 +153,7 @@ this procedure with the interval designated by the answer to our question as
 our query interval. If the designated interval is the first half of $[0,1]$,
 \ie $[0, \frac{1}{2}]$, because $b_1 \le J(\frac{1}{2})$ the next question we
 will ask is $b_1 \ask{\le} J(\frac{1}{4})$. Otherwise the designated interval
-is $(\frac{1}{2},1]$ and the next question $b_1 \ask{\le} J(\frac{1}{4})$,
+is $(\frac{1}{2},1]$ and the next question $b_1 \ask{\le} J(\frac{3}{4})$,
 \etc. We stop when we have ascertained that the query interval we are left with
 does not contain any of the original interval midpoints of our partitioned
 $[0,1]$ interval.
@@ -171,7 +171,7 @@ the left of the $\nth{i}$ midpoint and $y_2$ on the right, hence $J(y_1) = i -
 
 Imagine we have already performed $r-2$ queries to search for $b_1$ without
 successfully ending the search, we will now analyse what happens after the
-$\nth{r-1}$ query is made. After having made $r-1$ queries, our current query
+$\nth{(r-1)}$ query is made. After having made $r-1$ queries, our current query
 interval has length $\sfrac{1}{2^{r-1}}$. This query interval must be one of
 all the possible $2^{r-1}$ intervals of the partition of $[0,1]$ in adjacent
 intervals of length $\sfrac{1}{2^{r-1}}$ starting at $0$. All such intervals
@@ -188,7 +188,7 @@ which is a contradiction
 which is a contradiction
 \end{enumerate}
 we conclude that,
-$$i-1 = J(y_1) \le J(\frac{c}{2^{r-1}}) < b_1 \le \le J(y_2) = i$$
-thus $b1 = i$ and the search ends before performing a $\nth{r}$ query.
+$$i-1 = J(y_1) \le J(\frac{c}{2^{r-1}}) < b_1 \le J(\frac{c+1}{2^{r-1}}) \le J(y_2) = i$$
+thus $b_1 = i$ and the search ends before performing a $\nth{r}$ query.
 
 

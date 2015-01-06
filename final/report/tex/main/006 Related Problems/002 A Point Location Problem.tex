@@ -1,28 +1,16 @@
 \section{A Point Location Problem}
 
-
-\begin{table}
-	\begin{center}
-	\caption{Algorithms for the point location in an arrangement of hyperplanes
-problem}
-	\label{tree:sortsumldt:other:pointlocation/algorithms}
-	\begin{tabular}{|c|c|c|c|}
-
-	\hline
-	Name & Preprocessing & Time-Complexity & Query-Complexity\\\hline\hline
-	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
-	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
-	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
-	Meiser's Algorithm & yes & exponential & \BigO{n^3}\\\hline
-	\end{tabular}
-	\end{center}
-\end{table}
-
-
 We now describe a problem which, we will see later, can be used to model
-various kind of set sum problems, including linear degeneracy testing problems.
+various kind of set sum problems, including subset sum, \kSUM and \kLDT.
 
-We define the point location in an arrangement of hyperplanes as follows,
+The problem is to locate a point $x$ in the $n$-dimensional space relatively
+to an arrangement of hyperplanes $\A(\H)$. This arrangement divides the space
+in cells, cones, and faces and the goal will be to determine which
+cell, cone, or face contains point $x$. This amounts to determine for each
+hyperplane $H_i$ whether point $x$ lies above, on or below $H_i$.
+
+Formally, we define the point location in an arrangement of hyperplanes as
+follows,
 
 \begin{problem}
 Given a point $x \in \R^n$ and an arrangement of hyperplanes $\H = \enum{ H_i
@@ -33,5 +21,9 @@ respectively $H_i$ itself, the half-space under $H_i$ and the half-space above
 $H_i$.
 \end{problem}
 
-There exist several methods to solve this problem. We classify them
-in~\ref{tree:sortsumldt:other:pointlocation/algorithms}.
+There exists several methods to solve this problem. However, we will focus on
+Meiser's Algorithm~\cite{meiser:1993}, since it is the first algorithm that
+solves this point location problem in time polynomial in both $n$ and $\log
+m$, for fixed $\H$ and $n$. This particular algorithm will give use the
+occasion to prove that the decision tree complexity of subset sum is
+polynomial.

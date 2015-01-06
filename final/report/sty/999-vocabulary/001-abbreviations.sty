@@ -1,11 +1,13 @@
 
 \usepackage{xspace}
 
-\newcommand*{\eg}{e.g.\@\xspace}
-\newcommand*{\ie}{i.e.\@\xspace}
+\DeclareRobustCommand{\eg}{e.g.\@\xspace}
+\DeclareRobustCommand{\ie}{i.e.\@\xspace}
 
-\newcommand*{\etc}{%
-\@ifnextchar{.}%
-{etc}%
-{etc.\@\xspace}%
+\makeatletter
+\DeclareRobustCommand{\etc}{%
+    \@ifnextchar{.}%
+        {etc}%
+        {etc.\@\xspace}%
 }
+\makeatother
