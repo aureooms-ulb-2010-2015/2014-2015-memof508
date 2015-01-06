@@ -2,13 +2,15 @@
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.4\textwidth}
-	\includegraphics[width=\textwidth]{fig/open/x+y}
-	\caption{Balanced selection of disjoing chains in \XY.}
+\begin{subfigure}[b]{0.49\textwidth}
+\centering
+	\includegraphics[width=0.4\textwidth]{fig/x+y/poset/chains}
+	\caption{Balanced selection of disjoint chains in \XY.}
 	\label{fig:xy:poset:chains}
 \end{subfigure}
-\begin{subfigure}[b]{0.4\textwidth}
-	\includegraphics[width=\textwidth]{fig/open/x+y}
+\begin{subfigure}[b]{0.49\textwidth}
+\centering
+	\includegraphics[width=0.4\textwidth]{fig/x+y/poset/antichains}
 	\caption{Maximal antichains in \XY.}
 	\label{fig:xy:poset:antichains}
 \end{subfigure}
@@ -26,10 +28,12 @@ In this first, naïve, attempt we will use the partial order structure on the
 elements in \XY to reduce by a factor of $2$ the number of comparisons required
 to sort \XY compared to the execution of a simple mergesort algorithm.
 
-\ref{fig:open:xy} shows us all the order relations between elements of \XY. In
-this figure we see that chains and antichains obey to a regular pattern. We
-highlight a possible selection of disjoint chains in \ref{fig:xy:poset:chains}
-and the set of maximal antichains in \ref{fig:xy:poset:antichains}.
+In \ref{tree:open:xy} we saw \ref{fig:open:xy} which shows us all the order
+relations between elements of \XY. Now, we will see that chains and antichains
+in \XY obey to a regular pattern. To illustrate this, we take the $4 \times 4$
+\XY problem. We highlight a possible selection of disjoint chains in
+\ref{fig:xy:poset:chains} and the set of maximal antichains in
+\ref{fig:xy:poset:antichains}.
 
 Now we will solve this problem in a strictly faster way than sorting all
 of its elements, by taking advantage of some of the information we already have.
