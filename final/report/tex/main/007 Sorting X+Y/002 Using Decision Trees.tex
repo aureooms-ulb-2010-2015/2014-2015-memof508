@@ -49,5 +49,146 @@ For our use case, the $n$ of the theorem will be the $n^2$ elements of the set
 To prove the correctness of the theorem, \citet{fredman:1976} builds a biased
 insertion sort algorithm that we will now explain.
 
-The algorithm is an insertion working as follows \dots
+Suppose that at iteration $k$ of the algorithm
+we already sorted a subset of $\S$ of size $k-1$.
+
+$$\underbrace{x_1, \ldots, x_{k-1}}_{\text{subset}}~:~\underbrace{x_{i_1} <
+\ldots < x_{i_{k-1}}}_{\text{relative ordering}}$$
+
+What we will do at iteration $k$ is insert $x_k$ at the appropriate location
+in the already existing relative ordering to extend it to $x_{i_1} < \ldots <
+x_{i_k}$.
+
+We want to reformulate this insertion process using an equivalent formulation
+that thinks in terms of location numbers $b_1, \ldots, b_k$. The location
+number $b_k$ means that at iteration $k$, $x_k$ will be inserted at position
+$b_k$ implying that $i_{b_k} = k$.
+
+The location number $b_k$ is defined formally as $b_k = \card{\enum{x_j \st j
+\le k, x_j \le x_k}}$, \ie the number of elements from the relative ordering
+of iteration $k$ that are smaller or equal to $k$. Since $x_k \le x_k$ is
+always true, $b_k$ is at least $1$ and since $\card{\enum{x_j \st j \le k}} =
+k$, $b_k$ is at most $k$. We thus have,
+$$ 1 \le b_k \le k$$
+and we say $b_k$ is the location number of $x_k$ after it is inserted into
+$x_{i_1} < \ldots < x_{i_{k-1}}$.
+
+We have established a correspondance between orderings on sets of cardinality
+$n$ and $n$-tuples $(b_1, \ldots, b_n)$ with $1 \le b_i \le i$, hence $\Gamma$
+can be represented as a set of $n$-tuples of $b_i$'s and $x_k$ is tantamount to
+the determination of $b_k$. In other words, asking for $x_k \ask{\le} x_{i_J}$
+is equivalent to asking $b_k \ask{\le} J$.
+
+To prove the theorem, \citet{fredman:1976} builds an algorithm that proves an
+even more general result,
+
+\begin{lemma}
+Given $n \ge 1$, let $\S$ be a finite set of $n$-tuples with unrestricted
+positive integer coordinates. Given an unknown $n$-tuple in $\S$, we can
+determine its components, $b_1, b_2, \ldots$, in that order, by making queries
+of the form, is $b_i \le J$, and with a total of no more than $\log \card{\S}
++ 2n$ such queries.
+\end{lemma}
+
+We show how to implement an algorithm matching the above description. First, in
+order to simplify the notation, we will describe a recursive version of our
+algorithm. The $\nth{k}$ recursion step of the recursive algorithm will process
+the $\nth{k}$ iteration. A complete execution of the algorithm would determine
+the $n$-tuple $(b_1, \ldots, b_n)$.  At iteration $k$, we already have
+determined a prefix $(b_1, \ldots, b_{k-1})$ of this $n$-tuple. What remains to
+compute is the suffix $(b_k, \ldots, b_n)$ of the $n$-tuple. In the recursive
+version of the algorithm we forget about the already computed prefix since it
+cannot change and instead of writing $(b_k, \ldots, b_n)$ we write $(b'_1,
+b'_2, \ldots)$ where $b'_1 = b_k$, $b'_2 = b_{k+1}$, \etc. In the remaining
+text of this section we will write $b_i$ to mean $b'_i$
+
+We now list the steps of the recursive algorithm,
+
+\begin{algorithm}
+
+\item[Input] $\S$, a set of $n$-tuples with unrestricted positive integer
+coordinates.
+
+\item[1.] Let $\S(k) \bydef \card{\enum{(b_1, \ldots) \in \S \st b_1 = k}}$,
+since $S$ is a finite set, there are finitely many values $i_1 < \ldots < i_l$
+such that $\S(i_j) > 0$. For the sake of simplicity, we map each $i_j$ to $j$
+and we write $N_j = \S(i_j)$. Using this mapping we can, without loss of
+generality, substitute $i_j$'s for $j$'s when doing $b_1 \ask{\le} i_j$
+queries.
+
+\item[2.] Partition the interval $[0,1]$ into $l$ adjacent intervals each of
+size $\frac{N_j}{\card{S}}$. For each $r \in [0,1]$, we define $0 \le J(r) \le
+l$ to be the number of interval midpoints lying to the left of $r$.
+
+\item[3.] Search and find $b_1 = i$ by applying binary search to the partitioned
+interval.
+
+\item[Induction] If $n > 1$, we call the procedure again with $\S \gets
+\enum{(b_2, \ldots, b_n) \st (b_1, b_2, \ldots, b_n) \in \S \text{ and } b_1 =
+i}$
+
+\end{algorithm}
+
+The goal of step \textbf{1.} is to offer a mapping between outputs of $J(r)$
+and the possible original values for $b_1$. After the substitution of $i_j$'s
+for $j$'s, asking $b_1 \ask{\le} J(r)$ just means asking $b_1 \ask{\le}
+i_{J(r)}$ before the substitution takes place. The function $\S(k)$ expresses
+the frequence of apparition of $b_1 = k$ in the set $\S$ and hence
+$\sum\limits_{j=1}^{l} N_j = \card{\S}$.
+
+In step \textbf{2.} we partition $[0,1]$ in a way that allows binary search to
+be efficient with respect to the complexity of the remaining induction steps.
+The partitioning procedure will assign interval sizes to possible values for
+$b_1$ proportional to their frequence in $\S$. Hence, if the interval
+associated with $b_1 = i$ is large, we will have to make a small number of
+queries to find it but the cardinality of $\S$ at the next induction step will
+stay large.  Otherwise, if the same interval is small, the number of queries
+required to find it will be large but in this case, the induction step will
+have to handle a small $\S$ set.
+
+The only step where we make queries is \textbf{3.}. We will apply the binary
+search the following way. First we ask if $b_1$ lies in the first or the second
+half of $[0,1]$, by asking $b_1 \ask{\le} J(\frac{1}{2})$, and then we continue
+this procedure with the interval designated by the answer to our question as
+our query interval. If the designated interval is the first half of $[0,1]$,
+\ie $[0, \frac{1}{2}]$, because $b_1 \le J(\frac{1}{2})$ the next question we
+will ask is $b_1 \ask{\le} J(\frac{1}{4})$. Otherwise the designated interval
+is $(\frac{1}{2},1]$ and the next question $b_1 \ask{\le} J(\frac{1}{4})$,
+\etc. We stop when we have ascertained that the query interval we are left with
+does not contain any of the original interval midpoints of our partitioned
+$[0,1]$ interval.
+
+We now prove that if we have to perform $r$ queries before
+finding such an interval, $b_1 = J(r)$ for all $r$ in this interval, then
+$N_{b_1} \le \frac{4\card{\S}}{2^r}$.
+
+Suppose that $b_1 = i$ and that the length of the $\nth{i}$ interval, containing
+the $\nth{i}$ midpoint, is $\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has
+radius $> \frac{2}{2^r}$. In this interval we take two points $y_1 =
+\frac{m_1}{2^{r-1}}$ and $y_2 = \frac{m_2}{2^{r-1}}$ such that $y_1$ lies on
+the left of the $\nth{i}$ midpoint and $y_2$ on the right, hence $J(y_1) = i -
+1$ and $J(y_2) = i$.
+
+Imagine we have already performed $r-2$ queries to search for $b_1$ without
+successfully ending the search, we will now analyse what happens after the
+$\nth{r-1}$ query is made. After having made $r-1$ queries, our current query
+interval has length $\sfrac{1}{2^{r-1}}$. This query interval must be one of
+all the possible $2^{r-1}$ intervals of the partition of $[0,1]$ in adjacent
+intervals of length $\sfrac{1}{2^{r-1}}$ starting at $0$. All such intervals
+can be written $[\frac{c}{2^{r-1}}, \frac{c+1}{2^{r-1}}]$ for some integer $c$
+with $0 \le c \le 2^{r-1}$. This gives us the guarantee that after $r-1$
+queries we have $J(\frac{c}{2^{r-1}}) < b_1 \le J(\frac{c+1}{2^{r-1}})$ for
+some integer $c$.
+
+In this case $c$ must be such that $m_1 \le c \le m_2 - 1$ because,
+\begin{enumerate}
+\item if $c \ge m_2$ then $i = b_1 > J(\frac{c}{2^{r-1}}) \ge J(y_2) = i$
+which is a contradiction
+\item if $c < m_1$ then $i = b_1 \le J(\frac{c+1}{2^{r-1}}) \le J(y_1) = i - 1$
+which is a contradiction
+\end{enumerate}
+we conclude that,
+$$i-1 = J(y_1) \le J(\frac{c}{2^{r-1}}) < b_1 \le \le J(y_2) = i$$
+thus $b1 = i$ and the search ends before performing a $\nth{r}$ query.
+
 
