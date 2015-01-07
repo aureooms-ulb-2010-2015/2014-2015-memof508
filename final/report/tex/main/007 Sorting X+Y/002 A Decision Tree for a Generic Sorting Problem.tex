@@ -3,10 +3,7 @@
 
 In this section we will illustrate an algorithm due to \citet*{fredman:1976}
 that solves sorting problems making at most $\log\card{\Gamma} + 2n$ queries,
-where $\Gamma$ is the set of possible linear extensions of the input. We will
-also sketch a proof stating that there is an upperbound of \BigO{n^{8n}} on the
-number of linear extensions of the poset $X + Y$. This implies that there
-exists an algorithm making \BigO{n^2} queries for sorting $X + Y$.
+where $\Gamma$ is the set of possible linear extensions of the input.
 
 \citet{fredman:1976} defines the sorting problem as follows,
 
@@ -170,7 +167,7 @@ the left of the $\nth{i}$ midpoint and $y_2$ on the right, hence $J(y_1) = i -
 1$ and $J(y_2) = i$.
 
 Imagine we have already performed $r-2$ queries to search for $b_1$ without
-successfully ending the search, we will now analyse what happens after the
+successfully ending the search, we will now analyze what happens after the
 $\nth{(r-1)}$ query is made. After having made $r-1$ queries, our current query
 interval has length $\sfrac{1}{2^{r-1}}$. This query interval must be one of
 all the possible $2^{r-1}$ intervals of the partition of $[0,1]$ in adjacent
@@ -188,7 +185,22 @@ which is a contradiction
 which is a contradiction
 \end{enumerate}
 we conclude that,
-$$i-1 = J(y_1) \le J(\frac{c}{2^{r-1}}) < b_1 \le J(\frac{c+1}{2^{r-1}}) \le J(y_2) = i$$
+$$i-1 = J(y_1) \le J\left(\frac{c}{2^{r-1}}\right) < b_1 \le
+J\left(\frac{c+1}{2^{r-1}}\right) \le J(y_2) = i$$
 thus $b_1 = i$ and the search ends before performing a $\nth{r}$ query.
 
+We have proved that if the search for $b_1$ requires at least $r$ queries then
+we can be sure that $N_{b_1} \le \frac{4\card{\S}}{2^r}$. This means that at
+the next recursion step, $\card{\S_{k+1}} \le \frac{4\card{\S_k}}{2^r}$. If
+$T(\card{\S}, n)$ denotes the number of comparisons required to find the
+correct $n$-tuple out of set $\S$ with our recursive algorithm, then,
+$$T(\card{\S}, n) \le r + T(\min\left(\frac{4\card{\S}}{2^r}, \card{\S}\right), n-1)$$
+and
+$$T(\card{\S}, 1) = \BigO{\log \card{\S}}$$
 
+Clearly, we can only divide $\card{\S}$ by $2$ $\log \card{\S}$ times and
+since we have a multiplier factor of $4$ in the recurrence, we can always ask
+$2$ \emph{useless} queries at each step that will not decrease $\card{\S}$ for the
+next iteration. Hence,
+
+$$T(\card{\S}, n) \le \log \card{\S} + 2n$$

@@ -1,12 +1,12 @@
 \section{Reduction to a Point Location Problem}
 
-In the $k$-SUM problem, we are trying to find all subsets $S_i$ of the universe set
+In the \kSUM problem, we are trying to find all subsets $S_i$ of the universe set
 $U$ respecting the following constraints: $U$ is a finite subset of $\R$ and of
 cardinality $n$, every subset $S_i$ of $U$ must contain exactly
 $k$ elements of $U$ and the sum of those $k$ elements must be equal to $0$.
 For a specific set $S$ we name those elements $s_1, \dots, s_k$.
 
-We now describe a procedure to convert any instance of the $k$-SUM problem to an
+We now describe a procedure to convert any instance of the \kSUM problem to an
 instance of the point location in an arrangement of hyperplanes problem.
 
 Let us note the bijection between $n$-tuples $(U_1, \dots, U_n)$ and points in
@@ -21,7 +21,7 @@ equation $x_{i_1} + \dots + x_{i_k} = 0$. We thus draw every such hyperplane,
 there are less than $n^k$ of them, and to solve the problem
 we will have to find on which of them the point $x$ lies.
 
-We have shown how to reduce $k$-SUM to a point location in an
+We have shown how to reduce \kSUM to a point location in an
 arrangement of hyperplanes problem. In the next section, we will detail an
-algorithm due to Meiser (\cite{meiser:1993}) that can be used to solve $k$-SUM
+algorithm due to \citet*{meiser:1993} that can be used to solve \kSUM
 efficiently for any $k$.

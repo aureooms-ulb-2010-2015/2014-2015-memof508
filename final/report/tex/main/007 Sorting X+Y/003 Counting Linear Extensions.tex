@@ -1,1 +1,40 @@
 \section{Counting Linear Extensions}
+\label{tree:xy:counting}
+
+We now state a theorem due to \citet*{buck:1943} that allows us to conclude
+this chapter with the result that the decision tree complexity of sorting \XY
+is \BigO{n^2}.
+
+The theorem goes as follows,
+
+\begin{theorem}[Buck 1943~\cite{buck:1943}]\label{theorem:xy:counting}
+Consider the partition of space defined by an arrangement of $m$ hyperplanes in
+$\R^d$.
+The number of regions of dimension $k \le d$ is at most
+$$
+{m\choose d-k}\left({m - d+k \choose 0} + {m - d+k \choose 1} + \cdots + {m - d+k \choose k}\right)
+$$
+and the number of regions of all dimensions is \BigO{m^d}.
+\end{theorem}
+
+To use this theorem, we now model the sort \XY problem as a point location problem in an
+arrangement of hyperplanes. Each instance of the problem is constitued of two
+sets of real numbers $\X$ and $\Y$, both of cardinality $n$. An instance can
+thus be encoded as a vertex in $\R^{2n}$. Here is a possible encoding,
+
+$$x = (\X_1, \ldots, \X_n, \Y_1, \ldots, \Y_n)$$
+
+For every combination $(\X_{i_1}, \X_{j_1}, \Y_{i_2}, \Y_{j_2})$ of $4$
+components of this vertex we want to discover whether $\X_{i_1} + \Y_{i_2} \le
+\X_{j_1} + \Y_{j_2}$. This can be rewritten as,
+$$\X_{i_1} + \Y_{i_2} - \X_{j_1} - \Y_{j_2} \ask{\le} 0$$
+and it is equivalent to asking if $x$ lies above, on or under an
+hyperplane of equation $\X_{i_1} + \Y_{i_2} - \X_{j_1} - \Y_{j_2} = 0$. There
+are \BigO{n^4} of those hyperplanes, and thanks to \ref{theorem:xy:counting}
+we know that an arrangement built from them would contain
+$\BigO{(n^4)^{2n}} = \BigO{n^{8n}}$ regions. Hence, for \XY, $\card{\Gamma} =
+\BigO{n^{8n}}$ and by using the algorithm of Fredman to find the correct
+$n^2$-tuple, the decision tree complexity is
+$\BigO{n \log n + n^2} = \BigO{n^2}$.
+
+

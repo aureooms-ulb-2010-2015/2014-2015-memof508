@@ -54,16 +54,17 @@ $\hi$, otherwise increment $\lo$.
 \end{algorithm}
 
 The algorithm is arranged in two phases. The first phase, steps \textbf{1.}
-through \textbf{4.} is a preprocessing phase where we build a data structure
-for efficient lookups during the second phase. The second phase, steps
+through \textbf{4.}, is a preprocessing phase where we build a data structure
+for efficient lookups in preparation of the second phase. The second phase, steps
 \textbf{5.} through \textbf{6.}, is constitued of a loop where we will search
 for all $a, b \le A(k)$ such that $a + b + A(k) = 0$ using the efficient lookup
 data structure built during the first phase.
 
-Step \textbf{1.} requires \BigO{n \log n} queries. Step \textbf{2} explicits
+Step \textbf{1.} requires \BigO{n \log n} queries using any optimal sorting
+algorithm. Step \textbf{2.} explicits
 the indexing convention we use througout the algorithm and requires no query.
 We will skip the explanation of step \textbf{3.} for the moment. If done as is,
-step \textbf{4.} would require to sort $\sfrac{n}{g}^2$ $\A_i + \A_j$ sets,
+step \textbf{4.} would require to sort $(\frac{n}{g})^2$ $\A_i + \A_j$ sets,
 each of which, by \ref{theorem:fredman:1976}, would require \BigO{g^2} queries
 to sort. In total, step \textbf{4.} would need \BigO{n^2} queries to be
 executed. Clearly this way of doing would not qualify as a subquadratic
@@ -71,11 +72,11 @@ algorithm. We will come back at it later after analyzing the complexity of the
 second phase.
 
 The rest of the algorithm is straightforward. The loop of step \textbf{5.} is
-\BigO{n}. The loop of step \textbf{5.2.} is \BigO{\sfrac{n}{g}} since we
+\BigO{n}. The loop of step \textbf{5.2.} is \BigO{\frac{n}{g}} since we
 always either increment $\lo$ or decrement $\hi$. The lookup at step
 \textbf{5.2.1.} can be achieved with $\log g^2 = \BigO{\log g}$ queries using
 a standard binary search procedure. This gives us a total complexity of
-\BigO{n^2 g^{-1} \log g} for the second phase.
+\BigO{\frac{n^2}{g} \log g} for the second phase.
 
 The catch in \cite{gronlund:2014} is that they show it is possible to
 achieve step \textbf{4.} in a subquadratic number of queries. The idea of this
@@ -88,7 +89,7 @@ query since if $a_i, a_i' \in \A_i \text{ and } a_j, a_j' \in \A_j, a_i + a_j <
 a_i' + a_j' \iff a_i - a_i' < a_j' - a_j$. And this time, it can be
 subquadratic! Using \ref{theorem:fredman:1976} again, the total number of
 queries of step \textbf{3.} is $\log \card{\Gamma} + 2N$. In this case $N =
-\frac{n}{g} g^2 = gn$ and $\card{\Gamma} \le ((\frac{n}{g})^2 (g^2)^2)^{2n} =
+(\frac{n}{g}) g^2 = gn$ and $\card{\Gamma} \le ((\frac{n}{g})^2 (g^2)^2)^{2n} =
 (n^2 g^2)^{2n} \le (n^4)^{2n} = n^{8n}$, hence the number of queries asked for
 step \textbf{3.} is \BigO{n \log n + gn}. We say that step \textbf{3.} is a
 comparison efficient way of accomplish step \textbf{4.}.
