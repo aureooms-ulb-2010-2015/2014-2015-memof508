@@ -1,4 +1,5 @@
 \section{Only Looking at the Grid Structure}
+\label{tree:xy:grid}
 
 In the \XY problem, we are asked to find a linear extension of a known partial
 order having a specific structure. The \XY problem is thus a specific case of
@@ -8,4 +9,43 @@ wonder if it is possible to prove that, if we are only allowed to exploit the
 grid structure of a \XY poset, then \XY cannot be solved in less than \BigO{n^2
 \log n} comparisons.
 
+We show that the number of linear extension of the $n \times n$ lattice is,
+
+$$ e(P) = \frac{(n^2)!}{\prod_{k=1}^{2n-1} k^{n - \abs{n-k}}} $$
+
+To do so, we introduce the notion of Ferrers Diagrams and Young Tableaux. A
 \dots
+
+The proof is due to \citet*{greene:1979},
+
+\begin{proof}
+
+\end{proof}
+
+Hence for a $n \times n$ Young tableau, i.e. a Young tableau of shape $\lambda
+= \enum{ \lambda_1 , \ldots , \lambda_n }$ with $\lambda_i = n, \Forall i = 1
+\ldots n$, we obtain $d_{\lambda} = e(P)$.
+
+We still need to show that counting tableaux is the same as counting linear
+extensions. We etiquette all $n^2$ nodes of $P$, the Hasse Diagram of \XY, with the
+numbers $1$ to $n^2$ in any order. Suppose that we are given a unique linear
+extension of $P$ that can be represented as a tuple $\omega = ( j_1 , \ldots ,
+j_{n^2})$ with all $j_i$'s distinct and between $1$ and $n^2$ using our
+etiquettes. If we are given $n^2$ distinct elements $x_1$ to $x_{n^2}$ then
+according to our proof, there are $d_{\lambda}$ ways to fill our tableau with
+those elements and to each filled tableau corresponds a unique linear
+extension designated by $\omega$.
+
+\dots
+
+Note that we also find those numbers on the diagonal of the matrix of
+multidimensional Catalan numbers \cite{gorska:2013}, i.e. the number of
+shortest paths in the n-dimensional unit grid from $(0,\ldots,0)$ to
+$(n,\ldots,n)$ such that if $(x_1,\ldots,x_n)$ is on a path then $x_1 \le x_2
+\le \ldots \le x_n$.
+
+We show that $\log e(P) = \BigO{n^2 \log n}$ \dots
+
+Thus, solving \XY in less than \BigO{n^2 \log n} comparisons is not possible
+if we only consider the information contained in the partial order.
+\ref{tree:xy:counting} shows that there is indeed more information available.

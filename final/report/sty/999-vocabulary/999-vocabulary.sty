@@ -2,6 +2,17 @@
 \DeclareMathOperator{\Exists}{\exists}
 \DeclareMathOperator{\Forall}{\forall}
 
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
 \newcommand{\set}[1]{\mathcal{#1}}
 \newcommand{\enum}[1]{\left\{#1\right\}}
 \newcommand{\group}[1]{\left(#1\right)}
