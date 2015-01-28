@@ -16,7 +16,7 @@ algorithm, breaking the \BigOmega{n^2} bound on the number of queries,
 We list hereunder the steps of an hypothetical algorithm deciding the one-set
 version of \threeSUM with input set $\A$, $\card{\A} = n$. By looking at the
 number of queries this algorithm requires to finish, we will prove the
-decision three complexity of \threeSUM is \BigO{n^{\sfrac{3}{2}}
+decision tree complexity of \threeSUM is \BigO{n^{\sfrac{3}{2}}
 \sqrt{\log n}}.
 
 The algorithm goes as follows,
@@ -96,7 +96,7 @@ comparison efficient way of accomplish step \textbf{4.}.
 
 \citet*{gronlund:2014} generalize this result further by reducing \kLDT to
 an unbalanced \threeSUM problem, and apply a three-set version of their
-decision three to solve it, proving the following theorem,
+decision tree to solve it, proving the following theorem,
 
 \begin{theorem}
 When $k \ge 3$ is odd, there is a $(2k-2)$-linear decision tree for \kLDT with
