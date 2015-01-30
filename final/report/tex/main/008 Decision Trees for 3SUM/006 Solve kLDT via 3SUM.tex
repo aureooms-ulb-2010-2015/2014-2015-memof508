@@ -13,7 +13,7 @@ in time \BigO{n^\frac{k+1}{2}}.
 
 Given an input set \(\S\) of \(n\) real numbers, a set of \(k\) real
 coefficient \( \enum{\alpha_1,\ldots,\alpha_k}\) and a real term \(\alpha_0\)
-we construct the sets \(\A\), \(\B\) and \(\C\),
+we construct the sets \(\A\), \(\B\) and \(\C\) as follows,
 
 \begin{displaymath}
 \A = \enum{\alpha_0 + \alpha_1 s_1 + \cdots + \alpha_{\frac{k-1}{2}} s_{\frac{k-1}{2}} \st s_i \in \S}
@@ -27,4 +27,37 @@ we construct the sets \(\A\), \(\B\) and \(\C\),
 \C = \enum{\alpha_k s_k \st s_k \in \S}
 \end{displaymath}
 
-\dots
+Each element of \(\A\) and \(\B\) has exactly \(\frac{k-1}{2}\) linear terms.
+Elements of \(\A\) have and additional \(\alpha_0\) independent term. Looking
+at all possible combinations of \(s_i\)'s with \(\alpha_j\)'s we know that
+\(\card{\A} = \card{\B} = \BigO{n^{\frac{k-1}{2}}}\), whereas \(\card{\C} =
+n\).
+
+If we use the quadratic \threeSUM algorithm to solve the instance we
+constructed, it will make \(k\)-linear queries since summing an element of
+\(\A\) with an element of \(\B\) and comparing this sum to an element of
+\(\C\) will involve \(2 \frac{k-1}{2} + 1\) linear terms. The running time of
+the \threeSUM algorithm on this input is \(\BigO{n \cdot 2 \cdot n^{\frac{k-1}{2}}} =
+\BigO{n^{\frac{k+1}{2}}}\).
+
+Note that to use this algorithm we need to construct sets \(\A,\B,\C\).
+Moreover we have to provide sorted structures for \(\A\) and \(\B\). However
+the complexity of this preprocessing is only \BigO{n^{\frac{k-1}{2}} \log n}.
+
+For \(k \ge 4\) even one constructs only two sets \(\A\) and \(\B\) of cardinality
+\(\card{\A} = \card{\B} = \BigO{n^{\frac{k}{2}}}\), sorts them and searchs for
+opposite values in the two sets. This procedure is \BigO{n^{\frac{k}{2}} \log
+n} and is simply an algorithm solving instances of \twoSUM.
+
+\citet*{gronlund:2014} explain that one can generalize their new decision tree for
+\threeSUM from the one-set version to a three-set version. This version of the
+decision tree is
+
+\begin{displaymath}
+\BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g}
+\end{displaymath}
+
+, hence their results improve the complexity of solving \kLDT for \(k\) odd to
+\BigO{n^{\frac{k}{2}} \sqrt{\log n}} by choosing \(g = \sqrt{n \log n}\).
+Also, we can note that this way of doing makes use of \(2k-2\)-linear queries.
+Indeed \dots 

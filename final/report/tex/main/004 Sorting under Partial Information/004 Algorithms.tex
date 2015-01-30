@@ -4,7 +4,7 @@
 \section{Algorithms}
 
 
-\cite{kahnkim1} gave the the first polynomial-time algorithm achieving the
+\cite{kahn:1995} gave the the first polynomial-time algorithm achieving the
 bound $\BigO{\log e(P)}$ up to a constant factor in 1995. Their algorithm uses
 the ellipsoid algorithm to choose a good comparison at each step which makes
 this algorithm only of theoretical interest.
@@ -19,7 +19,7 @@ problem instances.
 	\begin{center}
 	\caption{We denote by $E A(n)$ the time needed for the ellipsoid algorithm
 to compute the entropy of a poset of order $n$. The original bound given by
-\cite{kahnkim1} on the number of comparisons performed by their algorithm is
+\cite{kahn:1995} on the number of comparisons performed by their algorithm is
 $54.45 \cdot \log e(P)$. The improved bound given in the table is a byproduct
 of the results of \cite{cardinal2013sorting}. (The notation $\BigOe{n}$ means
 that the hidden constant may depend on $\epsilon$.)}
@@ -28,7 +28,7 @@ that the hidden constant may depend on $\epsilon$.)}
 
 	\hline
 	Algorithm & Global Complexity & Number of comparisons\\\hline\hline
-	\cite{kahnkim1} & $\BigO{n \log n \cdot E A(n)}$ & $\leq 9.82 \cdot \log e(P)$\\\hline\hline
+	\cite{kahn:1995} & $\BigO{n \log n \cdot E A(n)}$ & $\leq 9.82 \cdot \log e(P)$\\\hline\hline
 	\cite{cardinal2013sorting} \textbf{1} & $ \BigO{n^{2}} $ & $\BigO{\log n \cdot \log e(P)}$ \\\hline
 	\cite{cardinal2013sorting} \textbf{2} & $ \BigO{n^{2.5}} $ & $\leq (1 + \epsilon) \log e(P) + \BigOe{n}$ \\\hline
 	\cite{cardinal2013sorting} \textbf{3} & $ \BigO{n^{2.5}} $ & $\leq 15.09 \cdot \log e(P)$ \\\hline
@@ -44,14 +44,14 @@ algorithms, i.e.
 \begin{itemize}
 
 \item If $\log e(P)$ is super-linear in $n$, the number of comparisons of
-\cite{cardinal2013sorting} \textbf{2} is lower than that of \cite{kahnkim1}. By
+\cite{cardinal2013sorting} \textbf{2} is lower than that of \cite{kahn:1995}. By
 optimizing over $\epsilon$, it can be shown that the number of comparisons is
 actually $\log e(P) + \SmallO{\log e(P)} + \BigO{n}$ in this case, a number of
 comparisons comparable to that of Fredman’s algorithm.
 
 \item If $\log e(P)$ is linear or sub-linear in $n$, the number of comparisons
 of \cite{cardinal2013sorting} \textbf{3} is comparable to that of
-\cite{kahnkim1}, although the constant in front of $\log e(P)$ is still far
+\cite{kahn:1995}, although the constant in front of $\log e(P)$ is still far
 from the best constant achieved by a super-polynomial algorithm via balancing
 pairs \cite{brightwell1995balancing, brightwell1999balanced}.
 
@@ -64,7 +64,7 @@ time proportional to the number of comparisons, plus a term linear in $n$.
 
 
 Looking at \ref{fig:supi/alg2}, algorithm 2 looks like to what is done in
-\cite{jcardin1} for the Partial Order Production problem if we swap the roles
+\cite{cardinal:2010} for the Partial Order Production problem if we swap the roles
 of chains and antichains. This is explained in detail in
 \cite{DBLP:conf/birthday/CardinalF13}.
 
