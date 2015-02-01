@@ -1,0 +1,84 @@
+\section{Decision Trees for \kLDT}
+\label{tree:3sum:kldt}
+
+In this section we will first show a transformation to contstruct an instance
+of \threeSUM from an instance of \kLDT for the case where \(k\) is odd. Next, we will
+see that in the \(k\)-linear decision tree model one can solve \kLDT optimally
+using the standard quadratic algorithm for \threeSUM. After that, we will give a
+short argument to explain that the same kind of technique can be applied when
+\(k\) is even. Finally, we illustrate how the decision tree for \threeSUM of
+\citet*{gronlund:2014} gives a better lower bound using \((2k-2)\)-linear
+decision trees.
+
+The standard three-set version of the quadratic \threeSUM algorithm for input
+sets \(\A\), \(\B\) and \(\C\) completes after \BigO{\card{\C} ( \card{\A} +
+\card{\B} ) } steps. We will show how to solve any instance of a \kLDT problem
+with \(k \ge 3\) odd in time \BigO{n^\frac{k+1}{2}}.
+
+Given an input set \(\S\) of \(n\) real numbers, a set of \(k\) real
+coefficient \( \enum{\alpha_1,\ldots,\alpha_k}\) and a real term \(\alpha_0\)
+we construct the sets \(\A\), \(\B\) and \(\C\) as follows,
+
+\begin{displaymath}
+\A = \enum{\alpha_0 + \alpha_1 s_1 + \cdots + \alpha_{\frac{k-1}{2}} s_{\frac{k-1}{2}} \st s_i \in \S}
+\end{displaymath}
+
+\begin{displaymath}
+\B = \enum{\alpha_{\frac{k+1}{2}} s_{\frac{k+1}{2}} + \cdots + \alpha_{k-1} s_{k-1} \st s_i \in \S}
+\end{displaymath}
+
+\begin{displaymath}
+\C = \enum{\alpha_k s_k \st s_k \in \S}
+\end{displaymath}
+
+Each element of \(\A\) and \(\B\) has exactly \(\frac{k-1}{2}\) linear terms.
+Elements of \(\A\) have an additional \(\alpha_0\) independent term. Looking
+at all possible combinations of \(s_i\)'s with \(\alpha_j\)'s we know that
+\(\card{\A} = \card{\B} = \BigO{n^{\frac{k-1}{2}}}\), whereas \(\card{\C} =
+n\).
+
+If we use the quadratic \threeSUM algorithm to solve the instance we
+constructed, it will make \(k\)-linear queries since summing an element of
+\(\A\) with an element of \(\B\) and comparing this sum to an element of
+\(\C\) will involve \(2 \frac{k-1}{2} + 1\) linear terms. The running time of
+the \threeSUM algorithm on this input is \(\BigO{n \cdot 2 \cdot n^{\frac{k-1}{2}}} =
+\BigO{n^{\frac{k+1}{2}}}\).
+
+Note that to use this algorithm we need to construct sets \(\A,\B,\C\).
+Moreover we have to provide sorted structures for \(\A\) and \(\B\). However
+the complexity of this preprocessing is only \BigO{n^{\frac{k-1}{2}} \log n}.
+
+For \(k \ge 4\) even one constructs only two sets \(\A\) and \(\B\) of
+cardinality \(\card{\A} = \card{\B} = \BigO{n^{\frac{k}{2}}}\). By doing this
+we transormed our instance of \kLDT to an instance of \twoSUM. \twoSUM can be
+solved in \BigO{n^{\frac{k}{2}} \log n} with only \BigO{n^{\frac{k}{2}}}
+comparisons using Lambert's algorithm \cite{lambert:1990}.
+
+\emph{TODO: This quote is from Pettie's paper and I think it is wrong because
+\twoSUM is sorting and hence cannot be solved in less than \BigO{n \log n}
+comparisons. What is true is that lambert solves \fourSUM in \BigO{n^2}
+comparisons.}
+
+\citet*{gronlund:2014} explain that one can generalize their new decision tree
+for \threeSUM from the one-set version to a three-set version. This version of
+the decision tree is
+
+\begin{displaymath}
+\BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g}
+\end{displaymath}
+
+, hence if one chooses \(g = \sqrt{n \log n}\) he will obtain an
+\BigO{n^{\frac{k}{2}} \sqrt{\log n}} decision tree for \kLDT with $k$ odd
+which improves the best known lower bound.
+
+Also, we can note that this way of doing makes use of \((2k-2)\)-linear queries
+instead of the \(\k\)-linear queries requested in the standard \threeSUM
+algorithm or in Lambert's algorithm. Indeed, since \(\card{\A} = \card{\B} =
+\BigO{n^{\frac{k-1}{2}}}\) ,when we sort all \((\A_i - \A_i)\)'s and \((\B_i -
+\B_i)\)'s we are making \(4 \frac{k-1}{2} = (2k-2)\)-linear queries.
+
+Note that for all the cases we demonstrated, the time required to build an
+instance of \twoSUM or \threeSUM from an instance of \kLDT is smaller than the
+depth of the decision trees used to solve the problem. One must also note that
+it is possible to either store or compute which elements of the original input
+set \(\S\) match a particular element of the sets \(\A,\B,\C\).
