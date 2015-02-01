@@ -12,7 +12,7 @@ Consider the partition of space defined by an arrangement of \(m\) hyperplanes
 in \(\R^d\). The number of cells (or \(d\)-cells, regions of dimension \(d\))
 is at most
 \begin{displaymath}
-\Phi_n^d = \binom{m}{0} + \binom{m}{1} + \cdots + \binom{m}{d}
+\Phi_d^n = \binom{m}{0} + \binom{m}{1} + \cdots + \binom{m}{d}
 \end{displaymath}
 \end{theorem}
 
@@ -29,7 +29,7 @@ intersected by an imaginary additional hyperplane \(H_{\theta}\) having all
 hyperplanes of the arrangement on one side of the vertices. \(\U\) contains the
 remaining cells.
 \begin{displaymath}
-\card{\L} = \Phi_n^{d-1} \text{ since this is exactly the configuration for } \R^{d-1}
+\card{\L} = \Phi_{d-1}^n \text{ since this is exactly the configuration for } \R^{d-1}
 \end{displaymath}
 \begin{displaymath}
 \card{\U} = \binom{n}{d} \text{ since \dots}
@@ -37,7 +37,7 @@ remaining cells.
 Imagine we drew a ball in each cell of the arrangement. If we pretend
 \(H_{\theta}\) is the ground and we activate gravity, the balls in the cells of
 \(\L\) would have fallen on \(H_{\theta}\). Each of them would be lying on a
-\(d-1\)-cell of the partition of \(H_{\theta}\) by the arrangement of the
+\((d-1)\)-cell of the partition of \(H_{\theta}\) by the arrangement of the
 intersections of each hyperplane of the arrangement with \(H_{\theta}\). The
 balls in the cells of \(\U\) cannot fall on the ground since \(H_{\theta}\)
 does not intersect the cells containing them. Balls in \(\U\) cells can thus
