@@ -1,7 +1,7 @@
-\section{Simple Case : $k=2$}
+\section{Merging \(2\) Totally Ordered Sets}
 \label{tree:merging:k=2}
 
-\subsection{ITLB}
+\subsection*{ITLB}
 \label{tree:merging:k=2:ITLB}
 
 Analogously to what was shown in \ref{tree:sorting}, we can compute the
@@ -25,7 +25,7 @@ information contained in the sorted sequence $S'$ of $m+n$ elements minus the
 information we already have.}
 
 
-\subsection{Algorithms}
+\subsection*{Algorithms}
 \label{tree:merging:k=2:alg}
 
 Without loss of generality, we consider the case where $m \leq n$. We build an
@@ -62,7 +62,7 @@ In order to feed our intuition on this expression we will analyze its behaviour
 on several corner cases.
 
 
-\subsubsection{First case\texorpdfstring{ : $m = n$}{}}
+\subsubsection*{First case\texorpdfstring{ : $m = n$}{}}
 
 
 The first case we will analyze is the case where $m = n$. This case is similar
@@ -87,7 +87,7 @@ m = n &\implies \log\binom{m+n}{m} \leq m + n = 2n\\
 An algorithm performing \BigO{m} is Sequential Merge,
 
 
-\subsubsection{Second case\texorpdfstring{ : $m \ll n$}{}}
+\subsubsection*{Second case\texorpdfstring{ : $m \ll n$}{}}
 
 
 Now we want to see what the bound becomes when $n$ start to grow relatively to
@@ -114,7 +114,7 @@ size $\frac{n}{m}$.
 
 
 
-\subsubsection{Third case\texorpdfstring{ : $m \ll n \land m = 1$}{}}
+\subsubsection*{Third case\texorpdfstring{ : $m \ll n \land m = 1$}{}}
 
 Now observe what happens when $m = 1$.
 
@@ -139,7 +139,7 @@ Ideally this algorithm should compete with Sequential Merge for the case where
 $m = n$ and with Binary Search for the case where $m = 1$.
 
 
-\subsubsection{Hwang-Lin}
+\subsubsection*{Hwang-Lin}
 
 From now on we have explored special cases, it would be nice if we could
 combine the different solutions to build an algorithm of complexity \BigO{\log
