@@ -11,9 +11,9 @@ The theorem goes as follows,
 Consider the partition of space defined by an arrangement of $m$ hyperplanes in
 $\R^d$.
 The number of regions of dimension $k \le d$ is at most
-$$
+\begin{displaymath}
 \binom{m}{d-k} \group{ \binom{m-d+k}{0} + \binom{m-d+k}{1} + \cdots + \binom{m-d+k}{k} }
-$$
+\end{displaymath}
 and the number of regions of all dimensions is \BigO{m^d}.
 \end{theorem}
 
@@ -36,5 +36,3 @@ $\BigO{(n^4)^{2n}} = \BigO{n^{8n}}$ regions. Hence, for \XY, $\card{\Gamma} =
 \BigO{n^{8n}}$ and by using the algorithm of Fredman to find the correct
 $n^2$-tuple, the decision tree complexity is
 $\BigO{n \log n + n^2} = \BigO{n^2}$.
-
-

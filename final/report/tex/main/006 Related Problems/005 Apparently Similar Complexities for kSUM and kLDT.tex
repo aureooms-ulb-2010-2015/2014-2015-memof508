@@ -5,12 +5,15 @@ The only important consequence of the difference between the definitions of
 considered in \kLDT. In \kSUM we have $\binom{n}{k}$ $k$-tuples to consider,
 while in \kLDT we have $\binom{n}{k} k! = \frac{n!}{(n-k)!}$ $k$-tuples.
 
-However, it is possible to reduce \kLDT to \kSUM problems and obtain the same
-upper bounds as \kSUM for $k$-linear decision trees. If $k \ge 4$ is even, one
-can reduce \kLDT to a \twoSUM problem and obtain a \BigO{n^{\sfrac{k}{2}} \log
-n} algorithm. In the other case, when $k \ge 3$ is odd, \kLDT is reducible to
-an unbalanced \threeSUM problem, where $\card{\A} = \card{\B} \gg \card{\C}$,
-that can be solved in \BigO{n^{\sfrac{(k+1)}{2}}} time.
+\emph{TODO: what follows is purely speculative.}
+
+However, it is possible to reduce\footnote{see \ref{tree:3sum:kldt}} \kLDT to
+\kSUM problems and obtain the same upper bounds as \kSUM for $k$-linear
+decision trees. If $k \ge 4$ is even, one can reduce \kLDT to a \twoSUM problem
+and obtain a \BigO{n^{\sfrac{k}{2}} \log n} algorithm. In the other case, when
+$k \ge 3$ is odd, \kLDT is reducible to an unbalanced \threeSUM problem, where
+$\card{\A} = \card{\B} \gg \card{\C}$, that can be solved in
+\BigO{n^{\sfrac{(k+1)}{2}}} time.
 
 We will see later that \citet*{gronlund:2014} improve the upper bound for the
 \threeSUM problem. The standard reduction of \kLDT, $k$ is odd, still applies
