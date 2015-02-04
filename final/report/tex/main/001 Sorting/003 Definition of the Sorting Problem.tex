@@ -1,15 +1,17 @@
 \section{Definition of the Sorting Problem}
 \label{tree:sorting:def}
 
-The sorting problem can be stated as the following:
+If we were writing an algorithm to solve the sorting problem, the input and output
+conditions could be described as the following:
 
 \begin{enumerate}
-\item The input is an unknown total order $\le$ and a set of elements $\S$;
-\item The output is the total order $\le$ on $\S$.
+\item The input is an unknown total order \(\le\) and a set of elements \(\S\);
+\item The output is the total order \(\le\) on \(\S\).
 \end{enumerate}
 
-The unknown total order is the oracle in our model. By asking questions of the
-form `is $s_i \le s_j$', where $s_i$ and $s_j$ are elements of the set $\S$,
-we will retrieve enough information from the oracle to acquire the complete
-information concealed by this unknown total order on $\S$.
+The unknown total order \(\le\) is the oracle in our model. To solve our
+problem, we will have to retrieve, the complete information concealed by this
+unknown total order on \(\S\). This will be done by asking questions of the
+form ``Is \(s_i \le s_j\)?'', where \(s_i\) and \(s_j\) are elements of the set
+\(\S\), to the oracle.
 

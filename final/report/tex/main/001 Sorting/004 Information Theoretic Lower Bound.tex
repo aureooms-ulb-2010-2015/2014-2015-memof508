@@ -1,10 +1,16 @@
 \section{Information Theoretic Lower Bound}
 \label{tree:sorting:ITLB}
 
+We now give the Information Theoretic Lower Bound for the sorting problem. The
+Information Theoretic Lower Bound is defined as the minimal depth of any
+decision tree solving the problem. Generally speaking, the value of this lower
+bound will be the logarithm in base \(2\) of the number of feasible solutions.
+
+\nb{Throughout this document, \(\log N\) denotes the binary logarithm of \(N\).}
+
 \begin{theorem}
 The Information Theoretic Lower Bound (or ITLB) for the sorting problem is
-\BigOmega{\log(n!)}\footnote{Throughout this document, $\log x$ denotes the
-binary logarithm of $x$.}. This means that, for any algorithm you may think of,
+\BigOmega{\log(n!)}. This means that, for any algorithm you may think of,
 there will always be at least an instance of the problem that will force your
 algorithm to ask \BigOmega{\log(n!)} questions to the oracle.
 \end{theorem}
@@ -14,5 +20,8 @@ A sequence $s$ of length $n$ has $n!$ permutations. The decision tree has thus
 $n!$ leaves, hence the minimal height of the tree is $\log(n!)$.
 \end{proof}
 
-\nb{We call this lower bound the information theoretic lower bound (ITLB)
-because it is the logarithm of the number of feasible solutions.}
+This lower bound will be our goal to attain in terms of number of comparison
+operations when designing an efficient algorithm solving our problem. The
+bound only means that we cannot do better than \(\log(n!)\) comparisons but it
+doesn't necessarily mean that there exist an algorithm or a decision tree
+achieving this bound in terms of complexity.
