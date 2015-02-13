@@ -3,13 +3,13 @@
 We now describe a problem which, we will see later, can be used to model
 various kind of set sum problems, including subset sum, \kSUM and \kLDT.
 
-The problem is to locate a point $x$ in the $n$-dimensional space relatively
-to an arrangement of hyperplanes $\A(\H)$. This arrangement divides the space
-in cells, cones, and faces and the goal will be to determine which
-cell, cone, or face contains point $x$. This amounts to determine for each
-hyperplane $H_i$ whether point $x$ lies above, on or below $H_i$.
+The problem is to locate a point \(x\) in the \(n\)-dimensional space \(\R^n\) relatively
+to an arrangement of hyperplanes \(\A(\H)\). This arrangement divides the space
+in cells of dimension \(0,\ldots,n-1\) and the goal will be to determine which
+cell contains point \(x\). This amounts to determining for each
+hyperplane \(H_i\) whether the point \(x\) lies above, on or below \(H_i\).
 
-Formally, we define the point location in an arrangement of hyperplanes as
+Formally, we define the point location problem in an arrangement of hyperplanes as
 follows,
 
 \begin{problem}
@@ -17,7 +17,7 @@ Given a point $x \in \R^n$ and an arrangement of hyperplanes $\H = \enum{ H_i
 \st 1 \leq i \leq m }$ determine the position vector of $x$, $\pv(x) \in
 \signset^n$ where $\pv_i(x) = \sigma, \sigma \in \signset$ iff $x \in
 H_i^{\sigma}$. We define $H_i^{0}$, $H_i^{-}$ and $H_i^{+}$ to be
-respectively $H_i$ itself, the half-space under $H_i$ and the half-space above
+respectively $H_i$ itself, the half-space below $H_i$ and the half-space above
 $H_i$.
 \end{problem}
 
