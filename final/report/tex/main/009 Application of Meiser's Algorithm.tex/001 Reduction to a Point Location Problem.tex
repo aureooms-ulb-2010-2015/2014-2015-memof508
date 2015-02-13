@@ -21,23 +21,23 @@ respectively $H_i$ itself, the half-space below $H_i$ and the half-space above
 $H_i$.
 \end{problem}
 
-In the \kSUM problem, we are trying to find all subsets $S_i$ of the universe set
-$U$ respecting the following constraints: $U$ is a finite subset of $\R$ and of
-cardinality $n$, every subset $S_i$ of $U$ must contain exactly
-$k$ elements of $U$ and the sum of those $k$ elements must be equal to $0$.
-For a specific set $S$ we name those elements $s_1, \dots, s_k$.
+In the \kSUM problem, we are trying to find all subsets \(\S_i\) of the universe
+\(\U = \enum{u_1,\ldots,u_n}\) satisfying the following constraints: \(\U\) is a finite subset of \(\R\) of
+cardinality \(n\), every subset $\S_i$ of $\U$ must contain exactly
+$k$ elements of $\U$ and the sum of those $k$ elements must be equal to $0$.
+For a specific set $\S$ we name those elements $s_1, \dots, s_k$.
 
 We now describe a procedure to convert any instance of the \kSUM problem to an
-instance of the point location in an arrangement of hyperplanes problem.
+instance of the point location problem in an arrangement of hyperplanes.
 
-Let us note the bijection between $n$-tuples $(U_1, \dots, U_n)$ and points in
-$\R^n$. By agreeing on an order of the elements of $U$ (e.g. the total order on
-the real numbers) we can associate a unique $n$-tuple to each universe set $U$,
-and thus a unique point $x$ in $\R^n$ for each $U$.
+Let us note the bijection between $n$-tuples $(u_1, \ldots, u_n)$ and points in
+$\R^n$. By agreeing on an order of the elements of $\U$ (e.g. the total order on
+the real numbers) we can associate a unique $n$-tuple to each universe set $\U$,
+and thus a unique point $x$ in $\R^n$ for each $\U$.
 
-For each $S_i = \left\{s_1, \dots, s_k\right\}$ we need to find whether the sum $s_1
+For each $\S_i = \left\{s_1, \dots, s_k\right\}$ we need to find whether the sum $s_1
 + \dots + s_k$ is equal to zero. In our new representation of the problem this
-boils down to find whether our point $x$ lies or not on the hyperplane of
+boils down to finding whether our point $x$ lies on the hyperplane of
 equation $x_{i_1} + \dots + x_{i_k} = 0$. We thus draw every such hyperplane,
 there are less than $n^k$ of them, and to solve the problem
 we will have to find on which of them the point $x$ lies.
