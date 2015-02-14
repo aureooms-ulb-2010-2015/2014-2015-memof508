@@ -19,6 +19,31 @@ Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b) \in S^2$ such that
 $a - b = 0$.
 \end{problem}
 
+Let us prove why this definition maps to the definition of the \twoLDT
+problem.
+
+\begin{theorem}
+Deciding whether there exist a pair \((a,b)\) such that \(a - b = 0\)
+amounts to finding signs of all \(a-b\).
+\end{theorem}
+
+\begin{proof}
+We use an adversary argument. Imagine we do not know the sign for one of the
+pairs \(s_i,s_j\), then in the case of the sorting problem we still have two
+total orders that satisfy all the relations for which we have information. For
+example the two total orders
+\begin{displaymath}
+s_{i_1} \le s_{i_2} \le \ldots \le s_i \le s_j \le \ldots \le s_{i_n}
+\end{displaymath}
+and
+\begin{displaymath}
+s_{i_1} \le s_{i_2} \le \ldots \le s_j \le s_i \le \ldots \le s_{i_n}
+\end{displaymath}
+differ only by the answer to \(s_i \ask{\le} s_j\).
+Similarily, in the \twoLDT problem we cannot conclude that there is no pair
+\(a,b\) such that \(a-b=0\) unless we have taken all of them into account.
+\end{proof}
+
 All sorting problem instances are thus instances of the \twoLDT problem with
 $\alpha_0 = 0, \alpha_1 = 1, \alpha_2 = -1$.
 
