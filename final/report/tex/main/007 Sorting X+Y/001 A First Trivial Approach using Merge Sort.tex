@@ -5,15 +5,17 @@
 \begin{subfigure}[b]{0.49\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/poset/chains}
-	\caption{Balanced selection of disjoint chains in \XY.}
+	\caption{Balanced selection of disjoint chains in the \XY poset.}
 	\label{fig:xy:poset:chains}
 \end{subfigure}
 \begin{subfigure}[b]{0.49\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/poset/antichains}
-	\caption{Maximal antichains in \XY.}
+	\caption{Maximal antichains in the \XY poset.}
 	\label{fig:xy:poset:antichains}
 \end{subfigure}
+\caption{Structure of the \XY poset.}
+\label{fig:xy:poset:diagrams}
 \end{figure}
 
 \begin{figure}
@@ -24,7 +26,14 @@ corresponding to the starting point of a sort \XY problem highlighted.}
 \label{fig:xy:poset:mergexy}
 \end{figure}
 
-In this first, trivial attempt, we will use the partial order structure on the
+We define the poset structure of \XY (or simply the \XY poset) to be the poset
+containing the information that we can extract from the transitivity of the
+total order on \(X \cup Y\). If we only exploit the fact that
+\(X_i \le X_{i'} \land Y_j \le \Y_{j'} \implies X_i + Y_j \le X_{i'} + Y_{j'}\)
+we obtain the posets represented by the Hasse diagrams (\ref{tree:poset:hasse})
+in \ref{fig:xy:poset:diagrams}.
+
+In this first, trivial attempt, we will use the poset structure on the
 elements in \XY to reduce by a factor of $2$ the number of comparisons required
 to sort \XY compared to the execution of the mergesort algorithm without
 knowledge of this structure.
