@@ -2,13 +2,13 @@
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.49\textwidth}
+\begin{subfigure}[b]{0.40\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/poset/chains}
 	\caption{Balanced selection of disjoint chains in the \XY poset.}
 	\label{fig:xy:poset:chains}
 \end{subfigure}
-\begin{subfigure}[b]{0.49\textwidth}
+\begin{subfigure}[b]{0.40\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/poset/antichains}
 	\caption{Maximal antichains in the \XY poset.}
@@ -40,7 +40,7 @@ knowledge of this structure.
 
 In \ref{tree:open:xy} we saw \ref{fig:open:xy} which shows us all the order
 relations between elements of \XY. Now, we will see that chains and antichains
-in \XY obey to a regular pattern. To illustrate this, we take the $4 \times 4$
+in \XY obey a regular pattern. To illustrate this, we take the $4 \times 4$
 \XY problem. We highlight a possible selection of disjoint chains in
 \ref{fig:xy:poset:chains} and the set of maximal antichains in
 \ref{fig:xy:poset:antichains}.
@@ -71,3 +71,8 @@ $N = n^2$ we can conclude that \ref{fig:xy:poset:mergexy} shows us step
 $\sfrac{1}{2} \log N$. In merge sort, at each stage of the recursion we do at
 most N comparisons hence we only have half of the comparisons left to do in
 order to complete the execution of the algorithm.
+
+Also note that if \(2n^2 \log n\) is the total amount of information to
+retrieve, then recycling the information contained in the \(n\) chains of
+length \(n\) gives us \(n \cdot n \log n = n^2 \log n\) of information already in
+our possession.
