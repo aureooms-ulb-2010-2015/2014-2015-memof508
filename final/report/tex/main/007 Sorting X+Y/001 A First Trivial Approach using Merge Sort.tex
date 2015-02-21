@@ -33,10 +33,10 @@ total order on \(X \cup Y\). If we only exploit the fact that
 we obtain the posets represented by the Hasse diagrams (\ref{tree:poset:hasse})
 in \ref{fig:xy:poset:diagrams}.
 
-In this first, trivial attempt, we will use the poset structure on the
-elements in \XY to reduce by a factor of $2$ the number of comparisons required
-to sort \XY compared to the execution of the mergesort algorithm without
-knowledge of this structure.
+In this first, trivial attempt, we will use the poset structure on the elements
+in \XY to reduce by a factor of $2$ the number of comparisons
+required to sort \XY compared to the execution of the mergesort algorithm
+without knowledge of this structure.
 
 In \ref{tree:open:xy} we saw \ref{fig:open:xy} which shows us all the order
 relations between elements of \XY. Now, we will see that chains and antichains
@@ -48,9 +48,28 @@ in \XY obey a regular pattern. To illustrate this, we take the $4 \times 4$
 Now we will solve this problem in a strictly faster way than sorting all
 of its elements, by taking advantage of some of the information we already have.
 
-First, note that sorting $X + Y$ without information using the merge sort
-algorithm would use $2 n^2 \log n$ comparisons. We will show that it is
-possible to sort $X + Y$ with half the comparisons.
+First, we show that sorting \XY without information using the merge sort algorithm would use $2
+n^2 \log n$ comparisons. The exact upper bound on the number
+of comparisons required to solve an instance of size \(N\) with this algorithm
+is given by the formula
+\begin{align*}
+T(N) &= N - 1 + T(\floor{\sfrac{N}{2}}) + T(\ceil{\sfrac{N}{2}})\\
+T(0) &= T(1) = 0.
+\end{align*}
+Note that there is a non recursive way to express \(T(N)\) (\citet*{OEIS:A001855}) which is
+\begin{displaymath}
+T(N) = \sum_{k=1}^{N} \ceil{\log k}.
+\end{displaymath}
+We have
+\begin{displaymath}
+\lim_{N\to\infty}\frac{T(N)}{\log N!} =
+\lim_{N\to\infty}\frac{\sum_{k=1}^{N}\ceil{\log k}}{ \sum_{k=1}^{N} \log k} = 1
+\end{displaymath}
+and thus, by Stirling's approximation, the merge sort algorithm requires at
+most \(N \log N\) comparisons for very large \(N\). When we sort \XY, we have \(N =
+n^2\), and thus
+\[N \log N = n^2 \log n^2 = 2 n^2 \log n.\]
+We will show that it is possible to sort \XY with half the comparisons.
 
 The merge sort algorithm has this particularity that at the end of every step
 of the recursion we are left with several total orders on disjoint subsets of
