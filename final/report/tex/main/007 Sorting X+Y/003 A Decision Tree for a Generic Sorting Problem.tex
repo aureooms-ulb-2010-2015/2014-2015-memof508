@@ -132,13 +132,13 @@ The goal of step \textbf{1.} is to offer a mapping between outputs of $J(r)$
 and the possible original values for $b_1$. After the substitution of $i_j$
 for $j$, asking $b_1 \ask{\le} J(r)$ just means asking $b_1 \ask{\le}
 i_{J(r)}$ before the substitution takes place. The function $\S(k)$ expresses
-the frequence of apparition of $b_1 = k$ in the set $\S$ and hence
+the frequency or ``number of occurences'' of $b_1 = k$ in the set $\S$ and hence
 $\sum\limits_{j=1}^{l} N_j = \card{\S}$.
 
 In step \textbf{2.} we partition $[0,1]$ in a way that allows binary search to
 be efficient with respect to the complexity of the remaining induction steps.
 The partitioning procedure will assign interval sizes to possible values for
-$b_1$ proportional to their frequence in $\S$. Hence, if the interval
+$b_1$ proportional to their frequency in $\S$. Hence, if the interval
 associated with $b_1 = i$ is large, we will have to make a small number of
 queries to find it but the cardinality of $\S$ at the next induction step will
 stay large.  Otherwise, if the same interval is small, the number of queries
