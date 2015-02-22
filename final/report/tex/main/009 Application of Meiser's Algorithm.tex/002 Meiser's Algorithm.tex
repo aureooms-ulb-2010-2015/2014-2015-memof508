@@ -118,12 +118,12 @@ opposite face of $\cell$. \textbf{($\enetsize$)}
 \item[4.] Return the convex hull of \(\simplex \cup \enum{\nu}\).
 \end{algorithm}
 
-We can solve step \textbf{1.} by using linear programming with our
+We can solve step \step{1} by using linear programming with our
 \BigO{n^2 \log^2 n} hyperplanes and the
 answers to queries $x \ask{\in} \His, \sigma \in \signset$ as
 constraints of the linear program. We just look for any realizable solution.
 
-In step \textbf{2.} we find the projection of $x$ on one of the faces of
+In step \step{2} we find the projection of $x$ on one of the faces of
 $\cell$ by computing the closest hyperplane of $\Ht$ to $x$ in direction
 $\vec{\nu x}$. This is done by projecting $x$ on every hyperplane of $\Ht$ and
 then computing the distance between $x$ and his projections, keeping the
@@ -132,7 +132,7 @@ on $\cell$. Each such projection and distance computation counts as one query
 since this computation could be used to forge a query that should have been
 forwarded to the oracle.
 
-In step \textbf{3.} the base case is $n = 0$. In $\R^0$ we have only one point
+In step \step{3} the base case is $n = 0$. In $\R^0$ we have only one point
 and this point is the last vertex of our simplex.
 
 The recursion depth is $n$, the dimension of $R^n$, and thus the total number
