@@ -114,7 +114,8 @@ follows,
 the vertices of our simplex. \textbf{($0$)}
 \item[2.] Compute $x'$, the projection of $x$ along $\vec{\nu x}$ on the
 opposite face of $\cell$. \textbf{($\enetsize$)}
-\item[3.] Induction on $x'$ in $\R^{n-1}$.
+\item[3.] Induction on $x'$ in $\R^{n-1}$, store result in \(\simplex\).
+\item[4.] Return the convex hull of \(\simplex \cup \enum{\nu}\).
 \end{algorithm}
 
 We can solve step \textbf{1.} by using linear programming with our
