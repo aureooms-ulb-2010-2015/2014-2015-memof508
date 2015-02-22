@@ -45,7 +45,7 @@ the oracle, the answer to the queries we would make can be computed by looking
 at the structure of the arrangement itself. For the first group of hyperplanes
 we just call the procedure again with $\H \gets \M$.
 
-\nb{Note that we always consider that $x$ is inside a cell that is not a cone.
+\nb{Note that we always consider that \(x\) is inside a cell that is bounded.
 This can be implicitely or explicitely simulated.}
 
 If we stop our explanation here we still have a worst case \BigO{m}
@@ -56,14 +56,14 @@ The problem we have with our current algorithm is that there is no guarantee
 on the number of queries we avoid at each step.
 
 We will use a result on \enets, attributed to Ken Clarkson by
-\citet{burgisser:1997}, to make our algorithm achieve an upperbound
+\citet{burgisser:1997}, to make our algorithm achieve an upper bound
 of \BigO{n^3 \log^2 n \log m} queries.
 
 \begin{theorem}[Clarkson]
 Given a set $\H$ of $m$ hyperplanes in $\R^n$ and $\epsilon$ with the
 constraint that $0 < \epsilon < 1$, there exists a subset $\NH \subset \H$ of
 size $\enetsize$ such that for every simplex $\simplex$ in $\R^n$: if the
-number of hyperplanes of $\H$ cutting $\simplex$ is strictly greater than
+number of hyperplanes of $\H$ intersecting $\simplex$ is strictly greater than
 $\epsilon \card{\H}$ then at least one of them belongs to $\NH$.
 \end{theorem}
 
