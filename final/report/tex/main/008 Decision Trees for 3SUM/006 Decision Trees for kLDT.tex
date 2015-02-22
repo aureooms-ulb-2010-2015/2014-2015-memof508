@@ -33,7 +33,7 @@ we construct the sets \(\A\), \(\B\) and \(\C\) as follows,
 
 Each element of \(\A\) and \(\B\) has exactly \(\frac{k-1}{2}\) linear terms.
 Elements of \(\A\) have an additional \(\alpha_0\) independent term. Looking
-at all possible combinations of \(s_i\)'s with \(\alpha_j\)'s we know that
+at all possible combinations of \(s_i\) with \(\alpha_j\) we know that
 \(\card{\A} = \card{\B} = \BigO{n^{\frac{k-1}{2}}}\), whereas \(\card{\C} =
 n\).
 
@@ -74,8 +74,8 @@ which improves the best known lower bound.
 Also, we can note that this way of doing makes use of \((2k-2)\)-linear queries
 instead of the \(\k\)-linear queries requested in the standard \threeSUM
 algorithm or in Lambert's algorithm. Indeed, since \(\card{\A} = \card{\B} =
-\BigO{n^{\frac{k-1}{2}}}\) ,when we sort all \((\A_i - \A_i)\)'s and \((\B_i -
-\B_i)\)'s we are making \(4 \frac{k-1}{2} = (2k-2)\)-linear queries.
+\BigO{n^{\frac{k-1}{2}}}\) ,when we sort all \((\A_i - \A_i)\) and \((\B_i -
+\B_i)\) we are making \(4 \frac{k-1}{2} = (2k-2)\)-linear queries.
 
 Note that for all the cases we demonstrated, the time required to build an
 instance of \twoSUM or \threeSUM from an instance of \kLDT is smaller than the

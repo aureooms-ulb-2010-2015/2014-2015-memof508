@@ -74,7 +74,7 @@ $x_{i_1} < \ldots < x_{i_{k-1}}$.
 
 We have established a correspondence between orderings on sets of cardinality
 $n$ and $n$-tuples $(b_1, \ldots, b_n)$ with $1 \le b_i \le i$, hence $\Gamma$
-can be represented as a set of $n$-tuples of $b_i$'s and $x_k$ is tantamount to
+can be represented as a set of $n$-tuples of $b_i$ and $x_k$ is tantamount to
 the determination of $b_k$. In other words, asking for $x_k \ask{\le} x_{i_J}$
 is equivalent to asking $b_k \ask{\le} J$.
 
@@ -112,7 +112,7 @@ coordinates.
 since $S$ is a finite set, there are finitely many values $i_1 < \ldots < i_l$
 such that $\S(i_j) > 0$. For the sake of simplicity, we map each $i_j$ to $j$
 and we write $N_j = \S(i_j)$. Using this mapping we can, without loss of
-generality, substitute $i_j$'s for $j$'s when doing $b_1 \ask{\le} i_j$
+generality, substitute $i_j$ for $j$ when doing $b_1 \ask{\le} i_j$
 queries.
 
 \item[2.] Partition the interval $[0,1]$ into $l$ adjacent intervals each of
@@ -129,8 +129,8 @@ i}$ as the input set.
 \end{algorithm}
 
 The goal of step \textbf{1.} is to offer a mapping between outputs of $J(r)$
-and the possible original values for $b_1$. After the substitution of $i_j$'s
-for $j$'s, asking $b_1 \ask{\le} J(r)$ just means asking $b_1 \ask{\le}
+and the possible original values for $b_1$. After the substitution of $i_j$
+for $j$, asking $b_1 \ask{\le} J(r)$ just means asking $b_1 \ask{\le}
 i_{J(r)}$ before the substitution takes place. The function $\S(k)$ expresses
 the frequence of apparition of $b_1 = k$ in the set $\S$ and hence
 $\sum\limits_{j=1}^{l} N_j = \card{\S}$.
