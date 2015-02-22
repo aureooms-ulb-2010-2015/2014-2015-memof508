@@ -100,7 +100,7 @@ point $x$. We do so by computing a simplex $\simplex$ inscribed to $\cell$ and
 containing \(x\). Then we discard hyperplanes that do not meet this simplex.
 
 By proceeding this way we have now the guarantee that we will keep at most a
-constant fraction ($\epsilon$) of the hyperplanes and thus the total number of
+constant fraction \(\epsilon\) of the hyperplanes and thus the total number of
 queries made to determine the enclosing cell of
 all steps is \BigO{n^2 \log^2 n \log m}. However, we
 still need to explicit how we find a simplex $\simplex$ containing $x$ and
