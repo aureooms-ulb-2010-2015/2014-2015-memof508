@@ -46,11 +46,13 @@ For our use case, the $n$ of the theorem will be the $n^2$ elements of the set
 To prove the correctness of the theorem, \citet{fredman:1976} builds a biased
 insertion sort algorithm that we will now explain.
 
-Suppose that at iteration $k$ of the algorithm
-we already sorted a subset of $\S$ of size $k-1$.
+Suppose that at iteration \(k\) of the algorithm we have already sorted a
+subset of \(\S\) of size \(k-1\).
 
-$$\underbrace{x_1, \ldots, x_{k-1}}_{\text{subset}}~:~\underbrace{x_{i_1} <
-\ldots < x_{i_{k-1}}}_{\text{relative ordering}}$$
+\begin{displaymath}
+\underbrace{x_1, \ldots, x_{k-1}}_{\text{subset}}~:~\underbrace{x_{i_1} <
+\ldots < x_{i_{k-1}}}_{\text{relative ordering}}
+\end{displaymath}
 
 What we will do at iteration $k$ is insert $x_k$ at the appropriate location
 in the already existing relative ordering to extend it to $x_{i_1} < \ldots <
