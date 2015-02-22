@@ -146,20 +146,20 @@ $x$ to sort out what meets the $\simplex$ or not. The simplex is composed
 entirely of vertices and faces from the hyperplane arrangement $\arrangement(\Ht)$ hence
 its structure does not depend on $x$.
 
-Let us recapitulate the algorithm,
+Let us summarize the algorithm,
 
 \begin{algorithm}
 \item[input] $x \in \R^n$, the point to be located
 \item[1.] Compute the position of $\BigO{n^2 \log^2 n}$ hyperplanes relatively to
 $x$, effectively computing cell $\cell$ containing $x$ \textbf{(\BigO{n^2
 \log^2 n})}
-\item[2.] Recursively build simplex $\simplex$ containing $x$ and inscribed to $\cell$
+\item[2.] Recursively build simplex $\simplex$ containing $x$ and inscribed in $\cell$
 \textbf{(\BigO{n^3 \log^2 n})}
 \item[3.] For any hyperplane $H_i$ not meeting the simplex, deduce $\pv_i(x)$
 \textbf{($0$)}
 \item[4.] Discard all hyperplanes that do not meet the inside of the
 simplex \textbf{($0$)}
-\item[5.] Induction on hyperplanes that are left.
+\item[5.] Recurse on hyperplanes that are left.
 \end{algorithm}
 
 Since the induction depth is $\BigO{\log m}$, the total complexity of this algorithm
