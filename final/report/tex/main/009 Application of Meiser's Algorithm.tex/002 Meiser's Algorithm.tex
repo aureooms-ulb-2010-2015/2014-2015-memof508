@@ -118,10 +118,13 @@ opposite face of $\cell$. \textbf{($\enetsize$)}
 \item[4.] Return the convex hull of \(\simplex \cup \enum{\nu}\).
 \end{algorithm}
 
-We can solve step \step{1} by using linear programming with our
-\BigO{n^2 \log^2 n} hyperplanes and the
-answers to queries $x \ask{\in} \His, \sigma \in \signset$ as
-constraints of the linear program. We just look for any realizable solution.
+We can solve step \step{1} by using linear programming with our \BigO{n^2
+\log^2 n} hyperplanes and the answers to queries $x \ask{\in} \His, \sigma \in
+\signset$ as constraints of the linear program. We arbitrarily choose an
+objective function with a gradient orthogonal to all hyperplanes and look for
+the optimal solution. The optimal solution being the intersection of \(n\)
+hyperplanes from the arrangement, its coordinates are independent of the exact
+location of \(x\) inside its cell and thus this step involves no query at all.
 
 In step \step{2} we find the projection of $x$ on one of the faces of
 $\cell$ by computing the closest hyperplane of $\Ht$ to $x$ in direction
