@@ -200,9 +200,9 @@ $$T(\card{\S}, n) \le r + T(\min\left(\frac{4\card{\S}}{2^r}, \card{\S}\right), 
 and
 $$T(\card{\S}, 1) = \BigO{\log \card{\S}}$$
 
-Clearly, we can only divide $\card{\S}$ by $2$ $\log \card{\S}$ times and
-since we have a multiplier factor of $4$ in the recurrence, we can always ask
-$2$ \emph{useless} queries at each step that will not decrease $\card{\S}$ for the
+Clearly, we can only divide $\card{\S}$ by $2$ $\log \card{\S}$ times and since
+we have a multiplicative factor of $4$ in the recurrence, we can always ask $2$
+\emph{useless} queries at each step that will not decrease $\card{\S}$ for the
 next iteration. Hence,
 
 $$T(\card{\S}, n) \le \log \card{\S} + 2n$$
