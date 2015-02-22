@@ -78,12 +78,11 @@ always either increment $\lo$ or decrement $\hi$. The lookup at step
 a standard binary search procedure. This gives us a total complexity of
 \BigO{\frac{n^2}{g} \log g} for the second phase.
 
-The catch in \cite{gronlund:2014} is that they show it is possible to
-achieve step \step{4} in a subquadratic number of queries. The idea of this
-magic trick is to make use of a simple property referred to as ``Fredman's
-trick''. The property to observe is that $a + b < c + d \iff a - c < d - b$.
+The catch in \citet*{gronlund:2014} is that they show it is possible to
+achieve step \step{4} in a subquadratic number of queries. The idea is to use a simple property referred to as ``Fredman's
+trick''. The property is that $a + b < c + d \iff a - c < d - b$.
 
-The magic trick is materialized as step \step{3}, by computing the sorted
+The trick is materialized as step \step{3}, by computing the sorted
 order on $\D$, we can execute step \step{4} without making any additional
 query since if $a_i, a_i' \in \A_i \text{ and } a_j, a_j' \in \A_j, a_i + a_j <
 a_i' + a_j' \iff a_i - a_i' < a_j' - a_j$. And this time, it can be
