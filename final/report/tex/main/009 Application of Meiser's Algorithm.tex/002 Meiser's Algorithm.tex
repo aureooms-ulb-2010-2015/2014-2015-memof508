@@ -92,14 +92,12 @@ now make two changes to the previous algorithm, we explicitely define the
 cardinality of $\Ht$ and we include an additional step where we replace cell
 $\cell$ with a simplex $\simplex$.
 
-We choose $\card{\Ht} = \enetsize$,
-remember $\Ht$ is the set of hyperplanes for which we will query the oracle in
-the current step of the algorithm, and instead of directly discarding
-hyperplanes not meeting the cell $\cell$ of the arrangement $\arrangement(\Ht)$
-containing $x$ we
-refine the cell around point $x$ by computing a simplex $\simplex$ inscribed
-to $\cell$ and containing $x$, and only after that discard hyperplanes that do
-not meet this simplex.
+Remember \(\Ht\) is the set of hyperplanes for which we will query the oracle
+in the current step of the algorithm. We choose \(\card{\Ht} = \enetsize\) and
+instead of discarding hyperplanes not meeting the cell $\cell$ of the
+arrangement $\arrangement(\Ht)$ containing $x$, we first refine the cell around
+point $x$. We do so by computing a simplex $\simplex$ inscribed to $\cell$ and
+containing \(x\). Then we discard hyperplanes that do not meet this simplex.
 
 By proceeding this way we have now the guarantee that we will keep at most a
 constant fraction ($\epsilon$) of the hyperplanes and thus the total number of
