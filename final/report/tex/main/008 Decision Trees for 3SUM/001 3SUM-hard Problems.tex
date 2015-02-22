@@ -3,39 +3,45 @@
 We already mentioned that many problems are reducible from \threeSUM and
 thus a lower bound for \threeSUM would imply lower bounds for those other problems.
 
-One of these problem is the $3$-points-on-line problem in the plane,
+One of these problems is the $3$-points-on-line problem in the plane,
 
 \begin{problem}
 In the plane, the $3$-points-on-line problem consists in finding
 three collinear points $a$, $b$ and $c$, for $a, b~\text{and}~c \in \U, \card{\U} = n$.
 \end{problem}
 
-We can reduce the three-set version of \threeSUM to a three-set version of
+\begin{theorem}
+The three-set version of the $3$-points-on-line problem in the plane is \threeSUM-hard.
+\end{theorem}
+
+\begin{proof}
+The three-set version of \threeSUM is reducible to a three-set version of
 $3$-points-on-line by mapping all $a \in \A, b \in \B, c \in \C$ to the points
 $a' = (a, a^3)$, $b' = (b, b^3)$ and $c' = (c, c^3)$.
 
 This works because if $a'$, $b'$ and $c'$ are collinear we have,
 
-\begin{eqnarray*}
-	a'_x ( b'_y - c'_y ) + b'_x ( c'_y - a'_y ) + c'_x ( a'_y - b'_y ) & = & 0 \\
-	a ( b^3 - c^3 ) + b ( c^3 - a^3 ) + c ( a^3 - b^3 ) & = & 0 \\
-\end{eqnarray*}
+\begin{align*}
+	a'_x ( b'_y - c'_y ) + b'_x ( c'_y - a'_y ) + c'_x ( a'_y - b'_y ) &= 0 \\
+	a ( b^3 - c^3 ) + b ( c^3 - a^3 ) + c ( a^3 - b^3 ) &= 0 \\
+\end{align*}
 
 And when $ a + b + c = 0 \iff c = - ( a + b )$ we have,
 
-\begin{eqnarray*}
-	a b^3 + a ( a^3 + 3 a^2 b + 3 a b^2 + b^3 ) & & \\
-	- b ( a^3 + 3 a^2 b + 3 a b^2 + b^3 ) - a^3 b - a^4 - a^3 b + b^4 + a b^3 & = & 0 \\
+\begin{align*}
+	a b^3 + a ( a^3 + 3 a^2 b + 3 a b^2 + b^3 ) & \\
+	- b ( a^3 + 3 a^2 b + 3 a b^2 + b^3 ) - a^3 b - a^4 - a^3 b + b^4 + a b^3 &= 0 \\
 	\mathunderline{cyan}{a b^3} + \mathunderline{green}{a^4} +
 	\mathunderline{blue}{3 a^3 b} + \mathunderline{red}{3 a^2 b^2} +
 	\mathunderline{cyan}{a b^3} - \mathoverline{blue}{a^3 b} -
-	\mathoverline{red}{3 a^2 b^2} & & \\
+	\mathoverline{red}{3 a^2 b^2} & \\
 	- \mathoverline{cyan}{3 a b^3} - \mathoverline{yellow}{b^4} -
 	\mathoverline{blue}{a^3 b} - \mathoverline{green}{a^4} -
 	\mathoverline{blue}{a^3 b} + \mathunderline{yellow}{b^4} +
-	\mathunderline{cyan}{a b^3} & = & 0 \\
-	0 & = & 0 \\
-\end{eqnarray*}
+	\mathunderline{cyan}{a b^3} &= 0 \\
+	0 &= 0 \\
+\end{align*}
+\end{proof}
 
 \citet{king2004survey, DBLP:journals/comgeo/GajentaanO12} propose reviews
 of \threeSUM-hard problems, \ie problems that can be reduced from \threeSUM.
