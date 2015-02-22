@@ -145,8 +145,8 @@ stay large.  Otherwise, if the same interval is small, the number of queries
 required to find it will be large but in this case, the induction step will
 have to handle a small $\S$ set.
 
-The only step where we make queries is \step{3}. We will apply the binary
-search the following way. First we ask if $b_1$ lies in the first or the second
+The only step where we make queries is \step{3}. We will use binary
+search as follows. First we ask if $b_1$ lies in the first or the second
 half of $[0,1]$, by asking $b_1 \ask{\le} J(\frac{1}{2})$, and then we continue
 this procedure with the interval designated by the answer to our question as
 our query interval. If the designated interval is the first half of $[0,1]$,
