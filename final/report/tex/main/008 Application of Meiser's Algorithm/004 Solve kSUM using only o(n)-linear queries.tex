@@ -9,19 +9,17 @@
 \end{figure}
 
 We have seen that using Meiser's algorithm, one can solve the \kSUM problem
-with \BigO{n^3 \log^3 n} queries.
-
-We have also seen that the queries the algorithm is required to make can
-involve up to \(n\) linear terms and are thus \(n\)-linear.
-
-We show that it is possible to restrict ourselves to \SmallO{n}-linear queries
-with the addition of a factor \(n\) to the complexity of the algorithm.
+with \BigO{n^3 \log^3 n} queries. We have also seen that the queries the
+algorithm is required to make can involve up to \(n\) linear terms and are thus
+\(n\)-linear. We show that it is possible to restrict ourselves to
+\SmallO{n}-linear queries with the addition of a factor \(n\) to the complexity
+of the algorithm.
 
 Now look at \ref{fig:point-location:on:blocks}. We represent input set \(\S\)
 using a vector \(\enum{x_1,\ldots,x_n}\) of size \(n\). The trick is the
 following. Instead of using Meiser's algorithm once to solve the problem of
 size \(n\), we will divide the input vector in blocks of size \(g\) and solve a
-\kSUM problem for all combinations of \(k\) blocks.  There are \(\sfrac{n}{g}\)
+\kSUM problem for all combinations of \(k\) blocks. There are \(\sfrac{n}{g}\)
 such blocks hence the number of problems to solve is \(\binom{\sfrac{n}{g}}{k}
 = \BigO{(\frac{n}{g})^k} \).
 
@@ -29,13 +27,21 @@ The complexity of solving all the problems would then be
 \begin{displaymath}
 \BigO{\group{\frac{n}{g}}^k (kg)^3 \log^3 (kg) }
 \end{displaymath}
-and the queries are \((kg)\)-linear.
 
-By choosing \(g = n^{\frac{k-1}{k}} = n^{1-\frac{1}{k}}\) and we obtain a
-complexity of
+Since a query can only involve elements contained in the union of \(k\)
+disjoint subsets of size \(g\), the queries made are \((kg)\)-linear.
+
+We want to parametrize \(g\) such that the queries are \SmallO{n}-linear. A
+possible solution is to choose \(g = n^{\frac{k-1}{k}} = n^{1-\frac{1}{k}}\).
+With this parametrization, the queries become \((kn^{1-\frac{1}{k}})\)-linear
+and we obtain a complexity of
 \begin{displaymath}
-\BigO{n (kn^{1-\frac{1}{k}})^3 \log^3 (kn^{1-\frac{1}{k}}) }
+\BigO{n (kn^{1-\frac{1}{k}})^3 \log^3 (kn^{1-\frac{1}{k}}) }.
 \end{displaymath}
-with \((kn^{1-\frac{1}{k}})\)-linear queries.
 
+Note that for any \(\alpha < k\) if we choose \(g = n^{\frac{k-\alpha}{k}} =
+n^{1-\frac{\alpha}{k}}\) we end up with \((kn^{1-\frac{\alpha}{k}})\)-linear
+queries and a total complexity of
+\BigO{n^{\alpha} (kn^{1-\frac{\alpha}{k}})^3
+\log^3 (kn^{1-\frac{\alpha}{k}}) }.
 
