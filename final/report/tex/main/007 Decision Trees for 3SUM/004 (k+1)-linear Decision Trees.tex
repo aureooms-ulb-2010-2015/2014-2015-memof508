@@ -7,5 +7,19 @@ establish new lower bounds for all $s > k$. The case $s = k+1$ leads to a
 subquadratic lower bound for \threeSUM. However, at that point, we are still
 missing an actual subquadratic algorithm for \threeSUM.
 
+Note that the exact lower bound given by \citet*{erickson:1999} for \(s = k\) is
+\BigOmega{(nk^{-k})^{\ceil{\frac{k}{2}}}} while the one given by
+\citet*{ailon:2005} is \BigOmega{(nk^{-3})^{\ceil{\frac{k}{2}}}}. Their result
+improves thus the lower bound when \(k\) is large.
+
+The bound they prove for \(s > k\) is the following,
+\begin{theorem}
+For any instance of \kLDT, the tree depth is at least
+\begin{displaymath}
+\BigOmega{\group{nk^{-3}}^{\frac{2k-s}{2\ceil{\frac{s-k+1}{2}}} (1-\epsilon_k) }}
+\end{displaymath}
+where \(\epsilon_k > 0\) tends to \(0\) as \(k \to\infty\).
+\end{theorem}
+
 In the next section we will talk about the first successful attempt at finding
 a subquadratic algorithm for the \threeSUM problem.
