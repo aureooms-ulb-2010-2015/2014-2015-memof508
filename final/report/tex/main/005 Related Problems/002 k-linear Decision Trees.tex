@@ -1,0 +1,26 @@
+\section{\(k\)-linear Decision Trees}
+
+From now on, we have been considering that, in the decision tree
+model we use, the only kind of query that we were allowed to ask was of the
+form \(a \ask{\le} b \) where \(a\) and \(b\) are elements of some input set.
+
+It is now time to upgrade our model by widening the concept of element
+comparison. In the following sections we will consider that a comparison can
+be made between more than just two elements. A comparison between three
+elements could be for example \(2a - 3b + c \ask{=} 0\). Decisions based on the
+result of such a comparison will depend on the sign of the expression
+\(2a - 3b + c\) \ie whether this sum is smaller than, equal to or greater than
+\(0\).
+
+In this model, we will only be allowed to query for linear combinations of
+input elements and those linear combinations can involve at most \(k\) of those
+elements. We will call this generic model the \(k\)-linear decision tree model.
+
+As a concrete example, let us take the sorting \XY problem we just introduced.
+The set \XY contains all pairwise sums of elements of \(X\) with elements of
+\(Y\). Thus, if we want to sort \XY we could make queries of the form \((x_i +
+y_j) \ask{\le} (x_{i'} + y_{j'})\) and this can be rewritten as \( x_i +
+y_j - x_{i'} - y_{j'} \ask{=} 0\) to fit our new model. Solving the problem
+this way would involve \(4\)-linear queries and hence we would be working in
+the \(4\)-linear decision tree model. Of course, we take the conditional here
+because sorting \XY is in no way forcing us to use \(k=4\).
