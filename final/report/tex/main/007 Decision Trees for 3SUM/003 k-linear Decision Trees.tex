@@ -3,9 +3,27 @@
 In \citet*{erickson:1999}, it is shown that we cannot solve \threeSUM in
 subquadratic time using only the $3$-linear decision tree as a model. A
 general proof for the \kLDT problem in the $k$-linear decision tree model
-is featured. The proof uses an adversary argument. In the case of $k$
+is featured. In the case of $k$
 even, a bound of \BigOmega{n^{\frac{k}{2}}} is demonstrated. For odd $k$, the
 bound is \BigOmega{n^{\frac{k+1}{2}}}.
+
+Their result is stated as follows,
+\begin{theorem}
+The optimal depth of a \(k\)-linear decision tree that solves
+a \(k\)-variable linear satisfiability problem is \BigTheta{n^{\ceil{k/2}}}.
+\end{theorem}
+
+The proof uses an adversary argument which can be explained geometrically. As
+we will see later, we can solve \(k\)-variable linear satisfiability problems
+by modeling them as point location problems in arrangement of hyperplanes. The
+goal of a point location problem in an arrangement of hyperplanes is to
+determine which cell of the arrangement contains the input point. The adversary
+argument of \citet*{erickson:1999} is that there exists a cell having
+\BigOmega{n^{\ceil{k/2}}} boundary facets and thus if the input point is inside
+that cell, then an algorithm must check if the point is on any of the facets of
+that cell. If the algorithm stops without doing so, an adversary could freely
+move the point from the inside of the cell to its border, changing the output
+without the algorithm noticing it.
 
 For information, we hereunder detail the classical \BigO{n^2} algorithm for
 \threeSUM, successfully attaining the lower bound demonstrated in
