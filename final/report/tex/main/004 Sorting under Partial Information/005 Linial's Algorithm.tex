@@ -41,17 +41,7 @@ Let \(P = A \cup B\), where \(A = (\chain{a_1}{a_m})\) and \(B =
 \(\alpha_1,\ldots,\alpha_m,\beta_1,\ldots,\beta_m\) as follows, \(\beta_i =
 min\{t \st b_t > a_i\}, \alpha_j = max\{t \st b_t < a_j\}\) and where the
 minimum and maximum of an empty set are taken to be \(n + 1\) and \(0\)
-respectively. The number of extensions of \(P\) is given by
-
-\begin{displaymath}
-e(P) =
-\begin{vmatrix}
-\binom{\beta_i - \alpha_j}{j - i - 1}_{+}
-\end{vmatrix}_{1 \le i , j \le m},
-\end{displaymath}
-
-the determinant of a \(m \times m\) matrix. The special \(\binom{n}{k}_{+}\)
-notation is defined by
+respectively. Let \(\binom{n}{k}_{+}\) be defined as
 
 \begin{displaymath}
 \binom{n}{k}_{+} =
@@ -61,6 +51,17 @@ notation is defined by
 \binom{n}{k} & otherwise\\
 \end{dcases*}.
 \end{displaymath}
+
+Then, the number of extensions of \(P\) is given by
+
+\begin{displaymath}
+e(P) =
+\begin{vmatrix}
+\binom{\beta_i - \alpha_j}{j - i - 1}_{+}
+\end{vmatrix}_{1 \le i , j \le m},
+\end{displaymath}
+
+the determinant of a \(m \times m\) matrix.
 \end{theorem}
 
 
