@@ -29,11 +29,21 @@ a query \(x \ask{\le} y\) with \(x \in A, y \in B\) such that the probability
 that \(x \le y\) lies in the interval \([\sfrac{1}{3}, \sfrac{2}{3}]\).
 \end{theorem}
 
-\citet*{linial:1984} proposes the following algorithm. We compute the number of
-linear extensions of the width-\(2\) poset \(P\) using the determinant
-counting formula. The proof for this determinant counting formula can be found in
-\citet*{mohanty:1979}, we give hereunder the statement of this formula in the
-context of the merging under partial information problem.
+\citet*{linial:1984} proposes the following polynomial-time algorithm. We
+compute the number of linear extensions of the width-\(2\) poset \(P\) using
+the determinant counting formula. We do so also for every query we could use to
+retrieve more information on the total order \(\le\). We then use those counts
+to find a pair \((a,b)\) that satisfies \(\sfrac{1}{3} \le \frac{e(P(a \le
+b))}{e(P)} \le \sfrac{2}{3}\), where \(P(a \le b)\) denotes the poset obtained
+from \(P\) after adding the constraint that \(a \le b\). Once this pair is
+identified, we can effectively make the query and update poset \(P\) with the
+actual answer.  We can then recurse on the newly obtained poset. Because of the
+successive uses of good queries, the recursion depth, and thus the number of
+queries made, is \BigO{\log e(P)}.
+
+The proof for the determinant counting formula \citet*{linial:1984} uses can be
+found in \citet*{mohanty:1979}, we give hereunder the statement of this formula
+in the context of the merging under partial information problem.
 
 \begin{theorem}
 Let \(P = A \cup B\), where \(A = (\chain{a_1}{a_m})\) and \(B =
@@ -64,6 +74,23 @@ e(P) =
 the determinant of a \(m \times m\) matrix.
 \end{theorem}
 
-Using those two theorems, we are now able to design a polynomial-time algorithm
-that will use \BigO{\log e(P)} queries. Here is a sketch of the algorithm,
-\dots
+We now make a few observations to show that Linial's algorithm runs in
+polynomial time.
+
+\begin{enumerate}
+\item the values \(\beta_i - \alpha_j\) and \(j - i + 1\) are bounded
+linearily in the size of the input, hence their size is bounded
+logarithmically in the size of the input;
+\item the size of the value of the binomial coefficient \(\binom{n}{k}\) is
+bounded by a polynomial in \(k\) and \(n\);
+\item using Bareiss algorithm \cite{bareiss:1968}, the computation of a
+determinant can be made in polynomial time and with intermediate size of the
+values bounded by some polynomial in the size of the matrix and the starting
+size of the values;
+\item for each step there is a polynomial number of possible queries to look for;
+\item there are \BigO{\log e(P)} steps and \(\log e(P)\) is \BigO{n \log n}.
+\end{enumerate}
+
+However, as an anonymous referee pointed out when commenting on
+\cite{cardinal:2013}, there exists a faster way that doesn't require computing
+all those determinants.
