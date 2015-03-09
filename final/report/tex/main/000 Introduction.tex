@@ -1,33 +1,67 @@
 \setcounter{chapter}{-1}
 \chapter{Introduction}
 
+
 Dear reader,
 
-This work focuses on problems related to sorting. We first give a rehearsal on
-well-studied problems: sorting and merging. The goal of this rehearsal will be
-to clearly define what we mean when we say sorting or merging. This will also
-give us the occasion to introduce tools that will be needed all along this
-document. Two examples of such tools are Stirling's approximation and the
-mergesort algorithm.
+
+This work focuses on studying the complexity of problems and solving problems
+in the decision tree model. In the model we will use, solving a problem will
+amount to retrieve information. We will be allowed to retrieve information
+through an omniscient oracle by means of questions that, in the general case,
+can be answered ``yes'' or ``no''. The kind of question we will ask ourselves
+about a problem is: ``For an instance of size \(n\), in the worst case, what is
+the minimum number of questions we would have to ask to the oracle to solve our
+problem''. We will have no interest in the storage of information we retrieve.
+In other words, in our model, the only operation having a non-zero cost is
+asking the oracle to answer one of our ``yes/no'' answerable questions.
+
+
+In the first two chapters, we give a rehearsal on well-studied problems:
+sorting and merging. The goal of this rehearsal will be to clearly define these
+two basic problems as well as the model we will be working with. For example,
+we will demonstrate non-uniformity of the decision tree model. This rehearsal
+will also give us the occasion to introduce tools that will be needed all along
+this document. Two examples of such tools are Stirling's approximation and the
+mergesort algorithm.  Since all the problems we will approach are in a way or
+another related to sorting, these two first chapters are really the starting
+point of our journey.
+
 
 The third chapter will be dedicated to formalization of commonly used objects
-in order theory. There, we will familiarize ourselves with partially ordered
-sets, their structure and the concept of entropy when applied to them.
+in order theory. In this chapter we will evolve crescendo from very basic
+concepts to useful tools. We will first familiarize ourselves with order
+relations and partially ordered sets. We will introduce Hasse diagrams that
+will be used to represent partially ordered sets throughout this document.
+This chapter will also contain information about structural particularities
+that can be found in certain families of posets. The conclusion of this
+chapter will consist in the introduction of graph entropy and consequently
+poset entropy, one of the most useful tool we will be using to explain the
+results exposed in chapter four.
 
-Decision tree model
-
-Orders, posets
 
 Sorting under Partial Information
 
-k-linear decision trees
+History
 
-Set sum problems
+Linial's algorithm: merging under partial information
+
+Extending the model: k-linear decision trees
+
+X+Y, Set sum problems
 
 Realtion between sorting and those problems
 
 Detail Sorting X + Y
+- importance of exploiting known information
+- limitations of the poset approach
+- generic algorithm of fredman
+- counting linear extensions
 
-Detail 3SUM + recent results
+Detail 3SUM
+- recent results refuting a conjecture
 
 Meiser's algorithm
+- solving kSUM family problems by modeling them as point location problems
+- non-uniformity of the model bis
+- trick to use only \(o(n)\)-linear queries
