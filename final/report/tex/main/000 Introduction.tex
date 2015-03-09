@@ -40,28 +40,54 @@ poset entropy, one of the most useful tool we will be using to explain the
 results exposed in chapter four.
 
 
-Sorting under Partial Information
+In the fourth chapter, we will tackle the problem of sorting under partial
+information. Sorting under Partial Information, abbreviated \concept{SUPI}, is
+a more generic problem than sorting. When we want to sort an array of integers
+with the quicksort algorithm for example, we assume the array is shuffled and
+that no prior information can be extracted from the input without bothering the
+oracle. Here, we will explain ways to exploit some already existing information
+to find the linear extension of a poset using a smaller number of queries than
+what would be required by classical sorting algorithms. We will first define
+the problem and explain its origins. We will then explain techniques that can
+be used to solve this problem. The last part of this chapter will concern an
+algorithm that solves the problem of Merging under Partial Information or
+\concept{MUPI}, a special case of Sorting under Partial Information.
 
-History
 
-Linial's algorithm: merging under partial information
+The fifth chapter will introduce a variety of problems that are all related to
+each other. We will introduce the classical set sum problems that are
+\threeSUM, \kSUM and subset sum. Other problems include a generalization of
+\kSUM known as linear degeneracy testing, abbreviated \kLDT, and sorting \XY.
+We will explain how one can make links between those problems and the problem
+of sorting. We will also need to upgrade our decision tree model and for this
+purpose we will introduce the notion of \(k\)-linear decision trees. This
+extended model will be of use for the three last chapters.
 
-Extending the model: k-linear decision trees
 
-X+Y, Set sum problems
+The sixth chapter will focus on the problem of sorting \XY. We will make
+multiple attempts to solve this problem efficiently and evaluate its complexity
+using two different set of tools. We will see how exploiting known information
+can be significant and the limitations of the partially order set tools that
+were used for solving the Sorting under Partial Information problem. We will
+detail one of the very first algorithms designed to solve \concept{SUPI} and
+show that using this algorithm, one can solve the problem of sorting \XY
+optimally in terms of comparisons.
 
-Realtion between sorting and those problems
 
-Detail Sorting X + Y
-- importance of exploiting known information
-- limitations of the poset approach
-- generic algorithm of fredman
-- counting linear extensions
+\threeSUM will be the subject of the seventh chapter. We will introduce the
+subject by demonstrating the interest of studying the \threeSUM problem. Then,
+we will state a long lived but freshly refuted conjecture concerning the
+complexity of \threeSUM and explain its implications. The third part will
+consist of three sections. The first two will contain previous results while
+the third one will expose recent results that refute the above-referenced
+conjecture. Finally, we will explain how these results can be applied to solve
+the more generic \kLDT problem.
 
-Detail 3SUM
-- recent results refuting a conjecture
 
-Meiser's algorithm
-- solving kSUM family problems by modeling them as point location problems
-- non-uniformity of the model bis
-- trick to use only \(o(n)\)-linear queries
+The last chapter will concern the application of a point location algorithm to
+\kSUM family problems. We will show how one can model those subset sum
+problems as point location problems. We will then detail the algorithm that
+can solve these newly modeled problems. We will have the occasion to insist again
+on the non-uniformity of the decision tree model. We will end our dissertation
+with a little trick that limits the size of queries send to the oracle when
+using our point location algorithm.
