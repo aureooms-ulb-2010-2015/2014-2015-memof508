@@ -93,14 +93,19 @@ built $2^{i}$ total orders on disjoint subsets of size $2^{\log N - i}$. Since
 the stage represented in \ref{fig:xy:poset:mergexy} shows $n$ total orders on
 disjoint subsets of size $n$, and that the total number of elements in $X+Y$ is
 $N = n^2$ we can conclude that \ref{fig:xy:poset:mergexy} shows us step
-$\sfrac{1}{2} \log N$. In merge sort, at each stage of the recursion we do at
-most \(N\) comparisons hence we only have half of the comparisons left to do in
-order to complete the execution of the algorithm.
+$\sfrac{1}{2} \log N$. It should be possible to prove from scratch that
+starting the algorithm at the median step saves us half the comparisons, for
+\(n\) large enough. However we will rely on the results we demonstrated
+in \ref{tree:merging:kgeq3} to prove that it is indeed the case.
 
-An other way to look at it is note that if \(2n^2 \log n\) is the total amount
-of information to retrieve, then recycling the information contained in the
-\(n\) chains of length \(n\) gives us \(n \cdot n \log n = n^2 \log n\) bits of
-information already in our possession. We can reuse this information optimally
-using the Huffman code based merging algorithm we presented in
-\ref{tree:merging:kgeq3}.
+\begin{proof}
+Note that if \(2n^2 \log n\) is the total amount of information to retrieve,
+then recycling the information contained in the \(n\) chains of length \(n\)
+gives us \(n \cdot n \log n = n^2 \log n\) bits of information already in our
+possession. We already saw that we can reuse this information optimally using
+the Huffman code based merging algorithm.
+\end{proof}
 
+Since this algorithm reuses only a fraction of the available information, the
+question of the optimality of this approach remains. This question will be
+answered in the next section.
