@@ -93,15 +93,10 @@ queries of step \step{3} is $\log \card{\Gamma} + 2N$. In this case $N =
 step \step{3} is \BigO{n \log n + gn}. We say that step \step{3} is a
 comparison efficient way of accomplish step \step{4}.
 
-\citet*{gronlund:2014} generalize this result further by reducing\footnote{see
-\ref{tree:3sum:kldt}} \kLDT to an unbalanced \threeSUM problem, and apply a
-three-set version of their decision tree to solve it, proving the following
-theorem,
-
-\begin{theorem}
-When $k \ge 3$ is odd, there is a $(2k-2)$-linear decision tree for \kLDT with
-depth \BigO{n^{\sfrac{k}{2}} \sqrt{\log n}}.
-\end{theorem}
+\citet*{gronlund:2014} generalize this result further by reducing \kLDT to an
+unbalanced \threeSUM problem, and apply a three-set version of their decision
+tree to solve it. The details for this reduction technique are explained in
+the next section.
 
 Finally, for the case of $k = 3$, they provide two subquadratic \threeSUM
 algorithms. A deterministic one running in \BigO{n^2/(\log n / \log \log

@@ -7,8 +7,15 @@ see that in the \(k\)-linear decision tree model one can solve \kLDT optimally
 using the standard quadratic algorithm for \threeSUM. After that, we will give a
 short argument to explain that the same kind of technique can be applied when
 \(k\) is even. Finally, we illustrate how the decision tree for \threeSUM of
-\citet*{gronlund:2014} gives a better lower bound using \((2k-2)\)-linear
-decision trees.
+\citet*{gronlund:2014} gives a better lower bound, for odd \(k\), using
+\((2k-2)\)-linear decision trees.
+
+The goal of this section is to prove the following result,
+
+\begin{theorem}
+When $k \ge 3$ is odd, there is a $(2k-2)$-linear decision tree for \kLDT with
+depth \BigO{n^{\sfrac{k}{2}} \sqrt{\log n}}.
+\end{theorem}
 
 The standard three-set version of the quadratic \threeSUM algorithm for input
 sets \(\A\), \(\B\) and \(\C\) completes after \BigO{\card{\C} ( \card{\A} +
@@ -64,10 +71,10 @@ for \threeSUM from the one-set version to a three-set version. This version of
 the decision tree is
 
 \begin{displaymath}
-\BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g}
+\BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g},
 \end{displaymath}
 
-, hence if one chooses \(g = \sqrt{n \log n}\) he will obtain an
+hence if one chooses \(g = \sqrt{n \log n}\) he will obtain an
 \BigO{n^{\frac{k}{2}} \sqrt{\log n}} decision tree for \kLDT with $k$ odd
 which improves the best known lower bound.
 
