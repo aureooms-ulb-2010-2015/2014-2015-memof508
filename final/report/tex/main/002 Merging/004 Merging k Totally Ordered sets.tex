@@ -71,10 +71,68 @@ wihout loss of generality since even for a non \emph{dyadic distribution}
 ($p(u) = 2^{-n_u}, n_u \in \N$, see \cite{cover2012elements}) the Huffman code
 is optimal.
 
-Let us take some time to detail the relation between constructions of Huffman
-codes and runs of our algorithm.
+...
 
-\dots
+Let us take some time to detail the relation between constructions of Huffman
+codes and runs of our algorithm. First, we define the problem of optimal
+coding of a random variable with respect to the average length of the messages
+encoding events emitted by this random variable. We assume the channel we
+use to transmit our messages is perfect:
+
+\begin{problem}
+Given a random variable \(X\) with possible event \(x_1,\ldots,x_n\) occuring
+with probability \(0 < p(x_i) \le 1, \sum_{x_i} p(x_i) = 1\), construct an
+instantaneous code to transmit events through a perfect channel with alphabet
+\(\Sigma = \enum{0,1}\) that minimizes the average size of a message encoding
+an event.
+\end{problem}
+
+The are several results on this subject which we summarize in the
+following theorem,
+
+\begin{theorem}
+The average code length \(L(X)\) of any instantaneous coding scheme can not be smaller than
+the entropy of the random variable \(H(X)\). If we define by \(l(x_i)\) to be the code
+length for event \(x_i\), then the average code length is
+\begin{displaymath}
+L(X) = \sum_{x_i} p(x_i) l(x_i).
+\end{displaymath}
+With respect to the objective function we mentioned above, Huffman coding is
+an optimal instantaneous code and its average length \(L_H(X)\) is bounded by
+\begin{displaymath}
+H(X) \le L_H(X) \le H(X) + 1.
+\end{displaymath}
+The entropy we are refering to is Shannon entropy which is defined by
+\begin{displaymath}
+H(X) = \sum_{x_i} p(x_i) \log \frac{1}{p(x_i)}.
+\end{displaymath}
+\end{theorem}
+
+\(L_H(X)\) is achieved by constructing a Huffman tree. The method to build this
+tree is the following. We start with \(n\) leaves, one for each possible event
+\(x_i\). We assign a weight of \(p(x_i)\) to each of these leaves. The current
+structure is not quite a tree but a pool of disconnected nodes.  Then, one
+replaces the two nodes of the pool with smallest weight by a new one which will
+act as their parent in the Huffman tree. The weight of this new node is
+computed as the sum of the weights of its children. One repeats this
+replacement operation until the pool contains only one element. This last
+element is the root of the tree. Since at each step we replace two nodes by
+one, after \(n-1\) of these steps the tree is constructed.
+
+Now we make the parallel with our merging algorithm. If we want to merge
+multiple totally ordered sets \(s_1,\ldots,s_k\) having different lengths we can use a similar
+approach. To each set \(s_i\) we assign the fake probability
+\(\frac{\card{s_i}}{n}\) hence Shannon entropy of the random variable
+\(S\) emitting these fake events is
+\begin{align}
+H(S) &= - \sum \frac{\card{s_i}}{n} \log \frac{\card{s_i}}{n}\\
+&= - \sum \frac{\card{s_i}}{n} (\log \card{s_i} - \log n)\\
+&= \sum \frac{\card{s_i}}{n} \log n - \sum \frac{\card{s_i}}{n} \log \card{s_i}\\
+&= \frac{1}{n} \sum \card{s_i} \log n - \frac{1}{n} \sum \card{s_i} \log \card{s_i}\\
+&= \frac{1}{n} (n \log n - \sum \card{s_i} \log \card{s_i})\\
+\end{align}
+
+...
 
 The algorithm is thus building the huffman tree and then merges the two deepest
 leaves of the huffman tree until there is only one left.
