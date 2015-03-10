@@ -71,8 +71,6 @@ wihout loss of generality since even for a non \emph{dyadic distribution}
 ($p(u) = 2^{-n_u}, n_u \in \N$, see \cite{cover2012elements}) the Huffman code
 is optimal.
 
-...
-
 Let us take some time to detail the relation between constructions of Huffman
 codes and runs of our algorithm. First, we define the problem of optimal
 coding of a random variable with respect to the average length of the messages
@@ -121,7 +119,7 @@ one, after \(n-1\) of these steps the tree is constructed.
 
 Now we make the parallel with our merging algorithm. If we want to merge
 multiple totally ordered sets \(s_1,\ldots,s_k\) having different lengths we can use a similar
-approach. To each set \(s_i\) we assign the fake probability
+approach. To each set \(s_i\) we assign a fake event with probability
 \(\frac{\card{s_i}}{n}\) hence Shannon entropy of the random variable
 \(S\) emitting these fake events is
 \begin{align}
@@ -132,9 +130,38 @@ H(S) &= - \sum \frac{\card{s_i}}{n} \log \frac{\card{s_i}}{n}\\
 &= \frac{1}{n} (n \log n - \sum \card{s_i} \log \card{s_i})\\
 \end{align}
 
-...
+The definition of \(p(s_i)\) is coherent with the invariant of
+the Huffman tree construction algorithm since merging two totally ordered sets
+\(s_i\) and \(s_j\) produces a new one of size \(\card{s_i} + \card{s_j}\).
 
-The algorithm is thus building the huffman tree and then merges the two deepest
+Now we prove that for a merging algorithm that would iteratively merge the two
+smallest remaining totally ordered set, the number of comparison used is at
+most \(n L_H(S)\). To make this explicit, we rearrange the terms of \(L(s_i)\),
+
+\begin{displaymath}
+L_H(S) = \sum \frac{\card{s_i}}{n} l(s_i) = \frac{1}{n} \sum l(s_i) \card{s_i}.
+\end{displaymath}
+
+In the above equation, \(l(s_i)\) corresponds to the number of times elements
+of \(s_i\) are taking part in a merge operation. When merging two totally
+ordered sets \(s_i\) and \(s_j\) the standard tape merge algorithm uses less
+than \(\card{s_i} + \card{s_j}\) comparisons. Moreover, the totally ordered set
+associated to a node of the Huffman tree is the union of the totally ordered
+sets associated to \(u\) leaves of the tree. These leaves are
+\(s_{i_1},\ldots,s_{i_u}\) and have lengths
+\(\card{s_{i_1}},\ldots,\card{s_{i_u}}\). When two nodes are merged, it
+requires thus less than
+\(\card{s_{i_1}}+\ldots+\card{s_{i_u}}+\card{s_{j_1}}+\ldots+\card{s_{j_v}}\)
+comparisons. We can rearrange these \(\card{s_{i_w}}\) and conclude that
+\(\sum l(s_i) \card{s_i}\) is an upperbound on the number of comparisons used
+by our algorithm. Since,
+\begin{displaymath}
+n H(S) \le n L_H(S) \le n H(S) + n,
+\end{displaymath}
+our algorithm requires at most \(n log n - \sum \card{s_i} \log \card{s_i} +
+n\) comparisons which is \BigO{ITLB}.
+
+Our algorithm is thus building the Huffman tree and then merges the two deepest
 leaves of the huffman tree until there is only one left.
 
 \begin{figure}
@@ -144,10 +171,10 @@ leaves of the huffman tree until there is only one left.
 	\label{tree:merging:fig/huffman-2}
 \end{figure}
 
-Looking at \ref{tree:merging:fig/huffman-2} we can deduce the complexity of the
-algorithm. The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps
-producing information we already have. Since those steps do not need to be
-processed and since the complexity of the merge sort is $\BigO{n \log n}$ we
-have a total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} =
-\BigO{ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set
-of the input.
+We provide a visual way of understanding our claims. Looking at
+\ref{tree:merging:fig/huffman-2} we can deduce the complexity of the algorithm.
+The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps producing
+information we already have. Since those steps do not need to be processed and
+since the complexity of the merge sort is $\BigO{n \log n}$ we have a total
+complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} = \BigO{ITLB}$
+where $n_i$ is the cardinality of the $i$-th totally ordered set of the input.
