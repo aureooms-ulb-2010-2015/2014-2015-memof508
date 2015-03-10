@@ -40,7 +40,7 @@ ordered sets. Remember that since the totally ordered sets are all of
 cardinality $i$, for the optimal merge algorithm $m=n$, hence this step makes
 $\frac{k}{2} (2 i) = k i = n$ comparisons. Since at the end of each step we
 update $k \gets \frac{k}{2}, i \gets 2i$, the number of comparisons at each
-step is n. We stop when $k = 1, i = n$.
+step is at most n. We stop when $k = 1, i = n$.
 Since \emph{the number of times $2$ divides $n$} corresponds to $\log n$, the
 algorithm is of complexity $\BigO{n \log n}$.
 
