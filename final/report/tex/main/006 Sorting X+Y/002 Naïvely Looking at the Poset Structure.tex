@@ -195,5 +195,6 @@ e(P) &\ge \frac{(n^2)!}{(2n)^{n^2}}\\
 Thus, solving \XY in \SmallO{n^2 \log n} comparisons is not possible if we only
 consider the information contained in the poset structure, \ie if we only
 exploit the fact that \( X_i \le X_{i'} \land Y_j \le \Y_{j'} \implies X_i +
-Y_j \le X_{i'} + Y_{j'}\). \ref{tree:xy:counting} shows that there is indeed
-more information available.
+Y_j \le X_{i'} + Y_{j'}\). Moreover, to sort a poset having the same structure,
+the trivial mergesort technique explained earlier is optimal.
+\ref{tree:xy:counting} shows that there is indeed more information available.
