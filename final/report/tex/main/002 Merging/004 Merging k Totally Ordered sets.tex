@@ -158,7 +158,7 @@ by our algorithm. Since,
 \begin{displaymath}
 n H(S) \le n L_H(S) \le n H(S) + n,
 \end{displaymath}
-our algorithm requires at most \(n log n - \sum \card{s_i} \log \card{s_i} +
+our algorithm requires at most \(n \log n - \sum \card{s_i} \log \card{s_i} +
 n\) comparisons which is \BigO{ITLB}.
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
@@ -175,6 +175,7 @@ We provide a visual way of understanding our claims. Looking at
 \ref{tree:merging:fig/huffman-2} we can deduce the complexity of the algorithm.
 The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps producing
 information we already have. Since those steps do not need to be processed and
-since the complexity of the merge sort is $\BigO{n \log n}$ we have a total
-complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} = \BigO{ITLB}$
-where $n_i$ is the cardinality of the $i$-th totally ordered set of the input.
+since the complexity of the merge sort algorithm is $\BigO{n \log n}$ we have a
+total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} =
+\BigO{ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set
+of the input.
