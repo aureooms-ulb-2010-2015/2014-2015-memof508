@@ -42,7 +42,8 @@ Each element of \(\A\) and \(\B\) has exactly \(\frac{k-1}{2}\) linear terms.
 Elements of \(\A\) have an additional \(\alpha_0\) independent term. Looking
 at all possible combinations of \(s_i\) with \(\alpha_j\) we know that
 \(\card{\A} = \card{\B} = \BigO{n^{\frac{k-1}{2}}}\), whereas \(\card{\C} =
-n\).
+n\). As a remark, note that by simply omitting \(\alpha_j\) factors we obtain a
+similar reduction from \kSUM.
 
 If we use the quadratic \threeSUM algorithm to solve the instance we
 constructed, it will make \(k\)-linear queries since summing an element of
