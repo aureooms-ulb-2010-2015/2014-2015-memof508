@@ -160,10 +160,14 @@ by our algorithm. Since,
 n H(\S) \le n L_H(\S) \le n H(\S) + n,
 \end{displaymath}
 our algorithm requires at most \(n \log n - \sum \card{\S_i} \log \card{\S_i} +
-n\) comparisons which is \BigO{ITLB}.
+n\) comparisons which is \BigO{ITLB + n}.
+
+To handle sublinear \concept{ITLB} we need
+to resort to a last trick. The only way the \concept{ITLB} \dots
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
-leaves of the huffman tree until there is only one left.
+leaves of the Huffman tree using the Hwan-Lin algorithm until there is only
+one leaf left.
 
 \begin{figure}
 	\centering
