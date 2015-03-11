@@ -27,17 +27,23 @@ tree model with fixed input size \(n\) and fixed output set \(\Gamma\) using
 the following approach. We generate the finite set containing all possible
 decision trees with \(\card{\Gamma}\) leaves. To each node of the trees we
 generated corresponds a query of the form \(q(x_1,\ldots,x_n)\) where
-\((x_1,\ldots,x_n)\) is the input vector. We then keep the decision tree with
-minimal height \(h\). To solve an instance of size \(n\) we can just walk
-through the decision tree we built, branching according to the answers we get
-from the queries. This is equivalent to build \(C_n\), a circuit of depth
-\(h\). For problems where \(\card{\Gamma}\) is at most singly exponential in
-\(n\), \(h\) will be polynomial and thus for each problem size we have a
-circuit \(C_n\) giving the correct output in polynomial time. Unfortunately,
-there exist problems for which this approach will take exponential time in
-\(n\) to construct \(C_n\) while \(h\) is polynomial, hence the circuit
-families for those problems are not P-uniform and the decision tree model is
-non-uniform.
+\((x_1,\ldots,x_n)\) is the input vector. We must assign queries to the nodes
+in a way that is coherent with the assignment on the leaves. Moreover, a query
+must allow us to distinguish between at least one leaf and the a non-empty set
+of other remaining possible outputs. Otherwise this query would have
+automaticly only one children and would be pointless. Note that all of this can
+be computed without an input. At each node we simply simulate both yes and no
+answers without bothering the oracle and generate the left and right subtrees
+according to which answer corresponds to which subtree. We then keep the
+decision tree with minimal height \(h\). To solve an instance of size \(n\) we
+can just walk through the decision tree we built, branching according to the
+answers we get from the queries. This is equivalent to build \(C_n\), a circuit
+of depth \(h\). For problems where \(h\) is polynomial in \(n\), for each
+problem size we have a circuit \(C_n\) giving the correct output in polynomial
+time. Unfortunately, there exist problems for which this approach will take
+exponential time in \(n\) to construct \(C_n\) while \(h\) is polynomial, hence
+the circuit families for those problems are not P-uniform and the decision tree
+model is non-uniform.
 
 For all of the problems we will study, one can make the parallel between the
 complexity analysis on the number of comparisons required to solve those

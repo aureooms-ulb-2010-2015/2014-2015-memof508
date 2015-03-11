@@ -7,23 +7,23 @@
 
 
 \begin{theorem}
-The ITLB for the merging problem when $k \geq 3$ with $|S_i| = m_i$ and $m' =
-\sum_{i=1}^{k} m_i$ is \BigOmega{\log \frac{m'}{m_1 \cdot m_2 \dots m_k}}.
+The ITLB for the merging problem when $k \geq 3$ with $|\S_i| = n_i$ and $n =
+\sum_{i=1}^{k} n_i$ is \BigOmega{\log \frac{n}{n_1 \cdot n_2 \dots n_k}}.
 \end{theorem}
 
 \begin{proof}
-We have to choose the $m_1$ among $m'$ positions in $S'$ for the elements of
-$S_1$ and then recursively call our algorithm on the remaining $m' - m_1$
-positions with the elements of ${\cal S}' = \{S_2, \dots, S_k\}$. The number of
-leaves of the decision tree is $\frac{m'}{m_1 \cdot m_2 \dots m_k}$ hence the
-worst-case minimal height of the tree is $\log \frac{m'}{m_1 \cdot m_2 \dots
-m_k}$.
+We have to choose the $n_1$ among $n$ positions in $\S'$ for the elements of
+$\S_1$ and then recursively make this choice on the remaining $n - n_1$
+positions with the elements of \(\S_2 \cup \dots \cup \S_k\). The number of
+leaves of the decision tree is $\frac{n}{n_1 \cdot n_2 \dots n_k}$ hence the
+worst-case minimal height of the tree is $\log \frac{n}{n_1 \cdot n_2 \dots
+n_k}$.
 \end{proof}
 
-\nb{Giving $\log \frac{m'}{m_1 \cdot m_2 \dots m_k}$ in the form of the
-Stirling's approximation gives us $m' \log m' - \sum_{i=1}^{k} m_i \log m_i$
-which clearly express the information contained in the sorted sequence $S'$ of
-$m'$ elements minus the information we already have.}
+\nb{Giving $\log \frac{n}{n_1 \cdot n_2 \dots n_k}$ in the form of the
+Stirling's approximation gives us $n \log n - \sum_{i=1}^{k} n_i \log n_i$
+which clearly express the information contained in the sorted sequence $\S'$ of
+$n$ elements minus the information we already have.}
 
 \subsection*{An Algorithm for the General Merging Problem}
 \label{tree:merging:kgeq3:alg}
@@ -32,13 +32,13 @@ Remember the input is a set of $k$ totally ordered sets. This should remind us
 of something. The merge sort algorithm for sure! More precisely, a specific
 state in the resolution of the recursion of this algorithm.
 
-We recall how merge sort works \cite{leiserson2001introduction}. The input is a
-set of cardinality $n$. The output is a totally ordered set. It begins by
+We recall how merge sort works (see also \citet*{leiserson2001introduction}). The input is a
+set of cardinality $n$. The output is a totally ordered set. We begin by
 splitting the input in $k = n$ totally ordered sets of cardinality $i = 1$.
-Then, it merges the totally ordered sets by pair in $\frac{k}{2}$ new totally
+Then, we merge the totally ordered sets by pair in $\frac{k}{2}$ new totally
 ordered sets. Remember that since the totally ordered sets are all of
-cardinality $i$, for the optimal merge algorithm $m=n$, hence this step makes
-$\frac{k}{2} (2 i) = k i = n$ comparisons. Since at the end of each step we
+cardinality $i$, for the optimal merge algorithm we have $m=n$, hence this step makes
+$\frac{k}{2} (2 i - 1) \le k i = n$ comparisons. Since at the end of each step we
 update $k \gets \frac{k}{2}, i \gets 2i$, the number of comparisons at each
 step is at most n. We stop when $k = 1, i = n$.
 Since \emph{the number of times $2$ divides $n$} corresponds to $\log n$, the
@@ -60,7 +60,7 @@ algorithm is of complexity $\BigO{n \log n}$.
 
 We can visualize the execution of merge sort as a tree that shrinks up to the
 root as the algorithm progresses to the solution. Nodes on the same level of
-the tree are totally order sets on disjoint subsets of the input.
+the tree are totally ordered sets on disjoint subsets of the input.
 \ref{tree:merging:fig/huffman-1} shows the algorithm in the initial state $k =
 n, i = 1$. \ref{tree:merging:fig/huffman-3} shows the algorithm in an
 intermediary state where some totally ordered sets have been merged. Notice
@@ -71,7 +71,7 @@ wihout loss of generality since even for a non \emph{dyadic distribution}
 ($p(u) = 2^{-n_u}, n_u \in \N$, see \cite{cover2012elements}) the Huffman code
 is optimal.
 
-Let us take some time to detail the relation between constructions of Huffman
+Let us take some time to expose the relation between constructions of Huffman
 codes and runs of our algorithm. First, we define the problem of optimal
 coding of a random variable with respect to the average length of the messages
 encoding events emitted by this random variable. We assume the channel we
@@ -118,47 +118,48 @@ element is the root of the tree. Since at each step we replace two nodes by
 one, after \(n-1\) of these steps the tree is constructed.
 
 Now we make the parallel with our merging algorithm. If we want to merge
-multiple totally ordered sets \(s_1,\ldots,s_k\) having different lengths we can use a similar
-approach. To each set \(s_i\) we assign a fake event with probability
-\(\frac{\card{s_i}}{n}\) hence Shannon entropy of the random variable
+multiple totally ordered sets \(\S_1,\ldots,\S_k\) having different lengths we can use a similar
+approach. To each set \(\S_i\) we assign a fake event with probability
+\(\frac{\card{\S_i}}{n}\) hence Shannon entropy of the random variable
 \(S\) emitting these fake events is
 \begin{align}
-H(S) &= - \sum \frac{\card{s_i}}{n} \log \frac{\card{s_i}}{n}\\
-&= - \sum \frac{\card{s_i}}{n} (\log \card{s_i} - \log n)\\
-&= \sum \frac{\card{s_i}}{n} \log n - \sum \frac{\card{s_i}}{n} \log \card{s_i}\\
-&= \frac{1}{n} \sum \card{s_i} \log n - \frac{1}{n} \sum \card{s_i} \log \card{s_i}\\
-&= \frac{1}{n} (n \log n - \sum \card{s_i} \log \card{s_i})\\
+H(S) &= - \sum \frac{\card{\S_i}}{n} \log \frac{\card{\S_i}}{n}\\
+&= - \sum \frac{\card{\S_i}}{n} (\log \card{\S_i} - \log n)\\
+&= \sum \frac{\card{\S_i}}{n} \log n - \sum \frac{\card{\S_i}}{n} \log \card{\S_i}\\
+&= \frac{1}{n} \sum \card{\S_i} \log n - \frac{1}{n} \sum \card{\S_i} \log
+\card{\S_i}\\
+&= \frac{1}{n} (n \log n - \sum \card{\S_i} \log \card{\S_i})\\
 \end{align}
 
-The definition of \(p(s_i)\) is coherent with the invariant of
+The definition of \(p(\S_i)\) is coherent with the invariant of
 the Huffman tree construction algorithm since merging two totally ordered sets
-\(s_i\) and \(s_j\) produces a new one of size \(\card{s_i} + \card{s_j}\).
+\(\S_i\) and \(\S_j\) produces a new one of size \(\card{\S_i} + \card{\S_j}\).
 
 Now we prove that for a merging algorithm that would iteratively merge the two
 smallest remaining totally ordered set, the number of comparison used is at
-most \(n L_H(S)\). To make this explicit, we rearrange the terms of \(L(s_i)\),
+most \(n L_H(\S)\). To make this explicit, we rearrange the terms of \(L(\S_i)\),
 
 \begin{displaymath}
-L_H(S) = \sum \frac{\card{s_i}}{n} l(s_i) = \frac{1}{n} \sum l(s_i) \card{s_i}.
+L_H(\S) = \sum \frac{\card{\S_i}}{n} l(\S_i) = \frac{1}{n} \sum l(\S_i) \card{\S_i}.
 \end{displaymath}
 
-In the above equation, \(l(s_i)\) corresponds to the number of times elements
-of \(s_i\) are taking part in a merge operation. When merging two totally
-ordered sets \(s_i\) and \(s_j\) the standard tape merge algorithm uses less
-than \(\card{s_i} + \card{s_j}\) comparisons. Moreover, the totally ordered set
+In the above equation, \(l(\S_i)\) corresponds to the number of times elements
+of \(\S_i\) are taking part in a merge operation. When merging two totally
+ordered sets \(\S_i\) and \(\S_j\) the standard tape merge algorithm uses less
+than \(\card{\S_i} + \card{\S_j}\) comparisons. Moreover, the totally ordered set
 associated to a node of the Huffman tree is the union of the totally ordered
 sets associated to \(u\) leaves of the tree. These leaves are
-\(s_{i_1},\ldots,s_{i_u}\) and have lengths
-\(\card{s_{i_1}},\ldots,\card{s_{i_u}}\). When two nodes are merged, it
+\(\S_{i_1},\ldots,\S_{i_u}\) and have lengths
+\(\card{\S_{i_1}},\ldots,\card{\S_{i_u}}\). When two nodes are merged, it
 requires thus less than
-\(\card{s_{i_1}}+\ldots+\card{s_{i_u}}+\card{s_{j_1}}+\ldots+\card{s_{j_v}}\)
-comparisons. We can rearrange these \(\card{s_{i_w}}\) and conclude that
-\(\sum l(s_i) \card{s_i}\) is an upperbound on the number of comparisons used
+\(\card{\S_{i_1}}+\ldots+\card{\S_{i_u}}+\card{\S_{j_1}}+\ldots+\card{\S_{j_v}}\)
+comparisons. We can rearrange these \(\card{\S_{i_w}}\) and conclude that
+\(\sum l(\S_i) \card{\S_i}\) is an upperbound on the number of comparisons used
 by our algorithm. Since,
 \begin{displaymath}
-n H(S) \le n L_H(S) \le n H(S) + n,
+n H(\S) \le n L_H(\S) \le n H(\S) + n,
 \end{displaymath}
-our algorithm requires at most \(n \log n - \sum \card{s_i} \log \card{s_i} +
+our algorithm requires at most \(n \log n - \sum \card{\S_i} \log \card{\S_i} +
 n\) comparisons which is \BigO{ITLB}.
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
