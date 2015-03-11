@@ -42,12 +42,13 @@ equation $x_{i_1} + \dots + x_{i_k} = 0$. We thus draw every such hyperplane,
 there are less than $n^k$ of them, and to solve the problem
 we will have to find on which of them the point $x$ lies.
 
-We just shown how to reduce \kSUM to a point location in an arrangement of
-hyperplanes problem. In the next section, we will detail an algorithm due to
-\citet*{meiser:1993} that can be used to solve \kSUM efficiently for any $k$.
-There exists several methods to solve this problem. We will describe Meiser's
-Algorithm~\cite{meiser:1993} since it is the first algorithm that solves this
-point location problem in time polynomial in both $n$ and $\log m$, for fixed
-$\H$ and $n$. This particular algorithm will give us the occasion to prove that
-the decision tree complexity of subset sum is polynomial.
+We just shown how to reduce \kSUM, in the sense of Turing reduction, to a
+point location problem in an arrangement of hyperplanes. In the next section,
+we will detail an algorithm due to \citet*{meiser:1993} that can be used to
+solve \kSUM efficiently for any $k$.  There exists several methods to solve
+this problem. We will describe Meiser's Algorithm~\cite{meiser:1993} since it
+is the first algorithm that solves this point location problem in time
+polynomial in both $n$ and $\log m$, for fixed $\H$ and $n$. This particular
+algorithm will give us the occasion to prove that the decision tree complexity
+of subset sum is polynomial.
 
