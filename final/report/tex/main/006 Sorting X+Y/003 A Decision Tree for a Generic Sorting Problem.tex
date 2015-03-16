@@ -13,7 +13,7 @@ problem on these element to be a pair $(\Gamma, P)$, where $\Gamma$ is a
 subset of the $n!$ possible linear orderings on $\S$, and
 $P$ is a family $\family{\A_1, \ldots, \A_r}$ of disjoint nonempty sets that
 partition $\Gamma$, so that $\Gamma = \A_1 \cup \ldots \cup \A_r$. Given an
-ordering $\omega \in \Gamma$, we want to determine to which set $\A_j$ the
+(unknown) ordering $\omega \in \Gamma$, we want to determine to which set $\A_j$ the
 ordering $\omega$ belongs by performing a sequence of comparisons between
 pairs of elements, $x_i \ask{\le} x_j$. A comparison algorithm is said to
 solve $(\Gamma, P)$ if the following condition is satisfied. Upon representing
@@ -24,12 +24,14 @@ path through $T$ ending at $L$. For each $L$ we must have $\Gamma_L \subseteq
 \end{problem}
 
 As usual, we will be interested in the decision tree complexity of this
-problem, which we will denote $N(\Gamma, P)$.
+problem, \ie for fixed \(\Gamma\) and \(P\) the minimum number of comparisons
+required to find \(\A_j\) for any of the possible inputs \(\omega\) compatible
+with \(\Gamma\). We will denote this complexity by $N(\Gamma, P)$.
 
-In order to solve our \XY problem, we will only be interested in the case
+Since the final goal will be to sort \XY, we will only be interested in the case
 where $P$ is a partition of $\Gamma$ into singleton sets, as we desire to
-compute the correct linear extension of poset \XY out of all viable linear
-extensions of \XY. As $P$ is fixed for every $\Gamma$ in this case, we will
+compute the correct linear extension of \XY out of all its viable linear
+extensions. As $P$ is the same for every $\Gamma$ in this case, we will
 always write $N(\Gamma)$ to mean $N(\Gamma, P)$.
 
 \citet{fredman:1976} proves the following theorem,
@@ -41,12 +43,19 @@ comparisons.
 \end{theorem}
 
 For our use case, the $n$ of the theorem will be the $n^2$ elements of the set
-\XY. We will prove later what $\card{\Gamma}$ is for the sorting \XY problem.
+\XY. In the previous section we already found a lower bound for the problem of
+finding a linear extension of a \(n \times n\) lattice. We also showed that if
+we only use the information contained in the poset structure of \XY, then
+sorting \XY is the same problem as finding a linear extesion of a \(n \times
+n\) lattice. In the next section we will discover the lower bound for the
+sorting \XY problem if we remove the restrictions we considered earlier. This
+new lower bound will be our $\card{\Gamma}$ for the sorting \XY problem.
 
 To prove the correctness of the theorem, \citet{fredman:1976} builds a biased
 insertion sort algorithm that we will now explain.
 
-Suppose that at iteration \(k\) of the algorithm we have already sorted a
+The algorithm we consider is an iterative algorithm running in \(n\)
+iterations. Suppose that at iteration \(k\) of the algorithm we have already sorted a
 subset of \(\S\) of size \(k-1\).
 
 \begin{displaymath}
@@ -93,13 +102,14 @@ We show how to implement an algorithm matching the above description. First, in
 order to simplify the notation, we will describe a recursive version of our
 algorithm. The $\nth{k}$ recursion step of the recursive algorithm will process
 the $\nth{k}$ iteration. A complete execution of the algorithm would determine
-the $n$-tuple $(b_1, \ldots, b_n)$.  At iteration $k$, we already have
-determined a prefix $(b_1, \ldots, b_{k-1})$ of this $n$-tuple. What remains to
-be computed is the suffix $(b_k, \ldots, b_n)$ of the $n$-tuple. In the recursive
-version of the algorithm we forget about the already computed prefix since it
-cannot change and instead of writing $(b_k, \ldots, b_n)$ we write $(b'_1,
-b'_2, \ldots)$ where $b'_1 = b_k$, $b'_2 = b_{k+1}$, \etc. In the remaining
-text of this section we will write $b_i$ to mean $b'_i$
+the $n$-tuple $(b_1, \ldots, b_n)$.  At the beginning of iteration $k$, we
+already have determined a prefix $(b_1, \ldots, b_{k-1})$ of this $n$-tuple.
+What remains to be computed is the suffix $(b_k, \ldots, b_n)$ of the
+$n$-tuple. In the recursive version of the algorithm we forget about the
+already computed prefix since it cannot change and instead of writing $(b_k,
+\ldots, b_n)$ we write $(b'_1, b'_2, \ldots)$ where $b'_1 = b_k$, $b'_2 =
+b_{k+1}$, \etc. In the remaining text of this section we will write $b_i$ to
+mean $b'_i$.
 
 We now list the steps of the recursive algorithm,
 
