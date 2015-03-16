@@ -2,24 +2,28 @@
 \section{Algorithms}
 
 
-\cite{kahn:1995} gave the the first polynomial-time algorithm achieving the
-bound $\BigO{\log e(P)}$ up to a constant factor in 1995. Their algorithm uses
-the ellipsoid algorithm to choose a good comparison at each step which makes
-this algorithm only of theoretical interest.
+\citet*{kahn:1995} gave the the first polynomial-time algorithm achieving the
+bound $\BigO{\log e(P)}$ up to a constant factor in 1995. The idea of their
+algorithm is to solve a convex optimization problem to compute the entropy
+\(H(P)\). With \ref{eq:khankim1} this entropy can be used to approximate
+\(e(P)\) which can help to choose a good query. With this technique, one can
+choose a good query at each step in polynomial-time. However, this algorithm
+is not very practical as (for the moment) it requires to use the ellipsoid
+algorithm as a subroutine.
 
-Finally, in 2013, \cite{cardinal:2013}, new methods are developed. Three
-new algorithms having the same canvas : a first poly-time preprocessing phase
-followed by a $\BigO{\log e(P)}$ query phase. Caution has to be made though :
-each of the three different algorithms match the ITLB for a subset of the
-problem instances.
+Finally, in 2013, \citet*{cardinal:2013} provide new methods. Three new
+algorithms are studied. Those three algorithms all have the same canvas: a
+first polynomial-time preprocessing phase followed by a $\BigO{\log e(P)}$
+query phase. Caution has to be made though: each of the three different
+algorithms match the ITLB for a subset of the problem instances.
 
 \begin{table}
 	\begin{center}
 	\caption{We denote by $E A(n)$ the time needed for the ellipsoid algorithm
 to compute the entropy of a poset of order $n$. The original bound given by
-\cite{kahn:1995} on the number of comparisons performed by their algorithm is
+\citet*{kahn:1995} on the number of comparisons performed by their algorithm is
 $54.45 \cdot \log e(P)$. The improved bound given in the table is a byproduct
-of the results of \cite{cardinal:2013}. (The notation $\BigOe{n}$ means
+of the results of \citet*{cardinal:2013}. (The notation $\BigOe{n}$ means
 that the hidden constant may depend on $\epsilon$.)}
 	\label{tree:supi:table/jcardin}
 	\begin{tabular}{|c|c|c|}
@@ -37,35 +41,52 @@ that the hidden constant may depend on $\epsilon$.)}
 
 
 \ref{tree:supi:table/jcardin} highlights the properties of the different
-algorithms, i.e.
+algorithms, \ie
 
 \begin{itemize}
 
 \item If $\log e(P)$ is super-linear in $n$, the number of comparisons of
-\cite{cardinal:2013} \textbf{2} is lower than that of \cite{kahn:1995}. By
+\citet*{cardinal:2013} \textbf{2} is lower than that of \citet*{kahn:1995}. By
 optimizing over $\epsilon$, it can be shown that the number of comparisons is
 actually $\log e(P) + \SmallO{\log e(P)} + \BigO{n}$ in this case, a number of
 comparisons comparable to that of Fredman’s algorithm.
 
 \item If $\log e(P)$ is linear or sub-linear in $n$, the number of comparisons
-of \cite{cardinal:2013} \textbf{3} is comparable to that of
-\cite{kahn:1995}, although the constant in front of $\log e(P)$ is still far
+of \citet*{cardinal:2013} \textbf{3} is comparable to that of
+\citet*{kahn:1995}, although the constant in front of $\log e(P)$ is still far
 from the best constant achieved by a super-polynomial algorithm via balancing
-pairs \cite{brightwell1995balancing, brightwell1999balanced}.
+pairs (see \citet*{brightwell1995balancing} and
+\citet*{brightwell1999balanced}).
 
-\item Algorithms from \cite{cardinal:2013} have the following useful
+\item Algorithms from \citet*{cardinal:2013} have the following useful
 property: they compute information that guides the sorting and can then be
 reused to solve any given instance with the same partial information $P$, in
 time proportional to the number of comparisons, plus a term linear in $n$.
 
 \end{itemize}
 
+The idea of \citet*{cardinal:2013} is to remove some information from the input
+poset to produce a weak subposet \(P'\) (whose refinement is \(P\)) for which
+computing a linear extension is \BigO{\log e(P')} and whose entropy is not to
+far from the entropy of the original poset. Using the fact that \(H(P)\) is
+\BigTheta{e(P)} proved by \citet*{kahn:1995} one can analyze what ``not to
+far'' means for a given information removal technique.
 
-Looking at \ref{fig:supi/alg2}, algorithm 2 looks like to what is done in
-\cite{cardinal:2010} for the Partial Order Production problem if we swap the roles
-of chains and antichains. This is explained in detail in
-\cite{DBLP:conf/birthday/CardinalF13}.
+For example, one can iteratively extract a maximal chain of the input poset
+computing a so-called greedy chain decomposition. Once this is done, we just
+erase all the relations of the input existing between elements of two different
+chains of the decomposition. One can then merge the chains using the optimal
+Huffman Merging algorithm we described in \ref{tree:merging:kgeq3}.
+\ref{fig:supi/alg2} illustrates this technique and is in fact a description of
+algorithm \textbf{2} of \citet{cardinal:2013}. The two other algorithms of
+\citet*{cardinal:2013} are variants of this approach.
 
+The same idea was already present in \citet*{cardinal:2010}. Then, the problem
+to solve was Partial Order Production which is the complementary problem to
+Sorting Under Partial Information. In this case, we look at antichains rather
+than chains of the input poset and instead of removing known information we ask
+the algorithm to compute more information than required. The relation between
+those problems is explained in detail in \cite{DBLP:conf/birthday/CardinalF13}.
 
 \begin{figure}
 	\centering

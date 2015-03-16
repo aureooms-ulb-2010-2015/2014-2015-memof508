@@ -1,8 +1,18 @@
 \section{Linial's Algorithm}
 
-We now give the description of an algorithm that can be used to merge under
-partial information. The merging under partial information problem is the
-following,
+A useful procedure is one that merges two linearly ordered sets without
+discarding the information existing between elements of these two sets. In
+\citet*{cardinal:2014} an implementation of such a procedure is defined. Their
+implementation allows one to concentrate the computational complexity of this
+procedure in the preprocessing phase of their other algorithms. In this chapter
+we will detail another possible implementation of such a procedure that is due
+to \citet*{linial:1984}. Unfortunately, in this implementation the
+computational complexity cannot be split into a preprocessing phase and a query
+phase. Nevertheless it is still interesting to understand the ideas behind its
+implemention.
+
+The problem we just described is the Merging Under Partial Information. We
+give a formal definition of this problem,
 
 \begin{problem}
 Given a poset \(P\) that can be covered by two chains \(A\) and \(B\), find a
@@ -100,7 +110,7 @@ polynomial time.
 
 \begin{enumerate}
 \item the values \(\beta_i - \alpha_j\) and \(j - i + 1\) are bounded
-linearily in the size of the input, hence their size is bounded
+linearly in the size of the input, hence their size is bounded
 logarithmically in the size of the input;
 \item the size of the value of the binomial coefficient \(\binom{n}{k}\) is
 bounded by a polynomial in \(k\) and \(n\);

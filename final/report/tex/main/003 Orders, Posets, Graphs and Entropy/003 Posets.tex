@@ -4,9 +4,9 @@ The word \concept{poset} stands for \emph{Partially Ordered Set}. Starting from
 what we already know, the only new term is \emph{partial}. \emph{Partial} can
 both reflect our ignorance about a more \emph{complete} order on our data set
 and the \emph{incomplete} nature of the ordered set we consider. By
-\emph{incomplete} we mean that there could exist some $x, y \in S$ for which
-neither $(x, y) \in G$ nor $(y, x) \in G$. $x$ and $y$ are thus incomparable in
-this specific partially ordered set.
+\emph{incomplete} we mean that there could exist some $x, y \in \S$ for which
+neither $(x, y) \in G$ nor $(y, x) \in G$. We say that $(x,y)$ is an
+incomparable pair of this specific partially ordered set.
 
 \nb{Do not mix completeness of partial orders with the informal
 \emph{completeness} we are referring to, \emph{complete} and \emph{incomplete}
@@ -15,7 +15,7 @@ are just words that help to express what we mean by partial.}
 When however a partial order is \emph{complete}, we will say that it is a total
 order.
 
-Quoting the definition from \cite{Stanley:2011:ECV:2124415},
+Quoting the definition from \citet*{Stanley:2011:ECV:2124415},
 
 \begin{quotation}
 
@@ -41,13 +41,13 @@ Taking other properties aside, the most interesting feature of a partial order
 (with respect to our point of view) is the transitivity axiom it must satisfy.
 Let us explain why it is interesting. The goal of sorting and merging is to,
 starting from a partially ordered set, find the underlying total order. To find
-this total order, we are allowed to query an oracle that answers to yes---no
+this total order, we are allowed to query an oracle that answers to ``yes/no''
 questions of the type ``is $x~R\text{-related to}~y$?'' in the unknown total
 order. This has to be done efficiently. By efficiently we mean that we do not
 want to ask more questions than necessary.
 
 Before continuing further note also that since we are trying to find a total
-order, at least one of the question $(x, y) \ask{\in} G$ and $(y, x)
+order, at least one of the questions $(x, y) \ask{\in} G$ and $(y, x)
 \ask{\in} G$ will have a positive answer, hence we can already discard
 half of all the questions we could ask.
 

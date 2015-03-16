@@ -2,29 +2,29 @@
 \label{tree:poset:sub}
 
 
-Since a poset is the combination $(S, \le_S)$ of a set $S$ and an order
-$\le_S$, we might be interested to apply standard set operations to posets.
+Since a poset is the combination $(\S, \le_{\S})$ of a set $\S$ and an order
+$\le_{\S}$, we might be interested to apply standard set operations to posets.
 
 The binary operations Union ($\cup$), Intersection ($\cap$) and Complement
-($\setminus$) for posets $P = (S, \le_S)$ and $Q = (T, \le_T)$ only make sense
-when $\le_S = \le_T$. For example, when we run the algorithm merge sort at each
+($\setminus$) for posets $P = (\S, \le_{\S})$ and $Q = (T, \le_T)$ only make sense
+when $\le_{\S} = \le_T$. For example, when we run the algorithm merge sort at each
 recursion step we merge (read ``make the union of'') two posets having the same
 total order. We thus only define those operations for posets having the same
 order relation, and the result of any of those three binary operations on $P$
-and $Q$ is a new poset $(U, \le_U)$ where $U = S~\text{op}~T$ and $\le_U =
-\le_S = \le_T$.
+and $Q$ is a new poset $(U, \le_U)$ where $U = \S~\text{op}~T$ and $\le_{\U} =
+\le_{\S} = \le_T$.
 
 
 In the same way we handled the binary operations we might look at how we can
-define what a subposet is. For what follows, $P = (S, \le_S)$ is a poset and $Q
+define what a subposet is. For what follows, $P = (\S, \le_{\S})$ is a poset and $Q
 = (T, \le_T)$ a subposet of $P$.
 
 Unlike the binary operations, we might consider the case where $\le_T \neq
-\le_S$. Two main types of subposets emerge: subposets for which $\le_T = \le_S$
-and others. The former will be called induced subposets and the later weak
-subposets.
+\le_{\S}$. Two main types of subposets emerge: subposets for which $\le_T =
+\le_{\S}$ and others. The former will be called induced subposets and the later
+weak subposets.
 
-Quoting from \cite{Stanley:2011:ECV:2124415},
+Quoting from \citet*{Stanley:2011:ECV:2124415},
 
 \begin{quotation}
 
@@ -40,8 +40,8 @@ represent a poset $P$ as a directed graph $G = (V, E)$ (see
 \ref{tree:poset:graph}), each edge represents an element of an order relation
 and when you remove a vertex from one of those graphs you also have to remove
 incident edges since one of their endpoints is missing. Considering that $P$ is
-finite, there are $2^{\#V}$ induced subgraphs of $G$, thus the poset $P$ has
-exactly $2^{\#P}$ induced subposets.
+finite, there are $2^{\card{V}}$ induced subgraphs of $G$, thus the poset $P$ has
+exactly $2^{\card{P}}$ induced subposets.
 
 \nb{Note that when using the expression ``a subposet of $P$'', we will always
 mean ``an induced subposet of $P$''.}

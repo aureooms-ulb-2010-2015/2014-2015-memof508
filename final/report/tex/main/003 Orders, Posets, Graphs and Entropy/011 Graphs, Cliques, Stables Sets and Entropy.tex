@@ -33,7 +33,7 @@ adjacent if and only if the elements are incomparable.
 
 
 
-Those graphs explicitely represents all relations (or pairs of incomparable
+Those graphs explicitely represent all relations (or pairs of incomparable
 elements) which may be inferred from the Hasse diagram of ${P}$. For example,
 the comparability graph of a totally ordered set is the complete graph. See
 \ref{fig:comp-graph} for a visual example.
@@ -70,8 +70,8 @@ A clique in an incomparability graph $\widetilde{G}$ is a subset of
 incomparable  elements in ${P}$, i.e. an antichain in ${P}$.
 
 \begin{quotation}
-A set $S$ is stable (or independent) if the vertices in $S$ are pairwise
-nonadjacent, i.e. the subgraph induced by $S$ has $\#S$ connected components.
+A set $\S$ is stable (or independent) if the vertices in $\S$ are pairwise
+nonadjacent, i.e. the subgraph induced by $\S$ has $\card{\S}$ connected components.
 \end{quotation}
 
 A stable set in a comparability graph ${G}$ is a subset of incomparable
@@ -97,36 +97,35 @@ Let us suppose we want to describe our graph $G$ by a \emph{composition of the
 stable sets it contains}. This leads us to define \emph{the set of convex
 combinations of stable sets} of $G$. We call it $\operatorname{STAB}(G)$.
 $\operatorname{STAB}(G)$ is a set containing all convex combinations (positive,
-coefficients summing up to $1$) of characteristic vectors $\chi^S$, where $S$
-is a stable set. $\chi^S$ is a point in $\R^n$ where
+coefficients summing up to $1$) of characteristic vectors $\chi^{\S}$, where $\S$
+is a stable set. $\chi^{\S}$ is a point in $\R^n$ where
 
-$$ \chi^S_v =\begin{cases}
-      1, & \text{if}\ v \in S\\
-      0, & \text{otherwise}
+$$ \chi^{\S}_v =\begin{cases}
+      1, & \text{if}\ v \in \S\\
+      0, & \text{otherwise}.
     \end{cases}$$
 
 
-, in other words $\chi^S$ is a binary inclusion/exclusion representation of the
-stable set $S$.
-
+In other words $\chi^{\S}$ is a binary inclusion/exclusion representation of the
+stable set $\S$.
 \begin{equation}
-\operatorname{STAB}(G) \bydef \operatorname{conv}\enum{\chi^S \in \R^V \st
+\operatorname{STAB}(G) \bydef \operatorname{conv}\enum{\chi^{\S} \in \R^V \st
 S\text{ stable set in }G}
 \label{eq:stab}
 \end{equation}
 
 Formally, \ref{eq:stab} is the definition of the \emph{stable set polytope} of
 an arbitrary graph $G$ with vertex set $V = \enum{v_1, \ldots, v_n }$
-and order $n$ ($\R^V = \R^n, n = \#V$) i.e. the convex hull (an $n$-dimensional
-polytope) of stable set characteristic vectors $\chi^S \in \R^n$.
+and order $n$ ($\R^V = \R^n, n = \card{V}$) i.e. the convex hull (an $n$-dimensional
+polytope) of stable set characteristic vectors $\chi^{\S} \in \R^n$.
 
 
 
 \subsection*{Entropy for Comparability Graphs}
 
 The entropy of a graph can be defined in several ways (see
-\cite{mowshowitz2012entropy} and \cite{simonyi1995graph}). One idea would be to
-look at a specific feature of a graph (e.g. the number of edges) and then
+\citet*{mowshowitz2012entropy} and \citet*{simonyi1995graph}). One idea would
+be to look at a specific feature of a graph (e.g. the number of edges) and then
 define the entropy of this graph to be some function of this feature.
 
 Here we define the entropy of a comparability graph $G$ as a function of the
@@ -134,12 +133,13 @@ stable sets $G$ possesses. In order to do so, we look at every vector in
 $\operatorname{STAB}(G)$ and we keep the vector that gives the lowest entropy
 value for a specific entropy function. This vector is the discrete distribution
 look-alike object we talked about in \ref{tree:poset:graph:stab} and the
-entropy value is the called the entropy of graph $G$, denoted ${H}(G)$.
+entropy value is called the entropy of graph $G$, denoted ${H}(G)$.
 
 Formally, we define the entropy of comparability graph $G$ as
 
 \begin{equation}
-{H}(G) \coloneqq \min_{x \in \operatorname{STAB}(G)}~ -\frac{1}{n} \sum_{v \in V} \log x_v
+{H}(G) \coloneqq \min_{x \in \operatorname{STAB}(G)}~ -\frac{1}{n} \sum_{v \in
+V} \log x_v.
 \label{eq:entropy:graph}
 \end{equation}
 
@@ -155,6 +155,6 @@ As we defined ${H}(G)$ in \ref{eq:entropy:graph}, we write ${H}(P)$ to mean
 ${H}(G(P))$.
 
 \begin{equation}
-{H}(P) \coloneqq {H}({G}(P))
+{H}(P) \coloneqq {H}({G}(P)).
 \label{eq:entropy:poset}
 \end{equation}
