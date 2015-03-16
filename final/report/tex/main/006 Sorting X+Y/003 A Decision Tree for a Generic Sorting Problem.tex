@@ -1,7 +1,7 @@
 \section{A Decision Tree for a Generic Sorting Problem}
 \label{tree:xy:dt}
 
-In this section we will illustrate an algorithm due to \citet*{fredman:1976}
+In this section we will expose an algorithm due to \citet*{fredman:1976}
 that solves sorting problems making at most $\log\card{\Gamma} + 2n$ queries,
 where $\Gamma$ is the set of possible linear extensions of the input. In the
 next section we will show how this algorithm can be used in the context of the
@@ -171,13 +171,11 @@ does not contain any of the original interval midpoints of our partitioned
 $(0,1]$ interval.
 
 We now prove that if we have to perform $r$ queries before finding such an
-interval, $b_1 = J(q)$ for all $r$ in this interval, then $N_{b_1} \le
+interval, $b_1 = J(q)$ for all $q$ in this interval, then $N_{b_1} \le
 \frac{4\card{\S}}{2^r}$. Suppose that $b_1 = i$ and that the length of the
 $\nth{i}$ interval, containing the $\nth{i}$ midpoint, is
-$\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius $> \frac{2}{2^r}$. In
-this interval we take two points $y_1 = \frac{m_1}{2^{r-1}}$ and $y_2 =
-\frac{m_2}{2^{r-1}}$ such that $y_1$ lies on the left of the $\nth{i}$ midpoint
-and $y_2$ on the right, hence $J(y_1) = i - 1$ and $J(y_2) = i$.
+$\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius $> \frac{2}{2^r} =
+\frac{1}{2^{r-1}}$.
 
 Imagine we have already performed $r-2$ queries to search for $b_1$ without
 successfully ending the search, we will now analyze what happens after the
@@ -191,38 +189,39 @@ simple lemma,
 \label{lemma:xy:dt:qi}
 All query intervals we consider can be written $(\frac{c}{2^{r-1}},
 \frac{c+1}{2^{r-1}}]$ for some integer $c$ with $0 \le c \le 2^{r-1}$.
+Moreover, for all such intervals containing the \(\nth{i}\) midpoint.
+\begin{displaymath}
+J(\frac{c}{2^{r-1}}) < i \le J(\frac{c+1}{2^{r-1}})
+\end{displaymath}
 \end{lemma}
 
 \begin{proof}
 At the beginning of the binary search algorithm, the search interval is
 $(0,1]$, it excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). We now
-assume the current working interval is \((L,R]\). If during the search a
+assume the current query interval is \((L,R]\). If during the search a
 question \(b \ask{\le} J(q)\) gets a ``yes'' answer then we update the upper
-bound and get a new working interval \((L,q]\), otherwise \(b > J(q)\) hence we
-can update the lower bound and the working interval becomes \((q,R]\). In both
+bound and get a new query interval \((L,q]\), otherwise \(b > J(q)\) hence we
+can update the lower bound and the query interval becomes \((q,R]\). In both
 cases the lower bound remains excluded. At the beginning of the algorithm,
-\(r - 1 = 0\), \(L=0\) and \(R=1\), hence \(c = 0\). Now for any working
+\(r - 1 = 0\), \(L=0\) and \(R=1\), hence \(c = 0\). Now for any query
 interval $(\frac{c}{2^{r-1}}, \frac{c+1}{2^{r-1}}]$ the query point is \(q =
 \frac{\sfrac{(c + (c + 1))}{2}}{2^{r-1}} = \frac{2c + 1}{2^r}\). Depending on the
-outcome of the query \(b \ask{\le} J(q)\) the new working interval will be
+outcome of the query \(b \ask{\le} J(q)\) the new query interval will be
 either \((\frac{2c}{2^{r}}, \frac{2c+1}{2^{r}}]\) or \((\frac{2c+1}{2^{r}},
 \frac{2c+2}{2^{r}}]\). \ref{lemma:xy:dt:qi} follows by induction.
 \end{proof}
 
-\ref{lemma:xy:dt:qi} gives us the guarantee that after $r-1$
-queries we have $J(\frac{c}{2^{r-1}}) < b_1 \le J(\frac{c+1}{2^{r-1}})$ for
-some integer $c$.
-
-In this case $c$ must be such that $m_1 \le c \le m_2 - 1$ because,
-\begin{enumerate}
-\item if $c \ge m_2$ then $i = b_1 > J(\frac{c}{2^{r-1}}) \ge J(y_2) = i$
-which is a contradiction
-\item if $c < m_1$ then $i = b_1 \le J(\frac{c+1}{2^{r-1}}) \le J(y_1) = i - 1$
-which is a contradiction
-\end{enumerate}
-we conclude that,
-$$i-1 = J(y_1) \le J\left(\frac{c}{2^{r-1}}\right) < b_1 \le
-J\left(\frac{c+1}{2^{r-1}}\right) \le J(y_2) = i$$
+To be valid, the current query interval must contain the \(\nth{i}\)
+midpoint. Now, if this query interval contained more than just the \(\nth{i}\)
+midpoint, the algorithm would have to use at least one additional query.
+Since the radius of the \(\nth{i}\) interval is \(> \sfrac{1}{2^{r-1}}\) it is
+not possible for the query interval, which has radius \( \frac{c+1-c}{2^{r-1}}
+ = \frac{1}{2^{r-1}}\) to contain the \(\nth{i}\) midpoint and at
+the same time escape the \(\nth{i}\) interval. Hence the \(\nth{i}\) midpoint
+is the only midpoint inside the query interval. We conclude that,
+\begin{displaymath}
+i-1 = J\left(\frac{c}{2^{r-1}}\right) < b_1 \le J\left(\frac{c+1}{2^{r-1}}\right) = i
+\end{displaymath}
 thus $b_1 = i$ and the search ends before performing a $\nth{r}$ query.
 
 We have proved that if the search for $b_1$ requires at least $r$ queries then
@@ -239,4 +238,10 @@ we have a multiplicative factor of $4$ in the recurrence, we can always ask $2$
 \emph{useless} queries at each step that will not decrease $\card{\S}$ for the
 next iteration. Hence,
 
-$$T(\card{\S}, n) \le \log \card{\S} + 2n$$
+\begin{displaymath}
+T(\card{\S}, n) \le \log \card{\S} + 2n
+\end{displaymath}
+
+\nb{\citet*{moran:2015} give an average-case analysis of this algorithm when the
+distribution over the inputs is not uniform.}
+
