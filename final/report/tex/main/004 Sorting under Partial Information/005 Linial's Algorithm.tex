@@ -109,21 +109,21 @@ We now make a few observations to show that Linial's algorithm runs in
 polynomial time.
 
 \begin{enumerate}
-\item the values \(\beta_i - \alpha_j\) and \(j - i + 1\) are bounded
+\item The values \(\beta_i - \alpha_j\) and \(j - i + 1\) are bounded
 linearly in the size of the input, hence their size is bounded
 logarithmically in the size of the input;
-\item the size of the value of the binomial coefficient \(\binom{n}{k}\) is
+\item The size of the value of the binomial coefficient \(\binom{n}{k}\) is
 bounded by a polynomial in \(k\) and \(n\);
-\item using Bareiss algorithm \cite{bareiss:1968}, the computation of a
+\item Using Bareiss algorithm \cite{bareiss:1968}, the computation of a
 determinant can be made in polynomial time and with intermediate size of the
 values bounded by some polynomial in the size of the matrix and the starting
 size of the values;
-\item for each step there is a polynomial number of possible queries to look for;
-\item there are \BigO{\log e(P)} steps and \(\log e(P)\) is \BigO{n \log n}.
+\item For each step there is a polynomial number of possible queries to look for;
+\item There are \BigO{\log e(P)} steps and \(\log e(P)\) is \BigO{n \log n}.
 \end{enumerate}
 
-However, as an anonymous referee pointed out when commenting on
-\cite{cardinal:2013}, there exists a faster way that does not require computing
+However, as an anonymous referee pointed out in the peer review
+\citet*{cardinal:2013}, there exists a faster way that does not require computing
 all those determinants. We now expose a recurrence relation that can be used
 to compute \(e(P)\) with dynamic programming.
 
@@ -138,7 +138,7 @@ e(P \setminus b_n)\) or \(e(P) = e(P \setminus a_m)\) for \(a_m < b_n\) or
 > b_n\) will hold true. Hence \(e(P) = e(P \setminus b_n) + e(P \setminus
 a_m)\) in this case, since both outcomes for \(a \ask{<} b\) are possible.
 Lastly, if \(\card{A} = 0\) or \(\card{B} = 0\) then \(e(P) = 1\). Hence we can
-express \(e(P)\) using the following recurrence relation.
+express \(e(P)\) using the following recurrence relation
 
 \begin{displaymath}
 e(P) =
@@ -146,7 +146,8 @@ e(P) =
 1            & if \(\card{A} = 0\) or \(\card{B} = 0\)\\
 e(P \setminus b_n) & if \(a_m < b_n\)\\
 e(P \setminus a_m) & if \(a_m > b_n\)\\
-e(P \setminus b_n) + e(P \setminus a_m) & if \(a_m\) and \(b_n\) are incomparable\\
+e(P \setminus b_n) + e(P \setminus a_m) & if \(a_m\) and \(b_n\) are
+incomparable.\\
 \end{dcases*}
 \end{displaymath}
 
