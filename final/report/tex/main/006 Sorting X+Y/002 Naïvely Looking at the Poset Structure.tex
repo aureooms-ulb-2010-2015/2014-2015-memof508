@@ -1,13 +1,19 @@
 \section{Naïvely Looking at the Poset Structure}
 \label{tree:xy:grid}
 
-In the \XY problem, we are asked to find a linear extension of a known partial
-order having a specific structure. The \XY problem is thus a special case of
-Sorting under Partial Information. In \ref{tree:supi}, we have seen that there
-are algorithms solving the SUPI problem in \BigO{\log e(P)} comparisons. We
-wonder if it is possible to prove that, if we are only allowed to exploit the
-grid structure of a \XY poset, then \XY cannot be solved in less than \BigO{n^2
-\log n} comparisons.
+In the previous section, we have shown how one could derive a poset structure
+from the \XY set. We also saw that one can sort this \XY poset with the Huffman
+Merging algorithm using \(n^2 \log n + \BigO{n}\) comparisons. Indeed, what we
+did in this section was modelling the Sorting \XY problem as the problem of
+Sorting Under Partial Information. We then solved the problem with a
+straightforward algorithm.
+
+In \ref{tree:supi}, we have seen that there are algorithms solving the SUPI
+problem in \BigO{\log e(P)} comparisons. We wonder if it is possible to prove
+that, if we are only allowed to exploit the grid structure of the \XY poset,
+then Sorting \XY cannot be solved in less than \(n^2 \log n + \BigO{n}\)
+comparisons. In other words, we want to prove that the approach taken in the
+previous section is optimal up to a linear term.
 
 We already saw that the Hasse diagram of the poset \XY can be drawn as a grid.
 This grid is finite and has a \(\hat{0}\) and a \(\hat{1}\). Moreover, every
