@@ -1,11 +1,10 @@
 \section{$k$-linear Decision Trees}
 
 In \citet*{erickson:1999}, it is shown that we cannot solve \threeSUM in
-subquadratic time using only the $3$-linear decision tree as a model. A
-general proof for the \kLDT problem in the $k$-linear decision tree model
-is featured. In the case of $k$
-even, a bound of \BigOmega{n^{\frac{k}{2}}} is demonstrated. For odd $k$, the
-bound is \BigOmega{n^{\frac{k+1}{2}}}.
+subquadratic time using only the $3$-linear decision tree as a model. A general
+proof for the \kLDT problem in the $k$-linear decision tree model is featured.
+In the case of $k$ even, a bound of \BigOmega{n^{\frac{k}{2}}} is given. For
+odd $k$, the bound is \BigOmega{n^{\frac{k+1}{2}}}.
 
 Their result is stated as follows,
 \begin{theorem}
@@ -26,7 +25,7 @@ move the point from the inside of the cell to its border, changing the output
 without the algorithm noticing it.
 
 For information, we hereunder detail the classical \BigO{n^2} algorithm for
-\threeSUM, successfully attaining the lower bound demonstrated in
+\threeSUM, successfully attaining the lower bound proved in
 \cite{erickson:1999} for $3$-linear decision trees. In this description we
 handle the three-set version of \threeSUM, \ie the case where $a$, $b$ and $c$
 are taken from the three sets $\A$, $\B$ and $\C$ instead of a single set $\U$.
