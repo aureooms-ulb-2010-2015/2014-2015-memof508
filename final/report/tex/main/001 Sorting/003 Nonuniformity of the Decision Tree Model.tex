@@ -1,6 +1,16 @@
 \section{Nonuniformity of the Decision Tree Model}
 \label{tree:sorting:nonuniformity}
 
+A nonuniform model of computation is a model where inputs of different lengths
+can be processed by different algorithms. In contrast with models equivalent to
+the Universal Turing Machine, where one algorithm can solve a problem on inputs
+of any size, in a nonuniform model one can have one algorithm per possible size
+of the input.
+
+In our model, an algorithm is a decision tree. Since the size and shape of
+this tree depends on the size of the input, we have to conclude that the
+decision tree model is nonuniform.
+
 \begin{figure}
 \center
 \includegraphics[height=0.15\textheight]{fig/sorting/model/circuit}
@@ -8,44 +18,43 @@
 \label{fig:sorting:nonuniformity:circuit}
 \end{figure}
 
-A nonuniform model of computation is a model where inputs of different
-lengths can be processed by different algorithms. In this section we show that
-our model is nonuniform. An example of such a model is circuit complexity. An
-electronic circuit can be seen as an algorithm with fixed size input and fixed
-size output. In contrast with models equivalent to the Universal Turing
-Machine, where one algorithm can solve a problem on inputs of any size, in this
-model we will need one circuit per possible size of the input.
+Another example of such a model is circuit complexity. An electronic circuit
+can be seen as an algorithm with fixed size input and fixed size output. Since
+we want to solve problems of any size, to each computational problem we will
+assign a family of boolean circuits \(C_1,C_2,\ldots,C_n,\ldots\) that
+solve instances of the problem for every possible input size. We will say that
+this circuit family is P-uniform if there exists a Turing machine running in
+polynomial-time in \(n\) for which \(n\) is the input and \(C_n\) is the output.
 
-Since we want to solve problems of any size, to each computational problem we
-will assign a family of boolean circuits \(C_1,C_2,\ldots\) that solve
-instances of the problem for every possible input size. We will say that this
-circuit family is P-uniform if there exists a Turing machine running in
-polynomial-time in \(n\), where \(n\) is the input and \(C_n\) is the output.
+For all of the problems we will study, one can make the parallel between the
+complexity analysis on the number of comparisons required to solve them and an
+analysis of their complexity in the boolean circuit model. The goal of the two
+next paragraphs will be to illustrate this equivalence.
 
 As a general fact, we can design an algorithm for any problem in the decision
 tree model with fixed input size \(n\) and fixed output set \(\Gamma\) using
 the following approach. We generate the finite set containing all possible
 decision trees with \(\card{\Gamma}\) leaves. To each node of the trees we
 generated corresponds a query of the form \(q(x_1,\ldots,x_n)\) where
-\((x_1,\ldots,x_n)\) is the input vector. We must assign queries to the nodes
-in a way that is consistent with the assignment on the leaves. Moreover, a query
-must allow us to distinguish between at least one leaf and the a non-empty set
-of other remaining possible outputs. Otherwise this query would have
-only one children and would be pointless. Note that all of this can
-be computed without an input. At each node we simply simulate both yes and no
+\(x_1,\ldots,x_n\) is the input vector. We must assign queries to the nodes
+in a way that is consistent with the assignment on the leaves. Moreover, a
+query must allow us to distinguish between at least one leaf and a nonempty
+set of other remaining possible outputs. Otherwise this query would have only
+one children and would be pointless. Note that all of this can be computed
+without an input. At each node we simply simulate both ``yes'' and ``no''
 answers without bothering the oracle and generate the left and right subtrees
-according to which answer corresponds to which subtree. We then keep the
-decision tree with minimal height \(h\). To solve an instance of size \(n\) we
-can just walk through the decision tree we built, branching according to the
-answers we get from the queries. This is equivalent to building \(C_n\), a circuit
-of depth \(h\). For problems where \(h\) is polynomial in \(n\), for each
-problem size we have a circuit \(C_n\) giving the correct output in polynomial
-time. Unfortunately, there exist problems for which this approach will take
-exponential time in \(n\) to construct \(C_n\) while \(h\) is polynomial, hence
-the circuit families for those problems are not P-uniform and the decision tree
-model is nonuniform.
+according to which answer corresponds to which subtree. Since there are
+finitely many such decision trees, we can generate them all and keep the one
+with minimum height \(h\). To solve an instance of size \(n\) we can just walk
+through the decision tree we built, branching according to the answers we get
+from the oracle.
 
-For all of the problems we will study, one can make the parallel between the
-complexity analysis on the number of comparisons required to solve those
-problems and an analysis of the complexity of those problems in the nonuniform
-boolean circuit model.
+This is equivalent to building \(C_n\), a circuit of depth \(h\). For problems
+where \(h\) is polynomial in \(n\), for each problem size we have a circuit
+\(C_n\) giving the correct output in polynomial time. Unfortunately, there
+exist such problems for which constructing \(C_n\) will take exponential time
+in \(n\). Hence, the circuit families for those problems are not P-uniform. As
+a last remark, note that the complexity class consisting of problems for which
+\(h\) is at most polynomial in \(n\) while constructing \(C_n\) is at most
+exponential in \(n\) is called P/poly.
+
