@@ -11,19 +11,20 @@ we are allowed to ask questions to an oracle \(\le\) that will be answered
 ``yes'' or ``no''. Hence, each question we ask to this oracle will at most give
 us one additional bit of information.
 
-Each question asked to the oracle will cost us a single unit of some resource.
+Each question asked to the oracle will cost us a single unit.
 Every other operation can be carried out for free. Indeed, solving a problem in
 our model will amount to retrieve a certain quantity of information. We will
 need to find ways to organize the retrieved information and exploit already
 known information. If done efficiently, we will solve our problems without
 having to ask too many questions to our oracle.
 
-The goal of each of our expeditions will be either to show that at least a
-certain number of questions are required to be asked to solve a specific
-problem, or to provide an algorithm that asks no more questions than a certain
-limit. Those two kinds of discoveries are respectively called lower and upper
-bounds.
+The goal of each of our analyses will be either to show that at least a certain
+number of questions are required to be asked to solve a given problem, or to
+provide an algorithm solving this problem using at most a certain number of
+questions. Those two kinds of results are called lower bounds and upper bounds.
+A lower bound or an upper bound will in general be expressed as a function of
+the input size.
 
 Further down the road we will trade our binary oracle for a ternary one.
-However, for the first few chapters, we will content ourselves with the binary
-oracle.
+However, for the first few chapters, the binary oracle will suffice.
+
