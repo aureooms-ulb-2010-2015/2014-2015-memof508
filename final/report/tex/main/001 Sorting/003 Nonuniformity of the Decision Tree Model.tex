@@ -18,13 +18,14 @@ decision tree model is nonuniform.
 \label{fig:sorting:nonuniformity:circuit}
 \end{figure}
 
-Another example of such a model is circuit complexity. An electronic circuit
-can be seen as an algorithm with fixed size input and fixed size output. Since
-we want to solve problems of any size, to each computational problem we will
-assign a family of boolean circuits \(C_1,C_2,\ldots,C_n,\ldots\) that
-solve instances of the problem for every possible input size. We will say that
-this circuit family is P-uniform if there exists a Turing machine running in
-polynomial-time in \(n\) for which \(n\) is the input and \(C_n\) is the output.
+Another example of such a model is circuit complexity. An electronic circuit,
+see \ref{fig:sorting:nonuniformity:circuit}, can be seen as an algorithm with
+fixed size input and fixed size output. Since we want to solve problems of any
+size, to each computational problem we will assign a family of boolean circuits
+\(C_1,C_2,\ldots,C_n,\ldots\) that solve instances of the problem for every
+possible input size. We will say that this circuit family is P-uniform if there
+exists a Turing machine running in polynomial-time in \(n\) for which \(n\) is
+the input and \(C_n\) is the output.
 
 For all of the problems we will study, one can make the parallel between the
 complexity analysis on the number of comparisons required to solve them and an
