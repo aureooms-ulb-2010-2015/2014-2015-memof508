@@ -3,7 +3,7 @@
 
 \begin{figure}
 \center
-\includegraphics[height=0.2\textheight]{fig/sorting/model/circuit}
+\includegraphics[height=0.15\textheight]{fig/sorting/model/circuit}
 \caption{A boolean circuit with \(n\) bits of input and \(m\) bits of output.}
 \label{fig:sorting:nonuniformity:circuit}
 \end{figure}
@@ -13,8 +13,8 @@ lengths can be processed by different algorithms. In this section we show that
 our model is nonuniform. An example of such a model is circuit complexity. An
 electronic circuit can be seen as an algorithm with fixed size input and fixed
 size output. In contrast with models equivalent to the Universal Turing
-Machine, where one algorithm can solve an input of any size, in this model we
-will need one circuit per possible size of the input.
+Machine, where one algorithm can solve a problem on inputs of any size, in this
+model we will need one circuit per possible size of the input.
 
 Since we want to solve problems of any size, to each computational problem we
 will assign a family of boolean circuits \(C_1,C_2,\ldots\) that solve
@@ -28,16 +28,16 @@ the following approach. We generate the finite set containing all possible
 decision trees with \(\card{\Gamma}\) leaves. To each node of the trees we
 generated corresponds a query of the form \(q(x_1,\ldots,x_n)\) where
 \((x_1,\ldots,x_n)\) is the input vector. We must assign queries to the nodes
-in a way that is coherent with the assignment on the leaves. Moreover, a query
+in a way that is consistent with the assignment on the leaves. Moreover, a query
 must allow us to distinguish between at least one leaf and the a non-empty set
 of other remaining possible outputs. Otherwise this query would have
-automaticly only one children and would be pointless. Note that all of this can
+only one children and would be pointless. Note that all of this can
 be computed without an input. At each node we simply simulate both yes and no
 answers without bothering the oracle and generate the left and right subtrees
 according to which answer corresponds to which subtree. We then keep the
 decision tree with minimal height \(h\). To solve an instance of size \(n\) we
 can just walk through the decision tree we built, branching according to the
-answers we get from the queries. This is equivalent to build \(C_n\), a circuit
+answers we get from the queries. This is equivalent to building \(C_n\), a circuit
 of depth \(h\). For problems where \(h\) is polynomial in \(n\), for each
 problem size we have a circuit \(C_n\) giving the correct output in polynomial
 time. Unfortunately, there exist problems for which this approach will take
