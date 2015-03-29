@@ -176,35 +176,63 @@ most \(1.5~n \log n + \BigO{n}\) comparisons.
 
 \subsection*{Other Algorithms}
 
-Quicksort \cite{hoare:1962}
-Dual Pivot Quicksort \(1.32~n \log n\) \cite{yaroslavskiy:2009}
-Merge sort  \cite{leiserson:2001,goldstine:1948}
-Heapsort  \cite{leiserson:2001}
-Introsort  \cite{musser:1997}
-Timsort \cite{martelli:2006}
-Smoothsort \cite{dijkstra:1982}
-Shellsort \cite{shell:1959}
+There exists a lot of other interesting ideas to solve the sorting problem. For
+example, Shellsort \cite{shell:1959}, Smoothsort \cite{dijkstra:1982},
+Introsort \cite{musser:1997} and Timsort \cite{martelli:2006}.
 
-Considering practical use of these algorithms, Quicksort is one of the most
-efficient algorithms on real world computers due to its simplicity and cache
+Considering practical use of sorting algorithms, Quicksort is one of the most
+efficient algorithms on real-world computers due to its simplicity and cache
 locality of its operations, even though Quicksort has a much higher
-multiplicative coefficient.
+multiplicative factor than Mergesort. Nowadays, standard libraries of the most
+popular programming languages (\emph{Java} (up to \emph{Java
+6}),\emph{C},\emph{C++}) use their own version of the Quicksort algorithm as
+their sorting procedure. An exception is \emph{Python} which uses the Timsort
+algorithm since 2002. Note also that up to \emph{Java 6}, \emph{Java} used a
+Merge sort algorithm for sorting non-primitive types. The reason behind this
+choice is that objects in \emph{Java} can be different while having the same
+comparison ``key''. Since the \emph{Java} Merge sort algorithm is implemented as
+a stable sorting procedure, it offers the users the guarantee that the sorting
+algorithm will not reverse the order of equal-``key'' objects. The reason why
+the classical Quicksort is not used in this case is because it is not stable.
 
-The average time complexity of shellsort is not known for the moment. Indeed,
-there are multiple ways of implementing this algorithm because of its
-definition. The shellsort algorithm is configurable with a sequence of integers
-called a \emph{gap sequence}. This gap sequence parameter leads to different
-time complexities. For example, depending on the implementation one can achieve
-a complexity of either $\BigO{n \log^2 n}$ or $\BigO{n^{\frac{3}{2}}}$. There
-are some practical variants of this algorithm for which the time complexity is
-not known. An open problem is to find whether or not there exist a gap sequence
-that makes the algorithm run in $\BigO{n \log n}$.
+Recently, there has been a lot of interest in a dual-pivot Quicksort
+implementation by \citet*{yaroslavskiy:2009}. It is not the first time this
+approach is considered. Previous attempts \cite{sedgewick:1980} had concluded
+that a dual-pivot Quicksort was worse than the classical one in practice.
+Analysis of the version of \citet*{yaroslavskiy:2009} by \citet*{wild:2012}
+reveals that this new version uses \(1.32~n \log n - 2.46n + \BigO{\log n}\)
+comparisons.  This is less than the classical Quicksort algorithm which uses
+\(1.39~n \log n
+- 1.51n + \BigO{\log n}\) comparisons. However, in practice one must also take into account
+  other kinds of operations. For example, the number of element swaps in the
+dual-pivot Quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
+element swaps of the classic Quicksort by \citeauthor{hoare:1962}. This
+algorithm is now used as the sorting procedure of arrays of primitive type for
+the \emph{Java} language (since \emph{Java 7}). Although it performs more
+swaps \cite{wild:2012}, and uses more Java Bytecodes \cite{wild:2013}, the
+dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
+Quicksort implementation experimentally. Note that the stable Merge sort
+algorithm of \emph{Java 7} was changed for a Timsort implementation, which is
+also stable. One of the subtleties of the Timsort algorithm is that it tries
+to exploit already sorted subsequences of the input. On a sorted or reverse
+sorted input the Timsort algorithms runs in \BigO{n} time.
 
-In addition to classical sorting algorithms, we may also
-mention that any data structure allowing to retrieve inserted elements in an
-ordered fashion (according to some total order) with insertion and retrieve
-operations in $\BigO{\log n}$ time complexity can be used to build an algorithm
-whose time complexity is $\BigO{n \log n}$. Examples are,
+A remark concerning Shellsort. The average time complexity of Shellsort is not
+known for the moment. Indeed, there are multiple ways of implementing this
+algorithm because of its definition. The Shellsort algorithm is configurable
+with a sequence of integers called a \emph{gap sequence}. This gap sequence
+parameter leads to different time complexities. For example, depending on the
+implementation, one can achieve a complexity of either $\BigO{n \log^2 n}$ or
+$\BigO{n^{\frac{3}{2}}}$. There are some practical variants of this algorithm
+for which the time complexity is not known. An open problem is to find whether
+there exists a gap sequence that makes the algorithm run in $\BigO{n \log
+n}$.
+
+In addition to classical sorting algorithms, we may also mention that any data
+structure allowing to retrieve inserted elements in an ordered fashion
+(according to some total order) with insertion and retrieve operations in
+$\BigO{\log n}$ time complexity can be used to build an algorithm whose time
+complexity is $\BigO{n \log n}$. Examples are,
 
 \begin{itemize}
 \item Binary tree sort which uses a \emph{binary tree};
