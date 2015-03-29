@@ -5,10 +5,16 @@ We will now detail three algorithms that can be used to solve the sorting
 problem efficiently. According to our model, remember \ref{tree:sorting:model},
 we only consider comparison-based sorting algorithms.
 
+\nb{In the following paragraphs and subsections we will use the words minimum,
+smaller
+and smallest as well as the symbol \(\le\). If one replaces minimum by maximum,
+smaller by larger, smallest by largest and \(\le\) by \(\ge\) in those pargraphs and subsections,
+their content remains valid.}
+
 Before we start, let us make a quick observation. The sorting problem can
 easily be solved using at most \(\binom{n}{2} = \BigO{n^2}\) queries. A first
 way to achieve this bound is by iteratively computing and removing the minimum
-(or maximum) element from the input set. A second way is to iteratively
+element from the input set. A second way is to iteratively
 extend a sorted sequence by insertion of an element taken (and removed) from
 the input set. Selection sort and Bubble sort are two algorithms based on the
 first method. Insertion sort is an algortihm based on the second method.
@@ -30,7 +36,7 @@ two sets recursively. A rigorous definition of the algorithm is the following:
 \item[2.] Choose a pivot element \(p \in \S\) and compare it with all other
 elements of \(\S\) by asking \(\card{\S} - 1\) queries to the oracle.
 \item[3.] Partition \(\T = \S \setminus \enum{p}\) into two disjoint subsets
-\(\L = \enum{s \in \T \st s \le p}\) and \(\U = \T \setminus \L\).
+\(\L = \enum{t \in \T \st t \le p}\) and \(\U = \T \setminus \L\).
 \item[4.] Sort \(\L\).
 \item[5.] Sort \(\U\).
 \end{algorithm}
@@ -85,6 +91,13 @@ T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
 \end{displaymath}
 
 \subsection*{Heapsort}
+
+The last algorithm we will explain is the Heapsort algorithm. A Heap is a data
+structure that allows one to efficiently lookup (\BigO{1}) or
+remove(\BigO{\log \card{\S}}) the smallest element from a set \(\S\). A Heap can
+be seen as a balanced \(d\)-ary Tree where a node is smaller than its
+children. Constructing a heap for \(\S\) can be done in \BigO{\S} comparisons.
+Let us explain how.
 
 \subsection*{Other Algorithms}
 
