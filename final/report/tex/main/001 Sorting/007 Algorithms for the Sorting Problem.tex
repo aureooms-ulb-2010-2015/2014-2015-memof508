@@ -2,20 +2,22 @@
 \label{tree:sorting:alg}
 
 We will now detail three algorithms that can be used to solve the sorting
-problem. According to our model, remember \ref{tree:sorting:model}, we only
-consider comparison-based sorting algorithms.
+problem efficiently. According to our model, remember \ref{tree:sorting:model},
+we only consider comparison-based sorting algorithms.
 
 Before we start, let us make a quick observation. The sorting problem can
 easily be solved using at most \(\binom{n}{2} = \BigO{n^2}\) queries. A first
 way to achieve this bound is by iteratively computing and removing the minimum
 (or maximum) element from the input set. A second way is to iteratively
-construct a sorted sequence by insertion of an element taken (and removed) from
+extend a sorted sequence by insertion of an element taken (and removed) from
 the input set. Selection sort and Bubble sort are two algorithms based on the
 first method. Insertion sort is an algortihm based on the second method.
 Because the complexity of these algorithms does not meet the ITLB, we will need
 to think about more clever methods.
 
-The first algorithm we will explain is Quicksort \cite{hoare:1962}.
+\subsection*{Quicksort}
+
+The first efficient algorithm we will explain is Quicksort \cite{hoare:1962}.
 The idea behind the Quicksort algorithm is to divide the input set \(\S\) into
 two disjoint subsets \(\L\) and \(\U\) that can be sorted independently from
 one another. To enforce this independence condition, the first part of
@@ -44,33 +46,47 @@ case complexity of \BigO{n \log n}. However, if \(p\) can be any element of
 \(\S\) then in the worst case \(p\) is the minimum (or maximum) element of
 \(\S\) and \(\L\) (or \(\U\)) is empty. In this case, Quicksort behaves like
 the Selection sort algorithm and its worst case complexity degrades to
-\BigO{n^2}. It is possible \cite{blum:1973} to compute a good pivot or even the median element
-in \BigO{n} time. However, it was shown \cite{hoare:1962} that selecting the
-pivot uniformly at random leads to an average case complexity of \(1.39 n
-\log n\) comparisons, and for real-world computers this approach tends to be more
-efficient than the safe one.
+\BigO{n^2}. It is possible \cite{blum:1973} to compute a good pivot or even the
+median element in \BigO{n} time. However, it was shown \cite{hoare:1962} that
+selecting the pivot uniformly at random leads to an average case complexity of
+\(1.39~n \log n\) comparisons, and for real-world computers this approach tends
+to be more efficient than the safe one.
 
-\begin{table}
-	\begin{center}
-	\caption{Comparison sorting algorithms time complexity}
-	\label{tree:sorting:alg/table}
-	\begin{tabular}{|c|c|c|c|c|}
+\subsection*{Mergesort}
 
-	\hline
-	Name & Best\tablefootnote{\label{tree:sorting:alg/table!bestisn} The reason some of those algorithms have a best case of \BigO{n} is that they make use of already ordered subsequences, e.g. for an already ordered sequence only a linear check is required. This gives us some clue that will be expanded in \ref{tree:supi}.} & Average & Worst & Source\\\hline\hline
-	Quicksort & $n \log n$ & $1.39~n \log n$ & $n^2$ & \cite{hoare:1962}\\\hline
-	Dual Pivot Quicksort & $n \log n$ & $1.32~n \log n$ & $n^2$ & \cite{yaroslavskiy2009dual}\\\hline
-	Merge sort & $n \log n$ & $1~n \log n$ & $n \log n$ & \begin{tabular}{@{}l@{}} \cite{leiserson2001introduction} \\ \cite{goldstine:1948:sorting} \end{tabular} \\\hline
-	Heapsort & $n \log n$ & $1~n \log n$ & $n \log n$ & \cite{leiserson2001introduction}\\\hline
-	Introsort & $n \log n$ & $1~n \log n$ & $n \log n$ & \cite{musser1997introspective}\\\hline
-	Timsort & $n$ & $1~n \log n$ & $n \log n$ & \cite{martelli2006python}\\\hline
-	Smoothsort & $n$ & $1~n \log n$ & $n \log n$ & \cite{dijkstra1982smoothsort}\\\hline
-	Shellsort & $n$ & — & — & \cite{shell1959high}\\\hline
+A second efficient algorithm is Mergesort
+\cite{goldstine:1948,leiserson:2001}. Like Quicksort, Mergesort is a
+divide-and-conquer algorithm. While in Quicksort one makes the comparisons from
+the partition step before solving the two subproblems, in Mergesort we will
+first solve two subproblems and then recombine them with a merge step that
+requires \BigO{n} operations:
 
-	\end{tabular}
-	\end{center}
-\end{table}
+\begin{algorithm}
+\item[1.] If \(\card{\S} < 2\) then \(\S\) is sorted and we are done.
+\item[2.] Arbitrarily partition \(\S\) into two disjoint subsets \(\L\) and
+\(\U\) such that \(\card{\L} = \ceil{\frac{\card{\S}-1}{2}}\) and \(\card{\U} =
+\floor{\frac{\card{\S}-1}{2}}\).
+\item[3.] Sort \(\L\).
+\item[4.] Sort \(\U\).
+\item[5.] Merge \(\L\) and \(\U\) by iteratively removing the smallest element
+of \(\S\). The are at most \(\card{\S} - 1\) such iterations. Since \(\L\) and
+\(\U\) are sorted, the smallest element of \(\S\) can be computed as the
+smallest element between the smallest element of \(\L\) and the smallest
+element of \(\U\). Hence, each iteration requires a single comparison to be made.
+\end{algorithm}
 
+\subsection*{Heapsort}
+
+\subsection*{Other Algorithms}
+
+Quicksort \cite{hoare:1962}
+Dual Pivot Quicksort \(1.32~n \log n\) \cite{yaroslavskiy:2009}
+Merge sort  \cite{leiserson:2001,goldstine:1948}
+Heapsort  \cite{leiserson:2001}
+Introsort  \cite{musser:1997}
+Timsort \cite{martelli:2006}
+Smoothsort \cite{dijkstra:1982}
+Shellsort \cite{shell:1959}
 
 Considering practical use of these algorithms, Quicksort is one of the most
 efficient algorithms on real world computers due to its simplicity and cache
@@ -87,7 +103,7 @@ are some practical variants of this algorithm for which the time complexity is
 not known. An open problem is to find whether or not there exist a gap sequence
 that makes the algorithm run in $\BigO{n \log n}$.
 
-In addition to algorithms found in \ref{tree:sorting:alg/table}, we may also
+In addition to classical sorting algorithms, we may also
 mention that any data structure allowing to retrieve inserted elements in an
 ordered fashion (according to some total order) with insertion and retrieve
 operations in $\BigO{\log n}$ time complexity can be used to build an algorithm
@@ -99,5 +115,5 @@ whose time complexity is $\BigO{n \log n}$. Examples are,
 \end{itemize}
 
 For example implementations of those data structures see
-\citet*{sleator1985self} for the binary tree, and
-\citet*{leiserson2001introduction} for the priority queue.
+\citet*{sleator:1985} for the binary tree, and
+\citet*{leiserson:2001} for the priority queue.
