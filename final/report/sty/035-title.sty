@@ -4,7 +4,7 @@
 	default/.style = {
 		title = Title,
 		student = student name,
-		sponsor = sponsor name,
+		advisor = advisor name,
 		bg = bg,
 		logo = logo,
 		university = University,
@@ -16,7 +16,7 @@
 	},
 	title/.estore in = \titlepagestitle,
 	student/.estore in = \titlepagesstudent,
-	sponsor/.estore in = \titlepagessponsor,
+	advisor/.estore in = \titlepagesadvisor,
 	bg/.estore in = \titlepagesbg,
 	logo/.estore in = \titlepageslogo,
 	university/.estore in = \titlepagesuniversity,
@@ -34,10 +34,10 @@
 	\renewcommand{\titlepagesstudentsname}{Étudiant}
 }
 
-\newcommand{\titlepagessponsorsname}{Sponsor}
+\newcommand{\titlepagesadvisorsname}{Advisor}
 
 \addto\captionsfrench{
-	\renewcommand{\titlepagessponsorsname}{Promoteur}
+	\renewcommand{\titlepagesadvisorsname}{Promoteur}
 }
 
 \newcommand\titlepages[1][]{
@@ -55,10 +55,10 @@
 	\smallcaps{\LARGE \titlepagestitle}\\[1.8cm]
 	\end{spacing}
 	\begin{tabular}{p{9.5cm}}
-	{\titlepagessponsorsname} \\
+	{\titlepagesadvisorsname} \\
 	\end{tabular}\\[0.26cm]
 	\begin{tabular}{p{0.5cm} p{4.5cm} p{4cm} p{0.5cm}}
-	& {\large\titlepagessponsor} & \dotfill &\\
+	& {\large\titlepagesadvisor} & \dotfill &\\
 	\end{tabular}\\[0.5cm]
 	\begin{tabular}{p{9.5cm}}
 	{\titlepagesstudentsname} \\
