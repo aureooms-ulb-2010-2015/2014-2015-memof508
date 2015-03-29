@@ -19,22 +19,29 @@ extend a sorted sequence by insertion of an element taken (and removed) from
 the input set. Selection sort and Bubble sort are two algorithms based on the
 first method. Insertion sort is an algortihm based on the second method.
 Because the complexity of these algorithms does not meet the ITLB, we will need
-to think about more clever methods.
+to think about more clever methods\footnote{Although it is possible to obtain
+an \BigO{n \log n} comparisons algorithm by replacing the search method of the
+Insertion sort algorithm by a binary search, this approach does not lead directly
+to a practical algorithm. Indeed, in the machine-world, one must also take
+into account other types of operations. In the case of the Insertion Sort
+algorithm, no matter the search method, the number of memory read and write
+operations is quadratic on average.}.
 
 \subsection*{Quicksort}
 
 The first efficient algorithm we will explain is Quicksort \cite{hoare:1962}.
-The idea behind the Quicksort algorithm is to divide the input set \(\S\) into
-two disjoint subsets \(\L\) and \(\U\) that can be sorted independently from
-one another. To enforce this independence condition, the first part of
-the algorithm consists in computing \(\L\) and \(\U\) such that \(l \le u \Forall l
-\in \L, u \in U\). Once \(\L\) and \(\U\) are known, the algorithm sorts these
-two sets recursively. A rigorous definition of the algorithm is the following:
+The idea behind the Quicksort algorithm is to divide the input set \(\S\),
+\(\card{\S} = n\), into two disjoint subsets \(\L\) and \(\U\) that can be
+sorted independently from one another. To enforce this independence condition,
+the first part of the algorithm consists in computing \(\L\) and \(\U\) such
+that \(l \le u \Forall l \in \L, u \in U\). Once \(\L\) and \(\U\) are known,
+the algorithm sorts these two sets recursively. A rigorous definition of the
+algorithm is the following:
 
 \begin{algorithm}
-\item[1.] If \(\card{\S} < 2\) then \(\S\) is sorted and we are done.
+\item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Choose a pivot element \(p \in \S\) and compare it with all other
-elements of \(\S\) by asking \(\card{\S} - 1\) queries to the oracle.
+elements of \(\S\) by asking \(n - 1\) queries to the oracle.
 \item[3.] Partition \(\T = \S \setminus \enum{p}\) into two disjoint subsets
 \(\L = \enum{t \in \T \st t \le p}\) and \(\U = \T \setminus \L\).
 \item[4.] Sort \(\L\).
@@ -45,8 +52,8 @@ The Quicksort algorithm is a divide-and-conquer algorithm: it splits a
 bigger problem into several smaller problems whose solutions can be combined
 to build the solution of the bigger problem. Ideally, \(p\) would be chosen to
 be the median element of \(\S\) so that \(\card{\L} =
-\ceil{\frac{\card{\S}-1}{2}}\) and \(\card{\U} =
-\floor{\frac{\card{\S}-1}{2}}\), because then the recursion depth of the
+\ceil{\frac{n-1}{2}}\) and \(\card{\U} =
+\floor{\frac{n-1}{2}}\), because then the recursion depth of the
 algorithm would be bounded by \(\floor{\log \card{S}}\) resulting in a worst
 case complexity of \BigO{n \log n}. However, if \(p\) can be any element of
 \(\S\) then in the worst case \(p\) is the minimum (or maximum) element of
@@ -68,14 +75,14 @@ first solve two subproblems and then recombine them with a merge step that
 requires \BigO{n} comparisons:
 
 \begin{algorithm}
-\item[1.] If \(\card{\S} < 2\) then \(\S\) is sorted and we are done.
+\item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Arbitrarily partition \(\S\) into two disjoint subsets \(\L\) and
-\(\U\) such that \(\card{\L} = \ceil{\frac{\card{\S}-1}{2}}\) and \(\card{\U} =
-\floor{\frac{\card{\S}-1}{2}}\).
+\(\U\) such that \(\card{\L} = \ceil{\frac{n-1}{2}}\) and \(\card{\U} =
+\floor{\frac{n-1}{2}}\).
 \item[3.] Sort \(\L\).
 \item[4.] Sort \(\U\).
 \item[5.] Merge \(\L\) and \(\U\) by iteratively removing the smallest element
-of \(\S\). The are at most \(\card{\S} - 1\) such iterations. Since \(\L\) and
+of \(\S\). The are at most \(n - 1\) such iterations. Since \(\L\) and
 \(\U\) are sorted, the smallest element of \(\S\) can be computed as the
 smallest element between the smallest element of \(\L\) and the smallest
 element of \(\U\). Hence, each iteration requires a single comparison to be made.
@@ -92,15 +99,77 @@ T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
 
 \subsection*{Heapsort}
 
-The last algorithm we will explain is the Heapsort algorithm. A Heap is a data
+The last algorithm we will explain is the Heapsort algorithm
+\cite{leiserson:2001}. A heap is a data
 structure that allows one to efficiently lookup (\BigO{1}) or
-remove (\BigO{\log \card{\S}}) the smallest element from a set \(\S\). A Heap can
-be seen as a balanced \(d\)-ary Tree where a node is smaller than its
-children. Constructing a heap for \(\S\) can be done in \BigO{\card{\S}} comparisons.
+remove (\BigO{\log n}) the smallest element from a set \(\S\). A heap can
+be seen as a complete \(d\)-ary tree where a node is smaller than its
+children. The last condition is called the heap property.
+Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.
 Let us explain how. There exist two main procedures to update the contents of
 a heap. The first one is \emph{siftdown} which consists in \emph{sifting} a
 node down the tree until it is smaller or equal to all of its children. Below
-are the steps of the \emph{siftdown} algorithm:
+are the steps of the \emph{siftdown} algorithm with input node \(T\):
+
+\begin{algorithm}
+\item[1.] If \(T\) is a leaf of the tree the algorithm stops.
+\item[2.] Compute \(C = \min \text{children}(T)\).
+\item[3.] If \(T \le C\) the algorithm stops.
+\item[4.] Otherwise, swap \(C\) and \(T\).
+\item[5.] Sift down \(T\) again.
+\end{algorithm}
+
+The second one is \emph{siftup}. This operation is similar to \emph{siftdown}.
+We \emph{sift} a node up the tree until it is larger ore equal to its parent.
+Below are the steps of the algorithm:
+
+\begin{algorithm}
+\item[1.] If \(T\) is the root of the tree the algorithm stops.
+\item[2.] Compute \(P = \text{parent}(T)\).
+\item[3.] If \(T \ge P\) the algorithm stops.
+\item[4.] Otherwise, swap \(P\) and \(T\).
+\item[5.] Sift up \(T\) again.
+\end{algorithm}
+
+For example, to remove the minimum from a binary heap one replaces the root
+node with the rightmost leaf of the complete binary tree and then sifts down
+the new root. To add a new node, one attaches this node to the tree to the
+right of the rightmost leaf (or as the leftmost node of a new level
+of the tree if the last level is complete) and then sifts up this new node.
+Since a complete tree is balanced, sifting down a node in a binary heap uses
+at most \(2 \ceil{\log n}\) comparisons while sifting up a node uses at most
+\(\ceil{\log n}\)
+comparisons. However, it is possible to build a heap using \SmallO{n \log n}
+comparisons. Assume we have a complete tree that does not respect the heap
+property. This tree has \(\ceil{\frac{n}{2}}\) leaves, at most
+\(\ceil{\frac{n}{4}}\) nodes of height \(1\), at most \(\ceil{\frac{n}{8}}\)
+nodes of height \(2\), \dots, \ie at most \(\ceil{\frac{n}{2^{1+h}}}\) nodes
+of height \(h\).
+One applies \emph{siftdown} to each node of the tree right-to-left,
+bottom-to-top, starting from the rightmost leaf and ending at the root. The
+total number of comparisons is
+
+\begin{displaymath}
+T(n) \le 2 \cdot ( 0 \cdot \ceil{\frac{n}{2}} + 1 \cdot \ceil{\frac{n}{4}} + 2 \cdot
+\ceil{\frac{n}{8}} + 3 \cdot \ceil{\frac{n}{16}} + \cdots ) = \BigO{n}.
+\end{displaymath}
+
+To sort \(\S\) using a heap, one builds a heap with \BigO{n} comparisons and
+then iteratively extracts the minimum of this heap and restore the heap
+property with \(2\ceil{\log (n-1)}\)
+comparisons. The maximum number of comparisons involved in these extraction
+steps is
+
+\begin{displaymath}
+T(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
+\end{displaymath}
+
+which is approximately twice as much comparisons than what can be found by
+solving the recurrence relation for the Merge sort algorithm (see
+\citet*{OEIS:A001855}). Note that in the Heapsort algorithm we did not use the
+\emph{siftup} operation. There exists \cite{wegener:1993} a variation of the
+extracting step leading to an algorithm called bottom-up Heapsort that uses at
+most \(1.5~n \log n + \BigO{n}\) comparisons.
 
 \subsection*{Other Algorithms}
 
