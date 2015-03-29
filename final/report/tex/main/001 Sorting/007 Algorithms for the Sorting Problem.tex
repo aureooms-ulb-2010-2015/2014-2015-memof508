@@ -82,11 +82,14 @@ requires \BigO{n} comparisons:
 \item[3.] Sort \(\L\).
 \item[4.] Sort \(\U\).
 \item[5.] Merge \(\L\) and \(\U\) by iteratively removing the smallest element
-of \(\S\). There are at most \(n - 1\) such iterations. Since \(\L\) and
-\(\U\) are sorted, the smallest element of \(\S\) can be computed as the
-smallest element between the smallest element of \(\L\) and the smallest
-element of \(\U\). Hence, each iteration requires a single comparison to be made.
+of \(\S\).
 \end{algorithm}
+
+Note that in step \step{5} there are at most \(n - 1\) iterations. Since \(\L\)
+and \(\U\) are sorted, the smallest element of \(\S\) can be computed as the
+smallest element between the smallest element of \(\L\) and the smallest
+element of \(\U\). Hence, each iteration requires a single comparison to be
+made.
 
 Unlike the previous algorithm, we will always obtain a balanced partition of
 \(\S\) out of the partitioning step. Hence, the worst-case complexity of this
