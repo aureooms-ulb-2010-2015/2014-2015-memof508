@@ -94,10 +94,13 @@ T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
 
 The last algorithm we will explain is the Heapsort algorithm. A Heap is a data
 structure that allows one to efficiently lookup (\BigO{1}) or
-remove(\BigO{\log \card{\S}}) the smallest element from a set \(\S\). A Heap can
+remove (\BigO{\log \card{\S}}) the smallest element from a set \(\S\). A Heap can
 be seen as a balanced \(d\)-ary Tree where a node is smaller than its
-children. Constructing a heap for \(\S\) can be done in \BigO{\S} comparisons.
-Let us explain how.
+children. Constructing a heap for \(\S\) can be done in \BigO{\card{\S}} comparisons.
+Let us explain how. There exist two main procedures to update the contents of
+a heap. The first one is \emph{siftdown} which consists in \emph{sifting} a
+node down the tree until it is smaller or equal to all of its children. Below
+are the steps of the \emph{siftdown} algorithm:
 
 \subsection*{Other Algorithms}
 
