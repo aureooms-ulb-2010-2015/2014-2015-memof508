@@ -1,10 +1,54 @@
 \section{Algorithms for the Sorting Problem}
 \label{tree:sorting:alg}
 
-In the following table, we will refer to existing algorithms solving the
-sorting problem efficiently. According to our model, remember
-\ref{tree:sorting:model}, we only consider comparison-based sorting algorithms.
+We will now detail three algorithms that can be used to solve the sorting
+problem. According to our model, remember \ref{tree:sorting:model}, we only
+consider comparison-based sorting algorithms.
 
+Before we start, let us make a quick observation. The sorting problem can
+easily be solved using at most \(\binom{n}{2} = \BigO{n^2}\) queries. A first
+way to achieve this bound is by iteratively computing and removing the minimum
+(or maximum) element from the input set. A second way is to iteratively
+construct a sorted sequence by insertion of an element taken (and removed) from
+the input set. Selection sort and Bubble sort are two algorithms based on the
+first method. Insertion sort is an algortihm based on the second method.
+Because the complexity of these algorithms does not meet the ITLB, we will need
+to think about more clever methods.
+
+The first algorithm we will explain is Quicksort \cite{hoare:1962}.
+The idea behind the Quicksort algorithm is to divide the input set \(\S\) into
+two disjoint subsets \(\L\) and \(\U\) that can be sorted independently from
+one another. To enforce this independence condition, the first part of
+the algorithm consists in computing \(\L\) and \(\U\) such that \(l \le u \Forall l
+\in \L, u \in U\). Once \(\L\) and \(\U\) are known, the algorithm sorts these
+two sets recursively. A rigorous definition of the algorithm is the following:
+
+\begin{algorithm}
+\item[1.] If \(\card{\S} < 2\) then \(\S\) is sorted and we are done.
+\item[2.] Choose a pivot element \(p \in \S\) and compare it with all other
+elements of \(\S\) by asking \(\card{\S} - 1\) queries to the oracle.
+\item[3.] Partition \(\T = \S \setminus p\) into two disjoint subsets
+\(\L = \enum{s \in \T \st s \le p}\) and \(\U = \T \setminus \L\)
+\item[4.] Sort \(\L\).
+\item[5.] Sort \(\U\).
+\end{algorithm}
+
+The Quicksort algorithm is a divide-and-conquer algorithm: it splits a
+bigger problem into several smaller problems whose solutions can be combined
+to build the solution of the bigger problem. Ideally, \(p\) would be chosen to
+be the median element of \(\S\) so that \(\card{\L} =
+\ceil{\frac{\card{\S}-1}{2}}\) and \(\card{\U} =
+\floor{\frac{\card{\S}-1}{2}}\), because then the recursion depth of the
+algorithm would be bounded by \(\floor{\log \card{S}}\) resulting in a worst
+case complexity of \BigO{n \log n}. However, if \(p\) can be any element of
+\(\S\) then in the worst case \(p\) is the minimum (or maximum) element of
+\(\S\) and \(\L\) (or \(\U\)) is empty. In this case, Quicksort behaves like
+the Selection sort algorithm and its worst case complexity degrades to
+\BigO{n^2}. It is possible \cite{blum:1973} to compute a good pivot or even the median element
+in \BigO{n} time. However, it was shown \cite{hoare:1962} that selecting the
+pivot uniformly at random leads to an average case complexity of \(1.39 n
+\log n\) comparisons, and for real-world computers this approach tends to be more
+efficient than the safe one.
 
 \begin{table}
 	\begin{center}
@@ -14,7 +58,7 @@ sorting problem efficiently. According to our model, remember
 
 	\hline
 	Name & Best\tablefootnote{\label{tree:sorting:alg/table!bestisn} The reason some of those algorithms have a best case of \BigO{n} is that they make use of already ordered subsequences, e.g. for an already ordered sequence only a linear check is required. This gives us some clue that will be expanded in \ref{tree:supi}.} & Average & Worst & Source\\\hline\hline
-	Quicksort & $n \log n$ & $1.39~n \log n$ & $n^2$ & \cite{hoare1962quicksort}\\\hline
+	Quicksort & $n \log n$ & $1.39~n \log n$ & $n^2$ & \cite{hoare:1962}\\\hline
 	Dual Pivot Quicksort & $n \log n$ & $1.32~n \log n$ & $n^2$ & \cite{yaroslavskiy2009dual}\\\hline
 	Merge sort & $n \log n$ & $1~n \log n$ & $n \log n$ & \begin{tabular}{@{}l@{}} \cite{leiserson2001introduction} \\ \cite{goldstine:1948:sorting} \end{tabular} \\\hline
 	Heapsort & $n \log n$ & $1~n \log n$ & $n \log n$ & \cite{leiserson2001introduction}\\\hline
@@ -27,10 +71,6 @@ sorting problem efficiently. According to our model, remember
 	\end{center}
 \end{table}
 
-
-In \ref{tree:sorting:alg/table} you can see a list of algorithms for which the
-average case time complexity matches the Stirling's approximation of the
-\concept{ITLB} up to a $\BigO{1}$ factor.
 
 Considering practical use of these algorithms, Quicksort is one of the most
 efficient algorithms on real world computers due to its simplicity and cache
