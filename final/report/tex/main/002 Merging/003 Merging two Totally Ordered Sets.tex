@@ -20,9 +20,9 @@ the worst-case minimal height of the tree is $\log \binom{m+n}{m}$.
 \end{proof}
 
 \nb{Giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation
-gives us $(m+n) \log(m+n) - m \log m - n \log n$ which clearly expresses the
-information contained in the sorted sequence $\S'$ of $m+n$ elements minus the
-information we already have.}
+when \(n \ge m\) gives us $(m+n) \log(m+n) - m \log m - n \log n - \BigO{\log
+n}$ which clearly expresses the information contained in the sorted sequence
+$\S'$ of $m+n$ elements minus the information we already have.}
 
 
 \subsection*{The Hwang-Lin Algorithm}
