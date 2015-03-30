@@ -75,15 +75,17 @@ m = n &\implies \log\binom{m+n}{m} = \BigTheta{m + n} = \BigTheta{n}\\
 \end{align*}
 \end{proof}
 
-An algorithm using at most \(n+m-1\) queries is Tapemerge.
-Tapemerge is the merge procedure that Mergesort uses (see \step{5} in
-\label{tree:sorting:alg:mergesort}), \ie given two linearly ordered sets sort
-their union by iteratively removing the smallest element it contains. This
-algorithm runs in \(n+m\) iterations. Each iteration uses at most one query,
-because the algorithm only needs to choose between the smallest element of the
-first linearly ordered set and the smallest element of the second linearly
-ordered set. At the last iteration, there is only one element left, hence no
-query is used and the maximum number of query this algorithm uses is \(n+m-1\).
+An algorithm using at most \(n+m-1\) queries is Tapemerge.  Tapemerge is the
+merge procedure that Mergesort uses (see step \step{5} of the Mergesort
+algorithm in \ref{tree:sorting:alg}), \ie given two linearly ordered sets sort
+their union by iteratively removing the smallest element it contains. The union
+of the two linearly ordered sets contains \(n+m\) elements, hence this
+algorithm runs in \(n+m\) iterations. Because the algorithm only needs to
+choose between the smallest element of the first linearly ordered set and the
+smallest element of the second linearly ordered set at each iteration, each
+iteration uses at most one query. At the last iteration, there is only one
+element left, hence no query is used and the maximum number of query this
+algorithm uses is \(n+m-1\).
 
 Additionally we show what happens when \(m = c n\) for some \(0 < c \le 1\).
 
