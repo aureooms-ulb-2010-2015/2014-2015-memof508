@@ -8,11 +8,10 @@ procedure in the preprocessing phase of their other algorithms. In this chapter
 we will detail another possible implementation of such a procedure that is due
 to \citet*{linial:1984}. Unfortunately, in this implementation the
 computational complexity cannot be split into a preprocessing phase and a query
-phase. Nevertheless it is still interesting to understand the ideas behind its
-implemention.
+phase. Nevertheless it is still interesting to understand the ideas behind it.
 
-The problem we just described is the Merging Under Partial Information. We
-give a formal definition of this problem,
+This procedure solves the problem of Merging Under Partial Information, or
+\concept{MUPI}. We give a formal definition of this problem,
 
 \begin{problem}
 Given a poset \(P\) that can be covered by two chains \(A\) and \(B\), find a
@@ -29,8 +28,8 @@ input of the MUPI problem.}
 
 \citet*{linial:1984} first proves that the \onethirdtwothird conjecture holds
 for width-\(2\) posets, \ie posets that can be covered by two chains. Since one
-can always find a good query in \(P\) that when answered will invalidate at
-least one third of the possible linear extensions, it is possible to design a
+can always find a good query that when answered will invalidate at
+least one third of the possible linear extensions of \(P\), it is possible to design a
 \BigO{\log e(P)} algorithm that solves the MUPI problem.
 
 \begin{theorem}
@@ -104,6 +103,31 @@ e(P) =
 
 the determinant of a \(m \times m\) matrix.
 \end{theorem}
+
+\citet*{mohanty:1979} gives this formula in the context of counting lattice
+paths. Let us explain. We want to count the number of paths that go from
+\((0,0)\) to \((m,n)\) in a \((m+1) \times (n+1)\) grid. Such a path is a
+sequence of \(m+n+1\) integer positions \(( (i_{0},j_{0}) , (i_{1},j_{1}) ,
+\ldots , (i_{m+n},j_{m+n}) )\) such that \(i_{k} \ge i_{k-1}\), \(j_{k} \ge
+j_{k-1}\) and \(i_{k} + j_{k} = i_{k-1} + j_{k-1} + 1\) for all \(1 \le k \le m
++ n\).  Obviously \((i_{0},j_{0}) = (0,0)\) and \((i_{m+n},j_{m+n}) = (m,n)\).
+With these constraints alone we obtain a count of \(\binom{m+n}{n} =
+\binom{m+n}{m} \) different paths\footnote{Note that if \(m = n\) and if we add
+the condition that \(i_{k} \le j_{k} \Forall 1 \le k \le m + n\) then the path
+count corresponds to the \(nth{n}\) Catalan number \(C_n\).}.
+\citet*{mohanty:1979} adds the constraint that \(\alpha_i \le j < \beta_i\) for
+all path positions \((i,j)\) with \(i \neq 0\), where \(0 \le
+\alpha_1 \le \ldots \le \alpha_m \le n + 1\), \(0 \le \beta_1 \le \ldots \le
+\beta_m \le n + 1\) and \(\alpha_i < \beta_i \Forall 1 \le i \le m\) and finds
+this determinant counting formula as an answer. The reason the cases \(i = 0\)
+can be ignored is because the above constraints suffice to fix
+the possible values that \(j\) can take when \(i = 0\).
+
+This problem of counting paths is equivalent to counting the number of possible
+outcomes of a merging algorithm on input \((\S_1,\S_2)\), \(\card{\S_1} = m,
+\card{\S_2} = n\), provided we know the insertion position \(j\) of the
+\(\nth{i}\) element of \(\S_1\) into \(\S_2\) is bounded by \(\alpha_i \le j <
+\beta_i\).
 
 We now make a few observations to show that Linial's algorithm runs in
 polynomial time.
