@@ -103,16 +103,15 @@ T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
 \subsection*{Heapsort}
 
 The last algorithm we will explain is the Heapsort algorithm
-\cite{leiserson:2001}. A heap is a data
-structure that allows one to efficiently lookup (\BigO{1}) or
-remove (\BigO{\log n}) the smallest element from a set \(\S\). A heap can
-be seen as a complete \(d\)-ary tree where a node is smaller than its
-children. The last condition is called the heap property.
-Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.
-Let us explain how. There exist two main procedures to update the contents of
-a heap. The first one is \emph{siftdown} which consists in \emph{sifting} a
-node down the tree until it is smaller or equal to all of its children. Below
-are the steps of the \emph{siftdown} algorithm with input node \(T\):
+\cite{williams:1964}. A heap is a data structure that allows one to
+efficiently lookup (\BigO{1}) or remove (\BigO{\log n}) the smallest element
+from a set \(\S\). A heap can be seen as a complete \(d\)-ary tree where a node
+is smaller than its children. The last condition is called the heap property.
+Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.  Let us
+explain how. There exist two main procedures to update the contents of a heap.
+The first one is \emph{siftdown} which consists in \emph{sifting} a node down
+the tree until it is smaller or equal to all of its children. Below are the
+steps of the \emph{siftdown} algorithm with input node \(T\):
 
 \begin{algorithm}
 \item[1.] If \(T\) is a leaf of the tree the algorithm stops.
@@ -158,10 +157,9 @@ T(n) \le 2 \cdot ( 0 \cdot \ceil{\frac{n}{2}} + 1 \cdot \ceil{\frac{n}{4}} + 2 \
 \end{displaymath}
 
 To sort \(\S\) using a heap, one builds a heap with \BigO{n} comparisons and
-then iteratively extracts the minimum of this heap and restore the heap
-property with \(2\ceil{\log (n-1)}\)
-comparisons. The maximum number of comparisons involved in these extraction
-steps is
+then iteratively extracts the minimum of this heap and restores the heap
+property with \(2\ceil{\log (n-1)}\) comparisons. The maximum number of
+comparisons involved in these extraction steps is
 
 \begin{displaymath}
 T(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
@@ -242,3 +240,23 @@ complexity is $\BigO{n \log n}$. Examples are,
 For example implementations of those data structures see
 \citet*{sleator:1985} for the binary tree, and
 \citet*{leiserson:2001} for the priority queue.
+
+
+\subsection*{Is the Sorting Problem a Solved Problem?}
+
+Although there has been an enormous amount of research directed towards sorting
+algorithms in the field of Computer Science, there still exists a linear term
+gap between the most efficient algorithms and the \concept{ITLB} of the
+sorting problem.
+
+For example, Mergesort is one of the algorithms whose complexity comes closest
+to the \concept{ITLB}, \ie
+\begin{displaymath}
+n \log n - n + 1 \le T(n) = n \ceil{\log n} - 2^{\ceil{\log n}} + 1 \le n \log
+n + n + \BigO{\log n},
+\end{displaymath}
+while
+\begin{displaymath}
+\text{ITLB} \simeq n \log n - 1.443 n + \frac{1}{2} \log n + 1.326,
+\end{displaymath}
+which leaves us with a \BigO{n} gap in the best case.
