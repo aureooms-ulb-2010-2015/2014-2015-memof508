@@ -13,14 +13,14 @@ The ITLB for the merging problem when \(k = 2\) with \(\card{\S_1} = m, \card{\S
 \end{theorem}
 
 \begin{proof}
-We have to choose the $m$ among $m+n$ positions in $\S'$ for the elements of
+We have to choose the $m$ positions among $m+n$ in $\S'$ for the elements of
 $\S_1$ and then fill the remaining $(m+n) - m = n$ positions with the elements
 of $\S_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$ hence
-the worst minimal height of the tree is $\log \binom{m+n}{m}$.
+the worst-case minimal height of the tree is $\log \binom{m+n}{m}$.
 \end{proof}
 
 \nb{Giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation
-gives us $(m+n) \log(m+n) - m \log m - n \log n$ which clearly express the
+gives us $(m+n) \log(m+n) - m \log m - n \log n$ which clearly expresses the
 information contained in the sorted sequence $\S'$ of $m+n$ elements minus the
 information we already have.}
 
@@ -28,11 +28,9 @@ information we already have.}
 \subsection*{The Hwang-Lin Algorithm}
 \label{tree:merging:k=2:alg}
 
-Without loss of generality, we consider the case where \(m \leq n\). We build an
-algorithm whose complexity is \BigO{\log \binom{m+n}{m}}.
-
-We begin by computing the general case expression of the number of comparisons
-required by our \concept{ITLB}.
+We will analyse the \concept{ITLB} of the Merging problem. Then we will
+describe an algorithm whose complexity meets the \concept{ITLB}. We begin by
+computing the general case expression of the \concept{ITLB}.
 
 \begin{lemma}
 \begin{align*}
@@ -55,7 +53,8 @@ required by our \concept{ITLB}.
 \end{proof}
 
 In order to feed our intuition on this expression we will analyze its behaviour
-on several corner cases.
+on several special cases. Without loss of generality, we consider the cases
+where \(m \leq n\).
 
 The first case we will analyze is the case where $m = n$. This case is similar
 to what happens during the merge phase of the merge sort algorithm.
@@ -76,7 +75,7 @@ m = n &\implies \log\binom{m+n}{m} = \BigTheta{m + n} = \BigTheta{n}\\
 \end{align*}
 \end{proof}
 
-An algorithm performing \BigO{m} is Sequential Merge (or Tapemerge).
+An algorithm performing \(n+m-1\) queries is Sequential Merge (or Tapemerge).
 
 Additionally we show what happens when \(m = c n\) for some \(0 < c \le 1\).
 
