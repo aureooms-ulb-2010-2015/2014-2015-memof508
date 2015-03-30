@@ -75,7 +75,7 @@ m = n &\implies \log\binom{m+n}{m} = \BigTheta{m + n} = \BigTheta{n}\\
 \end{align*}
 \end{proof}
 
-An algorithm using at most \(n+m-1\) queries is Tapemerge.  Tapemerge is the
+An algorithm using at most \(n+m-1\) queries is Tape Merge. Tape Merge is the
 merge procedure that Mergesort uses (see step \step{5} of the Mergesort
 algorithm in \ref{tree:sorting:alg}), \ie given two linearly ordered sets sort
 their union by iteratively removing the smallest element it contains. The union
@@ -163,22 +163,45 @@ combine the different solutions to build an algorithm of complexity \BigO{\log
 The idea is that the algorithm should behave like:
 
 \begin{itemize}
-\item Sequential Merge in case $\frac{n}{m} = 1$;
+\item Tape Merge in case $\frac{n}{m} = 1$;
 \item $m$ binary searches on sets of size $\frac{n}{m}$ in case $m = \SmallO{n}$;
 \item Binary Search in case \(m = \SmallO{n}\) and \(m = 1\).
 \end{itemize}
 
-\citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm.
-The algorithm proceeds by reading sequentially every $\frac{n}{m}$ elements of
-$\S_2$. Once the algorithm finds the interval of size $\frac{n}{m}$ where the
-first element of $\S_1$ is to be found, it applies a binary search algorithm on
-this interval. We have the position of the first element.
-We now want the position of the second element of $\S_1$. The position of this
-second element is necessarily after the position we just found. Thus, if we
-proceed in the same manner for all the other elements of $\S_1$ we will only
-iterate over the $m$ intervals once and will at most perform $m
-\log\frac{n}{m}$ comparisons inside the intervals, hence we get an algorithm
-whose complexity is $c \cdot \text{ITLB} + m - 1 = \BigO{ITLB}$.
+\citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm. Their
+algorithm merges two linearly ordered sets \(\A = \enum{\A_1,\dots,\A_m}\) and
+\(\B = \enum{\B_1,\dots,\B_n}\) with the constraint \(m \le n\). Below is a
+description of the algorithm:
+
+\begin{algorithm}
+\item[1.] If \(m = 0\) the algorithm stops.
+\item[2.] Let \(\alpha = \floor{\log \frac{n}{m}}\) and \(x = n - 2^{\alpha} + 1\).
+\item[3.] Compare \(\A_m\) with \(\B_x\).
+\item[4.] If \(\A_m \le \B_x\), remove all elements \(\B_x,\dots,\B_n\) from
+\(\B\).
+\item[5.] Otherwise, find the insertion position of \(\A_m\) in
+\(\B_{x+1},\dots,\B_{n}\) using binary search. Remove \(\A_m\) from \(\A\) and
+remove from \(\B\) the set of all elements that lie after the insertion
+position of \(\A_m\) in \(\B\).
+\item[6.] If now \(m > n\) swap the roles of \(\A\) and \(\B\).
+\item[7.] Merge \(\A\) and \(\B\).
+\end{algorithm}
+
+In summary, the algorithm searches the position of the last element of \(\A\)
+in the \(2^{\alpha}\) largest elements of \(\B\). If \(\A_m\) is smaller or
+equal to all these elements, which can be checked in a single comparison, then
+the algorithm discards these elements from \(\B\). Otherwise the algorithm uses
+binary search on \(2^{\alpha}-1\) elements to find the insertion position of
+\(\A_m\) in \(\B\). In both cases, the last step of the algorithm is to recurse
+on the updated sets \(\A\) and \(\B\). The algorithm ensures that \(m \le n\)
+before each recursive call.
+
+\citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm has a complexity
+of \(\ceil{\text{ITLB}} + m - 1 = \BigO{ITLB}\). The trick that allows to
+get so close to the \concept{ITLB} with this algorithm resides in the choice of
+\(\alpha\). Indeed the binary search step uses at most \(\alpha\) comparisons
+when \(\alpha\) is a power of \(2\) and when the number of elements to search
+from is \(2^{\alpha}-1\).
 
 \nb{We can check that this algorithm matches the \concept{ITLB} found for our
 special cases.}
