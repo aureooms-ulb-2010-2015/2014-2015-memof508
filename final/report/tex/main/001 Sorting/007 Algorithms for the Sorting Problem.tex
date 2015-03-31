@@ -175,7 +175,7 @@ most \(1.5~n \log n + \BigO{n}\) comparisons.
 \subsection*{Other Algorithms}
 
 There exists a lot of other interesting ideas to solve the sorting problem. For
-example, Shellsort \cite{shell:1959}, Smoothsort \cite{dijkstra:1982},
+example, \shellsort \cite{shell:1959}, Smoothsort \cite{dijkstra:1982},
 Introsort \cite{musser:1997} and Timsort \cite{martelli:2006}.
 
 Considering practical use of sorting algorithms, \quicksort is one of the most
@@ -215,9 +215,9 @@ also stable. One of the subtleties of the Timsort algorithm is that it tries
 to exploit already sorted subsequences of the input. On a sorted or reverse
 sorted input the Timsort algorithms runs in \BigO{n} time.
 
-A remark concerning Shellsort. The average time complexity of Shellsort is not
+A remark concerning \shellsort. The average time complexity of \shellsort is not
 known for the moment. Indeed, there are multiple ways of implementing this
-algorithm because of its definition. The Shellsort algorithm is configurable
+algorithm because of its definition. The \shellsort algorithm is configurable
 with a sequence of integers called a \emph{gap sequence}. This gap sequence
 parameter leads to different time complexities. For example, depending on the
 implementation, one can achieve a complexity of either $\BigO{n \log^2 n}$ or
