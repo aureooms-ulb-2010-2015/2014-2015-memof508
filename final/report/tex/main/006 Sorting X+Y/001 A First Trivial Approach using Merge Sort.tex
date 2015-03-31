@@ -1,4 +1,4 @@
-\section{A First Trivial Approach using Merge Sort}
+\section{A First Trivial Approach using \mergesort}
 \label{tree:xy:merge}
 
 \begin{figure}
@@ -49,7 +49,7 @@ in \XY obey a regular pattern. To illustrate this, we take the $4 \times 4$
 Now we will solve this problem in a strictly faster way than sorting all
 of its elements, by taking advantage of some of the information we already have.
 
-First, we show that sorting \XY without information using the merge sort algorithm would use $2
+First, we show that sorting \XY without information using the \mergesort algorithm would use $2
 n^2 \log n$ comparisons. The exact upper bound on the number
 of comparisons required to solve an instance of size \(N\) with this algorithm
 is given by the formula
@@ -66,7 +66,7 @@ We have
 \lim_{N\to\infty}\frac{T(N)}{\log N!} =
 \lim_{N\to\infty}\frac{\sum_{k=1}^{N}\ceil{\log k}}{ \sum_{k=1}^{N} \log k} = 1
 \end{displaymath}
-and thus, by Stirling's approximation, the merge sort algorithm requires at
+and thus, by Stirling's approximation, the \mergesort algorithm requires at
 most \(N \log N\) comparisons for very large \(N\). When we sort \XY, we have \(N =
 n^2\), and thus
 \[N \log N = n^2 \log n^2 = 2 n^2 \log n.\]
@@ -75,7 +75,7 @@ difficult to convince oneself that for very large \(n\) the complexity added
 by the ceiling and flooring functions fade away.
 
 We now show that it is possible to sort \XY with half the comparisons. The
-merge sort algorithm has this particularity that at the end of every step of
+\mergesort algorithm has this particularity that at the end of every step of
 the recursion we are left with several total orders on disjoint subsets of the
 set to sort. To illustrate, if we organise steps in stages we obtain what is
 shown in \ref{fig:xy:poset:mergexy}.
@@ -88,7 +88,7 @@ and if we know its structure. Note that if not known a priori, this structure
 can be revealed for the cost of \(2n \log n\) comparisons, using a standard \(n
 \log n\) comparison sorting algorithm to sort sets \(X\) and \(Y\).
 
-Remember that in merge sort there are $\log N$ stages. At stage $i$ we have
+Remember that in \mergesort there are $\log N$ stages. At stage $i$ we have
 built $2^{i}$ total orders on disjoint subsets of size $2^{\log N - i}$. Since
 the stage represented in \ref{fig:xy:poset:mergexy} shows $n$ total orders on
 disjoint subsets of size $n$, and that the total number of elements in $X+Y$ is

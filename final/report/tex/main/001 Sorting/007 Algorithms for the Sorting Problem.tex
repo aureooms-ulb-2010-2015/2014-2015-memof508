@@ -166,7 +166,7 @@ T(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
 \end{displaymath}
 
 which is approximately twice as much comparisons than what can be found by
-solving the recurrence relation for the Merge sort algorithm (see
+solving the recurrence relation for the \mergesort algorithm (see
 \citet*{OEIS:A001855}). Note that in the Heapsort algorithm we did not use the
 \emph{siftup} operation. There exists \cite{wegener:1993} a variation of the
 extracting step leading to an algorithm called bottom-up Heapsort that uses at
@@ -186,9 +186,9 @@ popular programming languages (\emph{Java} (up to \emph{Java
 6}),\emph{C},\emph{C++}) use their own version of the \quicksort algorithm as
 their sorting procedure. An exception is \emph{Python} which uses the Timsort
 algorithm since 2002. Note also that up to \emph{Java 6}, \emph{Java} used a
-Merge sort algorithm for sorting non-primitive types. The reason behind this
+\mergesort algorithm for sorting non-primitive types. The reason behind this
 choice is that objects in \emph{Java} can be different while having the same
-comparison ``key''. Since the \emph{Java} Merge sort algorithm is implemented as
+comparison ``key''. Since the \emph{Java} \mergesort algorithm is implemented as
 a stable sorting procedure, it offers the users the guarantee that the sorting
 algorithm will not reverse the order of equal-``key'' objects. The classical
 \quicksort algorithm is not used in this case because it is not stable.
@@ -209,7 +209,7 @@ algorithm is now used as the sorting procedure of arrays of primitive type for
 the \emph{Java} language (since \emph{Java 7}). Although it performs more
 swaps \cite{wild:2012}, and uses more Java Bytecodes \cite{wild:2013}, the
 dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
-\quicksort implementation experimentally. Note that the stable Merge sort
+\quicksort implementation experimentally. Note that the stable \mergesort
 algorithm of \emph{Java 7} was changed for a Timsort implementation, which is
 also stable. One of the subtleties of the Timsort algorithm is that it tries
 to exploit already sorted subsequences of the input. On a sorted or reverse
