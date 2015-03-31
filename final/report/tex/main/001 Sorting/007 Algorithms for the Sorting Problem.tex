@@ -94,7 +94,7 @@ made.
 Unlike the previous algorithm, we will always obtain a balanced partition of
 \(\S\) out of the partitioning step. Hence, the worst-case complexity of this
 algorithm is \BigO{n \log n}. An other way to obtain this complexity measure
-is to solve the following recurence relation:
+is to solve the following recurrence relation:
 
 \begin{displaymath}
 T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
