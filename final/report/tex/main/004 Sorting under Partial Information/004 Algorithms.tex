@@ -72,9 +72,9 @@ time proportional to the number of comparisons, plus a term linear in $n$.
 The idea of \citet*{cardinal:2013} is to remove some information from the input
 poset to produce a weak subposet \(\P'\) (whose refinement is \(\P\)) for which
 computing a linear extension is \BigO{\log e(\P')} and whose entropy is not to
-far from the entropy of the original poset. Using the fact that \(H(\P)\) is
-\BigTheta{e(\P)} proved by \citet*{kahn:1995} one can analyze what ``not to
-far'' means for a given information removal technique.
+far from the entropy of the original poset. Since \(H(\P)\) is
+\BigTheta{e(\P)}, as it was proved by \citet*{kahn:1995}, one can analyze what
+``not to far'' means for a given information removal technique.
 
 For example, one can iteratively extract a maximal chain of the input poset
 computing a so-called greedy chain decomposition. Once this is done, we just
