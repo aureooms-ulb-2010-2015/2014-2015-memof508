@@ -4,8 +4,8 @@ As we will see right now, sorting is a \twoLDT problem. Let us define the
 \twoLDT problem,
 
 \begin{problem}
-Given a set $S \subset \R$, $\card{S} = n$ and real coefficients $\alpha_0,
-\alpha_1, \alpha_2$, find all $(a,b) \in S^2$ such that
+Given a set $\S \subset \R$, $\card{\S} = n$ and real coefficients $\alpha_0,
+\alpha_1, \alpha_2$, find all $(a,b) \in \S^2$ such that
 $\alpha_0 + \alpha_1 a + \alpha_2 b = 0$.
 \end{problem}
 
@@ -15,7 +15,7 @@ the sorting problem definition in the same fashion we would come up with the
 following definition,
 
 \begin{problem}
-Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b) \in S^2$ such that
+Given a set $\S \subset \R$, $\card{\S} = n$, find all $(a,b) \in \S^2$ such that
 $a - b = 0$.
 \end{problem}
 
@@ -48,13 +48,13 @@ All sorting problem instances are thus instances of the \twoLDT problem with
 $\alpha_0 = 0, \alpha_1 = 1, \alpha_2 = -1$.
 
 The intuition is correct even though $a \neq b$ implies $a-b \neq 0$ for all
-$(a,b) \in S^2$, and so there cannot be such pair $(a,b)$, but, the important
+$(a,b) \in \S^2$, and so there cannot be such pair $(a,b)$, but, the important
 bit is that computing $a-b$ reveals the answer to the question $a<b$ as we
 noticed earlier. An algorithm that determines the sign of $a-b$ for all $(a,b)$
 pairs is thus effectively retrieving the information required to sort the set
-$S$.
+$\S$.
 
-Sorting and \twoLDT are thus very similar problems. While sorting $S$ amounts
+Sorting and \twoLDT are thus very similar problems. While sorting $\S$ amounts
 to determine the sign of $a-b$ for all $(a,b)$ pairs, solving the \twoLDT
-problem on set $S$ amounts to determine the sign of $\alpha_0 + \alpha_1 a +
+problem on set $\S$ amounts to determine the sign of $\alpha_0 + \alpha_1 a +
 \alpha_2 b = 0$ for the same pairs.

@@ -5,8 +5,8 @@ Similarly to how the sorting problem is a linear degeneracy testing problem,
 sorting $X+Y$ is a \fourLDT problem. Let us define the \fourLDT problem,
 
 \begin{problem}
-Given a set $S \subset \R$, $\card{S} = n$, and real coefficients $\alpha_0,
-\alpha_1, \alpha_2, \alpha_3, \alpha_4$ find all $(a,b,c,d) \in S^4$ such that
+Given a set $\S \subset \R$, $\card{\S} = n$, and real coefficients $\alpha_0,
+\alpha_1, \alpha_2, \alpha_3, \alpha_4$ find all $(a,b,c,d) \in \S^4$ such that
 $\alpha_0 + \alpha_1 a + \alpha_2 b + \alpha_3 c + \alpha_4 d = 0$.
 \end{problem}
 
@@ -16,7 +16,7 @@ $(a,b,c,d) \in (X \times Y)^2$, this sums up to determining the sign of $(a+b) -
 reformulate sorting $X+Y$ the following way,
 
 \begin{problem}
-Given a set $S \subset \R$, $\card{S} = n$, find all $(a,b,c,d) \in S^4$ such
+Given a set $\S \subset \R$, $\card{\S} = n$, find all $(a,b,c,d) \in \S^4$ such
 that $a + b - c - d = 0$.
 \end{problem}
 
@@ -26,5 +26,5 @@ there exist \(a,b,c,d\) such that \(a+b-c-d=0\) requires signs of all
 
 All sorting $X+Y$ problem instances are thus instances of the \fourLDT problem
 with $\alpha_0 = 0, \alpha_1 = \alpha_2 = 1, \alpha_3 = \alpha_4 = -1$ and
-$S = X \cup Y$.
+$\S = X \cup Y$.
 
