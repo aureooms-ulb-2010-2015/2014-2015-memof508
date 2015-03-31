@@ -184,7 +184,7 @@ locality of its operations, even though \quicksort has a much higher
 multiplicative factor than \mergesort. Nowadays, standard libraries of the most
 popular programming languages (\Java (up to \Java 6), \CC, \CXX) use their own
 version of the \quicksort algorithm as their sorting procedure. An exception is
-\Python which uses the Timsort algorithm since 2002. Note also that up to \Java
+\Python which uses the \timsort algorithm since 2002. Note also that up to \Java
 6, \Java used a \mergesort algorithm for sorting non-primitive types. The
 reason behind this choice is that objects in \Java can be different while
 having the same comparison ``key''. Since the \Java \mergesort algorithm is
@@ -210,10 +210,10 @@ the \Java language (since \Java 7). Although it performs more
 swaps \cite{wild:2012}, and uses more Java Bytecodes \cite{wild:2013}, the
 dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
 \quicksort implementation experimentally. Note that the stable \mergesort
-algorithm of \Java 7 was changed for a Timsort implementation, which is
-also stable. One of the subtleties of the Timsort algorithm is that it tries
+algorithm of \Java 7 was changed for a \timsort implementation, which is
+also stable. One of the subtleties of the \timsort algorithm is that it tries
 to exploit already sorted subsequences of the input. On a sorted or reverse
-sorted input the Timsort algorithms runs in \BigO{n} time.
+sorted input the \timsort algorithms runs in \BigO{n} time.
 
 A remark concerning \shellsort. The average time complexity of \shellsort is not
 known for the moment. Indeed, there are multiple ways of implementing this
@@ -233,8 +233,8 @@ $\BigO{\log n}$ time complexity can be used to build an algorithm whose time
 complexity is $\BigO{n \log n}$. Examples are,
 
 \begin{itemize}
-\item Binary tree sort which uses a \emph{binary tree};
-\item Tournament sort which uses a \emph{priority queue}.
+\item \binarytreesort which uses a \emph{binary tree};
+\item \tournamentsort which uses a \emph{priority queue}.
 \end{itemize}
 
 For example implementations of those data structures see
