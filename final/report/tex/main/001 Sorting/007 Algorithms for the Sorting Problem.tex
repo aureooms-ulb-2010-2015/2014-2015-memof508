@@ -151,8 +151,9 @@ bottom-to-top, starting from the rightmost leaf and ending at the root. The
 total number of comparisons is
 
 \begin{displaymath}
-T(n) \le 2 \cdot ( 0 \cdot \ceil{\frac{n}{2}} + 1 \cdot \ceil{\frac{n}{4}} + 2 \cdot
-\ceil{\frac{n}{8}} + 3 \cdot \ceil{\frac{n}{16}} + \cdots ) = \BigO{n}.
+T(n) \le 2 \cdot ( 0 \cdot \left\lceil\frac{n}{2}\right\rceil + 1 \cdot
+\left\lceil\frac{n}{4}\right\rceil + 2 \cdot
+\left\lceil\frac{n}{8}\right\rceil + 3 \cdot \left\lceil\frac{n}{16}\right\rceil + \cdots ) = \BigO{n}.
 \end{displaymath}
 
 To sort \(\S\) using a heap, one builds a heap with \BigO{n} comparisons and
