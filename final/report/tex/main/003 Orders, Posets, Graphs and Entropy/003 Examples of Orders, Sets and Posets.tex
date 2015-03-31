@@ -14,22 +14,22 @@ of 1-based natural numbers).}
 \begin{example}
 \label{ex:poset:def}
 
-\item\label{ex:poset:def:a} Let $n \in \P$. The set $[n]$ with its usual order,
+\item\label{ex:poset:def:a} Let $n \in \IP$. The set $[n]$ with its usual order,
 namely the ordering on natural numbers of this set, forms an $n$-element poset
 with the special property that any two elements are comparable. This poset is
 denoted $\bm{n}$. Of course $\bm{n}$ and $[n]$ coincide as sets, but we use the
 notation $\bm{n}$ to emphasize the order structure.
 
 \item\label{ex:poset:def:b} Let $n \in \N$. We can make the set $2^{[n]}$ of
-all subsets of $[n]$ into a poset $B_n$ by defining $\S \leq T$ in $B_n$ if $\S
-\subseteq T$ as sets. One says that $B_n$ consists of the subsets of $[n]$
+all subsets of $[n]$ into a poset $B_n$ by defining $\S \leq \T$ in $B_n$ if $\S
+\subseteq \T$ as sets. One says that $B_n$ consists of the subsets of $[n]$
 ``ordered by inclusion''.
 
-\item\label{ex:poset:def:c}  Let $n \in \P$. The set of all positive integer
+\item\label{ex:poset:def:c}  Let $n \in \IP$. The set of all positive integer
 divisors of $n$ can be made into a poset $D_n$ in a natural way by defining $i
 \leq j$ in $D_n$ if $j$ is divisible by $i$ (denoted $i \mid j$).
 
-\item\label{ex:poset:def:d}  Let $n \in \P$. We can make the set $\Pi_n$ of all
+\item\label{ex:poset:def:d}  Let $n \in \IP$. We can make the set $\Pi_n$ of all
 partitions of $[n]$ into a poset (also denoted $\Pi_n$) by defining $\pi \leq
 \sigma$ in $\Pi_n$ if every block of $\pi$ is contained in a block of $\sigma$.
 For instance, if $n = 9$ and if $\pi$ has blocks $137, 2, 46, 58, 9$, and
@@ -52,10 +52,10 @@ one of $x R y$, $x = y$ and $y R x$ can be true.
 \sref{ex:poset:def:b} is a classical example to show that posets do not only
 work with numbers but also with more complex objects like sets. However, unlike
 $\bm{n}$ (\sref{ex:poset:def:a}), the order of this poset is not a total order.
-Indeed, let us consider $\S$ and $T$ two subsets of $[n]$ that each contain an
+Indeed, let us consider $\S$ and $\T$ two subsets of $[n]$ that each contain an
 element of $[n]$ that is not in the other subsets ($\exists s \in \S, s \notin
-T$ and $\exists t \in T, t \notin \S$). We observe $\S \nsubseteq T$ and $T
-\nsubseteq \S$ which means that $\S$ and $T$ are incomparable, and since a
+\T$ and $\exists t \in \T, t \notin \S$). We observe $\S \nsubseteq \T$ and $\T
+\nsubseteq \S$ which means that $\S$ and $\T$ are incomparable, and since a
 totally ordered set cannot contain incomparable elements the set $B_n$ is only
 partially ordered. This is a good example since we now understand what
 \emph{incomparable} can mean for a pair of elements.

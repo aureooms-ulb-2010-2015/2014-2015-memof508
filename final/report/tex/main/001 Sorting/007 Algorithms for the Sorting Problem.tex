@@ -20,12 +20,12 @@ the input set. Selection sort and Bubble sort are two algorithms based on the
 first method. Insertion sort is an algortihm based on the second method.
 Because the complexity of these algorithms does not meet the ITLB, we will need
 to think about more clever methods\footnote{Although it is possible to obtain
-an \BigO{n \log n} comparisons algorithm by replacing the search method of the
-Insertion sort algorithm by a binary search, this approach does not lead directly
-to a practical algorithm. Indeed, in the machine-world, one must also take
-into account other types of operations. In the case of the Insertion Sort
-algorithm, no matter the search method, the number of memory read and write
-operations is quadratic on average.}.
+a \BigO{n \log n} comparisons algorithm by using binary search as the search
+method of the Insertion sort algorithm, this approach does not lead directly to
+a practical algorithm. Indeed, in the machine-world, one must also take into
+account other types of operations. In the case of the Insertion Sort algorithm,
+no matter the search method, the number of memory read and write operations is
+quadratic on average.}.
 
 \subsection*{\quicksort}
 
@@ -110,14 +110,14 @@ Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.  Let us
 explain how. There exist two main procedures to update the contents of a heap.
 The first one is \emph{siftdown} which consists in \emph{sifting} a node down
 the tree until it is smaller or equal to all of its children. Below are the
-steps of the \emph{siftdown} algorithm with input node \(T\):
+steps of the \emph{siftdown} algorithm with input node \(N\):
 
 \begin{algorithm}
-\item[1.] If \(T\) is a leaf of the tree the algorithm stops.
-\item[2.] Compute \(C = \min \text{children}(T)\).
-\item[3.] If \(T \le C\) the algorithm stops.
-\item[4.] Otherwise, swap \(C\) and \(T\).
-\item[5.] Sift down \(T\) again.
+\item[1.] If \(N\) is a leaf of the tree the algorithm stops.
+\item[2.] Compute \(C = \min \text{children}(N)\).
+\item[3.] If \(N \le C\) the algorithm stops.
+\item[4.] Otherwise, swap \(C\) and \(N\).
+\item[5.] Sift down \(N\) again.
 \end{algorithm}
 
 The second one is \emph{siftup}. This operation is similar to \emph{siftdown}.
@@ -125,11 +125,11 @@ We \emph{sift} a node up the tree until it is larger ore equal to its parent.
 Below are the steps of the algorithm:
 
 \begin{algorithm}
-\item[1.] If \(T\) is the root of the tree the algorithm stops.
-\item[2.] Compute \(P = \text{parent}(T)\).
-\item[3.] If \(T \ge P\) the algorithm stops.
-\item[4.] Otherwise, swap \(P\) and \(T\).
-\item[5.] Sift up \(T\) again.
+\item[1.] If \(N\) is the root of the tree the algorithm stops.
+\item[2.] Compute \(P = \text{parent}(N)\).
+\item[3.] If \(N \ge P\) the algorithm stops.
+\item[4.] Otherwise, swap \(P\) and \(N\).
+\item[5.] Sift up \(N\) again.
 \end{algorithm}
 
 For example, to remove the minimum from a binary heap one replaces the root
@@ -188,7 +188,7 @@ version of the \quicksort algorithm as their sorting procedure. An exception is
 reason behind this choice is that objects in \Java can be different while
 having the same comparison ``key''. Since the \Java \mergesort algorithm is
 implemented as a stable sorting procedure, it offers the users the guarantee
-that the sorting algorithm will not reverse the order of equal-``key'' objects.
+that the sorting algorithm will not reverse the ``input''-order of equal-``key'' objects.
 The classical \quicksort algorithm is not used in this case because it is not
 stable.
 
@@ -211,8 +211,8 @@ dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
 \quicksort implementation experimentally. Note that the stable \mergesort
 algorithm of \Java 7 was changed for a \timsort implementation, which is
 also stable. One of the subtleties of the \timsort algorithm is that it tries
-to exploit already sorted subsequences of the input. On a sorted or reverse
-sorted input the \timsort algorithms runs in \BigO{n} time.
+to exploit already sorted subsequences of the input. On a nearly sorted (or
+reverse sorted) input the \timsort algorithms runs in \BigO{n} time.
 
 A remark concerning \shellsort. The average time complexity of \shellsort is not
 known for the moment. Indeed, there are multiple ways of implementing this

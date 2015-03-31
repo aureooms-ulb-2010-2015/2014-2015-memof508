@@ -15,18 +15,18 @@ totally unordered.
 \subsection*{(In)Comparability Graphs}
 
 To help understand the structure of a poset we introduce the comparability
-graph ${G}(P)$ and the incomparability graph $\widetilde{G}(P)$.
+graph ${G}(\P)$ and the incomparability graph $\widetilde{G}(\P)$.
 
 Formally,
 
 \begin{quotation}
-The comparability graph ${G}(P)$ of a poset $P$ is an undirected graph whose
+The comparability graph ${G}(\P)$ of a poset $\P$ is an undirected graph whose
 vertices are the poset elements, and in which two vertices are adjacent if and
 only if the elements are comparable.
 \end{quotation}
 
 \begin{quotation}
-The incomparability graph $\widetilde{G}(P)$ of a poset $P$ is an undirected
+The incomparability graph $\widetilde{G}(\P)$ of a poset $\P$ is an undirected
 graph whose vertices are the poset elements, and in which two vertices are
 adjacent if and only if the elements are incomparable.
 \end{quotation}
@@ -34,11 +34,11 @@ adjacent if and only if the elements are incomparable.
 
 
 Those graphs explicitely represent all relations (or pairs of incomparable
-elements) which may be inferred from the Hasse diagram of ${P}$. For example,
+elements) which may be inferred from the Hasse diagram of $\P$. For example,
 the comparability graph of a totally ordered set is the complete graph. See
 \ref{fig:comp-graph} for a visual example.
 
-\nb{Note that, by abuse of notation, we write ${G}$ instead of ${G}(P)$.}
+\nb{Note that, by abuse of notation, we write $G$ instead of ${G}(\P)$.}
 
 
 \begin{figure}
@@ -59,15 +59,15 @@ hereunder the counterparts of chains and antichains in posets for
 (in)comparability graphs.
 
 \begin{quotation}
-A clique $C$ of graph $G$ is a subset of pairwise adjacent vertices in $G$,
-i.e. the subgraph induced by $C$ is complete.
+A clique $\C$ of graph $G$ is a subset of pairwise adjacent vertices in $G$,
+i.e. the subgraph induced by $\C$ is complete.
 \end{quotation}
 
-A clique in a comparability graph ${G}$ is a subset of comparable  elements in
-${P}$, i.e. a chain in ${P}$.
+A clique in a comparability graph ${G}$ is a subset of comparable elements in
+$\P$, i.e. a chain in $\P$.
 
 A clique in an incomparability graph $\widetilde{G}$ is a subset of
-incomparable  elements in ${P}$, i.e. an antichain in ${P}$.
+incomparable  elements in $\P$, i.e. an antichain in $\P$.
 
 \begin{quotation}
 A set $\S$ is stable (or independent) if the vertices in $\S$ are pairwise
@@ -75,10 +75,10 @@ nonadjacent, i.e. the subgraph induced by $\S$ has $\card{\S}$ connected compone
 \end{quotation}
 
 A stable set in a comparability graph ${G}$ is a subset of incomparable
-elements in ${P}$, i.e. an antichain in ${P}$.
+elements in $\P$, i.e. an antichain in $\P$.
 
 A stable set in an incomparability graph $\widetilde{G}$ is a subset of
-comparable elements in ${P}$, i.e. a chain in ${P}$.
+comparable elements in $\P$, i.e. a chain in $\P$.
 
 
 \nb{A stable set in ${G}$ is a clique in $\widetilde{G}$ and vice versa.}
@@ -110,7 +110,7 @@ In other words $\chi^{\S}$ is a binary inclusion/exclusion representation of the
 stable set $\S$.
 \begin{equation}
 \operatorname{STAB}(G) \bydef \operatorname{conv}\enum{\chi^{\S} \in \R^V \st
-S\text{ stable set in }G}
+\S\text{ stable set in }G}
 \label{eq:stab}
 \end{equation}
 
@@ -151,10 +151,10 @@ sum on $\log \frac{1}{x_v}$.
 \subsection*{Entropy for Posets}
 
 
-As we defined ${H}(G)$ in \ref{eq:entropy:graph}, we write ${H}(P)$ to mean
-${H}(G(P))$.
+As we defined ${H}(G)$ in \ref{eq:entropy:graph}, we write ${H}(\P)$ to mean
+${H}(G(\P))$.
 
 \begin{equation}
-{H}(P) \bydef {H}({G}(P)).
+{H}(\P) \bydef {H}({G}(\P)).
 \label{eq:entropy:poset}
 \end{equation}

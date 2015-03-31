@@ -6,19 +6,19 @@ total while \emph{extension} means that the original order $\leq$ is
 ``preserved'' \ie when \(x \leq^* y\) for all pair \((x,y)\) such that \(x
 \leq y\).
 
-In our decision tree model, the number of linear extensions $e(P)$ of a poset
-$P$ is strongly related to the information contained in this poset. Since the
-total information is $\log(n!)$, the information we miss is $\log(e(P))$, then
-the information we have is $\log(n!) - \log(e(P))$.
+In our decision tree model, the number of linear extensions $e(\P)$ of a poset
+$\P$ is strongly related to the information contained in this poset. Since the
+total information is $\log(n!)$, the information we miss is $\log(e(\P))$, then
+the information we have is $\log(n!) - \log(e(\P))$.
 
 
-Note that computing $e(P)$ in the general case is \#P-complete
+Note that computing $e(\P)$ in the general case is \#P-complete
 (see \citet*{brightwell1991counting}). Fortunately, \citet*{kahn:1995} give a good
-approximation of $e(P)$ using the definition of entropy of a graph we
+approximation of $e(\P)$ using the definition of entropy of a graph we
 introduced earlier,
 
 \begin{equation}
-\log\left(\frac{n!}{e(P)}\right) = \log(n!) - \log(e(P)) = n \text{H}(P) +
+\log\left(\frac{n!}{e(\P)}\right) = \log(n!) - \log(e(\P)) = n \text{H}(\P) +
 \BigO{n}.
 \label{eq:khankim1}
 \end{equation}
