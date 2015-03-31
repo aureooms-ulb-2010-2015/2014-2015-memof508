@@ -48,22 +48,21 @@ elements of \(\S\) by asking \(n - 1\) queries to the oracle.
 \item[5.] Sort \(\U\).
 \end{algorithm}
 
-The \quicksort algorithm is a divide-and-conquer algorithm: it splits a
-bigger problem into several smaller problems whose solutions can be combined
-to build the solution of the bigger problem. Ideally, \(p\) would be chosen to
-be the median element of \(\S\) so that \(\card{\L} =
-\ceil{\frac{n-1}{2}}\) and \(\card{\U} =
-\floor{\frac{n-1}{2}}\), because then the recursion depth of the
-algorithm would be bounded by \(\floor{\log \card{S}}\) resulting in a worst
-case complexity of \BigO{n \log n}. However, if \(p\) can be any element of
-\(\S\) then in the worst case \(p\) is the minimum (or maximum) element of
-\(\S\) and \(\L\) (or \(\U\)) is empty. In this case, \quicksort behaves like
-the Selection sort algorithm and its worst case complexity degrades to
+The \quicksort algorithm is a divide-and-conquer algorithm: it splits a bigger
+problem into several smaller problems whose solutions can be combined to build
+the solution of the bigger problem. Ideally, \(p\) would be chosen to be the
+median element of \(\S\) so that \(\card{\L} = \ceil{\frac{n-1}{2}}\) and
+\(\card{\U} = \floor{\frac{n-1}{2}}\), because then the recursion depth of the
+algorithm would be bounded by \(\floor{\log \card{S}}\) resulting in a
+worst-case complexity of \BigO{n \log n}. However, if \(p\) can be any element
+of \(\S\), then, in the worst case, \(p\) is the minimum (or maximum) element of
+\(\S\), and \(\L\) (or \(\U\)) is empty. In this case, \quicksort behaves like
+the Selection sort algorithm and its worst-case complexity degrades to
 \BigO{n^2}. It is possible \cite{blum:1973} to compute a good pivot or even the
-median element in \BigO{n} comparisons. However, it was shown \cite{hoare:1962} that
-selecting the pivot uniformly at random leads to an average case complexity of
-\(1.39~n \log n\) comparisons, and for real-world computers this approach tends
-to be more efficient than the safe one.
+median element in \BigO{n} comparisons. However, it was shown \cite{hoare:1962}
+that selecting the pivot uniformly at random leads to an average case
+complexity of \(1.39~n \log n\) comparisons, and for real-world computers this
+approach tends to be more efficient than the safe one.
 
 \subsection*{\mergesort}
 
