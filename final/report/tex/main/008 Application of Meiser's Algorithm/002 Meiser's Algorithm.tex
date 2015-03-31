@@ -3,8 +3,8 @@
 \nb{For this section, notation is strongly inspired by the notation
 used for the detailed explanation of the same problem in \citet*{burgisser:1997}.
 The relevant section from this reference is numbered \textbf{3.4} and titled
-\emph{Fast Point Location in Arrangement of Hyperplanes}. The algorithm itself
-is due to Meiser and can be found in \cite{meiser:1993}.}
+\emph{Fast Point Location in Arrangement of Hyperplanes}. The algorithm we
+explain is due to Meiser and can be found in \cite{meiser:1993}.}
 
 Since the beginning of this writing, we were only interested by the number of
 questions we ask to an oracle, and we will continue to take the same point of
@@ -23,9 +23,10 @@ coordinates of $\R^n$ with coefficient $1$, we have thus $\card{\H} =
 \binom{n}{k}$. We can do this without involving the input vertex at all, this
 costs us $0$ queries.
 
-We give each hyperplane an orientation such that when point $x$ is below
+We give each hyperplane an orientation such that when the point $x$ is below
+the
 hyperplane $H_i$, it is in the lower half-space defined by $H_i$ denoted
-$\Him$. When point $x$ is above hyperplane $H_i$ it is in the upper
+$\Him$. When the point $x$ is above the hyperplane $H_i$ it is in the upper
 half-space defined by $H_i$ denoted $\Hip$. We define $\Hiz$ to be the
 hyperplane $H_i$ itself. The $i^{th}$ component of the position vector is
 $\pv_i(x) = \sigma$ if and only if $x \in \His$.
@@ -42,7 +43,7 @@ partitioned in two disjoint sets: set $\M$ of hyperplanes that meet the cell of
 $\Ht$ containing $x$ and set $\O$ for the others. The relative position of $x$
 to each hyperplane belonging to $\O$ can be deduced without the need to query
 the oracle, the answer to the queries we would make can be computed by looking
-at the structure of the arrangement itself. For the first group of hyperplanes
+at the structure of the arrangement. For the first group of hyperplanes
 we just call the procedure again with $\H \gets \M$.
 
 \nb{Note that we always consider that \(x\) is inside a cell that is bounded.
