@@ -9,7 +9,7 @@ Sorting under Partial Information. We then solved the problem with a
 straightforward algorithm.
 
 In \ref{tree:supi}, we have seen that there are algorithms solving the SUPI
-problem in \BigO{\log e(P)} comparisons. We wonder if it is possible to prove
+problem in \BigO{\log e(\P)} comparisons. We wonder if it is possible to prove
 that, if we are only allowed to exploit the grid structure of the \XY poset,
 then Sorting \XY cannot be solved in less than \(n^2 \log n + \BigO{n}\)
 comparisons. In other words, we want to prove that the approach taken in the
@@ -26,7 +26,7 @@ We show that,
 \begin{theorem}
 The number of linear extensions of the \( n \times n \) lattice is,
 \begin{displaymath}
-e(P) = \frac{(n^2)!}{\prod_{k=1}^{2n-1} k^{n - \abs{n-k}}}
+e(\P) = \frac{(n^2)!}{\prod_{k=1}^{2n-1} k^{n - \abs{n-k}}}
 \end{displaymath}
 \end{theorem}
 
@@ -35,7 +35,7 @@ note that one can use the superfactorial notation
 to make the formula slimmer,
 
 \begin{displaymath}
-e(P) = \frac{(n^2)! \, \sf(n-1)^2}{\sf(2n-1)}
+e(\P) = \frac{(n^2)! \, \sf(n-1)^2}{\sf(2n-1)}
 \end{displaymath}
 
 To do so, we introduce the notion of Ferrers diagrams and standard Young tableaux.
@@ -110,7 +110,7 @@ region is the hook bending at \((2,1)\).}
 \end{subfigure}
 \end{figure}
 
-The hook-length formula is attributed to \citet*{frame:1954}.Multiple ways to
+The hook-length formula is attributed to \citet*{frame:1954}. Multiple ways to
 prove \ref{theorem:xy:lattice:hook} are available in the literature. For more
 information, one could start with \citet*{greene:1979} which gives a very nice
 probabilistic proof and pointers for further reading.
@@ -148,7 +148,7 @@ standard Young tableau, i.e. a Young tableau of shape
 with
 \( \lambda_i = n, \Forall i = 1 \ldots n \)
 . Hence, we have
-\( d_{\lambda} = e(P) \). \ref{fig:xy:lattice:xyhooks} shows the hook lengths
+\( d_{\lambda} = e(\P) \). \ref{fig:xy:lattice:xyhooks} shows the hook lengths
 for the \( n \times n \) lattice, and thus for the \XY poset.
 
 \begin{figure}
@@ -159,9 +159,9 @@ for the \( n \times n \) lattice, and thus for the \XY poset.
 \end{figure}
 
 We still need to show that counting tableaux is the same as counting linear
-extensions. We etiquette all \( n^2 \) nodes of \(P\), the Hasse diagram of
+extensions. We etiquette all \( n^2 \) nodes of \(\P\), the Hasse diagram of
 \XY, with the numbers \(1\) to \( n^2 \) in any order. Suppose that we are
-given a unique linear extension of \(P\) that can be represented as a tuple
+given a unique linear extension of \(\P\) that can be represented as a tuple
 \( \omega = ( j_1 , \ldots , j_{n^2}) \)
 with all \( j_i \) distinct and between \(1\) and \( n^2 \) using our
 etiquettes. If we are given \( n^2 \) distinct elements \( x_1 \) to
@@ -181,20 +181,20 @@ x_m\).}
 We now show that,
 
 \begin{theorem}
-\( \log e(P) = \BigO{n^2 \log n} \)
+\( \log e(\P) = \BigO{n^2 \log n} \)
 \end{theorem}
 
 \begin{proof}
 Using Stirling's approximation,
 \begin{align}
-e(P) &= \frac{(n^2)!}{1 \cdot 2 \cdot 2 \cdot \cdots \cdot (2n-2) \cdot (2n-2) \cdot (2n-1)}\\
-e(P) &\ge \frac{(n^2)!}{(2n)^{n^2}}\\
-\ln e(P) &\ge \ln \group{\frac{(n^2)!}{(2n)^{n^2}}}\\
-\lim_{n \to \infty} \ln e(P) &\ge \ln{\group{\sqrt{2 \pi n^2}
+e(\P) &= \frac{(n^2)!}{1 \cdot 2 \cdot 2 \cdot \cdots \cdot (2n-2) \cdot (2n-2) \cdot (2n-1)}\\
+e(\P) &\ge \frac{(n^2)!}{(2n)^{n^2}}\\
+\ln e(\P) &\ge \ln \group{\frac{(n^2)!}{(2n)^{n^2}}}\\
+\lim_{n \to \infty} \ln e(\P) &\ge \ln{\group{\sqrt{2 \pi n^2}
 \group{\frac{n^2}{\euler}}^{n^2}}}  - n^2 \ln n - n^2 \ln 2\\
-\lim_{n \to \infty} \ln e(P) &\ge \ln{\sqrt{2\pi}} + \ln n - n^2 \ln e + 2 n^2
+\lim_{n \to \infty} \ln e(\P) &\ge \ln{\sqrt{2\pi}} + \ln n - n^2 \ln e + 2 n^2
 \ln n - n^2 \ln n - n^2 \ln 2\\
-\lim_{n \to \infty} \ln e(P) &\ge n^2 \ln n - n^2 \ln (2\euler) + \ln n + \ln \sqrt{2\pi}
+\lim_{n \to \infty} \ln e(\P) &\ge n^2 \ln n - n^2 \ln (2\euler) + \ln n + \ln \sqrt{2\pi}
 \end{align}
 \end{proof}
 
