@@ -163,7 +163,7 @@ We provide a visual way of understanding these results. Looking at
 \ref{tree:merging:fig/huffman-2} we can deduce the complexity of the algorithm.
 The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps producing
 information we already have. Since those steps do not need to be processed, and
-since they normally would have required us to make \(\BigO{n \log n}\) queries, we have a
+since they normally would have required us to use \(\BigO{n \log n}\) queries, we have a
 total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} =
 \BigO{ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set
 of the input.
