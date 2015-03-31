@@ -15,13 +15,13 @@ reuses it well. By reusing the information efficiently, it will be able to
 choose ``good'' questions to ask.
 
 
-In Quicksort this is achieved by recursively building linear extensions of weak
+In \quicksort this is achieved by recursively building linear extensions of weak
 orders. In weak orders, elements of a poset are layered in sets of incomparable
 elements (maximum cardinality stable sets) that are disjoint from each other.
-Thus Quicksort will never have to ask a question about elements from disjoint
-sets. However, the way Quicksort chooses questions doesn't guarantee that every
+Thus \quicksort will never have to ask a question about elements from disjoint
+sets. However, the way \quicksort chooses questions doesn't guarantee that every
 step of the algorithm will evenly divide stable sets. In conclusion, while
-Quicksort can sometimes ask poor quality questions, it also reuses information
+\quicksort can sometimes ask poor quality questions, it also reuses information
 it has optimally.
 
 
@@ -39,7 +39,7 @@ algorithm is optimal.
 
 \begin{figure} \centering \begin{subfigure}[b]{0.4\textwidth}
 {\includegraphics[width=\textwidth]{fig/supi/quicksort}} \caption{Steps of the
-Quicksort algorithm represented as Hasse diagrams (maximal antichains / stable
+\quicksort algorithm represented as Hasse diagrams (maximal antichains / stable
 sets are circled).} \label{fig:supi:quicksort} \end{subfigure}
 \begin{subfigure}[b]{0.4\textwidth}
 {\includegraphics[width=\textwidth]{fig/supi/mergesort}} \caption{Steps of the
@@ -48,7 +48,7 @@ circled).} \label{fig:supi:mergesort} \end{subfigure} \end{figure}
 
 
 \cref{fig:supi:quicksort,fig:supi:mergesort} show the iterative poset
-generation processes of a run of Quicksort and Mergesort. They sum up what we
+generation processes of a run of \quicksort and Mergesort. They sum up what we
 observed about those algorithms, that they only work on a particular subset of
 posets.
 

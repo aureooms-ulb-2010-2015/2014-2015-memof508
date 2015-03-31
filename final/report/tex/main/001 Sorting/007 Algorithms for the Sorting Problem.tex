@@ -29,8 +29,8 @@ operations is quadratic on average.}.
 
 \subsection*{Quicksort}
 
-The first efficient algorithm we will explain is Quicksort \cite{hoare:1962}.
-The idea behind the Quicksort algorithm is to divide the input set \(\S\),
+The first efficient algorithm we will explain is \quicksort \cite{hoare:1962}.
+The idea behind the \quicksort algorithm is to divide the input set \(\S\),
 \(\card{\S} = n\), into two disjoint subsets \(\L\) and \(\U\) that can be
 sorted independently from one another. To enforce this independence condition,
 the first part of the algorithm consists in computing \(\L\) and \(\U\) such
@@ -48,7 +48,7 @@ elements of \(\S\) by asking \(n - 1\) queries to the oracle.
 \item[5.] Sort \(\U\).
 \end{algorithm}
 
-The Quicksort algorithm is a divide-and-conquer algorithm: it splits a
+The \quicksort algorithm is a divide-and-conquer algorithm: it splits a
 bigger problem into several smaller problems whose solutions can be combined
 to build the solution of the bigger problem. Ideally, \(p\) would be chosen to
 be the median element of \(\S\) so that \(\card{\L} =
@@ -57,7 +57,7 @@ be the median element of \(\S\) so that \(\card{\L} =
 algorithm would be bounded by \(\floor{\log \card{S}}\) resulting in a worst
 case complexity of \BigO{n \log n}. However, if \(p\) can be any element of
 \(\S\) then in the worst case \(p\) is the minimum (or maximum) element of
-\(\S\) and \(\L\) (or \(\U\)) is empty. In this case, Quicksort behaves like
+\(\S\) and \(\L\) (or \(\U\)) is empty. In this case, \quicksort behaves like
 the Selection sort algorithm and its worst case complexity degrades to
 \BigO{n^2}. It is possible \cite{blum:1973} to compute a good pivot or even the
 median element in \BigO{n} comparisons. However, it was shown \cite{hoare:1962} that
@@ -68,8 +68,8 @@ to be more efficient than the safe one.
 \subsection*{Mergesort}
 
 A second efficient algorithm is Mergesort
-\cite{goldstine:1948,leiserson:2001}. Like Quicksort, Mergesort is a
-divide-and-conquer algorithm. While in Quicksort one makes the comparisons from
+\cite{goldstine:1948,leiserson:2001}. Like \quicksort, Mergesort is a
+divide-and-conquer algorithm. While in \quicksort one makes the comparisons from
 the partition step before solving the two subproblems, in Mergesort we will
 first solve two subproblems and then recombine them with a merge step that
 requires \BigO{n} comparisons:
@@ -178,12 +178,12 @@ There exists a lot of other interesting ideas to solve the sorting problem. For
 example, Shellsort \cite{shell:1959}, Smoothsort \cite{dijkstra:1982},
 Introsort \cite{musser:1997} and Timsort \cite{martelli:2006}.
 
-Considering practical use of sorting algorithms, Quicksort is one of the most
+Considering practical use of sorting algorithms, \quicksort is one of the most
 efficient algorithms on real-world computers due to its simplicity and cache
-locality of its operations, even though Quicksort has a much higher
+locality of its operations, even though \quicksort has a much higher
 multiplicative factor than Mergesort. Nowadays, standard libraries of the most
 popular programming languages (\emph{Java} (up to \emph{Java
-6}),\emph{C},\emph{C++}) use their own version of the Quicksort algorithm as
+6}),\emph{C},\emph{C++}) use their own version of the \quicksort algorithm as
 their sorting procedure. An exception is \emph{Python} which uses the Timsort
 algorithm since 2002. Note also that up to \emph{Java 6}, \emph{Java} used a
 Merge sort algorithm for sorting non-primitive types. The reason behind this
@@ -191,25 +191,25 @@ choice is that objects in \emph{Java} can be different while having the same
 comparison ``key''. Since the \emph{Java} Merge sort algorithm is implemented as
 a stable sorting procedure, it offers the users the guarantee that the sorting
 algorithm will not reverse the order of equal-``key'' objects. The classical
-Quicksort algorithm is not used in this case because it is not stable.
+\quicksort algorithm is not used in this case because it is not stable.
 
-Recently, there has been a lot of interest in a dual-pivot Quicksort
+Recently, there has been a lot of interest in a dual-pivot \quicksort
 implementation by \citet*{yaroslavskiy:2009}. It is not the first time this
 approach is considered. Previous attempts \cite{sedgewick:1980} had concluded
-that a dual-pivot Quicksort was worse than the classical one in practice.
+that a dual-pivot \quicksort was worse than the classical one in practice.
 Analysis of the version of \citet*{yaroslavskiy:2009} by \citet*{wild:2012}
 reveals that this new version uses \(1.32~n \log n - 2.46n + \BigO{\log n}\)
-comparisons.  This is less than the classical Quicksort algorithm which uses
+comparisons.  This is less than the classical \quicksort algorithm which uses
 \(1.39~n \log n
 - 1.51n + \BigO{\log n}\) comparisons. However, in practice one must also take into account
   other kinds of operations. For example, the number of element swaps in the
-dual-pivot Quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
-element swaps of the classic Quicksort by \citeauthor{hoare:1962}. This
+dual-pivot \quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
+element swaps of the classic \quicksort by \citeauthor{hoare:1962}. This
 algorithm is now used as the sorting procedure of arrays of primitive type for
 the \emph{Java} language (since \emph{Java 7}). Although it performs more
 swaps \cite{wild:2012}, and uses more Java Bytecodes \cite{wild:2013}, the
 dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
-Quicksort implementation experimentally. Note that the stable Merge sort
+\quicksort implementation experimentally. Note that the stable Merge sort
 algorithm of \emph{Java 7} was changed for a Timsort implementation, which is
 also stable. One of the subtleties of the Timsort algorithm is that it tries
 to exploit already sorted subsequences of the input. On a sorted or reverse
