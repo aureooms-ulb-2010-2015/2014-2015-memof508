@@ -15,7 +15,7 @@ The \concept{ITLB} for the merging problem when $k \geq 3$ with $|\S_i| = n_i$ a
 We have to choose the $n_1$ positions among $n$ in $\S'$ for the elements of
 $\S_1$ and then recursively make this choice on the remaining $n - n_1$
 positions with the elements of \(\S_2 \cup \dots \cup \S_k\). The number of
-leaves of the decision tree is $\frac{n}{n_1 \cdot n_2 \dots n_k}$ hence the
+leaves of the decision tree is $\frac{n}{n_1 \cdot n_2 \dots n_k}$. Hence, the
 worst-case minimal height of the tree is $\log \frac{n}{n_1 \cdot n_2 \dots
 n_k}$.
 \end{proof}
@@ -92,8 +92,8 @@ one, after \(n-1\) of these steps the tree is constructed.
 Now we make the parallel with our merging algorithm. If we want to merge
 multiple totally ordered sets \(\S_1,\ldots,\S_k\) having different lengths we can use a similar
 approach. To each set \(\S_i\) we assign a fake event with probability
-\(\frac{\card{\S_i}}{n}\) hence the Shannon entropy of the random variable
-\(S\) with this probability distribution is
+\(\frac{\card{\S_i}}{n}\). The Shannon entropy of the random variable
+\(S\) having this probability distribution is
 \begin{align}
 H(S) &= - \sum \frac{\card{\S_i}}{n} \log \frac{\card{\S_i}}{n}\\
 &= - \sum \frac{\card{\S_i}}{n} (\log \card{\S_i} - \log n)\\

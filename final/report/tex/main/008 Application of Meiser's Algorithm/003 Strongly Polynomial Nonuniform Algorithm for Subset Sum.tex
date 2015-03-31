@@ -2,9 +2,9 @@
 
 We now apply Meiser's Algorithm to the subset sum problem. In the subset sum
 problem with input set $S \subset \R$ of cardinality $\card{S} = n$ we want to
-find all subsets $S' \subset S$ whose elements sum up to zero, hence we have
-to search through $2^n$ subsets of $S$. Reducing to the point location in an
-arrangement of hyperplanes problem, we have now to locate input point $x \in
+find all subsets $S' \subset S$ whose elements sum up to zero. Hence, we have
+to search through $2^n$ subsets of $S$. Reducing to the point location problem
+in an arrangement of hyperplanes, we have now to locate input point $x \in
 \R^n$ inside an arrangement of $2^n$ hyperplanes, i.e. all hyperplanes with
 equation having combinations of $0$ or $1$ as coefficients. Meiser's Algorithm
 solves this problem using only \BigO{n^4 \log^2 n} queries, i.e. $\poly$-time

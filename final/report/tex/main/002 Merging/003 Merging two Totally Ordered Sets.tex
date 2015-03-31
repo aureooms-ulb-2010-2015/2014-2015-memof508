@@ -15,8 +15,8 @@ The ITLB for the merging problem when \(k = 2\) with \(\card{\S_1} = m, \card{\S
 \begin{proof}
 We have to choose the $m$ positions among $m+n$ in $\S'$ for the elements of
 $\S_1$ and then fill the remaining $(m+n) - m = n$ positions with the elements
-of $\S_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$ hence
-the worst-case minimal height of the tree is $\log \binom{m+n}{m}$.
+of $\S_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$.
+Hence, the worst-case minimal height of the tree is $\log \binom{m+n}{m}$.
 \end{proof}
 
 \nb{Giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation
@@ -79,13 +79,13 @@ An algorithm using at most \(n+m-1\) queries is Tape Merge. Tape Merge is the
 merge procedure that Mergesort uses (see step \step{5} of the Mergesort
 algorithm in \ref{tree:sorting:alg}), \ie given two linearly ordered sets sort
 their union by iteratively removing the smallest element it contains. The union
-of the two linearly ordered sets contains \(n+m\) elements, hence this
+of the two linearly ordered sets contains \(n+m\) elements. Hence, this
 algorithm runs in \(n+m\) iterations. Because the algorithm only needs to
 choose between the smallest element of the first linearly ordered set and the
 smallest element of the second linearly ordered set at each iteration, each
 iteration uses at most one query. At the last iteration, there is only one
-element left, hence no query is used and the maximum number of query this
-algorithm uses is \(n+m-1\).
+element left. Hence, no query is used during the last iteration and the maximum
+number of queries this algorithm uses is \(n+m-1\).
 
 Additionally we show what happens when \(m = c n\) for some \(0 < c \le 1\).
 
@@ -108,7 +108,7 @@ m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{
 \end{align*}
 \end{proof}
 
-Hence the only way the \concept{ITLB} could be \SmallO{n} is if \(m =
+In conclusion, the only way the \concept{ITLB} could be \SmallO{n} is if \(m =
 \SmallO{n}\). This result will be useful for the next section.
 
 Now we want to see what the bound becomes when $n$ start to grow relatively to

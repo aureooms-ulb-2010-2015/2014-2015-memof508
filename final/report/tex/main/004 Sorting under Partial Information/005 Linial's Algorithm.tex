@@ -134,13 +134,13 @@ polynomial time.
 
 \begin{enumerate}
 \item The values \(\beta_i - \alpha_j\) and \(j - i + 1\) are bounded
-linearly in the size of the input, hence their size is bounded
+linearly in the size of the input. Hence, their size is bounded
 logarithmically in the size of the input;
 \item The size of the value of the binomial coefficient \(\binom{n}{k}\) is
 bounded by a polynomial in \(k\) and \(n\);
 \item Using Bareiss algorithm \cite{bareiss:1968}, the computation of a
-determinant can be made in polynomial time and with intermediate size of the
-values bounded by some polynomial in the size of the matrix and the starting
+determinant can be made in polynomial time. Moreover, the size of all computed
+values is bounded by some polynomial in the size of the matrix and in the starting
 size of the values;
 \item For each step there is a polynomial number of possible queries to look for;
 \item There are \BigO{\log e(P)} steps and \(\log e(P)\) is \BigO{n \log n}.
@@ -161,7 +161,7 @@ e(P \setminus b_n)\) or \(e(P) = e(P \setminus a_m)\) for \(a_m < b_n\) or
 \(P\), in the totally ordered set we are building one of \(a_m < b_n\) or \(a_m
 > b_n\) will hold true. Hence \(e(P) = e(P \setminus b_n) + e(P \setminus
 a_m)\) in this case, since both outcomes for \(a \ask{<} b\) are possible.
-Lastly, if \(\card{A} = 0\) or \(\card{B} = 0\) then \(e(P) = 1\). Hence we can
+Lastly, if \(\card{A} = 0\) or \(\card{B} = 0\) then \(e(P) = 1\). We can thus
 express \(e(P)\) using the following recurrence relation
 
 \begin{displaymath}

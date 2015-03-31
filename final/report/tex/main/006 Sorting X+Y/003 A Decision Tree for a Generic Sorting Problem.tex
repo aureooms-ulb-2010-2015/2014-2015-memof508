@@ -84,7 +84,7 @@ and we say $b_k$ is the location number of $x_k$ after it is inserted into
 $x_{i_1} < \ldots < x_{i_{k-1}}$.
 
 We have established a correspondence between orderings on sets of cardinality
-$n$ and $n$-tuples $(b_1, \ldots, b_n)$ with $1 \le b_i \le i$, hence $\Gamma$
+$n$ and $n$-tuples $(b_1, \ldots, b_n)$ with $1 \le b_i \le i$. Hence, $\Gamma$
 can be represented as a set of $n$-tuples of $b_k$ and inserting $x_k$ is
 tantamount to the determination of $b_k$. In other words, asking for $x_k
 \ask{\le} x_{i_J}$ is equivalent to asking $b_k \ask{\le} J$.
@@ -143,7 +143,7 @@ the possible original values for $b_1$. After the substitution of $i_j$ with
 $j$, asking $b_1 \ask{\le} J(q)$ just means asking $b_1 \ask{\le} i_{J(q)}$
 before the substitution takes place. Hence, without loss of generality we can
 now assume \(i_j = j\). The value $N_j$ expresses the frequency or ``number of
-occurences'' of $b_1 = j$ in the set $\S$ hence
+occurences'' of $b_1 = j$ in the set $\S$, therefore
 \begin{displaymath}
 \sum\limits_{j=1}^{l} N_j = \card{\S}.
 \end{displaymath}
@@ -200,7 +200,7 @@ At the beginning of the binary search algorithm, the search interval is
 $(0,1]$, it excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). We now
 assume the current query interval is \((L,R]\). If during the search a
 question \(b \ask{\le} J(q)\) gets a ``yes'' answer then we update the upper
-bound and get a new query interval \((L,q]\), otherwise \(b > J(q)\) hence we
+bound and get a new query interval \((L,q]\). Otherwise, \(b > J(q)\) and we
 can update the lower bound and the query interval becomes \((q,R]\). In both
 cases the lower bound remains excluded. At the beginning of the algorithm,
 \(r - 1 = 0\), \(L=0\) and \(R=1\), hence \(c = 0\). Now for any query
@@ -217,7 +217,7 @@ midpoint, the algorithm would have to use at least one additional query.
 Since the radius of the \(\nth{i}\) interval is \(> \sfrac{1}{2^{r-1}}\) it is
 not possible for the query interval, which has radius \( \frac{c+1-c}{2^{r-1}}
  = \frac{1}{2^{r-1}}\) to contain the \(\nth{i}\) midpoint and at
-the same time escape the \(\nth{i}\) interval. Hence the \(\nth{i}\) midpoint
+the same time escape the \(\nth{i}\) interval. Hence, the \(\nth{i}\) midpoint
 is the only midpoint inside the query interval. We conclude that,
 \begin{displaymath}
 i-1 = J\left(\frac{c}{2^{r-1}}\right) < b_1 \le J\left(\frac{c+1}{2^{r-1}}\right) = i

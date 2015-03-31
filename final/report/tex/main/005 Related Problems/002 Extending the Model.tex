@@ -21,6 +21,6 @@ The set \XY contains all pairwise sums of elements of \(X\) with elements of
 \(Y\). Thus, if we want to sort \XY we could make queries of the form \((x_i +
 y_j) \ask{\le} (x_{i'} + y_{j'})\) and this can be rewritten as \( x_i +
 y_j - x_{i'} - y_{j'} \ask{=} 0\) to fit our new model. Solving the problem
-this way would involve \(4\)-linear queries and hence we would be working in
+this way would involve \(4\)-linear queries. Therefore, we would be working in
 the \(4\)-linear decision tree model. Of course, we take the conditional here
 because sorting \XY is in no way forcing us to use \(k=4\).

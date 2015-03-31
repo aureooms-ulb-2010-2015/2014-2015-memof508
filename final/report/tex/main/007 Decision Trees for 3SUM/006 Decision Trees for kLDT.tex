@@ -65,12 +65,10 @@ comparisons using Lambert's algorithm \cite{lambert:1990}.
 \citet*{gronlund:2014} explain that one can generalize their new decision tree
 for \threeSUM from the one-set version to a three-set version. This version of
 the decision tree has complexity
-
 \begin{displaymath}
-\BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g},
+\BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g}.
 \end{displaymath}
-
-hence if one chooses \(g = \sqrt{n \log n}\) one will obtain a
+Hence, if one chooses \(g = \sqrt{n \log n}\) one will obtain a
 \BigO{n^{\frac{k}{2}} \sqrt{\log n}} decision tree for \kLDT with $k$ odd
 which improves the best known lower bound.
 
