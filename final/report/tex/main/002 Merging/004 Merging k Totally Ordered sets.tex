@@ -54,7 +54,7 @@ encoding events emitted by this random variable. We assume the channel we
 use to transmit our messages is perfect:
 
 \begin{problem}
-Given a random variable \(X\) with possible event \(x_1,\ldots,x_n\) occuring
+Given a random variable \(X\) with possible event \(x_1,\ldots,x_n\) occurring
 with probability \(0 < p(x_i) \le 1, \sum_{x_i} p(x_i) = 1\), construct an
 instantaneous code to transmit events through a perfect channel with alphabet
 \(\Sigma = \enum{0,1}\) that minimizes the average size of a message encoding
@@ -117,7 +117,7 @@ L_H(\S) = \sum \frac{\card{\S_i}}{n} l(\S_i) = \frac{1}{n} \sum l(\S_i) \card{\S
 
 In the above equation, \(l(\S_i)\) corresponds to the number of times elements
 of \(\S_i\) are taking part in a merge operation. When merging two totally
-ordered sets \(\S_i\) and \(\S_j\) the standard Tapemerge algorithm uses less
+ordered sets \(\S_i\) and \(\S_j\) the standard \tapemerge algorithm uses less
 than \(\card{\S_i} + \card{\S_j}\) comparisons. Moreover, the totally ordered set
 associated to a node of the Huffman tree is the union of the totally ordered
 sets associated to \(u\) leaves of the tree. These leaves are
@@ -138,7 +138,7 @@ To handle sublinear \concept{ITLB} we need to resort to a last trick. The only
 way the \concept{ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
 \(\L\) we merge have sizes \(m\) and \(n\) respectively such that \(m =
 \SmallO{n}\). Otherwise merging them would require \BigOmega{n} comparisons.
-If \(m = \SmallO{n}\), then we can use the Hwang-lin algorithm to merge those
+If \(m = \SmallO{n}\), then we can use the Hwang-Lin algorithm to merge those
 two nodes optimally in \BigO{m \log \frac{n}{m}} comparisons. Moreover, the set
 \(\L\) can only be a leaf of the Huffman tree. Indeed, it cannot be the result
 of a merge operation between two \BigO{m} sized nodes. Since this is the only
@@ -146,7 +146,7 @@ kind of merge operation that is allowed before having merged the set \(\U\)
 with another one, \(\L\) is necessarily a leaf.  Producing the totally ordered
 set of size \(m\) uses at most \BigO{m \log m} comparisons. Since \(\BigO{m
 \log m} = \BigO{m \log \frac{n}{m}}\) when \(m = \SmallO{n}\), after trading
-the Tapemerge algorithm for the Hwang-Lin algorithm our algorithm is optimal.
+the \tapemerge algorithm for the Hwang-Lin algorithm our algorithm is optimal.
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
 leaves of the Huffman tree using the Hwang-Lin algorithm until there is only
