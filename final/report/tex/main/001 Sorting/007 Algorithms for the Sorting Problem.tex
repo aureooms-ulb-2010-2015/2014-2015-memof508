@@ -100,9 +100,9 @@ is to solve the following recurrence relation:
 T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
 \end{displaymath}
 
-\subsection*{Heapsort}
+\subsection*{\heapsort}
 
-The last algorithm we will explain is the Heapsort algorithm
+The last algorithm we will explain is the \heapsort algorithm
 \cite{williams:1964}. A heap is a data structure that allows one to
 efficiently lookup (\BigO{1}) or remove (\BigO{\log n}) the smallest element
 from a set \(\S\). A heap can be seen as a complete \(d\)-ary tree where a node
@@ -167,9 +167,9 @@ T(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
 
 which is approximately twice as much comparisons than what can be found by
 solving the recurrence relation for the \mergesort algorithm (see
-\citet*{OEIS:A001855}). Note that in the Heapsort algorithm we did not use the
+\citet*{OEIS:A001855}). Note that in the \heapsort algorithm we did not use the
 \emph{siftup} operation. There exists \cite{wegener:1993} a variation of the
-extracting step leading to an algorithm called bottom-up Heapsort that uses at
+extracting step leading to an algorithm called bottom-up \heapsort that uses at
 most \(1.5~n \log n + \BigO{n}\) comparisons.
 
 \subsection*{Other Algorithms}
