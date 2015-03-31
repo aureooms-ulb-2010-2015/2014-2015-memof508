@@ -65,7 +65,7 @@ The are several results on this subject which we summarize in the
 following theorem,
 
 \begin{theorem}
-The average code length \(L(X)\) of any instantaneous coding scheme can not be smaller than
+The average code length \(L(X)\) of any instantaneous coding scheme cannot be smaller than
 the entropy of the random variable \(H(X)\). If we define by \(l(x_i)\) to be the code
 length for event \(x_i\), then the average code length is
 \begin{displaymath}
@@ -134,21 +134,19 @@ n H(\S) \le n L_H(\S) \le n H(\S) + n,
 our algorithm requires at most \(n \log n - \sum \card{\S_i} \log \card{\S_i} +
 n\) comparisons which is \(\concept{ITLB} + \BigO{n}\).
 
-To handle sublinear \concept{ITLB} we need
-to resort to a last trick. The only way the \concept{ITLB} can be \SmallO{n}
-is if the last two nodes \(\U\) and \(\L\) we merge have sizes \(m\) and \(n\)
-respectively such that \(m =
+To handle sublinear \concept{ITLB} we need to resort to a last trick. The only
+way the \concept{ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
+\(\L\) we merge have sizes \(m\) and \(n\) respectively such that \(m =
 \SmallO{n}\). Otherwise merging them would require \BigOmega{n} comparisons.
 If \(m = \SmallO{n}\), then we can use the Hwang-lin algorithm to merge those
-two nodes optimally in \BigO{m \log \frac{n}{m}} comparisons. Moreover, the
-set \(\L\) can only be a leaf of the Huffman tree. Indeed, it can
-not be the result of a merge operation between two \BigO{m} sized nodes.
-Since this is the only kind of merge operation that is allowed before having
-merged the set \(\U\) with another one, \(\L\) is necessarily a leaf.
-Producing the totally ordered set of size \(m\) uses at most \BigO{m \log m}
-comparisons. Since \(\BigO{m \log m} = \BigO{m \log \frac{n}{m}}\) when \(m =
-\SmallO{n}\), after trading the Tapemerge algorithm for the Hwang-Lin
-algorithm our algorithm is optimal.
+two nodes optimally in \BigO{m \log \frac{n}{m}} comparisons. Moreover, the set
+\(\L\) can only be a leaf of the Huffman tree. Indeed, it cannot be the result
+of a merge operation between two \BigO{m} sized nodes. Since this is the only
+kind of merge operation that is allowed before having merged the set \(\U\)
+with another one, \(\L\) is necessarily a leaf.  Producing the totally ordered
+set of size \(m\) uses at most \BigO{m \log m} comparisons. Since \(\BigO{m
+\log m} = \BigO{m \log \frac{n}{m}}\) when \(m = \SmallO{n}\), after trading
+the Tapemerge algorithm for the Hwang-Lin algorithm our algorithm is optimal.
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
 leaves of the Huffman tree using the Hwang-Lin algorithm until there is only
