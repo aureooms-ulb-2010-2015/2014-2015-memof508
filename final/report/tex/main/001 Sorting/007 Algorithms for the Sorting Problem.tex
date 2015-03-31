@@ -27,7 +27,7 @@ into account other types of operations. In the case of the Insertion Sort
 algorithm, no matter the search method, the number of memory read and write
 operations is quadratic on average.}.
 
-\subsection*{Quicksort}
+\subsection*{\quicksort}
 
 The first efficient algorithm we will explain is \quicksort \cite{hoare:1962}.
 The idea behind the \quicksort algorithm is to divide the input set \(\S\),
@@ -65,12 +65,12 @@ selecting the pivot uniformly at random leads to an average case complexity of
 \(1.39~n \log n\) comparisons, and for real-world computers this approach tends
 to be more efficient than the safe one.
 
-\subsection*{Mergesort}
+\subsection*{\mergesort}
 
-A second efficient algorithm is Mergesort
-\cite{goldstine:1948,leiserson:2001}. Like \quicksort, Mergesort is a
+A second efficient algorithm is \mergesort
+\cite{goldstine:1948,leiserson:2001}. Like \quicksort, \mergesort is a
 divide-and-conquer algorithm. While in \quicksort one makes the comparisons from
-the partition step before solving the two subproblems, in Mergesort we will
+the partition step before solving the two subproblems, in \mergesort we will
 first solve two subproblems and then recombine them with a merge step that
 requires \BigO{n} comparisons:
 
@@ -181,7 +181,7 @@ Introsort \cite{musser:1997} and Timsort \cite{martelli:2006}.
 Considering practical use of sorting algorithms, \quicksort is one of the most
 efficient algorithms on real-world computers due to its simplicity and cache
 locality of its operations, even though \quicksort has a much higher
-multiplicative factor than Mergesort. Nowadays, standard libraries of the most
+multiplicative factor than \mergesort. Nowadays, standard libraries of the most
 popular programming languages (\emph{Java} (up to \emph{Java
 6}),\emph{C},\emph{C++}) use their own version of the \quicksort algorithm as
 their sorting procedure. An exception is \emph{Python} which uses the Timsort
@@ -249,7 +249,7 @@ algorithms in the field of Computer Science, there still exists a linear term
 gap between the most efficient algorithms and the \concept{ITLB} of the
 sorting problem.
 
-For example, Mergesort is one of the algorithms whose complexity comes closest
+For example, \mergesort is one of the algorithms whose complexity comes closest
 to the \concept{ITLB}, \ie
 \begin{displaymath}
 n \log n - n + 1 \le T(n) = n \ceil{\log n} - 2^{\ceil{\log n}} + 1 \le n \log
