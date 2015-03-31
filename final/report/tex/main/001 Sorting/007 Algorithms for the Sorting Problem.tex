@@ -182,16 +182,16 @@ Considering practical use of sorting algorithms, \quicksort is one of the most
 efficient algorithms on real-world computers due to its simplicity and cache
 locality of its operations, even though \quicksort has a much higher
 multiplicative factor than \mergesort. Nowadays, standard libraries of the most
-popular programming languages (\emph{Java} (up to \emph{Java
-6}),\emph{C},\emph{C++}) use their own version of the \quicksort algorithm as
-their sorting procedure. An exception is \emph{Python} which uses the Timsort
-algorithm since 2002. Note also that up to \emph{Java 6}, \emph{Java} used a
-\mergesort algorithm for sorting non-primitive types. The reason behind this
-choice is that objects in \emph{Java} can be different while having the same
-comparison ``key''. Since the \emph{Java} \mergesort algorithm is implemented as
-a stable sorting procedure, it offers the users the guarantee that the sorting
-algorithm will not reverse the order of equal-``key'' objects. The classical
-\quicksort algorithm is not used in this case because it is not stable.
+popular programming languages (\Java (up to \Java 6), \CC, \CXX) use their own
+version of the \quicksort algorithm as their sorting procedure. An exception is
+\Python which uses the Timsort algorithm since 2002. Note also that up to \Java
+6, \Java used a \mergesort algorithm for sorting non-primitive types. The
+reason behind this choice is that objects in \Java can be different while
+having the same comparison ``key''. Since the \Java \mergesort algorithm is
+implemented as a stable sorting procedure, it offers the users the guarantee
+that the sorting algorithm will not reverse the order of equal-``key'' objects.
+The classical \quicksort algorithm is not used in this case because it is not
+stable.
 
 Recently, there has been a lot of interest in a dual-pivot \quicksort
 implementation by \citet*{yaroslavskiy:2009}. It is not the first time this
@@ -206,11 +206,11 @@ comparisons.  This is less than the classical \quicksort algorithm which uses
 dual-pivot \quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
 element swaps of the classic \quicksort by \citeauthor{hoare:1962}. This
 algorithm is now used as the sorting procedure of arrays of primitive type for
-the \emph{Java} language (since \emph{Java 7}). Although it performs more
+the \Java language (since \Java 7). Although it performs more
 swaps \cite{wild:2012}, and uses more Java Bytecodes \cite{wild:2013}, the
 dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
 \quicksort implementation experimentally. Note that the stable \mergesort
-algorithm of \emph{Java 7} was changed for a Timsort implementation, which is
+algorithm of \Java 7 was changed for a Timsort implementation, which is
 also stable. One of the subtleties of the Timsort algorithm is that it tries
 to exploit already sorted subsequences of the input. On a sorted or reverse
 sorted input the Timsort algorithms runs in \BigO{n} time.
