@@ -18,13 +18,13 @@ depth \BigO{n^{\sfrac{k}{2}} \sqrt{\log n}}.
 \end{theorem}
 
 The standard three-set version of the quadratic \threeSUM algorithm for input
-sets \(\A\), \(\B\) and \(\C\) completes after \BigO{\card{\C} ( \card{\A} +
+sets \(\A\), \(\B\), and \(\C\) completes after \BigO{\card{\C} ( \card{\A} +
 \card{\B} ) } steps. We will show how to solve any instance of a \kLDT problem
 with \(k \ge 3\) odd in time \BigO{n^\frac{k+1}{2}}.
 
 Given an input set \(\S\) of \(n\) real numbers, a set of \(k\) real
-coefficient \( \enum{\alpha_1,\ldots,\alpha_k}\) and a real term \(\alpha_0\)
-we construct the sets \(\A\), \(\B\) and \(\C\) as follows,
+coefficient \( \enum{\alpha_1,\ldots,\alpha_k}\), and a real term \(\alpha_0\)
+we construct the sets \(\A\), \(\B\), and \(\C\) as follows,
 
 \begin{displaymath}
 \A = \enum{\alpha_0 + \alpha_1 s_1 + \cdots + \alpha_{\frac{k-1}{2}} s_{\frac{k-1}{2}} \st s_i \in \S}
