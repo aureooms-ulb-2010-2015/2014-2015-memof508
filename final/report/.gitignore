@@ -2,7 +2,8 @@
 final.tex
 stylesheet.sty
 bibliography.bib
-
+final.txt
+atd.txt
 final.pdf
 *.aux
 *.lof
