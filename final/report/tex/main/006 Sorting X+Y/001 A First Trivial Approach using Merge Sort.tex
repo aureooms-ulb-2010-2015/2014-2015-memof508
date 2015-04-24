@@ -67,11 +67,11 @@ We have
 \lim_{N\to\infty}\frac{\sum_{k=1}^{N}\ceil{\log k}}{ \sum_{k=1}^{N} \log k} = 1
 \end{displaymath}
 and thus, by Stirling's approximation, the \mergesort algorithm requires at
-most \(N \log N\) comparisons for very large \(N\). When we sort \XY, we have \(N =
+most \(N \log N\) comparisons for large \(N\). When we sort \XY, we have \(N =
 n^2\), and thus
 \[N \log N = n^2 \log n^2 = 2 n^2 \log n.\]
 Indeed, we give here an example where \(n\) is a power of \(2\) but it is not
-difficult to convince oneself that for very large \(n\) the complexity added
+difficult to convince oneself that for large \(n\) the complexity added
 by the ceiling and flooring functions fade away.
 
 We now show that it is possible to sort \XY with half the comparisons. The
