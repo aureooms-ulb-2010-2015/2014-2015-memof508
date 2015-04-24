@@ -44,7 +44,7 @@ $\Ht$ containing $x$ and set $\O$ for the others. The relative position of $x$
 to each hyperplane belonging to $\O$ can be deduced without the need to query
 the oracle, the answer to the queries we would make can be computed by looking
 at the structure of the arrangement. For the first group of hyperplanes
-we just call the procedure again with $\H \gets \M$.
+we call the procedure again with $\H \gets \M$.
 
 \nb{Note that we always consider that \(x\) is inside a cell that is bounded.
 This can be implicitly or explicitly simulated.}
@@ -88,7 +88,7 @@ high probability, the number of hyperplanes of $\H$ intersecting the simplex
 is less or equal to $\epsilon \card{\H}$.
 \end{corollary}
 
-We can use this corollary in the algorithm we were just describing earlier. We
+We can use this corollary in the algorithm we were describing earlier. We
 now make two changes to the previous algorithm, we explicitly define the
 cardinality of $\Ht$ and we include an additional step where we replace cell
 $\cell$ with a simplex $\simplex$.
