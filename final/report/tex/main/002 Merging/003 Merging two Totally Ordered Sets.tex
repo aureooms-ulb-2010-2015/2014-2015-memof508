@@ -75,7 +75,7 @@ m = n &\implies \log\binom{m+n}{m} = \BigTheta{m + n} = \BigTheta{n}\\
 \end{align*}
 \end{proof}
 
-An algorithm using at most \(n+m-1\) queries is Tape Merge. Tape Merge is the
+An algorithm using at most \(n+m-1\) queries is \tapemerge. \tapemerge is the
 merge procedure that \mergesort uses (see step \step{5} of the \mergesort
 algorithm in \ref{tree:sorting:alg}), \ie given two linearly ordered sets sort
 their union by iteratively removing the smallest element it contains. The union
@@ -163,7 +163,7 @@ combine the different solutions to build an algorithm of complexity \BigO{\log
 The idea is that the algorithm should behave like:
 
 \begin{itemize}
-\item Tape Merge in case $\frac{n}{m} = 1$;
+\item \tapemerge in case $\frac{n}{m} = 1$;
 \item $m$ binary searches on sets of size $\frac{n}{m}$ in case $m = \SmallO{n}$;
 \item Binary Search in case \(m = \SmallO{n}\) and \(m = 1\).
 \end{itemize}
