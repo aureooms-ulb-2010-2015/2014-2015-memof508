@@ -3,36 +3,36 @@
 \addcontentsline{toc}{chapter}{Introduction}%
 
 This work focuses on studying the complexity of problems and solving problems
-in the decision tree model. In the model we will use, solving a problem will
-amount to retrieve information. We will be allowed to retrieve information
+in the decision tree model. In the model we use, solving a problem will
+amount to retrieve information. We are allowed to retrieve information
 through an oracle by means of questions that, in the general case,
-can be answered ``yes'' or ``no''. The kind of question we will ask ourselves
+can be answered ``yes'' or ``no''. The kind of questions we ask ourselves
 about a problem is: ``For an instance of size \(n\), in the worst case, what is
-the minimum number of questions we would have to ask to the oracle to solve our
-problem?''. We will have no interest in the storage of information we retrieve.
+the minimum number of questions we need to ask the oracle to solve our
+problem?''. We have no interest in the storage of information we retrieve.
 In other words, in our model, the only operation having a non-zero cost is
-asking the oracle to answer one of our ``yes/no'' answerable questions.
+asking the oracle to answer one of our ``yes/no'' questions.
 
-In the first two chapters, we give a reminder on well-studied problems:
-sorting and merging. The goal of this reminder will be to clearly define these
-two basic problems as well as the model we will be working with. For example,
-we will point out the nonuniformity of the decision tree model. This reminder
-will also give us the opportunity to introduce tools that will be needed all along
-this document. Two examples of such tools are Stirling's approximation and the
+In the first two chapters, we give an overview on two well-studied problems:
+sorting and merging. The goal of this overview is to clearly define these
+two basic problems as well as the model we are working with. For example,
+we point out the nonuniformity of the decision tree model. This overview
+also gives us the opportunity to introduce tools that are needed all along
+this document. Two examples of such tools are Stirling's approximation of the
+factorial and the
 \mergesort algorithm. Since all the problems we will approach are in a way or
-another related to sorting, these two first chapters are the starting point of
+another related to Sorting, these first two chapters are the starting point of
 our work.
 
-The third chapter will be dedicated to formalization of commonly used objects
-in order theory. In this chapter we will evolve crescendo from basic
-concepts to useful tools. We will first familiarize ourselves with order
-relations and partially ordered sets. We will introduce Hasse diagrams that
-will be used to represent partially ordered sets throughout this document.
-This chapter will also contain information about structural particularities
-that can be found in certain families of posets. The conclusion of this
-chapter will consist in the definition of graph entropy, and consequently
-poset entropy, one of the most useful tool we will be using to explain the
-results exposed in chapter \(4\).
+The third chapter is dedicated to formalization of commonly used objects
+in order theory. We first familiarize ourselves with order
+relations and partially ordered sets. We introduce Hasse diagrams that
+are used to represent partially ordered sets throughout this document.
+This chapter also contains information about the structure of
+certain families of posets. The conclusion of this
+chapter consists in the definition of graph entropy and
+poset entropy, one of the most useful tools we use to explain the
+results exposed in Chapter \(4\).
 
 In the fourth chapter, we will tackle the problem of Sorting under Partial
 Information. Sorting under Partial Information, abbreviated \concept{SUPI}, is
