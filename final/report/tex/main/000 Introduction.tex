@@ -3,8 +3,8 @@
 \addcontentsline{toc}{chapter}{Introduction}%
 
 This work focuses on studying the complexity of problems and solving problems
-in the decision tree model. In the model we use, solving a problem will
-amount to retrieve information. We are allowed to retrieve information
+in the decision tree model. In the model we use, solving a problem
+amounts to retrieve information. We are allowed to retrieve information
 through an oracle by means of questions that, in the general case,
 can be answered ``yes'' or ``no''. The kind of questions we ask ourselves
 about a problem is: ``For an instance of size \(n\), in the worst case, what is
@@ -20,7 +20,7 @@ we point out the nonuniformity of the decision tree model. This overview
 also gives us the opportunity to introduce tools that are needed all along
 this document. Two examples of such tools are Stirling's approximation of the
 factorial and the
-\mergesort algorithm. Since all the problems we will approach are in a way or
+\mergesort algorithm. Since all the problems we approach are in a way or
 another related to Sorting, these first two chapters are the starting point of
 our work.
 
@@ -34,50 +34,51 @@ chapter consists in the definition of graph entropy and
 poset entropy, one of the most useful tools we use to explain the
 results exposed in Chapter \(4\).
 
-In the fourth chapter, we will tackle the problem of Sorting under Partial
+In the fourth chapter, we tackle the problem of Sorting under Partial
 Information. Sorting under Partial Information, abbreviated \concept{SUPI}, is
-a more generic problem than sorting. When we want to sort an array of integers
+a more general problem than sorting. When we want to sort an array of integers
 with the \quicksort algorithm for example, we assume the array is shuffled and
-that no prior information can be extracted from the input without bothering the
-oracle. Here, we will explain ways to exploit some already existing information
+that no prior information can be extracted from the input without asking the
+oracle. In SUPI we do have some initial information on the input, modeled as a
+poset, and we explain ways
 to find the linear extension of a poset using a smaller number of queries than
-what would be required by classical sorting algorithms. We will first define
-the problem and explain its origins. We will then explain techniques that can
-be used to solve this problem. The last part of this chapter will concern an
+what would be required by classical sorting algorithms. We first define
+the problem and explain its origins. We then explain techniques that can
+be used to solve this problem. The last part of this chapter concerns an
 algorithm that solves the problem of Merging under Partial Information or
 \concept{MUPI}, a special case of Sorting under Partial Information.
 
-The fifth chapter will introduce a variety of problems that are all related to
-each other. We will introduce the classical set sum problems that are
+The fifth chapter introduces a variety of problems that are all related to
+each other. We introduce the classical set sum problems that are
 \threeSUM, \kSUM, and subset sum. Other problems include a generalization of
 \kSUM known as linear degeneracy testing, abbreviated \kLDT, and sorting \XY.
-We will explain how one can establish connections between those problems and the problem
-of sorting. We will also need to upgrade our decision tree model and for this
-purpose we will introduce the notion of \(k\)-linear decision trees. This
-extended model will be used in the three last chapters.
+We explain how one can establish connections between those problems and the problem
+of sorting. We also need to upgrade our decision tree model and for this
+purpose we introduce the notion of \(k\)-linear decision trees. This
+extended model is used in the last three chapters.
 
-The sixth chapter will focus on the problem of sorting \XY. We will make
+The sixth chapter focuses on the problem of sorting \XY. We make
 multiple attempts to solve this problem efficiently and evaluate its complexity
-using two different sets of tools. We will see how exploiting known information
+using two different sets of tools. We see how exploiting known information
 can be significant and the limitations of the partially ordered set tools that
-were used for solving the Sorting under Partial Information problem. We will
+were used for solving the Sorting under Partial Information problem. We
 detail one of the first algorithms designed to solve \concept{SUPI} and
 show that using this algorithm, one can solve the problem of sorting \XY
 using less comparisons than with the poset theory approach.
 
-\threeSUM will be the subject of the seventh chapter. We will introduce the
+\threeSUM is the subject of the seventh chapter. We introduce the
 subject by demonstrating the interest of studying the \threeSUM problem. Then,
-we will state a long-lived but freshly refuted conjecture concerning the
-complexity of \threeSUM and explain its implications. The third part will
-consist of three sections. The first two will contain previous results while
-the third one will expose recent results that refute the above-referenced
-conjecture. Finally, we will explain how these results can be applied to solve
+we state a long-lived but freshly refuted conjecture concerning the
+complexity of \threeSUM, and explain the implications. The third part
+consists of three sections. The first two contain previous results while
+the third one exposes recent results that refute the above-mentioned
+conjecture. Finally, we explain how these results can be applied to solve
 the more generic \kLDT problem.
 
-The last chapter will concern the application of a point location algorithm to
-\kSUM family problems. We will show how one can model those subset sum
-problems as point location problems. We will then detail the algorithm that
-can solve these newly modeled problems. We will have the opportunity to insist again
-on the nonuniformity of the decision tree model. We will end our dissertation
+The last chapter concerns the application of a point location algorithm to
+the family of \kSUM problems. We show how one can model those subset sum
+problems as point location problems. We then detail the algorithm that
+can solve these newly modeled problems. We have the opportunity to insist again
+on the nonuniformity of the decision tree model. We end our dissertation
 with a trick that limits the size of queries to the oracle when
 using our point location algorithm.
