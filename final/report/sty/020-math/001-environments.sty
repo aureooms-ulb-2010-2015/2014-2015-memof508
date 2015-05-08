@@ -5,6 +5,7 @@
 }
 
 \newcommand{\theoremname}{Theorem}
+\newcommand{\definitionname}{Definition}
 \newcommand{\lemmaname}{Lemma}
 \newcommand{\problemname}{Problem}
 \newcommand{\corollaryname}{Corollary}
@@ -12,6 +13,7 @@
 
 \addto\captionsfrench{
 	\renewcommand{\theoremname}{Théorème}
+	\renewcommand{\definitionname}{Définition}
 	\renewcommand{\lemmaname}{Lemme}
 	\newcommand{\problemname}{Problème}
 	\renewcommand{\corollaryname}{Corollaire}
@@ -38,6 +40,7 @@
 \theoremstyle{slplain}
 
 \newtheorem{theorem}{\theoremname}[chapter]
+\newtheorem{definition}[theorem]{\definitionname}
 \newtheorem{lemma}[theorem]{\lemmaname}
 \newtheorem{problem}[theorem]{\problemname}
 \newtheorem{corollary}[theorem]{\corollaryname}

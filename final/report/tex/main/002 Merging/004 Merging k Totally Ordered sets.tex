@@ -8,19 +8,19 @@
 
 \begin{theorem}
 The \concept{ITLB} for the merging problem when $k \geq 3$ with $|\S_i| = n_i$ and $n =
-\sum_{i=1}^{k} n_i$ is \BigOmega{\log \frac{n}{n_1 \cdot n_2 \dots n_k}}.
+\sum_{i=1}^{k} n_i$ is \BigOmega{\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}}.
 \end{theorem}
 
 \begin{proof}
 We have to choose the $n_1$ positions among $n$ in $\S'$ for the elements of
 $\S_1$ and then recursively make this choice on the remaining $n - n_1$
 positions with the elements of \(\S_2 \cup \dots \cup \S_k\). The number of
-leaves of the decision tree is $\frac{n}{n_1 \cdot n_2 \dots n_k}$. Hence, the
-worst-case minimal height of the tree is $\log \frac{n}{n_1 \cdot n_2 \dots
-n_k}$.
+leaves of the decision tree is $\frac{n!}{n_1! \cdot n_2! \cdots n_k!}$. Hence, the
+worst-case minimal height of the tree is $\log \frac{n!}{n_1! \cdot n_2! \cdots
+n_k!}$.
 \end{proof}
 
-\nb{Giving $\log \frac{n}{n_1 \cdot n_2 \dots n_k}$ in the form of the
+\nb{Giving $\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}$ in the form of the
 Stirling's approximation gives us \(n \log n - \sum_{i=1}^{k} n_i \log n_i -
 \BigO{n}\)
 which clearly express the information contained in the sorted sequence $\S'$ of
@@ -32,20 +32,21 @@ $n$ elements minus the information we already have.}
 Our optimal algorithm for the General Merging Problem is as follows.
 
 \begin{algorithm}
-\item[1.] Let \(\S_i\) and \(\S_j\) be the two smallest sets from \(\S_1 ,
+\item[1.] Let \(\S_i\) and \(\S_j\) be two smallest sets from \(\S_1 ,
 \dots , \S_k\).
 \item[2.] Merge \(\S_i\) and \(\S_j\) with an optimal algorithm.
 \item[3.] Merge \((\enum{\S_1 , \dots , \S_k} \setminus \enum{\S_i,\S_j} )
 \cup \enum{\S_i \cup \S_j}\).
 \end{algorithm}
 
-We will use tools of Information Theory to prove that this algorithm is
-optimal. The first tool we will be using is Shannon's entropy, \(H(X)\).
-\begin{theorem}
+We will use tools from Information Theory to prove that this algorithm is
+optimal. The first tool we will be using is Shannon's entropy of a random
+variable \(X\), \(H(X)\).
+\begin{definition}
 \begin{displaymath}
-H(X) = \sum_{x_i} p(x_i) \log \frac{1}{p(x_i)}.
+H(X) \bydef \sum_{x_i} p(x_i) \log \frac{1}{p(x_i)}.
 \end{displaymath}
-\end{theorem}
+\end{definition}
 
 Let us take some time to expose the relation between constructions of Huffman
 codes and runs of our algorithm. First, we define the problem of optimal
@@ -54,23 +55,25 @@ encoding events emitted by this random variable. We assume the channel we
 use to transmit our messages is perfect:
 
 \begin{problem}
-Given a random variable \(X\) with possible event \(x_1,\ldots,x_n\) occurring
+Given a random variable \(X\) with possible events \(x_1,\ldots,x_n\) occurring
 with probability \(0 < p(x_i) \le 1, \sum_{x_i} p(x_i) = 1\), construct an
-instantaneous code to transmit events through a perfect channel with alphabet
+instantaneous code, \ie a code where no code word is a prefix of another code
+word, to transmit events through a perfect channel with alphabet
 \(\Sigma = \enum{0,1}\) that minimizes the average size of a message encoding
 an event.
 \end{problem}
 
 The are several results on this subject which we summarize in the
-following theorem,
+following theorem.
 
 \begin{theorem}
-The average code length \(L(X)\) of any instantaneous coding scheme cannot be smaller than
-the entropy of the random variable \(H(X)\). If we define by \(l(x_i)\) to be the code
+If we define \(l(x_i)\) to be the code
 length for event \(x_i\), then the average code length is
 \begin{displaymath}
 L(X) = \sum_{x_i} p(x_i) l(x_i).
 \end{displaymath}
+The average code length \(L(X)\) of any instantaneous coding scheme cannot be smaller than
+the entropy of the random variable \(H(X)\).
 With respect to the objective function we mentioned above, Huffman coding is
 an optimal instantaneous code and its average length \(L_H(X)\) is bounded by
 \begin{displaymath}
@@ -81,10 +84,10 @@ H(X) \le L_H(X) \le H(X) + 1.
 \(L_H(X)\) is achieved by constructing a Huffman tree. The method to build this
 tree is the following. We start with \(n\) leaves, one for each possible event
 \(x_i\). We assign a weight of \(p(x_i)\) to each of these leaves. The current
-structure is not quite a tree but a pool of disconnected nodes.  Then, one
-replaces the two nodes of the pool with smallest weight by a new one which will
+structure is not quite a tree but a pool of disconnected nodes. Then, one
+replaces two nodes of the pool with smallest weight by a new one which will
 act as their parent in the Huffman tree. The weight of this new node is
-computed as the sum of the weights of its children. One repeats this
+the sum of the weights of its children. One repeats this
 replacement operation until the pool contains only one element. This last
 element is the root of the tree. Since at each step we replace two nodes by
 one, after \(n-1\) of these steps the tree is constructed.
@@ -95,12 +98,12 @@ approach. To each set \(\S_i\) we assign a fake event with probability
 \(\frac{\card{\S_i}}{n}\). The Shannon entropy of the random variable
 \(S\) having this probability distribution is
 \begin{align}
-H(S) &= - \sum \frac{\card{\S_i}}{n} \log \frac{\card{\S_i}}{n}\\
-&= - \sum \frac{\card{\S_i}}{n} (\log \card{\S_i} - \log n)\\
-&= \sum \frac{\card{\S_i}}{n} \log n - \sum \frac{\card{\S_i}}{n} \log \card{\S_i}\\
-&= \frac{1}{n} \sum \card{\S_i} \log n - \frac{1}{n} \sum \card{\S_i} \log
+H(S) &= - \sum_i \frac{\card{\S_i}}{n} \log \frac{\card{\S_i}}{n}\\
+&= - \sum_i \frac{\card{\S_i}}{n} (\log \card{\S_i} - \log n)\\
+&= \sum_i \frac{\card{\S_i}}{n} \log n - \sum_i \frac{\card{\S_i}}{n} \log \card{\S_i}\\
+&= \frac{1}{n} \sum_i \card{\S_i} \log n - \frac{1}{n} \sum_i \card{\S_i} \log
 \card{\S_i}\\
-&= \frac{1}{n} (n \log n - \sum \card{\S_i} \log \card{\S_i})\\
+&= \frac{1}{n} (n \log n - \sum_i \card{\S_i} \log \card{\S_i})
 \end{align}
 
 The definition of \(p(\S_i)\) is consistent with the invariant of
@@ -108,11 +111,11 @@ the Huffman tree construction algorithm since merging two totally ordered sets
 \(\S_i\) and \(\S_j\) produces a new one of size \(\card{\S_i} + \card{\S_j}\).
 
 Now we prove that for a merging algorithm that would iteratively merge the two
-smallest remaining totally ordered set, the number of comparisons used is at
-most \(n L_H(\S)\). To make this explicit, we rearrange the terms of \(L(\S_i)\),
+smallest remaining totally ordered sets, the number of comparisons used is at
+most \(n L_H(\S)\). To make this explicit, we rearrange the terms of \(L_H(\S)\),
 
 \begin{displaymath}
-L_H(\S) = \sum \frac{\card{\S_i}}{n} l(\S_i) = \frac{1}{n} \sum l(\S_i) \card{\S_i}.
+L_H(\S) = \sum_i \frac{\card{\S_i}}{n} l(\S_i) = \frac{1}{n} \sum_i l(\S_i) \card{\S_i}.
 \end{displaymath}
 
 In the above equation, \(l(\S_i)\) corresponds to the number of times elements
@@ -126,12 +129,12 @@ sets associated to \(u\) leaves of the tree. These leaves are
 requires thus less than
 \(\card{\S_{i_1}}+\ldots+\card{\S_{i_u}}+\card{\S_{j_1}}+\ldots+\card{\S_{j_v}}\)
 comparisons. We can rearrange these \(\card{\S_{i_w}}\) and conclude that
-\(\sum l(\S_i) \card{\S_i}\) is an upper bound on the number of comparisons used
+\(\sum\limits_i l(\S_i) \card{\S_i}\) is an upper bound on the number of comparisons used
 by our algorithm. Since,
 \begin{displaymath}
 n H(\S) \le n L_H(\S) \le n H(\S) + n,
 \end{displaymath}
-our algorithm requires at most \(n \log n - \sum \card{\S_i} \log \card{\S_i} +
+our algorithm requires at most \(n \log n - \sum\limits_i \card{\S_i} \log \card{\S_i} +
 n\) comparisons which is \(\concept{ITLB} + \BigO{n}\).
 
 To handle sublinear \concept{ITLB} we need to resort to a last trick. The only
