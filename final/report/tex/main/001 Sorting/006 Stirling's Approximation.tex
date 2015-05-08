@@ -1,31 +1,34 @@
 \section{Stirling's Approximation}
 \label{tree:sorting:stirling}
 
-Later on in \ref{tree:supi} we will be interested by counting elements in
+Later on in \Cref{tree:supi} we will be interested in counting elements
+contained in some
 finite sets. By counting we mean for an infinite collection of finite sets
-$\S_i$ where $i$ ranges over some index set $\I$, \eg $\I = \N$, finding a
-counting function $f(i)$ that is valid for all $\S_i$. In general we will only
+$\S_n$ where $n$ ranges over some index set $\I$, \eg $\I = \N$, finding a
+counting function $f(n)$ that is valid for all $\S_n$. In general we will only
 use the most satisfactory such formula. By most satisfactory we mean a
 completely explicit closed formula involving only well-known functions, and
 free from summation (and product) symbols. Unfortunately, only in rare cases
-will such a formula exist, and the most complicated an expression of $f(i)$
+will such a formula exist, and the more complicated the expression of $f(n)$
 becomes the less we are willing to accept it as a determination
 (see \citet*{Stanley:2011:ECV:2124415}, first chapter).
 
 If we take the example of counting \emph{the number of ways a pile of books can
 be rearranged}, \ie by permutation of the relative places of books, we can
-conclude that for $\S_i$ being the set of all piles containing the same $i$
-books we could manage to build by rearranging these $i$ books,
+conclude that for $\S_n$ being the set of all piles containing the same $n$
+books we could manage to build by rearranging these $n$ books,
 
-$$ f(i) = i \cdot (i-1) \cdot (i-2) \cdots 3 \cdot 2 \cdot 1 = \prod_{k=1}^i k = i! $$
+\begin{displaymath}
+f(n) = n \cdot (n-1) \cdot (n-2) \cdots 3 \cdot 2 \cdot 1 = \prod_{k=1}^n k = n!
+\end{displaymath}
 
-is an exact formulation. However this formulation contains a product over the range
-$[1, i]$ meaning that the computation of the value $f(i)$ would require $i$
+is an exact formula. However this formula contains a product over the range
+$[1, n]$ meaning that the computation of the value $f(n)$ would require $n$
 multiplications. In fact this is what we wanted to avoid when we said that
-there should not be such symbols in the \emph{most satisfactory} formulation.
+there should not be such symbols in the \emph{most satisfactory} formula.
 
 So, is there a better way? Not always. Considering the general case, only a few
-rare counting functions will expose a formulation able to satisfy us. But, for
+rare counting functions will admit a formula that satisfies us. But, for
 the example we gave, there is:
 
 \begin{theorem}
@@ -59,11 +62,11 @@ which we will retain two.
 
 
 For example, \ref{tree:sorting:corollary/stirling} will be particularly useful
-when proving asymptotic complexity of sorting and merging algorithms, because
+when analyzing the asymptotic complexity of sorting and merging algorithms, because
 of the way these problems are optimally tackled (divide and conquer).
 
 Note that another way of looking at \ref{tree:sorting:corollary/stirling} is
-saying that for some constant $c \in \R$ and for some $N \in \R$,
+saying that for some constant $c \in \R, c > 0$ and for some $N \in \R, N > 0$,
 
 \begin{displaymath}
 c \cdot n \log n \leq \log(n!) \leq n \log n, \Forall n \geq N.

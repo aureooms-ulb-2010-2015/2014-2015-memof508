@@ -18,19 +18,19 @@ decision tree model is nonuniform.
 \label{fig:sorting:nonuniformity:circuit}
 \end{figure}
 
-Another example of such a model is circuit complexity. An electronic circuit,
+Another example of such a model is circuit complexity. A Boolean circuit,
 see \ref{fig:sorting:nonuniformity:circuit}, can be seen as an algorithm with
 fixed size input and fixed size output. Since we want to solve problems of any
-size, to each computational problem we will assign a family of Boolean circuits
+size, to each computational problem we assign a family of Boolean circuits
 \(C_1,C_2,\ldots,C_n,\ldots\) that solve instances of the problem for every
-possible input size. We will say that this circuit family is P-uniform if there
-exists a Turing machine running in polynomial-time in \(n\) for which \(n\) is
+possible input size. We say that this circuit family is P-uniform if there
+exists a Turing machine running in time polynomial in \(n\) for which \(n\) is
 the input and \(C_n\) is the output.
 
-For all the problems we will study, one can make the parallel between the
+For all the problems we study, one can make the parallel between the
 complexity analysis on the number of comparisons required to solve them and an
-analysis of their complexity in the Boolean circuit model. The goal of the two
-next paragraphs will be to illustrate this equivalence.
+analysis of their complexity in the Boolean circuit model. The goal of the
+next two paragraphs is to illustrate this equivalence.
 
 As a general fact, we can design an algorithm for any problem in the decision
 tree model with fixed input size \(n\) and fixed output set \(\Gamma\) using
@@ -53,7 +53,7 @@ from the oracle.
 This is equivalent to building \(C_n\), a circuit of depth \(h\). For problems
 where \(h\) is polynomial in \(n\), for each problem size we have a circuit
 \(C_n\) giving the correct output in polynomial time. Unfortunately, there
-exist such problems for which constructing \(C_n\) will take exponential time
+exist such problems for which constructing \(C_n\) takes time exponential
 in \(n\). Hence, the circuit families for those problems are not P-uniform. As
 a last remark, note that the complexity class consisting of problems for which
 \(h\) is at most polynomial in \(n\) while constructing \(C_n\) is at most

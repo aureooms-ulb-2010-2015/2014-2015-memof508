@@ -16,15 +16,15 @@ easily be solved using at most \(\binom{n}{2} = \BigO{n^2}\) queries. A first
 way to achieve this bound is by iteratively computing and removing the minimum
 element from the input set. A second way is to iteratively
 extend a sorted sequence by insertion of an element taken (and removed) from
-the input set. Selection sort and Bubble sort are two algorithms based on the
-first method. Insertion sort is an algorithm based on the second method.
+the input set. \selectionsort and \bubblesort are two algorithms based on the
+first method. \insertionsort is an algorithm based on the second method.
 Because the complexity of these algorithms does not meet the ITLB, we will need
 to think about more clever methods\footnote{Although it is possible to obtain
 a \BigO{n \log n} comparisons algorithm by using binary search as the search
-method of the Insertion sort algorithm, this approach does not lead directly to
-a practical algorithm. Indeed, in the machine-world, one must also take into
+method of the \insertionsort algorithm, this approach does not lead directly to
+a practical algorithm. Indeed, in the machine world, one must also take into
 account other types of operations. In the case of the Insertion Sort algorithm,
-no matter the search method, the number of memory read and write operations is
+the number of memory read and write operations in standard implementations is
 quadratic on average.}.
 
 \subsection*{\quicksort}
@@ -41,7 +41,7 @@ algorithm is the following:
 \begin{algorithm}
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Choose a pivot element \(p \in \S\) and compare it with all other
-elements of \(\S\) by asking \(n - 1\) queries to the oracle.
+elements of \(\S\) by querying the oracle \(n - 1\) times.
 \item[3.] Partition \(\T = \S \setminus \enum{p}\) into two disjoint subsets
 \(\L = \enum{t \in \T \st t \le p}\) and \(\U = \T \setminus \L\).
 \item[4.] Sort \(\L\).
@@ -76,8 +76,8 @@ requires \BigO{n} comparisons:
 \begin{algorithm}
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Arbitrarily partition \(\S\) into two disjoint subsets \(\L\) and
-\(\U\) such that \(\card{\L} = \ceil{\frac{n-1}{2}}\) and \(\card{\U} =
-\floor{\frac{n-1}{2}}\).
+\(\U\) such that \(\card{\L} = \ceil{\frac{n}{2}}\) and \(\card{\U} =
+\floor{\frac{n}{2}}\).
 \item[3.] Sort \(\L\).
 \item[4.] Sort \(\U\).
 \item[5.] Merge \(\L\) and \(\U\) by iteratively removing the smallest element
@@ -87,16 +87,16 @@ of \(\S\).
 Note that in step \step{5} there are at most \(n - 1\) iterations. Since \(\L\)
 and \(\U\) are sorted, the smallest element of \(\S\) can be computed as the
 smallest element between the smallest element of \(\L\) and the smallest
-element of \(\U\). Hence, each iteration requires a single comparison to be
-made.
+element of \(\U\). Hence, each iteration requires a single comparison.
 
 Unlike the previous algorithm, we will always obtain a balanced partition of
 \(\S\) out of the partitioning step. Hence, the worst-case complexity of this
-algorithm is \BigO{n \log n}. An other way to obtain this complexity measure
+algorithm is \BigO{n \log n}. Another way to obtain this complexity measure
 is to solve the following recurrence relation:
 
 \begin{displaymath}
-T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
+T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1 \le n \log n +
+n + \BigO{\log n}.
 \end{displaymath}
 
 \subsection*{\heapsort}
@@ -104,8 +104,8 @@ T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1.
 The last algorithm we will explain is the \heapsort algorithm
 \cite{williams:1964}. A heap is a data structure that allows one to
 efficiently lookup (\BigO{1}) or remove (\BigO{\log n}) the smallest element
-from a set \(\S\). A heap can be seen as a complete \(d\)-ary tree where a node
-is smaller than its children. The last condition is called the heap property.
+from a set \(\S\). A heap can be seen as a complete binary tree where a node
+is smaller or equal to its children. The last condition is called the heap property.
 Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.  Let us
 explain how. There exist two main procedures to update the contents of a heap.
 The first one is \emph{siftdown} which consists in \emph{sifting} a node down
@@ -148,10 +148,10 @@ nodes of height \(2\), \dots, \ie at most \(\ceil{\frac{n}{2^{1+h}}}\) nodes
 of height \(h\).
 One applies \emph{siftdown} to each node of the tree right-to-left,
 bottom-to-top, starting from the rightmost leaf and ending at the root. The
-total number of comparisons is
+total number of comparisons is at most
 
 \begin{displaymath}
-T(n) \le 2 \cdot ( 0 \cdot \left\lceil\frac{n}{2}\right\rceil + 1 \cdot
+2 \cdot ( 0 \cdot \left\lceil\frac{n}{2}\right\rceil + 1 \cdot
 \left\lceil\frac{n}{4}\right\rceil + 2 \cdot
 \left\lceil\frac{n}{8}\right\rceil + 3 \cdot \left\lceil\frac{n}{16}\right\rceil + \cdots ) = \BigO{n}.
 \end{displaymath}
@@ -178,10 +178,11 @@ There exists other interesting ideas to solve the sorting problem. For
 example: \shellsort \cite{shell:1959}, \smoothsort \cite{dijkstra:1982},
 \introsort \cite{musser:1997} and \timsort \cite{martelli:2006}.
 
-Considering practical use of sorting algorithms, \quicksort is one of the most
+Considering practical uses of sorting algorithms, \quicksort is one of the most
 efficient algorithms on real-world computers due to its simplicity and cache
 locality of its operations, even though \quicksort has a higher
-multiplicative factor than \mergesort. Nowadays, standard libraries of the most
+multiplicative factor than \mergesort regarding the number of
+comparisons. Nowadays, standard libraries of the most
 popular programming languages (\Java (up to \Java 6), \CC, \CXX) use their own
 version of the \quicksort algorithm as their sorting procedure. An exception is
 \Python which uses the \timsort algorithm since 2002. Note also that up to \Java
@@ -199,10 +200,9 @@ approach is considered. Previous attempts \cite{sedgewick:1980} had concluded
 that a dual-pivot \quicksort was worse than the classical one in practice.
 Analysis of the version of \citet*{yaroslavskiy:2009} by \citet*{wild:2012}
 reveals that this new version uses \(1.32~n \log n - 2.46n + \BigO{\log n}\)
-comparisons.  This is less than the classical \quicksort algorithm which uses
-\(1.39~n \log n
-- 1.51n + \BigO{\log n}\) comparisons. However, in practice one must also take into account
-  other kinds of operations. For example, the number of element swaps in the
+comparisons on average. This is less than the classical \quicksort algorithm which uses
+\(1.39~n \log n - 1.51n + \BigO{\log n}\) comparisons on average. However, in practice one must also take into account
+other kinds of operations. For example, the number of element swaps in the
 dual-pivot \quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
 element swaps of the classic \quicksort by \citeauthor{hoare:1962}. This
 algorithm is now used as the sorting procedure of arrays of primitive type for
@@ -216,7 +216,7 @@ to exploit already sorted subsequences of the input. On a nearly sorted (or
 reverse sorted) input the \timsort algorithms runs in \BigO{n} time.
 
 A remark concerning \shellsort. The average time complexity of \shellsort is not
-known for the moment. Indeed, there are multiple ways of implementing this
+known. Indeed, there are multiple ways of implementing this
 algorithm because of its definition. The \shellsort algorithm is configurable
 with a sequence of integers called a \emph{gap sequence}. This gap sequence
 parameter leads to different time complexities. For example, depending on the
@@ -246,7 +246,7 @@ For example implementations of those data structures see
 
 Although there has been an enormous amount of research directed towards sorting
 algorithms in the field of Computer Science, there still exists a linear term
-gap between the most efficient algorithms and the \concept{ITLB} of the
+gap between the most efficient algorithms and the \concept{ITLB} for the
 sorting problem.
 
 For example, \mergesort is one of the algorithms whose complexity comes closest
@@ -259,4 +259,4 @@ while
 \begin{displaymath}
 \text{ITLB} \simeq n \log n - 1.443 n + \frac{1}{2} \log n + 1.326,
 \end{displaymath}
-which leaves us with a \BigO{n} gap in the best case.
+which leaves us with a \BigO{n} gap between the two bounds.

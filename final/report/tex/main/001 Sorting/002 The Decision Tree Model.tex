@@ -4,12 +4,12 @@
 An important remark to begin with is that we will generally not be interested
 into the \emph{machine-world} complexity of a problem. As always, we have to
 define a model of computation that tells us which operations are allowed, which
-not and what are the costs for each of them.
+are not and what are the costs for each of them.
 
-From here till the end we will work in the \defineconcept{Decision Tree Model}:
+From here on till the end we will work in the \defineconcept{Decision Tree Model}:
 we are allowed to ask questions to an oracle \(\le\) that will be answered
-``yes'' or ``no''. Hence, each question we ask to this oracle will at most give
-us one additional bit of information.
+``yes'' or ``no''. Hence, each answer will give us at most
+one additional bit of information.
 
 Each question asked to the oracle will cost us a single unit.
 Every other operation can be carried out for free. Indeed, solving a problem in
@@ -21,9 +21,9 @@ having to ask too many questions to our oracle.
 The goal of each of our analyses will be either to show that at least a certain
 number of questions are required to be asked to solve a given problem, or to
 provide an algorithm solving this problem using at most a certain number of
-questions. Those two kinds of results are called lower bounds and upper bounds.
-A lower bound or an upper bound will in general be expressed as a function of
-the input size.
+questions. Those two kinds of results are called lower bounds and upper bounds
+respectively. A lower bound or an upper bound will in general be expressed as
+a function of the input size.
 
 Further down the road we will trade our binary oracle for a ternary one.
 However, for the first few chapters, the binary oracle will suffice.
