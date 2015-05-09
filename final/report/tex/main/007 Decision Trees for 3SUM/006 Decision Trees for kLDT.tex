@@ -1,10 +1,10 @@
 \section{Decision Trees for \kLDT}
 \label{tree:3sum:kldt}
 
-In this section we will first show a transformation to construct an instance
-of \threeSUM from an instance of \kLDT for the case where \(k\) is odd. Next, we will
-see that in the \(k\)-linear decision tree model one can solve \kLDT optimally
-using the standard quadratic algorithm for \threeSUM. After that, we will give a
+In this section we first show a transformation to construct an instance
+of \threeSUM from an instance of \kLDT for the case where \(k\) is odd. Next, we
+show that in the \(k\)-linear decision tree model one can solve \kLDT optimally
+using the standard quadratic algorithm for \threeSUM. After that, we give a
 short argument to explain that the same kind of technique can be applied when
 \(k\) is even. Finally, we illustrate how the decision tree for \threeSUM of
 \citet*{gronlund:2014} gives a better lower bound, for odd \(k\), using
@@ -19,7 +19,7 @@ depth \BigO{n^{\sfrac{k}{2}} \sqrt{\log n}}.
 
 The standard three-set version of the quadratic \threeSUM algorithm for input
 sets \(\A\), \(\B\), and \(\C\) completes after \BigO{\card{\C} ( \card{\A} +
-\card{\B} ) } steps. We will show how to solve any instance of a \kLDT problem
+\card{\B} ) } steps. We show how to solve any instance of a \kLDT problem
 with \(k \ge 3\) odd in time \BigO{n^\frac{k+1}{2}}.
 
 Given an input set \(\S\) of \(n\) real numbers, a set of \(k\) real
@@ -46,9 +46,9 @@ n\). As a remark, note that by simply omitting \(\alpha_j\) factors we obtain a
 similar reduction from \kSUM.
 
 If we use the quadratic \threeSUM algorithm to solve the instance we
-constructed, it will make \(k\)-linear queries since summing an element of
+constructed, it makes \(k\)-linear queries since summing an element of
 \(\A\) with an element of \(\B\) and comparing this sum to an element of
-\(\C\) will involve \(2 \frac{k-1}{2} + 1\) linear terms. The running time of
+\(\C\) involves \(2 \frac{k-1}{2} + 1\) linear terms. The running time of
 the \threeSUM algorithm on this input is \(\BigO{n \cdot 2 \cdot n^{\frac{k-1}{2}}} =
 \BigO{n^{\frac{k+1}{2}}}\).
 
@@ -68,7 +68,7 @@ the decision tree has complexity
 \begin{displaymath}
 \BigO{g(\card{\A}+\card{\B}) + g^{-1}\card{\C}(\card{\A}\card{\B})\log g}.
 \end{displaymath}
-Hence, if one chooses \(g = \sqrt{n \log n}\) one will obtain a
+Hence, if one chooses \(g = \sqrt{n \log n}\) one obtains a
 \BigO{n^{\frac{k}{2}} \sqrt{\log n}} decision tree for \kLDT with $k$ odd
 which improves the best known lower bound.
 

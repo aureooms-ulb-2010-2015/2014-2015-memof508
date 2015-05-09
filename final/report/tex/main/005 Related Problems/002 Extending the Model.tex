@@ -5,16 +5,16 @@ model we use, the only kind of query that we were allowed to ask was of the
 form \(a \ask{\le} b \) where \(a\) and \(b\) are elements of some input set.
 
 It is now time to upgrade our model by widening the concept of element
-comparison. In the following sections we will consider that a comparison can
+comparison. In the following sections we consider that a comparison can
 be made between more than two elements. A comparison between three
 elements could be for example \(2a - 3b + c \ask{=} 0\). Decisions based on the
-result of such a comparison will depend on the sign of the expression
+result of such a comparison depend on the sign of the expression
 \(2a - 3b + c\) \ie whether this sum is smaller than, equal to or greater than
 \(0\).
 
-In this model, we will only be allowed to query for linear combinations of
+In this model, we are only allowed to query for linear combinations of
 input elements and those linear combinations can involve at most \(k\) of those
-elements. We will call this generic model the \(k\)-linear decision tree model.
+elements. We call this generic model the \(k\)-linear decision tree model.
 
 As a concrete example, let us take the sorting \XY problem we just introduced.
 The set \XY contains all pairwise sums of elements of \(X\) with elements of

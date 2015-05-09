@@ -1,30 +1,30 @@
 \section{The Decision Tree Model}
 \label{tree:sorting:model}
 
-An important remark to begin with is that we will generally not be interested
-into the \emph{machine-world} complexity of a problem. As always, we have to
+An important remark to begin with is that we are generally not interested
+into the \emph{machine world} complexity of a problem. As always, we have to
 define a model of computation that tells us which operations are allowed, which
 are not and what are the costs for each of them.
 
 From here on till the end we will work in the \defineconcept{Decision Tree Model}:
-we are allowed to ask questions to an oracle \(\le\) that will be answered
-``yes'' or ``no''. Hence, each answer will give us at most
+we are allowed to ask questions to an oracle \(\le\) that are answered
+``yes'' or ``no''. Hence, each answer gives us at most
 one additional bit of information.
 
-Each question asked to the oracle will cost us a single unit.
+Each question asked to the oracle costs us a single unit.
 Every other operation can be carried out for free. Indeed, solving a problem in
-our model will amount to retrieve a certain quantity of information. We will
+our model amounts to retrieve a certain quantity of information. We
 need to find ways to organize the retrieved information and exploit already
 known information. If done efficiently, we will solve our problems without
 having to ask too many questions to our oracle.
 
-The goal of each of our analyses will be either to show that at least a certain
+The goal of each of our analyses is to either to show that at least a certain
 number of questions are required to be asked to solve a given problem, or to
 provide an algorithm solving this problem using at most a certain number of
 questions. Those two kinds of results are called lower bounds and upper bounds
-respectively. A lower bound or an upper bound will in general be expressed as
+respectively. A lower bound or an upper bound is in general expressed as
 a function of the input size.
 
 Further down the road we will trade our binary oracle for a ternary one.
-However, for the first few chapters, the binary oracle will suffice.
+However, for the first few chapters, the binary oracle suffices.
 

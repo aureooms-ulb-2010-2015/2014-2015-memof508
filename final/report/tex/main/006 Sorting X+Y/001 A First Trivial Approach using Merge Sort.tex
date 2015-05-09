@@ -34,19 +34,19 @@ total order on \(X \cup Y\). If we only exploit
 we obtain the posets represented by the Hasse diagrams (\ref{tree:poset:hasse})
 in \ref{fig:xy:poset:diagrams}.
 
-In this first, trivial attempt, we will use the poset structure on the elements
+In this first, trivial attempt, we use the poset structure on the elements
 in \XY to reduce by a factor of $2$ the number of comparisons
 required to sort \XY compared to the execution of the \mergesort algorithm
 without knowledge of this structure.
 
 In \ref{tree:related:xy} we saw \ref{fig:related:xy} which shows us all the order
-relations between elements of \XY. Now, we will see that chains and antichains
+relations between elements of \XY. Now, we show that chains and antichains
 in \XY obey a regular pattern. To illustrate this, we take the $4 \times 4$
 \XY problem. We highlight a possible selection of disjoint chains in
 \ref{fig:xy:poset:chains} and the set of maximal antichains in
 \ref{fig:xy:poset:antichains}.
 
-Now we will solve this problem in a strictly faster way than sorting all
+Now we solve this problem in a strictly faster way than sorting all
 of its elements, by taking advantage of some of the information we already have.
 
 First, we show that sorting \XY without information using the \mergesort algorithm would use $2
@@ -95,7 +95,7 @@ disjoint subsets of size $n$, and that the total number of elements in $X+Y$ is
 $N = n^2$ we can conclude that \ref{fig:xy:poset:mergexy} shows us step
 $\sfrac{1}{2} \log N$. It should be possible to prove from scratch that
 starting the algorithm at the median step saves us half the comparisons, for
-\(n\) large enough. However we will rely on the results we gave
+\(n\) large enough. However we rely on the results we gave
 in \ref{tree:merging:kgeq3} to prove that it is indeed the case.
 
 \begin{proof}
@@ -107,5 +107,5 @@ the Huffman code based merging algorithm.
 \end{proof}
 
 Since this algorithm reuses only a fraction of the available information, the
-question of the optimality of this approach remains. This question will be
-answered in the next section.
+question of the optimality of this approach remains. We give an answer to this
+question in the next section.

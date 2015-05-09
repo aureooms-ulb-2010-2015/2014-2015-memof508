@@ -5,7 +5,7 @@ discarding the information existing between elements of these two sets. In
 \citet*{cardinal:2013} an implementation of such a procedure is defined. Their
 implementation allows one to concentrate the computational complexity of this
 procedure in the preprocessing phase of their other algorithms. In this chapter
-we will detail another possible implementation of such a procedure that is due
+we detail another possible implementation of such a procedure that is due
 to \citet*{linial:1984}. Unfortunately, in this implementation the
 computational complexity cannot be split into a preprocessing phase and a query
 phase. Nevertheless it is still interesting to understand the ideas behind it.
@@ -28,7 +28,7 @@ input of the MUPI problem.}
 
 \citet*{linial:1984} first proves that the \onethirdtwothird conjecture holds
 for width-\(2\) posets, \ie posets that can be covered by two chains. Since one
-can always find a good query that when answered will invalidate at
+can always find a good query that when answered invalidates at
 least one-third of the possible linear extensions of \(\P\), it is possible to design a
 \BigO{\log e(\P)} algorithm that solves the MUPI problem.
 
@@ -159,7 +159,7 @@ element of the set \(\A \cup \B\) when totally ordered. In these cases, \(e(\P) 
 e(\P \setminus b_n)\) or \(e(\P) = e(\P \setminus a_m)\) for \(a_m < b_n\) or
 \(a_m > b_n\) respectively. Now, if \(a_m\) and \(b_n\) are incomparable in
 \(\P\), in the totally ordered set we are building one of \(a_m < b_n\) or \(a_m
-> b_n\) will hold true. Hence \(e(\P) = e(\P \setminus b_n) + e(\P \setminus
+> b_n\) holds true. Hence \(e(\P) = e(\P \setminus b_n) + e(\P \setminus
 a_m)\) in this case, since both outcomes for \(a \ask{<} b\) are possible.
 Lastly, if \(\card{\A} = 0\) or \(\card{\B} = 0\) then \(e(\P) = 1\). We can thus
 express \(e(\P)\) using the following recurrence relation
@@ -175,8 +175,8 @@ incomparable.\\
 \end{dcases*}
 \end{displaymath}
 
-Note that if one computes \(e(\P)\) using this recurrence in a dynamic program,
-he will also get all values of \(e(\P(a_m < b_s))\) and \(e(\P(a_s < b_n))\) for
+Note that if we compute \(e(\P)\) using this recurrence in a dynamic program,
+we also get all values of \(e(\P(a_m < b_s))\) and \(e(\P(a_s < b_n))\) for
 free. This is because there is only one possible way tail elements can be
 arranged to have \(e(\P(a_m < b_s))\), \ie \(a_m < b_s < b_{s+1} < \ldots <
 b_n\). Note that other values \(e(\P(a_i < b_j)\) for any pair \((a_i,b_j)\)
@@ -185,7 +185,7 @@ extensions of all poset extensions \(\P(a_m < b_s)\) and \(\P(a_s < b_n)\) can
 thus be computed in \BigO{mn \log e(\P)} time using dynamic programming with a
 \(m \times n\) memory tableau containing numbers with values up to \(\log
 e(\P)\). Note that posets that are incompatible with the original poset \(\P\),
-will be assigned a value \(e = 0\).
+are assigned a value \(e = 0\).
 
 Moreover, one can reuse the information obtained via the dynamic program. We
 explain how. Suppose we have computed \(e(\P)\) and all \(e(\P(a_m < b_s))\) and

@@ -5,7 +5,7 @@ various kind of set sum problems, including subset sum, \kSUM, and \kLDT.
 
 The problem is to locate a point \(x\) in the \(n\)-dimensional space \(\R^n\) relatively
 to an arrangement of hyperplanes \(\A(\H)\). This arrangement divides the space
-in cells of dimension \(0,\ldots,n-1\) and the goal will be to determine which
+in cells of dimension \(0,\ldots,n-1\) and the goal is to determine which
 cell contains point \(x\). This amounts to determining for each
 hyperplane \(H_i\) whether the point \(x\) lies above, on or below \(H_i\).
 
@@ -41,15 +41,15 @@ For each $\S_i = \left\{s_1, \dots, s_k\right\}$ we need to find whether the sum
 boils down to finding whether our point $x$ lies on the hyperplane of
 equation $x_{i_1} + \dots + x_{i_k} = 0$. We thus draw every such hyperplane,
 there are less than $n^k$ of them, and to solve the problem
-we will have to find on which of them the point $x$ lies.
+we have to find on which of them the point $x$ lies.
 
 We just showed how to reduce \kSUM, in the sense of Turing reduction, to a
 point location problem in an arrangement of hyperplanes. In the next section,
-we will detail an algorithm due to \citet*{meiser:1993} that can be used to
-solve \kSUM efficiently for any $k$.  There exists several methods to solve
-this problem. We will describe Meiser's Algorithm~\cite{meiser:1993} since it
+we detail an algorithm due to \citet*{meiser:1993} that can be used to
+solve \kSUM efficiently for any $k$. There exist several methods to solve
+this problem. We describe Meiser's Algorithm~\cite{meiser:1993} since it
 is the first algorithm that solves this point location problem in time
 polynomial in both $n$ and $\log m$, for fixed $\H$ and $n$. This particular
-algorithm will give us the opportunity to prove that the decision tree complexity
+algorithm gives us the opportunity to prove that the decision tree complexity
 of subset sum is polynomial.
 

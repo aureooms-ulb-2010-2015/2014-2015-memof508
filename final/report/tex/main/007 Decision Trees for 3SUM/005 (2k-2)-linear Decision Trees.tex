@@ -15,7 +15,7 @@ algorithm, breaking the \BigOmega{n^2} bound on the number of queries,
 
 We list hereunder the steps of an algorithm deciding the one-set
 version of \threeSUM with input set $\A$, $\card{\A} = n$. By looking at the
-number of queries this algorithm requires to finish, we will prove the
+number of queries this algorithm requires to finish, we prove the
 decision tree complexity of \threeSUM is \BigO{n^{\sfrac{3}{2}}
 \sqrt{\log n}}.
 
@@ -56,14 +56,14 @@ $\hi$, otherwise increment $\lo$.
 The algorithm is arranged in two phases. The first phase, steps \step{1}
 through \step{4}, is a preprocessing phase where we build a data structure
 for efficient lookups in preparation of the second phase. The second phase, steps
-\step{5} through \step{6}, is consisting of a loop where we will search
+\step{5} through \step{6}, consists of a loop where we search
 for all $a, b \le \A(k)$ such that $a + b + \A(k) = 0$ using the efficient lookup
 data structure built during the first phase.
 
 Step \step{1} requires \BigO{n \log n} queries using any optimal sorting
 algorithm. Step \step{2} explains
 the indexing convention we use throughout the algorithm and requires no query.
-We will skip the explanation of step \step{3} for the moment. If done as is,
+We skip the explanation of step \step{3} for the moment. If done as is,
 step \step{4} would require to sort $(\frac{n}{g})^2$ $\A_i + \A_j$ sets,
 each of which, by \ref{theorem:fredman:1976}, would require \BigO{g^2} queries
 to sort. In total, step \step{4} would need \BigO{n^2} queries to be

@@ -39,15 +39,15 @@ Our optimal algorithm for the General Merging Problem is as follows.
 \cup \enum{\S_i \cup \S_j}\).
 \end{algorithm}
 
-We will use tools from Information Theory to prove that this algorithm is
-optimal. The first tool we will be using is Shannon's entropy of a random
+We use tools from Information Theory to prove that this algorithm is
+optimal. The first tool we use is Shannon's entropy of a random
 variable \(X\), \(H(X)\).
 \begin{definition}
 \begin{displaymath}
 H(X) \bydef \sum_{x_i} p(x_i) \log \frac{1}{p(x_i)}.
 \end{displaymath}
 \end{definition}
-
+The second is Huffman codes.
 Let us take some time to expose the relation between constructions of Huffman
 codes and runs of our algorithm. First, we define the problem of optimal
 coding of a random variable with respect to the average length of the messages
@@ -85,8 +85,8 @@ H(X) \le L_H(X) \le H(X) + 1.
 tree is the following. We start with \(n\) leaves, one for each possible event
 \(x_i\). We assign a weight of \(p(x_i)\) to each of these leaves. The current
 structure is not quite a tree but a pool of disconnected nodes. Then, one
-replaces two nodes of the pool with smallest weight by a new one which will
-act as their parent in the Huffman tree. The weight of this new node is
+replaces two nodes of the pool with smallest weight by a new one which
+acts as their parent in the Huffman tree. The weight of this new node is
 the sum of the weights of its children. One repeats this
 replacement operation until the pool contains only one element. This last
 element is the root of the tree. Since at each step we replace two nodes by

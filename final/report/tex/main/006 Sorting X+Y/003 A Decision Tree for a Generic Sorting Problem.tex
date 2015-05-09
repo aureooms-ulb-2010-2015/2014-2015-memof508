@@ -1,10 +1,10 @@
 \section{A Decision Tree for a Generic Sorting Problem}
 \label{tree:xy:dt}
 
-In this section we will expose an algorithm due to \citet*{fredman:1976}
+In this section we expose an algorithm due to \citet*{fredman:1976}
 that solves sorting problems making at most $\log\card{\Gamma} + 2n$ queries,
 where $\Gamma$ is the set of possible linear extensions of the input. In the
-next section we will show how this algorithm can be used in the context of the
+next section we show how this algorithm can be used in the context of the
 sorting \XY problem.
 
 \citet{fredman:1976} defines a generic sorting problem as follows,
@@ -25,15 +25,15 @@ path through $T$ ending at $L$. For each $L$ we must have $\Gamma_L \subseteq
 \A_j$ for some $\A_j \in P$.
 \end{problem}
 
-As usual, we will be interested in the decision tree complexity of this
+As usual, we are interested in the decision tree complexity of this
 problem, \ie for fixed \(\Gamma\) and \(P\) the minimum number of comparisons
 required to find \(\A_j\) for any of the possible inputs \(\omega\) compatible
-with \(\Gamma\). We will denote this complexity by $N(\Gamma, P)$.
+with \(\Gamma\). We denote this complexity by $N(\Gamma, P)$.
 
-Since the final goal will be to sort \XY, we will only be interested in the case
+Since the final goal is to sort \XY, we are only interested in the case
 where $P$ is a partition of $\Gamma$ into singleton sets, as we desire to
 compute the correct linear extension of \XY out of all its viable linear
-extensions. As $P$ is the same for every $\Gamma$ in this case, we will
+extensions. As $P$ is the same for every $\Gamma$ in this case, we
 always write $N(\Gamma)$ to mean $N(\Gamma, P)$.
 
 \citet{fredman:1976} proves the following theorem,
@@ -44,17 +44,17 @@ $\Gamma$ can be sorted with $N(\Gamma) = \log \card{\Gamma} + 2n$ pairwise
 comparisons.
 \end{theorem}
 
-For our use case, the $n$ of the theorem will be the $n^2$ elements of the set
+For our use case, the $n$ of the theorem is the $n^2$ elements of the set
 \XY. In the previous section we already found a lower bound for the problem of
 finding a linear extension of a \(n \times n\) lattice. We also showed that if
 we only use the information contained in the poset structure of \XY, then
 sorting \XY is the same problem as finding a linear extension of a \(n \times
-n\) lattice. In the next section we will compute the lower bound for the
+n\) lattice. In the next section we compute the lower bound for the
 sorting \XY problem when we remove the restrictions we considered earlier. This
-new lower bound will be our $\card{\Gamma}$ for the sorting \XY problem.
+new lower bound is our $\card{\Gamma}$ for the sorting \XY problem.
 
 To prove the correctness of the theorem, \citet{fredman:1976} builds a biased
-insertion sort algorithm that we will now explain.
+insertion sort algorithm that we now explain.
 
 The algorithm we consider is an iterative algorithm running in \(n\)
 iterations. Suppose that at iteration \(k\) of the algorithm we have already sorted a
@@ -65,13 +65,13 @@ subset of \(\S\) of size \(k-1\).
 \ldots < x_{i_{k-1}}}_{\text{relative ordering}}
 \end{displaymath}
 
-What we will do at iteration $k$ is insert $x_k$ at the appropriate location
+What we do at iteration $k$ is insert $x_k$ at the appropriate location
 in the already existing relative ordering to extend it to $x_{i_1} < \ldots <
 x_{i_k}$.
 
 We want to reformulate this insertion process using an equivalent formulation
 that involves location numbers $b_1, \ldots, b_k$. The location
-number $b_k$ means that at iteration $k$, $x_k$ will be inserted at position
+number $b_k$ means that at iteration $k$, $x_k$ is inserted at position
 $b_k$ implying that $i_{b_k} = k$.
 
 The location number $b_k$ is defined formally as $b_k = \card{\enum{x_j \st j
@@ -101,8 +101,8 @@ of the form \(b_i \ask{\le} J\), and with a total of no more than $\log \card{\S
 \end{lemma}
 
 We show how to implement an algorithm matching the above description. First, in
-order to simplify the notation, we will describe a recursive version of our
-algorithm. The $\nth{k}$ recursion step of the recursive algorithm will process
+order to simplify the notation, we describe a recursive version of our
+algorithm. The $\nth{k}$ recursion step of the recursive algorithm processes
 the $\nth{k}$ iteration. A complete execution of the algorithm would determine
 the $n$-tuple $(b_1, \ldots, b_n)$.  At the beginning of iteration $k$, we
 already have determined a prefix $(b_1, \ldots, b_{k-1})$ of this $n$-tuple.
@@ -110,7 +110,7 @@ What remains to be computed is the suffix $(b_k, \ldots, b_n)$ of the
 $n$-tuple. In the recursive version of the algorithm we forget about the
 already computed prefix since it cannot change and instead of writing $(b_k,
 \ldots, b_n)$ we write $(b'_1, b'_2, \ldots)$ where $b'_1 = b_k$, $b'_2 =
-b_{k+1}$, \etc. From here until the end of this section we will write $b_i$ to
+b_{k+1}$, \etc. From here on till the end of this section we write $b_i$ to
 mean $b'_i$ for the sake of simplicity.
 
 We now list the steps of the recursive algorithm,
@@ -150,21 +150,21 @@ occurrences'' of $b_1 = j$ in the set $\S$, therefore
 
 In step \step{2} we partition $(0,1]$ in a way that allows binary search to
 be efficient with respect to the complexity of the remaining induction steps.
-The partitioning procedure will assign interval sizes to possible values for
+The partitioning procedure assigns interval sizes to possible values for
 $b_1$ proportional to their frequency in $\S$. Hence, if the interval
-associated with $b_1 = i$ is large, we will have to make a small number of
-queries to find it but the cardinality of $\S$ at the next induction step will
-stay large. Otherwise, if the same interval is small, the number of queries
-required to find it will be large but in this case, the induction step will
-have to handle a small $\S$ set.
+associated with $b_1 = i$ is large, we have to make a small number of
+queries to find it but the cardinality of $\S$ at the next induction step
+stays large. Otherwise, if the same interval is small, the number of queries
+required to find it is large but in this case, the induction step
+handles a small $\S$ set.
 
-The only step where we make queries is \step{3}. We will use binary
+The only step where we make queries is \step{3}. We use binary
 search as follows. First we ask if $b_1$ lies in the first or the second
 half of $(0,1]$, by asking $b_1 \ask{\le} J(\frac{1}{2})$, and then we continue
 this procedure with the interval designated by the answer to our question as
 our query interval. If the designated interval is the first half of $(0,1]$,
 \ie $(0, \frac{1}{2}]$, because $b_1 \le J(\frac{1}{2})$ the next question we
-will ask is $b_1 \ask{\le} J(\frac{1}{4})$. Otherwise the designated interval
+ask is $b_1 \ask{\le} J(\frac{1}{4})$. Otherwise the designated interval
 is $(\frac{1}{2},1]$ and the next question $b_1 \ask{\le} J(\frac{3}{4})$,
 \etc. We stop when we have ascertained that the query interval we are left with
 does not contain any of the original interval midpoints of our partitioned
@@ -178,7 +178,7 @@ $\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius $> \frac{2}{2^r} =
 \frac{1}{2^{r-1}}$.
 
 Imagine we have already performed $r-2$ queries to search for $b_1$ without
-successfully ending the search, we will now analyze what happens after the
+successfully ending the search, we now analyze what happens after the
 $\nth{(r-1)}$ query is made. After having made $r-1$ queries, our current query
 interval has length $\sfrac{1}{2^{r-1}}$. This query interval must be one of
 all the possible $2^{r-1}$ intervals of the partition of $(0,1]$ in adjacent
@@ -206,7 +206,7 @@ cases the lower bound remains excluded. At the beginning of the algorithm,
 \(r - 1 = 0\), \(L=0\) and \(R=1\), hence \(c = 0\). Now for any query
 interval $(\frac{c}{2^{r-1}}, \frac{c+1}{2^{r-1}}]$ the query point is \(q =
 \frac{\sfrac{(c + (c + 1))}{2}}{2^{r-1}} = \frac{2c + 1}{2^r}\). Depending on the
-outcome of the query \(b \ask{\le} J(q)\) the new query interval will be
+outcome of the query \(b \ask{\le} J(q)\) the new query interval is
 either \((\frac{2c}{2^{r}}, \frac{2c+1}{2^{r}}]\) or \((\frac{2c+1}{2^{r}},
 \frac{2c+2}{2^{r}}]\). \ref{lemma:xy:dt:qi} follows by induction.
 \end{proof}
@@ -235,7 +235,7 @@ $$T(\card{\S}, 1) = \BigO{\log \card{\S}}$$
 
 Clearly, we can only divide $\card{\S}$ by $2$ $\log \card{\S}$ times and since
 we have a multiplicative factor of $4$ in the recurrence, we can always ask $2$
-\emph{useless} queries at each step that will not decrease $\card{\S}$ for the
+\emph{useless} queries at each step that do not decrease $\card{\S}$ for the
 next iteration. Hence,
 
 \begin{displaymath}

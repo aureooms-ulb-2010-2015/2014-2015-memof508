@@ -11,7 +11,7 @@ questions we ask to an oracle, and we will continue to take the same point of
 view here. We wonder how many times we need to ask an oracle whether a point
 lies above, on or under a certain hyperplane.
 
-The algorithm we will describe determines the position vector $\pv(x) \in
+The algorithm we describe determines the position vector $\pv(x) \in
 \signset^{m}$ of input vertex $x \in \R^n$ inside an
 arrangement of hyperplanes $\arrangement(\H)$ with $\H$ as a set of hyperplanes
 of cardinality $\card{\H} = m = \binom{n}{k}$,
@@ -51,12 +51,12 @@ This can be implicitly or explicitly simulated.}
 
 If we stop our explanation here we still have a worst-case \BigO{m}
 bound on the number of queries made. Hopefully, the next step of our
-explanation will show that it is possible to lower this bound.
+explanation shows that it is possible to lower this bound.
 
 The problem we have with our current algorithm is that there is no guarantee
 on the number of queries we avoid at each step.
 
-We will use a result on \enets, attributed to Ken Clarkson by
+We use a result on \enets, attributed to Ken Clarkson by
 \citet{burgisser:1997}, to make our algorithm achieve an upper bound
 of \BigO{n^3 \log^2 n \log m} queries.
 
@@ -93,21 +93,21 @@ now make two changes to the previous algorithm, we explicitly define the
 cardinality of $\Ht$ and we include an additional step where we replace cell
 $\cell$ with a simplex $\simplex$.
 
-Remember \(\Ht\) is the set of hyperplanes for which we will query the oracle
+Remember \(\Ht\) is the set of hyperplanes for which we query the oracle
 in the current step of the algorithm. We choose \(\card{\Ht} = \enetsize\) and
 instead of discarding hyperplanes not meeting the cell $\cell$ of the
 arrangement $\arrangement(\Ht)$ containing $x$, we first refine the cell around
 point $x$. We do so by computing a simplex $\simplex$ inscribed in $\cell$ and
 containing \(x\). Then we discard hyperplanes that do not meet this simplex.
 
-By proceeding this way we have now the guarantee that we will keep at most a
+By proceeding this way we have now the guarantee that we keep at most a
 constant fraction \(\epsilon\) of the hyperplanes and thus the total number of
 queries made to determine the enclosing cell of
 all steps is \BigO{n^2 \log^2 n \log m}. However, we
 still need to explicit how we find a simplex $\simplex$ containing $x$ and
 inscribed in $\cell$.
 
-We will now explain how to build $\simplex$. The algorithm can be sketched as
+We now explain how to build $\simplex$. The algorithm can be sketched as
 follows,
 
 \begin{algorithm}
@@ -167,7 +167,7 @@ Since the induction depth is $\BigO{\log m}$, the total complexity of this algor
 is \BigO{n^3 \log^2 n \log m}. For our \kSUM problem, $m = \binom{n}{k}$,
 and thus the complexity is \BigO{k n^3 \log^3 n}.
 
-In the next section we will apply the same algorithm to solve the
+In the next section we apply the same algorithm to solve the
 subset sum problem and see that, with this sufficiently powerful computing
-model, it will be possible to solve the subset sum problem in polynomial time.
+model, it is possible to solve the subset sum problem in polynomial time.
 

@@ -1,11 +1,11 @@
 \section{Algorithms for the Sorting Problem}
 \label{tree:sorting:alg}
 
-We will now detail three algorithms that can be used to solve the sorting
+We now detail three algorithms that can be used to solve the sorting
 problem efficiently. According to our model, remember \ref{tree:sorting:model},
 we only consider comparison-based sorting algorithms.
 
-\nb{In the following paragraphs and subsections we will use the words minimum,
+\nb{In the following paragraphs and subsections we use the words minimum,
 smaller
 and smallest as well as the symbol \(\le\). If one replaces minimum by maximum,
 smaller by larger, smallest by largest and \(\le\) by \(\ge\) in those paragraphs and subsections,
@@ -18,7 +18,7 @@ element from the input set. A second way is to iteratively
 extend a sorted sequence by insertion of an element taken (and removed) from
 the input set. \selectionsort and \bubblesort are two algorithms based on the
 first method. \insertionsort is an algorithm based on the second method.
-Because the complexity of these algorithms does not meet the ITLB, we will need
+Because the complexity of these algorithms does not meet the ITLB, we need
 to think about more clever methods\footnote{Although it is possible to obtain
 a \BigO{n \log n} comparisons algorithm by using binary search as the search
 method of the \insertionsort algorithm, this approach does not lead directly to
@@ -29,7 +29,7 @@ quadratic on average.}.
 
 \subsection*{\quicksort}
 
-The first efficient algorithm we will explain is \quicksort \cite{hoare:1962}.
+The first efficient algorithm we explain is \quicksort \cite{hoare:1962}.
 The idea behind the \quicksort algorithm is to divide the input set \(\S\),
 \(\card{\S} = n\), into two disjoint subsets \(\L\) and \(\U\) that can be
 sorted independently from one another. To enforce this independence condition,
@@ -69,7 +69,7 @@ approach tends to be more efficient than the safe one.
 A second efficient algorithm is \mergesort
 \cite{goldstine:1948,leiserson:2001}. Like \quicksort, \mergesort is a
 divide-and-conquer algorithm. While in \quicksort one makes the comparisons from
-the partition step before solving the two subproblems, in \mergesort we will
+the partition step before solving the two subproblems, in \mergesort we
 first solve two subproblems and then recombine them with a merge step that
 requires \BigO{n} comparisons:
 
@@ -89,7 +89,7 @@ and \(\U\) are sorted, the smallest element of \(\S\) can be computed as the
 smallest element between the smallest element of \(\L\) and the smallest
 element of \(\U\). Hence, each iteration requires a single comparison.
 
-Unlike the previous algorithm, we will always obtain a balanced partition of
+Unlike the previous algorithm, we always obtain a balanced partition of
 \(\S\) out of the partitioning step. Hence, the worst-case complexity of this
 algorithm is \BigO{n \log n}. Another way to obtain this complexity measure
 is to solve the following recurrence relation:
@@ -101,7 +101,7 @@ n + \BigO{\log n}.
 
 \subsection*{\heapsort}
 
-The last algorithm we will explain is the \heapsort algorithm
+The last algorithm we explain is the \heapsort algorithm
 \cite{williams:1964}. A heap is a data structure that allows one to
 efficiently lookup (\BigO{1}) or remove (\BigO{\log n}) the smallest element
 from a set \(\S\). A heap can be seen as a complete binary tree where a node
@@ -190,7 +190,7 @@ version of the \quicksort algorithm as their sorting procedure. An exception is
 reason behind this choice is that objects in \Java can be different while
 having the same comparison ``key''. Since the \Java \mergesort algorithm is
 implemented as a stable sorting procedure, it offers the users the guarantee
-that the sorting algorithm will not reverse the ``input''-order of equal-``key'' objects.
+that the sorting algorithm does not reverse the ``input''-order of equal-``key'' objects.
 The classical \quicksort algorithm is not used in this case because it is not
 stable.
 

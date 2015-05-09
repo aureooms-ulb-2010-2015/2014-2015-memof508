@@ -8,19 +8,19 @@ process. If we look at any \BigO{\text{ITLB}} algorithm, they all start from
 $0$ bits of information and end up producing a totally ordered set containing
 $\text{ITLB}= n \log n$ bits of information. We already showed in
 \ref{tree:sorting:ITLB} that for any algorithm, there exists an instance of the
-problem which will force the algorithm to ask \BigOmega{n \log n} questions.
-Starting from a poset whose order is completely unknown, such an algorithm will
-thus iteratively update this poset by retrieving information and make sure it
-reuses it well. By reusing the information efficiently, it will be able to
+problem which forces the algorithm to ask \BigOmega{n \log n} questions.
+Starting from a poset whose order is completely unknown, such an algorithm
+thus iteratively updates this poset by retrieving information and make sure it
+reuses it well. By reusing the information efficiently, it is able to
 choose ``good'' questions to ask.
 
 
 In \quicksort this is achieved by recursively building linear extensions of weak
 orders. In weak orders, elements of a poset are layered in sets of incomparable
 elements (maximum cardinality stable sets) that are disjoint from each other.
-Thus \quicksort will never have to ask a question about elements from disjoint
+Thus \quicksort never has to ask a question about elements from disjoint
 sets. However, the way \quicksort chooses questions does not guarantee that every
-step of the algorithm will evenly divide stable sets. In conclusion, while
+step of the algorithm evenly divides stable sets. In conclusion, while
 \quicksort can sometimes ask poor quality questions, it also reuses information
 it has optimally.
 
@@ -52,6 +52,6 @@ generation processes of a run of \quicksort and \mergesort. They sum up what we
 observed about those algorithms, that they only work on a particular subset of
 posets.
 
-What we will be interested in this chapter are algorithms that can sort any
+What we are interested in in this chapter are algorithms that can sort any
 poset, \ie not only those handled by classical sorting algorithms, optimally
 with respect to the number of comparisons.

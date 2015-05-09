@@ -28,7 +28,7 @@ $\S'$ of $m+n$ elements minus the information we already have.}
 \subsection*{The Hwang-Lin Algorithm}
 \label{tree:merging:k=2:alg}
 
-We will analyze the \concept{ITLB} of the Merging problem. Then we will
+We analyze the \concept{ITLB} of the Merging problem. Then we
 describe an algorithm whose complexity meets the \concept{ITLB}. We begin by
 computing the general case expression of the \concept{ITLB}.
 
@@ -52,11 +52,11 @@ computing the general case expression of the \concept{ITLB}.
 \end{align*}
 \end{proof}
 
-In order to feed our intuition on this expression we will analyze its behavior
+In order to feed our intuition on this expression we analyze its behavior
 on several special cases. Without loss of generality, we consider the cases
 where \(m \leq n\).
 
-The first case we will analyze is the case where $m = n$. This case is similar
+The first case we analyze is the case where $m = n$. This case is similar
 to what happens during the merge phase of the \mergesort algorithm.
 
 \begin{lemma}
@@ -112,7 +112,7 @@ In conclusion, the only way the \concept{ITLB} could be \SmallO{n} is if \(m =
 \SmallO{n}\). This result will be useful for the next section.
 
 Now we want to see what the bound becomes when $n$ start to grow relatively to
-$m$. In the following proof we will assume that $m$ is negligible compared to $n$.
+$m$. In the following proof we assume that $m$ is negligible compared to $n$.
 
 \begin{lemma}
 \begin{align*}
