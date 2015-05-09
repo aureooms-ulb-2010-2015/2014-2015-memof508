@@ -14,15 +14,15 @@ In other words, in our model, the only operation having a non-zero cost is
 asking the oracle to answer one of our ``yes/no'' questions.
 
 In the first two chapters, we give an overview on two well-studied problems:
-sorting and merging. The goal of this overview is to clearly define these
-two basic problems as well as the model we are working with. For example,
-we point out the nonuniformity of the decision tree model. This overview
-also gives us the opportunity to introduce tools that are needed all along
-this document. Two examples of such tools are Stirling's approximation of the
-factorial and the
-\mergesort algorithm. Since all the problems we approach are in a way or
-another related to Sorting, these first two chapters are the starting point of
-our work.
+sorting and merging. The goal of this overview is to clearly define these two
+basic problems as well as the model we are working with. For example, we point
+out the nonuniformity of the decision tree model. This overview also gives us
+the opportunity to introduce tools that are needed all along this document. Two
+examples of such tools are Stirling's approximation of the factorial
+(\cite{feller1967direct}) and the \mergesort algorithm
+(\cite{goldstine:1948,leiserson:2001}). Since all the problems we approach are in
+a way or another related to Sorting, these first two chapters are the starting
+point of our work.
 
 The third chapter is dedicated to formalization of commonly used objects
 in order theory. We first familiarize ourselves with order
@@ -30,8 +30,8 @@ relations and partially ordered sets. We introduce Hasse diagrams that
 are used to represent partially ordered sets throughout this document.
 This chapter also contains information about the structure of
 certain families of posets. The conclusion of this
-chapter consists in the definition of graph entropy and
-poset entropy, one of the most useful tools we use to explain the
+chapter consists in the definition of graph entropy (\cite{korner1973coding})
+and poset entropy, one of the most useful tools we use to explain the
 results exposed in Chapter \(4\).
 
 In the fourth chapter, we tackle the problem of Sorting under Partial
@@ -44,9 +44,16 @@ poset, and we explain ways
 to find the linear extension of a poset using a smaller number of queries than
 what would be required by classical sorting algorithms. We first define
 the problem and explain its origins. We then explain techniques that can
-be used to solve this problem. The last part of this chapter concerns an
-algorithm that solves the problem of Merging under Partial Information or
-\concept{MUPI}, a special case of Sorting under Partial Information.
+be used to solve this problem (\cite{kahn:1995,cardinal:2013}). The
+last two sections of this chapter concern
+algorithms that solve the problem of Merging under Partial Information or
+\concept{MUPI}, a special case of Sorting under Partial Information. We first
+give a detailed explanation of an algorithm due to \citet*{linial:1984} and
+then give an original, more practical implementation of this algorithm. This
+new implementation solves an MUPI instance with less than \(1.71 \log e(\P)\)
+comparisons and has a time complexity of \BigO{n^2 + n \log e(\P)}. The
+\(n^2\) term of the time complexity measure can be moved to a preprocessing
+phase if \(\P\) is known in advance.
 
 The fifth chapter introduces a variety of problems that are all related to
 each other. We introduce the classical set sum problems that are
@@ -59,10 +66,11 @@ extended model is used in the last three chapters.
 
 The sixth chapter focuses on the problem of sorting \XY. We make
 multiple attempts to solve this problem efficiently and evaluate its complexity
-using two different sets of tools. We see how exploiting known information
+using two different sets of tools. We show how exploiting known information
 can be significant and the limitations of the partially ordered set tools that
 were used for solving the Sorting under Partial Information problem. We
-detail one of the first algorithms designed to solve \concept{SUPI} and
+detail one of the first algorithms designed to solve \concept{SUPI}
+(\cite{fredman:1976}) and
 show that using this algorithm, one can solve the problem of sorting \XY
 using less comparisons than with the poset theory approach.
 
@@ -72,13 +80,13 @@ we state a long-lived but freshly refuted conjecture concerning the
 complexity of \threeSUM, and explain the implications. The third part
 consists of three sections. The first two contain previous results while
 the third one exposes recent results that refute the above-mentioned
-conjecture. Finally, we explain how these results can be applied to solve
+conjecture (\cite{gronlund:2014}). Finally, we explain how these results can be applied to solve
 the more generic \kLDT problem.
 
 The last chapter concerns the application of a point location algorithm to
-the family of \kSUM problems. We show how one can model those subset sum
+the family of \kSUM problems (\cite{meiser:1993,burgisser:1997}). We show how one can model those subset sum
 problems as point location problems. We then detail the algorithm that
 can solve these newly modeled problems. We have the opportunity to insist again
 on the nonuniformity of the decision tree model. We end our dissertation
-with a trick that limits the size of queries to the oracle when
+with an original trick that limits the size of queries to the oracle when
 using our point location algorithm.
