@@ -43,11 +43,11 @@ a_1\) and \(b_1\) are incomparable and \(\frac{e(\P(a_1 < b_1)}{e(\P)} <
 \sfrac{1}{3}\) then there must exist a \(r\) for which either
 
 \begin{displaymath}
-\sfrac{1}{3} \le \frac{e(\P(a_1 < b_{r-1})}{e(\P)} \le \sfrac{1}{2}
+\sfrac{1}{3} \le \frac{e(\P(a_1 < b_{r-1}))}{e(\P)} \le \sfrac{1}{2}
 \end{displaymath}
 or
 \begin{displaymath}
-\sfrac{1}{2} \le \frac{e(\P(a_1 < b_{r})}{e(\P)} \le \sfrac{2}{3}.
+\sfrac{1}{2} \le \frac{e(\P(a_1 < b_{r}))}{e(\P)} \le \sfrac{2}{3}.
 \end{displaymath}
 
 All of this is without loss of generality. If \(a_1\) and \(b_1\) are
@@ -145,3 +145,9 @@ size of the values;
 \item For each step there is a polynomial number of possible queries to look for;
 \item There are \BigO{\log e(\P)} steps and \(\log e(\P)\) is \BigO{n \log n}.
 \end{enumerate}
+
+However, the algorithm \emph{as is} is not practical. The complexity added
+by the computation of binomial coefficients matrices and determinants in
+Linial's algorithm is at least quadratic. In the next section, we present an
+original implementation of this algorithm that uses dynamic programming to
+avoid the computation of binomial coefficients and determinants.

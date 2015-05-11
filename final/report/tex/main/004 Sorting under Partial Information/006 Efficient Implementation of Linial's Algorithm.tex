@@ -1,58 +1,130 @@
 \section{Efficient Implementation of Linial's Algorithm}
 
-However, as an anonymous referee pointed out in the peer review of
-\citet*{cardinal:2013}, there exists a faster way that does not require computing
-all those determinants. We now expose a recurrence relation that can be used
-to compute \(e(\P)\) with dynamic programming.
+In this section we present original developments on Linial's work
+\cite{linial:1984}.
+We explain
+how to reduce the complexity of Linial's algorithm to \BigO{n^2} preprocessing
+time and \BigO{n \log e(P)} running time.
 
-We look at \(a_m\) and \(b_n\). There are three ways \(a_m\) and \(b_n\) can be
-related in the partial order we receive as input. Either we know \(a_m < b_n\)
-or \(a_m > b_n\), or \(a_m\) and \(b_n\) are incomparable in this partial
-order. In the first two cases, we know that one of \(a_m,b_n\) must be the last
+As an anonymous referee pointed out in the peer review of
+\citet*{cardinal:2013}, it is possible to implement Linial's algorithm
+using dynamic programming instead of binomial coefficients and
+determinants. We now expose a recurrence relation that can be used to compute
+\(e(\P)\) using dynamic programming.
+
+We look at \(a_1\) and \(b_1\), the smallest elements of \(\A\) and \(\B\)
+respectively. There are three ways \(a_1\) and \(b_1\) can be
+related in the partial order \(\P\) we receive as input. Either we know \(a_1 <_{\P} b_1\)
+or \(b_1 <_{\P} a_1\), or \(a_1\) and \(b_1\) are incomparable in \(\P\).
+In the first two cases, we know that one of \(a_1,b_1\) must be the smallest
 element of the set \(\A \cup \B\) when totally ordered. In these cases, \(e(\P) =
-e(\P \setminus b_n)\) or \(e(\P) = e(\P \setminus a_m)\) for \(a_m < b_n\) or
-\(a_m > b_n\) respectively. Now, if \(a_m\) and \(b_n\) are incomparable in
-\(\P\), in the totally ordered set we are building one of \(a_m < b_n\) or \(a_m
-> b_n\) holds true. Hence \(e(\P) = e(\P \setminus b_n) + e(\P \setminus
-a_m)\) in this case, since both outcomes for \(a \ask{<} b\) are possible.
+e(\P \setminus a_1)\) or \(e(\P) = e(\P \setminus b_1)\) for \(a_1 < b_1\) or
+\(b_1 < a_1\) respectively. In the last case, if \(a_1\) and \(b_1\) are incomparable in
+\(\P\), in the unknown total order we are trying to unveil one of \(a_1 < b_1\)
+or \(b_1 < a_1\) holds true. Hence \(e(\P) = e(\P \setminus a_1) + e(\P \setminus
+b_1)\) in this case, since both outcomes for \(a \ask{<} b\) are possible.
 Lastly, if \(\card{\A} = 0\) or \(\card{\B} = 0\) then \(e(\P) = 1\). We can thus
 express \(e(\P)\) using the following recurrence relation
-
 \begin{displaymath}
 e(\P) =
 \begin{dcases*}
 1            & if \(\card{\A} = 0\) or \(\card{\B} = 0\)\\
-e(\P \setminus b_n) & if \(a_m < b_n\)\\
-e(\P \setminus a_m) & if \(a_m > b_n\)\\
-e(\P \setminus b_n) + e(\P \setminus a_m) & if \(a_m\) and \(b_n\) are
-incomparable.\\
+e(\P \setminus {a_1}) & if \(a_1 <_{\P} b_1\)\\
+e(\P \setminus {b_1}) & if \(b_1 <_{\P} a_1\)\\
+e(\P \setminus {a_1}) + e(\P \setminus b_1) & if \(a_1\) and \(b_1\) are
+incomparable in \(\P\),\\
 \end{dcases*}
 \end{displaymath}
+which can be computed using dynamic programming. Note that posets \(\Q\) that
+are incompatible with the original poset \(\P\),
+are assigned a value \(e(\Q) = 0\).
 
-Note that if we compute \(e(\P)\) using this recurrence in a dynamic program,
-we also get all values of \(e(\P(a_m < b_s))\) and \(e(\P(a_s < b_n))\) for
-free. This is because there is only one possible way tail elements can be
-arranged to have \(e(\P(a_m < b_s))\), \ie \(a_m < b_s < b_{s+1} < \ldots <
-b_n\). Note that other values \(e(\P(a_i < b_j)\) for any pair \((a_i,b_j)\)
+If we compute \(e(\P)\) using this recurrence relation in a dynamic program,
+we also get all values of \(e(\P(a_1 < b_r))\) and \(e(\P(b_1 < a_r))\) for
+free. Without loss of generality we prove that this holds for all
+values \(e(\P(a_1 < b_r)), 1 \le r \le \card{\B}\).
+\begin{proof}
+We have
+\begin{displaymath}
+e(\P(a_1 < b_r)) = e(\P) - e(\P(b_r < a_1)) = e(\P) - e(\P \setminus \enum{b_1,\ldots,b_r})
+\end{displaymath}
+which is known if the recurrence relation for \(e(\P)\) was computed using dynamic
+programming.
+\end{proof}
+Note that other values \(e(\P(a_i < b_j))\) for any pair \((a_i,b_j)\)
 would be trickier to compute. The value of \(e(\P)\) and the number of linear
-extensions of all poset extensions \(\P(a_m < b_s)\) and \(\P(a_s < b_n)\) can
-thus be computed in \BigO{mn \log e(\P)} time using dynamic programming with a
-\(m \times n\) memory tableau containing numbers with values up to \(\log
-e(\P)\). Note that posets that are incompatible with the original poset \(\P\),
-are assigned a value \(e = 0\).
+extensions of all poset extensions \(\P(a_1 < b_r)\) and \(\P(b_1 < a_r)\) can
+thus be computed in \BigO{\card{\A}\card{\B} \log e(\P)} time using dynamic programming with a
+\(\card{\A} \times \card{\B}\) memory tableau containing numbers with values up to \(\log
+e(\P)\).
 
-Moreover, one can reuse the information obtained via the dynamic program. We
-explain how. Suppose we have computed \(e(\P)\) and all \(e(\P(a_m < b_s))\) and
-\(e(\P(a_s < b_n))\) using the dynamic program. According to these values and
-thanks to Linial's proof, we find a good query \(a_m \ask{<} b_s\) to perform.
-Depending on the outcome of this query we update the output of the dynamic
-program. If \(a_m < b_s\) then we do not have to update anything,
-\(\chain{b_s}{b_n}\) can now simply be ignored. Otherwise, \(a_m > b_s\) and
-unless \(s = n\) we have to update at most \(s\) cells of the dynamic program
-tableau. If the memory tableau of the dynamic program is a \(m \times n\)
-tableau \(e = \enum{e_{i,j} = e(\chain{a_1}{a_i} \cup \chain{b_1}{b_j})}\), the
-cells to update are \(e_{m,t}\) through \(e_{m,s}\) where \(t \le s\) is \( t =
-\min \enum{t \st a_m \text{ and } b_t \text{ are incomparable} }\).
+We can thus use the dynamic program to find a good query to perform instead of
+computing determinants.
+Moreover, we now prove that we can update the information obtained via the dynamic program
+with the answer to a query in \BigO{n} time.
+\begin{proof}
+Suppose we have computed \(e(\P)\) and all \(e(\P(a_1 < b_r))\) and
+\(e(\P(b_1 < a_r))\) using dynamic programming. According to these values and
+thanks to Linial's proof of the \onethirdtwothird conjecture for width-\(2\)
+posets, we find a good query \(a_1 \ask{<} b_r\) or \(b_1 \ask{<} a_r\) to perform.
+Depending on the outcome of this query we update the tableau of the dynamic
+program. We now assume the good query was of the type \(a_1 \ask{<} b_r\)
+without loss of generality. If \(b_r < a_1\) then we do not have to update anything,
+the chain \(\chain{b_1}{b_r}\) can now simply be ignored. Otherwise, \(a_1 <
+b_r\) and
+unless \(r = 1\) we have to update at most \(\max\enum{\card{\A}, \card{\B}}\) cells of the dynamic program
+tableau \(e = \enum{e_{i,j} = e(\P \cap (\enum{a_i,\ldots,a_{\card{\A}}} \cup
+\enum{b_j,\ldots,b_{\card{\B}}}))}\) with \(1 \le i \le \card{\A}+1\) and \(1 \le j
+\le \card{\B}+1\). The
+cells to update are \(e_{1,1}\) through \(e_{1,r}\). The
+new value to assign to \(e_{1,r}\) is \(e_{2,r}\) because if \(a_1 < b_r\)
+then \(e(\P \setminus
+\enum{b_1,\ldots,b_{r-1}}) = e(\P \setminus (\enum{b_1,\ldots,b_{r-1}} \cup
+\enum{a_1})\). Since we changed \(e_{1,r}\) we also need to update all upstream
+values \(e_{1,1}, \ldots, e_{1,r-1}\). This is the only case where we have to
+update the tableau and the number of cells to update is \BigO{n}.
+\end{proof}
+
+We now detail an implementation of the processing part of the algorithm. For the sake of simplicity,
+we consider a recursive implementation. This implementation outputs a linear
+extension compatible with the unknown total order \(<\). The algorithm receives as
+input the poset \(\P\) covered by two chains \(\A =
+(\chain{a_1}{a_{\card{\A}}})\) and \(\B = (\chain{b_1}{b_{\card{\B}}})\), the oracle
+\(\ask{<}\) and a precomputed \(\card{\A} \times \card{\B}\) tableau \(e\).
+
+\nb{Several times during the algorithm we use an instruction that swaps the
+roles of \(\A\) and \(\B\). The intent is to avoid duplication of
+instructions that would bloat the description. A side effect of this swap
+instruction is that it exchanges
+the roles of rows and columns in the tableau \(e\).}
+
+\begin{algorithm}
+\item[1.] If \(\card{\A} = 0 \text{ and } \card{\B} = 0\) the algorithm stops.
+\item[2.1.] If \(\card{\B} = 0\) or \(a_1 <_{\P} b_1\) swap the roles of \(\A\) and \(\B\).
+\item[2.2.] If \(\card{\A} = 0\) or \(b_1 <_{\P} a_1\) output
+\(b_1\), run the
+algorithm with \(\B \gets \B \setminus \enum{b_1}\), then stop.
+\item[3.1.] If \(\frac{e(\P(a_1 < b_1))}{e(\P)} > \sfrac{2}{3}\) swap the
+roles of \(\A\) and \(\B\).
+\item[3.2.] If \(\frac{e(\P(a_1 < b_1))}{e(\P)} < \sfrac{1}{3}\),
+\item[3.2.1.] Compute \(r\) such that \(\sfrac{1}{3} \le \frac{e(\P(a_1 < b_r))}{e(\P)} \le \sfrac{2}{3}\).
+\item[3.2.2.] Query the oracle with \(a_1 \ask{<} b_r\).
+\item[3.2.3.] If \(b_r < a_1\) output
+\(b_1,\ldots,b_r\), run the algorithm with \(\B \gets \B
+\setminus \enum{b_1,\ldots,b_r}\), then stop.
+\item[3.2.4.] Otherwise,
+\item[3.2.4.1.] Update \(\P \gets \P( a_1 < b_r )\).
+\item[3.2.4.2.] Update \(e_{1,j} \gets e_{2,j}\) for \(1 \le j \le r\).
+\item[3.2.4.3.] Run the algorithm using the updated \(\P\) and \(e\), then stop.
+\item[3.3.] Otherwise,
+\item[3.3.1] Query the oracle with \(a_1 \ask{<} b_1\).
+\item[3.3.2] If \(a_1 < b_1\) swap the roles of \(\A\) and \(\B\).
+\item[3.3.3] Output \(b_1\), run the algorithm with \(\B \gets \B \setminus
+\enum{b_1}\), then stop.
+\end{algorithm}
+
+\nb{The only steps where we query the oracle are step \step{3.2.2} and step
+\step{3.3.1}.}
 
 As a final remark, know that it is possible to reduce the computational
 complexity of both the construction and the update of the dynamic program. If
@@ -60,6 +132,8 @@ we limit ourselves to store \emph{limited precision integers} and perform
 \emph{limited precision arithmetic} when adding those integers, then we can
 shave off the \(\log e(\P)\) factor in both cases. Hence, if we divide the
 execution of the algorithm into a preprocessing phase and a processing phase,
-the complexity of the preprocessing phase is \BigO{mn} while doing no
+the complexity of the preprocessing phase is \BigO{\card{\A}\card{\B}} while doing no
 comparisons, and the complexity of the processing phase is \BigO{N \log e(\P)}
-using \BigO{\log e(\P)} comparisons where \(N = \max \enum{m,n}\).
+where \(N = \max \enum{\card{\A},\card{\B}}\). The algorithm uses at most
+\(\log(\frac{1+\sqrt{5}}{2})^{-1} \log e(\P) \approx 1.44 \text{ ITLB}\)
+queries as shown by \citet*{linial:1984}.
