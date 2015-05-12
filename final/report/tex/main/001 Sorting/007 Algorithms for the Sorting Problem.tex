@@ -249,10 +249,11 @@ algorithms in the field of Computer Science, there still exists a linear term
 gap between the most efficient algorithms and the \concept{ITLB} for the
 sorting problem.
 
-For example, \mergesort is one of the algorithms whose complexity comes closest
+Out of the algorithms we showed in this chapter, \mergesort is one of the
+sorting algorithms whose complexity comes closest
 to the \concept{ITLB}, \ie
 \begin{displaymath}
-n \log n - n + 1 \le T(n) = n \ceil{\log n} - 2^{\ceil{\log n}} + 1 \le n \log
+n \log n - n + 1 \le M(n) = n \ceil{\log n} - 2^{\ceil{\log n}} + 1 \le n \log
 n + n + \BigO{\log n},
 \end{displaymath}
 while
@@ -260,3 +261,23 @@ while
 \text{ITLB} \simeq n \log n - 1.443 n + \frac{1}{2} \log n + 1.326,
 \end{displaymath}
 which leaves us with a \BigO{n} gap between the two bounds.
+
+However, it is possible to do better. The Ford-Johnson
+(\cite{ford:1959,hwang:1969,knuth1998art}) algorithm is the
+best-known sorting algorithm for this purpose. The bounds achieved by the
+Ford-Johnson algorithm are
+\begin{displaymath}
+n \log n - 1.415 n + \frac{1}{2} + \BigO{1} \le F(n) \le n \log n - 1.329 n +
+\frac{1}{2} \log n + \BigO{1},
+\end{displaymath}
+where
+\begin{displaymath}
+F(n) = n \log n - n ( 1 + f + 2^{1-f} - \log 3) + \frac{1}{2} \log n + \BigO{1}
+\end{displaymath}
+and \(n = \left(\frac{4}{3}\right) 2^{k+f}\) with \(k\) an integer and \(f\) a real
+number in the range \(0 < f < 1\).
+
+\citet*{manacher:1979} proved that this algorithm is not optimal, \ie that
+there exists another sorting algorithm beating the Ford-Johnson algorithm in
+terms of number of comparisons for some inputs. The question of the existence
+of an optimal algorithm remains open.
