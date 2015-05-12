@@ -2,19 +2,30 @@
 
 If we ignore the \mergesort algorithm which was presented in
 the previous chapter there are not so many examples of practical merging
-procedures. Indeed, this problem seems unpopular and outdated. Even
-\emph{Wikipedia} states that merge algorithms are \emph{a family of algorithms
+procedures. Indeed, this problem seems unpopular and outdated. For example,
+\emph{Wikipedia} states that merging algorithms are \emph{a family of algorithms
 that run sequentially over multiple sorted lists, typically producing more
 sorted lists as output}, which are not the only algorithms that we
-consider. If we want for example to build a sorted output sequence from two
-sorted input sequences, a common, practical and simple way to do it is to read
-both input sequences sequentially, as if they were priority queues, iteratively
-removing the smallest element out of the two input sequences heads and adding
-it to the end of the output sequence. This approach has \BigO{n} complexity for
-both comparisons and other computation operations. In this chapter, we
-analyze the number of comparisons needed to merge two totally
-ordered sets. Here, we define the ITLB as some formula expressing a lower
-bound on the number of comparisons required to merge two totally ordered sets
-of cardinality $m$ and $n$. We then show that there exists an algorithm
-whose time complexity is \BigO{ITLB}.
+consider.
 
+We explain our motivation with the following observation.
+If we want to build a sorted output sequence from two sorted input sequences, a
+common, practical and simple way to do it is to read both input sequences
+sequentially, as if they were priority queues, iteratively removing the
+smallest element out of the two input sequences heads and adding it to the end
+of the output sequence. This algorithm is the merge procedure of the \mergesort
+algorithm and is called \tapemerge. \tapemerge has \BigO{n} complexity for
+both comparisons and other computation operations. However, the query
+complexity of \tapemerge does not match the ITLB of the merging problem for all
+inputs. In this chapter, we explain how we can beat the \tapemerge algorithm
+with cleverer techniques and how to apply these results to the problem of
+merging \(k\) sorted sequences.
+
+In the first section, we give a formal statement of the merging problem, \ie
+the problem of merging \(k\) sorted sequences of different sizes. In the second
+section, we analyze the ITLB for the problem of merging two sorted sequences of
+different sizes and give a description of the Hwang-Lin algorithm
+\cite{DBLP:journals/siamcomp/HwangL72} that solves this problem using
+\BigO{ITLB} queries. In the last section, we analyze the ITLB of the merging
+problem and give a \BigO{ITLB} algorithm solving this problem. This last
+algorithm is built on top of the Hwang-Lin algorithm.
