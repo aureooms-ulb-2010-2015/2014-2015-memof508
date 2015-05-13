@@ -1,6 +1,9 @@
 \section{Merging two Totally Ordered Sets}
 \label{tree:merging:k=2}
 
+We now analyze the ITLB for the problem of merging two sorted sequences of
+different sizes and give a description of a \BigO{ITLB} algorithm.
+
 \subsection*{ITLB}
 \label{tree:merging:k=2:ITLB}
 
@@ -156,16 +159,16 @@ Ideally this algorithm should compete with Sequential Merge for the case where
 $m = n$ and with Binary Search for the case where $m = 1$.
 
 
-From now on we have explored special cases, it would be nice if we could
+So far we have explored special cases, it would be nice if we could
 combine the different solutions to build an algorithm of complexity \BigO{\log
 \binom{m+n}{m}} that works for any input.
 
 The idea is that the algorithm should behave like:
 
 \begin{itemize}
-\item \tapemerge in case $\frac{n}{m} = 1$;
-\item $m$ binary searches on sets of size $\frac{n}{m}$ in case $m = \SmallO{n}$;
-\item Binary Search in case \(m = \SmallO{n}\) and \(m = 1\).
+\item \tapemerge when $\frac{n}{m} = 1$;
+\item $m$ binary searches on sets of size $\frac{n}{m}$ when $m = \SmallO{n}$;
+\item Binary Search when \(m = 1\).
 \end{itemize}
 
 \citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm. Their
