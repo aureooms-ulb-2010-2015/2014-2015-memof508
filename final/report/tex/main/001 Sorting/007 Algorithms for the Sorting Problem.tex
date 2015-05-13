@@ -246,11 +246,11 @@ For example implementations of those data structures see
 
 Although there has been an enormous amount of research directed towards sorting
 algorithms in the field of Computer Science, there still exists a linear term
-gap between the most efficient algorithms and the \concept{ITLB} for the
-sorting problem.
+gap between the most efficient algorithms with respect to the number of
+comparisons and the \concept{ITLB} for the sorting problem.
 
 Out of the algorithms we showed in this chapter, \mergesort is one of the
-sorting algorithms whose complexity comes closest
+sorting algorithms whose query complexity comes closest
 to the \concept{ITLB}, \ie
 \begin{displaymath}
 n \log n - n + 1 \le M(n) = n \ceil{\log n} - 2^{\ceil{\log n}} + 1 \le n \log
