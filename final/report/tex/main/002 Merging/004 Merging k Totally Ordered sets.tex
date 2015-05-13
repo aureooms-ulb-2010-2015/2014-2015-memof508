@@ -1,13 +1,18 @@
 \section{Merging $k$ Totally Ordered Sets}
 \label{tree:merging:kgeq3}
 
+In this last section, we give the ITLB of the merging
+problem and a \BigO{ITLB} algorithm solving this problem. This last
+algorithm is built on top of the Hwang-Lin algorithm.
 
 \subsection*{ITLB}
 \label{tree:merging:kgeq3:ITLB}
 
+Again, we compute the ITLB as the logarithm of the number of possible solutions
+for this problem, \ie
 
 \begin{theorem}
-The \concept{ITLB} for the merging problem when $k \geq 3$ with $|\S_i| = n_i$ and $n =
+The \concept{ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
 \sum_{i=1}^{k} n_i$ is \BigOmega{\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}}.
 \end{theorem}
 
@@ -26,21 +31,22 @@ Stirling's approximation gives us \(n \log n - \sum_{i=1}^{k} n_i \log n_i -
 which clearly express the information contained in the sorted sequence $\S'$ of
 $n$ elements minus the information we already have.}
 
-\subsection*{An Algorithm for the General Merging Problem}
+\subsection*{An Algorithm for the Merging Problem}
 \label{tree:merging:kgeq3:alg}
 
-Our optimal algorithm for the General Merging Problem is as follows.
+We start with the pseudo-code description of our algorithm. We then prove this
+algorithm solves the merging problem using \BigO{ITLB} queries.
 
 \begin{algorithm}
 \item[1.] Let \(\S_i\) and \(\S_j\) be two smallest sets from \(\S_1 ,
 \dots , \S_k\).
-\item[2.] Merge \(\S_i\) and \(\S_j\) with an optimal algorithm.
+\item[2.] Merge \(\S_i\) and \(\S_j\) with a \BigO{ITLB} algorithm.
 \item[3.] Merge \((\enum{\S_1 , \dots , \S_k} \setminus \enum{\S_i,\S_j} )
 \cup \enum{\S_i \cup \S_j}\).
 \end{algorithm}
 
-We use tools from Information Theory to prove that this algorithm is
-optimal. The first tool we use is Shannon's entropy of a random
+We use tools from Information Theory to prove that this algorithm has
+a query complexity of \BigO{ITLB}. The first tool we use is Shannon's entropy of a random
 variable \(X\), \(H(X)\).
 \begin{definition}
 \begin{displaymath}
@@ -142,14 +148,15 @@ way the \concept{ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
 \(\L\) we merge have sizes \(m\) and \(n\) respectively such that \(m =
 \SmallO{n}\). Otherwise merging them would require \BigOmega{n} comparisons.
 If \(m = \SmallO{n}\), then we can use the Hwang-Lin algorithm to merge those
-two nodes optimally in \BigO{m \log \frac{n}{m}} comparisons. Moreover, the set
+two nodes using \BigO{m \log \frac{n}{m}} comparisons. Moreover, the set
 \(\L\) can only be a leaf of the Huffman tree. Indeed, it cannot be the result
 of a merge operation between two \BigO{m} sized nodes. Since this is the only
 kind of merge operation that is allowed before having merged the set \(\U\)
 with another one, \(\L\) is necessarily a leaf.  Producing the totally ordered
 set of size \(m\) uses at most \BigO{m \log m} comparisons. Since \(\BigO{m
 \log m} = \BigO{m \log \frac{n}{m}}\) when \(m = \SmallO{n}\), after trading
-the \tapemerge algorithm for the Hwang-Lin algorithm our algorithm is optimal.
+\tapemerge for the Hwang-Lin algorithm we get an algorithm
+solving the merging problem using \BigO{ITLB} queries.
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
 leaves of the Huffman tree using the Hwang-Lin algorithm until there is only
