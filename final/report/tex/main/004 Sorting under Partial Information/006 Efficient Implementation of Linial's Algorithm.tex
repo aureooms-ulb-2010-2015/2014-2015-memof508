@@ -44,12 +44,23 @@ we also get all values of \(e(\P(a_1 < b_r))\) and \(e(\P(b_1 < a_r))\) for
 free. Without loss of generality we prove that this holds for all
 values \(e(\P(a_1 < b_r)), 1 \le r \le \card{\B}\).
 \begin{proof}
-We have
+Let \(K\) be the tableau of our dynamic program, \ie
+\begin{displaymath}
+K = \enum{K_{i,j} = e(\P \cap (\enum{a_i,\ldots,a_{\card{\A}}} \cup
+\enum{b_j,\ldots,b_{\card{\B}}}))}
+\end{displaymath}
+with \(1 \le i \le \card{\A}+1\) and \(1 \le j \le \card{\B}+1\). Since
+\begin{displaymath}
+K_{1,r+1} = e(\P \setminus \enum{b_1,\ldots,b_r})
+\end{displaymath}
+and
 \begin{displaymath}
 e(\P(a_1 < b_r)) = e(\P) - e(\P(b_r < a_1)) = e(\P) - e(\P \setminus \enum{b_1,\ldots,b_r})
 \end{displaymath}
-which is known if the recurrence relation for \(e(\P)\) was computed using dynamic
-programming.
+we have
+\begin{displaymath}
+e(\P(a_1 < b_r)) = K_{1,1} - K_{1,r+1}.
+\end{displaymath}
 \end{proof}
 Note that other values \(e(\P(a_i < b_j))\) for any pair \((a_i,b_j)\)
 would be trickier to compute. The value of \(e(\P)\) and the number of linear
@@ -73,15 +84,13 @@ without loss of generality. If \(b_r < a_1\) then we do not have to update anyth
 the chain \(\chain{b_1}{b_r}\) can now simply be ignored. Otherwise, \(a_1 <
 b_r\) and
 unless \(r = 1\) we have to update at most \(\max\enum{\card{\A}, \card{\B}}\) cells of the dynamic program
-tableau \(e = \enum{e_{i,j} = e(\P \cap (\enum{a_i,\ldots,a_{\card{\A}}} \cup
-\enum{b_j,\ldots,b_{\card{\B}}}))}\) with \(1 \le i \le \card{\A}+1\) and \(1 \le j
-\le \card{\B}+1\). The
-cells to update are \(e_{1,1}\) through \(e_{1,r}\). The
-new value to assign to \(e_{1,r}\) is \(e_{2,r}\) because if \(a_1 < b_r\)
+tableau. The
+cells to update are \(K_{1,1}\) through \(K_{1,r}\). The
+new value to assign to \(K_{1,r}\) is \(K_{2,r}\) because if \(a_1 < b_r\)
 then \(e(\P \setminus
 \enum{b_1,\ldots,b_{r-1}}) = e(\P \setminus (\enum{b_1,\ldots,b_{r-1}} \cup
-\enum{a_1})\). Since we changed \(e_{1,r}\) we also need to update all upstream
-values \(e_{1,1}, \ldots, e_{1,r-1}\). This is the only case where we have to
+\enum{a_1})\). Since we changed \(K_{1,r}\) we also need to update all upstream
+values \(K_{1,1}, \ldots, K_{1,r-1}\). This is the only case where we have to
 update the tableau and the number of cells to update is \BigO{n}.
 \end{proof}
 
@@ -90,13 +99,13 @@ we consider a recursive implementation. This implementation outputs a linear
 extension compatible with the unknown total order \(<\). The algorithm receives as
 input the poset \(\P\) covered by two chains \(\A =
 (\chain{a_1}{a_{\card{\A}}})\) and \(\B = (\chain{b_1}{b_{\card{\B}}})\), the oracle
-\(\ask{<}\) and a precomputed \(\card{\A} \times \card{\B}\) tableau \(e\).
+\(\ask{<}\) and a precomputed \(\card{\A} \times \card{\B}\) tableau \(K\).
 
 \nb{Several times during the algorithm we use an instruction that swaps the
 roles of \(\A\) and \(\B\). The intent is to avoid duplication of
 instructions that would bloat the description. A side effect of this swap
 instruction is that it exchanges
-the roles of rows and columns in the tableau \(e\).}
+the roles of rows and columns in the tableau \(K\).}
 
 \begin{algorithm}
 \item[1.] If \(\card{\A} = 0 \text{ and } \card{\B} = 0\) the algorithm stops.
@@ -114,8 +123,8 @@ roles of \(\A\) and \(\B\).
 \setminus \enum{b_1,\ldots,b_r}\), then stop.
 \item[3.2.4.] Otherwise,
 \item[3.2.4.1.] Update \(\P \gets \P( a_1 < b_r )\).
-\item[3.2.4.2.] Update \(e_{1,j} \gets e_{2,j}\) for \(1 \le j \le r\).
-\item[3.2.4.3.] Run the algorithm using the updated \(\P\) and \(e\), then stop.
+\item[3.2.4.2.] Update \(K_{1,j} \gets K_{2,j}\) for \(1 \le j \le r\).
+\item[3.2.4.3.] Run the algorithm using the updated \(\P\) and \(K\), then stop.
 \item[3.3.] Otherwise,
 \item[3.3.1] Query the oracle with \(a_1 \ask{<} b_1\).
 \item[3.3.2] If \(a_1 < b_1\) swap the roles of \(\A\) and \(\B\).
@@ -126,8 +135,8 @@ roles of \(\A\) and \(\B\).
 \nb{The only steps where we query the oracle are step \step{3.2.2} and step
 \step{3.3.1}.}
 
-As a final remark, know that it is possible to reduce the computational
-complexity of both the construction and the update of the dynamic program. If
+As a final remark, it is possible to reduce the computational
+complexity of both the construction and the update steps of the dynamic program. If
 we limit ourselves to store \emph{limited precision integers} and perform
 \emph{limited precision arithmetic} when adding those integers, then we can
 shave off the \(\log e(\P)\) factor in both cases. Hence, if we divide the
