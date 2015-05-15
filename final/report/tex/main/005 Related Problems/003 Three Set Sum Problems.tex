@@ -16,7 +16,7 @@ problems. Below are the formal definitions of the problem.
 The subset sum problem is the following,
 
 \begin{problem}
-Given a set $\U \subset \R$, $\card{\U} = n$, find all
+Given a set $\U \subset \R$, $\card{\U} = n$, decide whether there exists
 $\S \subseteq \U$, such that $\sum\limits_{s \in \S} s = 0$.
 \end{problem}
 
@@ -24,7 +24,7 @@ $\S \subseteq \U$, such that $\sum\limits_{s \in \S} s = 0$.
 The \kSUM problem is the following,
 
 \begin{problem}
-Given a set $\U \subset \R$, $\card{\U} = n$, find all
+Given a set $\U \subset \R$, $\card{\U} = n$, decide whether there exists
 $\S \subseteq \U$, $\card{\S} = k$, such that $\sum\limits_{s
 \in \S} s = 0$.
 \end{problem}
@@ -35,7 +35,8 @@ following,
 
 \begin{problem}
 Given a set $\U \subset \R$, $\card{\U} = n$, and $k+1$ real
-coefficients $\alpha_0, \alpha_1, \ldots, \alpha_k \in \R$, find all $k$-tuples
+coefficients $\alpha_0, \alpha_1, \ldots, \alpha_k \in \R$, decide whether
+there exists a $k$-tuple
 $\S = (s_1, \ldots, s_k)$, $s_i \in \U$, such that
 $\alpha_0 + \sum_{i=1}^{k} \alpha_i s_i = 0$.
 \end{problem}
