@@ -11,11 +11,15 @@ computational complexity cannot be split into a preprocessing phase and a query
 phase. Nevertheless it is still interesting to understand the ideas behind it.
 
 This procedure solves the problem of Merging under Partial Information, or
-\concept{MUPI}. We give a formal definition of this problem,
+\concept{MUPI}. Note that MUPI is a special case of SUPI. The difference with
+SUPI is that together with the input poset \(\P\) we are given two chains \(\A
+= (\chain{a_1}{a_m})\) and \(\B = (\chain{b_1}{b_n})\) such that \(\A \cup \B =
+\P\), \ie \(\enum{\A,\B}\) is a chain cover of \(\P\), implying that \(\P\) is
+of width \(2\). We give a formal definition of this problem,
 
 \begin{problem}
-Given a poset \(\P\) that can be covered by two chains \(\A\) and \(\B\), find a
-linear extension of \(\P\).
+Given a poset \(\P\) and two chains \(\A\) and \(\B\) such that \(\A \cup \B =
+\P\), find a linear extension of \(\P\).
 \end{problem}
 
 \begin{figure}
@@ -53,9 +57,9 @@ or
 All of this is without loss of generality. If \(a_1\) and \(b_1\) are
 comparable then either \(a_1\) or \(b_1\) is the minimal element of \(\P\) and
 all of its extensions. Hence this minimal element can be removed. We can do so
-until \(a_1\) and \(b_1\) are incomparable. If \(\frac{e(\P(a_1 < b_1)}{e(\P)} >
+until \(a_1\) and \(b_1\) are incomparable. If \(\frac{e(\P(a_1 < b_1))}{e(\P)} >
 \sfrac{2}{3}\) we can simply revert the roles of \(\A\) and \(\B\) and if
-\(\sfrac{1}{3} \le \frac{e(\P(a_1 < b_1)}{e(\P)} \le \sfrac{2}{3}\) then we
+\(\sfrac{1}{3} \le \frac{e(\P(a_1 < b_1))}{e(\P)} \le \sfrac{2}{3}\) then we
 simply do not have to do any further research. Also, one can build the same
 proof using \(a_m\) and \(b_n\) instead of \(a_1\) and \(b_1\).
 
