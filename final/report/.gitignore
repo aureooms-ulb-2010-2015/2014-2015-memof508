@@ -1,10 +1,12 @@
 
-final.tex
+main.tex
+main.txt
+main.pdf
+
 stylesheet.sty
 bibliography.bib
-final.txt
+
 atd.txt
-final.pdf
 *.aux
 *.lof
 *.log

@@ -95,7 +95,7 @@ algorithm is \BigO{n \log n}. Another way to obtain this complexity measure
 is to solve the following recurrence relation:
 
 \begin{displaymath}
-T(n) = T(\ceil{\frac{n}{2}}) + T(\floor{\frac{n}{2}}) + n - 1 \le n \log n +
+M(n) = M(\ceil{\frac{n}{2}}) + M(\floor{\frac{n}{2}}) + n - 1 \le n \log n +
 n + \BigO{\log n}.
 \end{displaymath}
 
@@ -162,7 +162,7 @@ property with \(2\ceil{\log (n-1)}\) comparisons. The maximum number of
 comparisons involved in these extraction steps is
 
 \begin{displaymath}
-T(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
+H(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
 \end{displaymath}
 
 which is approximately twice as much comparisons than what can be found by
@@ -231,12 +231,10 @@ structure allowing to retrieve inserted elements in an ordered fashion
 (according to some total order) with insertion and retrieve operations in
 $\BigO{\log n}$ time complexity can be used to build an algorithm whose time
 complexity is $\BigO{n \log n}$. Examples are:
-
 \begin{itemize}
 \item \binarytreesort which uses a \emph{binary tree};
 \item \tournamentsort which uses a \emph{priority queue}.
 \end{itemize}
-
 For example implementations of those data structures see
 \citet*{sleator:1985} for the binary tree, and
 \citet*{leiserson:2001} for the priority queue.

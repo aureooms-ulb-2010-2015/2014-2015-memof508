@@ -1,6 +1,6 @@
 $(VERBOSE).SILENT:
 
-FILENAME = final
+FILENAME = main
 STYLESHEET = stylesheet
 BIBLIOGRAPHY = bibliography
 
