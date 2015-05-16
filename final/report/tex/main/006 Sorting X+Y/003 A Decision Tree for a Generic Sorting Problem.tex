@@ -191,7 +191,7 @@ All query intervals we consider can be written $(\frac{c}{2^{r-1}},
 \frac{c+1}{2^{r-1}}]$ for some integer $c$ with $0 \le c \le 2^{r-1}$.
 Moreover, for all such intervals containing the \(\nth{i}\) midpoint.
 \begin{displaymath}
-J\left(\frac{c}{2^{r-1}}\right) < i \le J\left(\frac{c+1}{2^{r-1}}\right)
+J\mleft(\frac{c}{2^{r-1}}\mright) < i \le J\mleft(\frac{c+1}{2^{r-1}}\mright)
 \end{displaymath}
 \end{lemma}
 
@@ -220,7 +220,7 @@ not possible for the query interval, which has radius \( \frac{c+1-c}{2^{r-1}}
 the same time escape the \(\nth{i}\) interval. Hence, the \(\nth{i}\) midpoint
 is the only midpoint inside the query interval. We conclude that,
 \begin{displaymath}
-i-1 = J\left(\frac{c}{2^{r-1}}\right) < b_1 \le J\left(\frac{c+1}{2^{r-1}}\right) = i
+i-1 = J\mleft(\frac{c}{2^{r-1}}\mright) < b_1 \le J\mleft(\frac{c+1}{2^{r-1}}\mright) = i
 \end{displaymath}
 thus $b_1 = i$ and the search ends before performing a $\nth{r}$ query.
 
@@ -229,7 +229,7 @@ we can be sure that $N_{b_1} \le \frac{4\card{\S}}{2^r}$. This means that at
 the next recursion step, $\card{\S_{k+1}} \le \frac{4\card{\S_k}}{2^r}$. If
 $T(\card{\S}, n)$ denotes the number of comparisons required to find the
 correct $n$-tuple out of set $\S$ with our recursive algorithm, then,
-$$T(\card{\S}, n) \le r + T(\min\left(\frac{4\card{\S}}{2^r}, \card{\S}\right), n-1)$$
+$$T(\card{\S}, n) \le r + T(\min\mleft(\frac{4\card{\S}}{2^r}, \card{\S}\mright), n-1)$$
 and
 $$T(\card{\S}, 1) = \BigO{\log \card{\S}}$$
 
