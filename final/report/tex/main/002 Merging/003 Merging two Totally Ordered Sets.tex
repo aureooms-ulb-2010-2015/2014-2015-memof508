@@ -172,30 +172,30 @@ The idea is that the algorithm should behave like:
 \end{itemize}
 
 \citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm. Their
-algorithm merges two linearly ordered sets \(\A = \tuple{\A_1,\dots,\A_m}\) and
-\(\B = \tuple{\B_1,\dots,\B_n}\) with the constraint \(m \le n\). Below is a
+algorithm merges two linearly ordered sets \(\A = \tuple{a_1,\dots,a_m}\) and
+\(\B = \tuple{b_1,\dots,b_n}\) with the constraint \(m \le n\). Below is a
 description of the algorithm:
 
 \begin{algorithm}
 \item[1.] If \(m = 0\) the algorithm stops.
 \item[2.] Let \(\alpha = \floor{\log \frac{n}{m}}\) and \(x = n - 2^{\alpha} + 1\).
-\item[3.] Compare \(\A_m\) with \(\B_x\).
-\item[4.] If \(\A_m \le \B_x\), remove all elements \(\B_x,\dots,\B_n\) from
+\item[3.] Compare \(a_m\) with \(b_x\).
+\item[4.] If \(a_m \le b_x\), remove all elements \(b_x,\dots,b_n\) from
 \(\B\).
-\item[5.] Otherwise, find the insertion position of \(\A_m\) in
-\(\B_{x+1},\dots,\B_{n}\) using binary search. Remove \(\A_m\) from \(\A\) and
+\item[5.] Otherwise, find the insertion position of \(a_m\) in
+\(b_{x+1},\dots,b_{n}\) using binary search. Remove \(a_m\) from \(\A\) and
 remove from \(\B\) the set of all elements that lie after the insertion
-position of \(\A_m\) in \(\B\).
+position of \(a_m\) in \(\B\).
 \item[6.] If now \(m > n\) swap the roles of \(\A\) and \(\B\).
 \item[7.] Merge \(\A\) and \(\B\).
 \end{algorithm}
 
 In summary, the algorithm searches the position of the last element of \(\A\)
-in the \(2^{\alpha}\) largest elements of \(\B\). If \(\A_m\) is smaller or
+in the \(2^{\alpha}\) largest elements of \(\B\). If \(a_m\) is smaller or
 equal to all these elements, which can be checked in a single comparison, then
 the algorithm discards these elements from \(\B\). Otherwise the algorithm uses
 binary search on \(2^{\alpha}-1\) elements to find the insertion position of
-\(\A_m\) in \(\B\). In both cases, the last step of the algorithm is to recurse
+\(a_m\) in \(\B\). In both cases, the last step of the algorithm is to recurse
 on the updated sets \(\A\) and \(\B\). The algorithm ensures that \(m \le n\)
 before each recursive call.
 
