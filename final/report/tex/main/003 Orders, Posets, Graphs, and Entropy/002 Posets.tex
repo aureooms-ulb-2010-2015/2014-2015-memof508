@@ -51,8 +51,8 @@ order, at least one of the questions $(x, y) \ask{\in} G$ and $(y, x)
 \ask{\in} G$ has a positive answer. Hence, we can already discard
 half of all the questions we could ask.
 
-Once we have restricted the number of useful questions to approximately the
-half of all the possible questions, there are still \BigO{n^2} questions we
+Once we have restricted the number of useful questions to approximately
+half of all possible questions, there are still \BigO{n^2} questions we
 might want to ask. That is where transitivity comes into play. Without it we
 would have had to ask all the $\frac{n (n-1)}{2}$ questions to unveil the total
 order.
@@ -60,10 +60,8 @@ order.
 For example, due to the transitivity axiom, every time we ask the two questions
 $(x, y) \ask{\in} G$ and $(y, z) \ask{\in} G$ and both give the
 same answer it is not necessary anymore to ask the third question $(x, z)
-\ask{\in} G$. Indeed the information carried by the answer of the
-third question has dropped to 0 bit at the very moment we brought answers for
-the first and second question to our knowledge.
+\ask{\in} G$.
 
 This is what we do when we sort a random sequence of elements
-efficiently with \quicksort or any other \BigO{n \log n} comparison sort
+efficiently with \mergesort or any other \BigO{n \log n} comparison sort
 algorithm. We exploit the transitive nature of partial orders.
