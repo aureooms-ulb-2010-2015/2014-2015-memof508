@@ -28,7 +28,7 @@ The algorithm goes as follows,
 \item[2.] Partition $\A$ into $\ceil{\sfrac{n}{g}}$ groups $\A_1, \ldots,
 \A_{\ceil{\sfrac{n}{g}}}$ of size at most $g$, where $\A_i \bydef \enum{\A(1 + (i-1)g),
 \ldots, \A(ig)}$ and $\A_{\ceil{\sfrac{n}{g}}}$ may contain less than $g$ elements.
-The first and last elements of $\A_i$ are $\min(A_i) = \A(1 + (i-1)g)$ and
+The first and last elements of $\A_i$ are $\min(\A_i) = \A(1 + (i-1)g)$ and
 $\max(\A_i) = \A(ig)$.
 
 \item[3.] Sort $\D \bydef \bigcup\limits_{i = 1}^{\ceil{\sfrac{n}{g}}}
