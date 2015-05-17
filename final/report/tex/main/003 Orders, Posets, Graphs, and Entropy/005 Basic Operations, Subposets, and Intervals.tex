@@ -3,7 +3,7 @@
 
 
 Since a poset is the combination $(\S, \le_{\S})$ of a set $\S$ and an order
-$\le_{\S}$, we might be interested to apply standard set operations to posets.
+$\le_{\S}$, we might be interested in applying standard set operations to posets.
 
 The binary operations Union ($\cup$), Intersection ($\cap$) and Complement
 ($\setminus$) for posets $\P = (\S, \le_{\S})$ and $\Q = (\T, \le_{\T})$ only make sense
@@ -11,7 +11,7 @@ when $\le_{\S} = \le_{\T}$. For example, when we run the algorithm \mergesort at
 recursion step we merge (read ``make the union of'') two posets having the same
 total order. We thus only define those operations for posets having the same
 order relation, and the result of any of those three binary operations on $\P$
-and $\Q$ is a new poset $(\U, \le_{\U})$ where $\U = \S~\text{op}~T$ and $\le_{\U} =
+and $\Q$ is a new poset $(\U, \le_{\U})$ where $\U = \S~\text{op}~\T$ and $\le_{\U} =
 \le_{\S} = \le_{\T}$.
 
 
@@ -74,7 +74,7 @@ not.
 
 
 We also define a subposet $\Q$ of $\P$ to be convex if $t \in \Q$ whenever $s < t
-< u$ in $\P$ and $s, u \in \Q$. Thus an interval is convex. The nuance with a
-closed interval is that the number of bounds can be greater than 2.
+< u$ in $\P$ and $s, u \in \Q$. Thus an interval is convex. The difference with a
+closed interval is that the number of minimal/maximal elements can be greater than 2.
 
 %TODO figure of convex, interval
