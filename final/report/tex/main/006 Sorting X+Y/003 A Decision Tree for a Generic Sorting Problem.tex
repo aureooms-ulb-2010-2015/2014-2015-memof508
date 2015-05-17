@@ -220,23 +220,22 @@ i-1 = J\mleft(\frac{c}{2^{r-1}}\mright) < b_1 \le J\mleft(\frac{c+1}{2^{r-1}}\mr
 thus $b_1 = i$ and the search ends before performing a $\nth{r}$ query.
 
 We have proved that if the search for $b_1$ requires at least $r$ queries then
-we can be sure that $N_{b_1} \le \frac{4\card{\S}}{2^r}$. This means that at
-the next recursion step, $\card{\S_{k+1}} \le \frac{4\card{\S_k}}{2^r}$. If
-$T(\card{\S}, n)$ denotes the number of comparisons required to find the
-correct $n$-tuple out of set $\S$ with our recursive algorithm, then,
-$$T(\card{\S}, n) \le r + T(\min\mleft(\frac{4\card{\S}}{2^r}, \card{\S}\mright), n-1)$$
-and
-$$T(\card{\S}, 1) = \BigO{\log \card{\S}}$$
-
-Clearly, we can only divide $\card{\S}$ by $2$ $\log \card{\S}$ times and since
-we have a multiplicative factor of $4$ in the recurrence, we can always ask $2$
-\emph{useless} queries at each step that do not decrease $\card{\S}$ for the
-next iteration. Hence,
-
+we can be sure that $N_{b_1} \le \frac{4\card{\S}}{2^r}$. Letting \(\S_{k}\)
+denote the set of feasible solutions at the beginning of step \(k\) and
+\(r_k\) denote the number of queries made at step \(k\), this means that at
+step \(k+1\), \(\card{\S_{k+1}} \le \frac{4\card{\S_k}}{2^{r_k}}\).
+After the last recursion step we have determined all components of
+the \(n\)-tuple to be found and hence the size of the feasible solutions set
+is \(1\). We have
 \begin{displaymath}
-T(\card{\S}, n) \le \log \card{\S} + 2n
+1 \le \frac{4\card{\S_n}}{2^{r_n}} \le \frac{4^2\card{\S_{n-1}}}{2^{r_n +
+r_{n-1}}} \le \ldots \le \frac{4^n\card{\S_1}}{2^{\sum_{i=1}^{n} r_i}},
+\end{displaymath}
+and since \(\S_1 = \S\) we get
+\begin{displaymath}
+\sum_{i=1}^{n} r_i \le \log (4^n \card{\S}) = \log \card{\S} + 2n.
 \end{displaymath}
 
-\nb{\citet*{moran:2015} give an average-case analysis of this algorithm when the
-distribution over the inputs is not uniform.}
+\citet*{moran:2015} give an average-case analysis of this algorithm when the
+distribution over the inputs is not uniform.
 
