@@ -2,29 +2,62 @@
 \label{tree:related:xy4ldt}
 
 Similarly to how the sorting problem is a linear degeneracy testing problem,
-sorting $X+Y$ is a \fourLDT problem. Let us define the \fourLDT problem,
+Sorting $X+Y$ is a \fourLDT problem. Let us define the \fourLDT problem,
 
-\begin{problem}
+\begin{problem}[\fourLDT]
 Given a set $\S \subset \R$, $\card{\S} = n$, and real coefficients $\alpha_0,
-\alpha_1, \alpha_2, \alpha_3, \alpha_4$, find all $(a,b,c,d) \in \S^4$ such that
+\alpha_1, \alpha_2, \alpha_3, \alpha_4$, decide whether there exists a
+\(4\)-tuple \((a,b,c,d) \in \S^4\) such that
 $\alpha_0 + \alpha_1 a + \alpha_2 b + \alpha_3 c + \alpha_4 d = 0$.
 \end{problem}
 
-When sorting $X+Y$ we need to determine whether $a + b < c + d$ for all
+When sorting $X+Y$ we need to determine whether $a + b \le c + d$ for all
 $(a,b,c,d) \in (X \times Y)^2$, this sums up to determining the sign of $(a+b) -
-(c+d)$, i.e. asking questions of the kind $a + b - c - d = 0$. We can thus
+(c+d)$, i.e. asking questions of the kind $a + b - c - d \ask{\le} 0$. We can thus
 reformulate sorting $X+Y$ the following way,
 
 \begin{problem}
-Given a set $\S \subset \R$, $\card{\S} = n$, find all $(a,b,c,d) \in \S^4$ such
+Given a set $\S \subset \R$, $\card{\S} = n$, decide whether there exists a
+\(4\)-tuple \((a,b,c,d) \in \S^4, a \neq c \lor b \neq d\) such
 that $a + b - c - d = 0$.
 \end{problem}
 
-Again, we can construct an adversary argument to prove that deciding whether
-there exist \(a,b,c,d\) such that \(a+b-c-d=0\) requires signs of all
-\(a+b-c-d\) to be found.
+Again, we want to prove that this problem is equivalent to Sorting \XY. We now
+state and prove a more general theorem than \ref{thm:related:sorting}.
 
-All sorting $X+Y$ problem instances are thus instances of the \fourLDT problem
+\begin{theorem}\label{thm:related:sortingxy}
+Given a point \(p = (p_1, \ldots, p_n)\) and an arrangement of hyperplanes
+\(\H\) in \(\R^n\), deciding whether \(p\) lies on one of the hyperplanes of the
+arrangement amounts to finding the cell of the arrangement containing \(p\).
+\end{theorem}
+
+\begin{proof}
+We assume \(p\) does not lie on any of the hyperplanes without loss of generality.
+Suppose we have a hyperplane \(H \in \H, H = a_1 x_1 + \cdots + a_n x_n = 0\) for which we
+know that \(p \notin H\) and assume \(a_1 p_1 + \cdots + a_n p_n \le 0\)
+without loss of generality.
+Then at least one of the following propositions holds:
+\begin{enumerate}
+\item We directly made the queries \(a_1 p_1 + \cdots + a_n p_n \le 0\) and
+\(-a_1 p_1 + \cdots + -a_n p_n \le 0\), revealing the sign of the expression
+\(a_1 p_1 + \cdots + a_n p_n\).
+\item There is a subset of the arrangement \(\enum{H_1,\ldots,H_k}\) with
+\(H_i = a_{i_1} x_1 + \cdots + a_{i_n} x_n = 0\) such that \(H\) is a linear
+combination of these hyperplanes with coefficients \(\beta_i \neq 0\) for which we
+know that \(a_{i_1} p_1 + \cdots + a_{i_n} p_n \le 0\) if \(\beta_i > 0\) or
+\(-a_{i_1} p_1 + \cdots + -a_{i_n} p_n \le 0\) if \(\beta_i < 0\), and at
+least one of \(a_{i_1} p_1 + \cdots + a_{i_n} p_n \neq 0\).
+\end{enumerate}
+In all cases knowing \(a_1 p_1 + \cdots + a_n p_n \neq 0\) implies knowing the
+sign of \(a_1 p_1 + \cdots + a_n p_n\) and thus the answer to the query \(a_1
+p_1 + \cdots + a_n p_n \ask{\le} 0\). Knowing all these answers one finds the
+cell of the arrangement containing \(p\).
+\end{proof}
+
+We can see that Sorting \XY is a special case of the point location problem in
+an arrangement of hyperplanes by mapping each possible query $a + b \ask{\le} c
++ d$ to a hyperplane $a + b - c - d = 0$.
+
+Sorting $X+Y$ problem instances are thus instances of \fourLDT
 with $\alpha_0 = 0, \alpha_1 = \alpha_2 = 1, \alpha_3 = \alpha_4 = -1$ and
 $\S = X \cup Y$.
-

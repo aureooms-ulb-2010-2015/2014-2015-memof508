@@ -25,7 +25,7 @@ bit is that computing $a-b$ reveals the answer to the question $a \ask{\le} b$.
 
 Let us prove why this definition maps to the definition of the Sorting problem.
 
-\begin{theorem}
+\begin{theorem}\label{thm:related:sorting}
 Given a set \(\S \subset \R\), deciding whether there exists a pair \((a,b)
 \in \S^2, a \neq b\) such that \(a - b = 0\) amounts to finding the answers of all \(a
 \ask{\le} b\) queries.
@@ -35,7 +35,7 @@ Given a set \(\S \subset \R\), deciding whether there exists a pair \((a,b)
 We assume there is no such pair without loss of generality.
 Suppose we have a pair \((a,b) \in \S^2, a \neq b\) for which we
 know that \(a - b \neq 0\) and assume \(a \le b\) without loss of generality.
-Then at least one of the following propositions is true,
+Then at least one of the following propositions holds:
 \begin{enumerate}
 \item We directly made the queries \(a - b
 \ask{\le} 0\) and \(b - a \ask{\le} 0\), revealing the sign of the expression
@@ -49,5 +49,5 @@ Since \(a - x \le 0 \land x - b \le 0 \iff a - x + x - b \le 0 \iff a - b \le
 b\) and thus the answer to the query \(a \ask{\le} b\).
 \end{proof}
 
-All sorting problem instances are thus instances of the \twoLDT problem with
+All sorting problem instances are thus instances of \twoLDT with
 $\alpha_0 = 0, \alpha_1 = 1, \alpha_2 = -1$.
