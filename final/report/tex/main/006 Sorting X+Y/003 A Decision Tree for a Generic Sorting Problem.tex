@@ -88,17 +88,15 @@ can be represented as a set of $n$-tuples of $b_k$ and inserting $x_k$ is
 tantamount to the determination of $b_k$. In other words, asking whether $x_k
 \ask{\le} x_{i_J}$ is equivalent to asking whether $b_k \ask{\le} J$.
 
-To prove the theorem, \citet{fredman:1976} builds an algorithm whose existence
+To prove the theorem, \citet{fredman:1976} gives an algorithm whose existence
 implies an even more general result,
-
-\begin{lemma}
+\begin{lemma}[Fredman 1976 \cite{fredman:1976}]
 Given $n \ge 1$, let $\S$ be a finite set of $n$-tuples with unrestricted
 positive integer coordinates. Given an unknown $n$-tuple in $\S$, we can
-determine its components, $b_1, b_2, \ldots$, in that order, by making queries
-of the form \(b_i \ask{\le} J\), and with a total of no more than $\log \card{\S}
+determine its components, \(b_1, b_2, \ldots\), in that order, by making queries
+of the form \(b_i \ask{\le} J, J \in \N\), and with a total of no more than $\log \card{\S}
 + 2n$ such queries.
 \end{lemma}
-
 We show how to implement an algorithm matching the above description. First, in
 order to simplify the notation, we describe a recursive version of our
 algorithm. The $\nth{k}$ recursion step of the recursive algorithm processes
@@ -153,9 +151,9 @@ The partitioning procedure assigns interval sizes to possible values for
 $b_1$ proportional to their frequency in $\S$. Hence, if the interval
 associated with $b_1 = i$ is large, we have to make a small number of
 queries to find it but the cardinality of $\S$ at the next induction step
-stays large. Otherwise, if the same interval is small, the number of queries
+remains large. Otherwise, if the same interval is small, the number of queries
 required to find it is large but in this case, the induction step
-handles a small $\S$ set.
+handles a smaller set \(\S\).
 
 The only step where we make queries is \step{3}. We use binary
 search as follows. First we ask if $b_1$ lies in the first or the second
@@ -166,7 +164,7 @@ our query interval. If the designated interval is the first half of $(0,1]$,
 ask is $b_1 \ask{\le} J(\frac{1}{4})$. Otherwise the designated interval
 is $(\frac{1}{2},1]$ and the next question $b_1 \ask{\le} J(\frac{3}{4})$,
 \etc. We stop when we have ascertained that the query interval we are left with
-does not contain any of the original interval midpoints of our partitioned
+contains only one of the interval midpoints of our partitioned
 $(0,1]$ interval.
 
 We now prove that if we have to perform $r$ queries before finding such an
@@ -176,9 +174,7 @@ $\nth{i}$ interval, containing the $\nth{i}$ midpoint, is
 $\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius $> \frac{2}{2^r} =
 \frac{1}{2^{r-1}}$.
 
-Imagine we have already performed $r-2$ queries to search for $b_1$ without
-successfully ending the search, we now analyze what happens after the
-$\nth{(r-1)}$ query is made. After having made $r-1$ queries, our current query
+After having made $r-1$ queries, our current query
 interval has length $\sfrac{1}{2^{r-1}}$. This query interval must be one of
 all the possible $2^{r-1}$ intervals of the partition of $(0,1]$ in adjacent
 intervals of length $\sfrac{1}{2^{r-1}}$ starting at $0$. We now prove a rather
@@ -196,7 +192,7 @@ J\mleft(\frac{c}{2^{r-1}}\mright) < i \le J\mleft(\frac{c+1}{2^{r-1}}\mright)
 
 \begin{proof}
 At the beginning of the binary search algorithm, the search interval is
-$(0,1]$, it excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). We now
+$(0,1]$. It excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). We now
 assume the current query interval is \((L,R]\). If during the search a
 question \(b \ask{\le} J(q)\) gets a ``yes'' answer then we update the upper
 bound and get a new query interval \((L,q]\). Otherwise, \(b > J(q)\) and we
