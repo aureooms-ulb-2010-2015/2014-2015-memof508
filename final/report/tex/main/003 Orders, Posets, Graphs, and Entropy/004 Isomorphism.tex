@@ -12,7 +12,7 @@ $\P = \Q$ is trivial) while their structures look the same. If we want two poset
 to be different, at least one of $\S \neq \T$ or $\le_{\S} \neq \le_{\T}$ must be true.
 
 For example, if we take the notations used in \sref{ex:poset:def:a} and we
-define $\P$ a poset on the set ${1, 2}$ and $\Q$ a poset on the set ${1, 2, 3}$
+define $\P$ a poset on the set $\enum{1, 2}$ and $\Q$ a poset on the set $\enum{1, 2, 3}$
 we would not be able to find a bijection between the two posets $\P$ and $\Q$
 because the cardinality of their respective sets differ.
 
@@ -49,8 +49,8 @@ the same.}
 \end{tabular}
 \end{table}
 
-Since we need sets of the same cardinality, let us define the sets $\S = {1, 2,
-3}$ (the set of $\P$) and $\T = {1, 2, 4}$ (the set of $\Q$). If we now consider
+Since we need sets of the same cardinality, let us define the sets $\S = \enum{1, 2,
+3}$ (the set of $\P$) and $\T = \enum{1, 2, 4}$ (the set of $\Q$). If we now consider
 the relation $\le_{\S} = \le_{\T} = \le$ we can construct a table mapping elements of
 $\P$ to elements of $\Q$, we name this mapping $\phi$, in such a way that $x
 \le_{\S} y \iff \phi(x) \le_{\T} \phi(y)$. \Cref{table:poset:iso:a,table:poset:iso:b}
@@ -74,7 +74,7 @@ notice that edges that can be deduced by the transitivity property are not
 drawn. The topic of Hasse diagrams is covered in detail in
 \ref{tree:poset:hasse}.}
 
-We currently only gave examples of finite posets, we could show what can be
+We currently only gave examples of finite posets. We could show what can be
 achieved with infinite posets. For this example we choose $\S = \T = \R$,
 $\le_{\S} = \le$ and $\le_{\T} = \ge$. We notice that by negating the relation
 $\le_{\S}$ and thus mapping $x \in \R$ in $\S$ to $-x$ in $\T$ we get a
