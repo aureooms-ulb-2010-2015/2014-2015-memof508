@@ -148,13 +148,13 @@ way the \concept{ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
 \(\L\) we merge have sizes \(m\) and \(n\) respectively such that \(m =
 \SmallO{n}\). Otherwise merging them would require \BigOmega{n} comparisons.
 If \(m = \SmallO{n}\), then we can use the Hwang-Lin algorithm to merge those
-two nodes using \BigO{m \log \frac{n}{m}} comparisons. Moreover, the set
+two nodes using \(\BigO{m \log \frac{n}{m}} = \BigO{ITLB}\) comparisons. Moreover, the set
 \(\L\) can only be a leaf of the Huffman tree. Indeed, it cannot be the result
 of a merge operation between two \BigO{m} sized nodes. Since this is the only
 kind of merge operation that is allowed before having merged the set \(\U\)
-with another one, \(\L\) is necessarily a leaf.  Producing the totally ordered
-set of size \(m\) uses at most \BigO{m \log m} comparisons. Since \(\BigO{m
-\log m} = \BigO{m \log \frac{n}{m}}\) when \(m = \SmallO{n}\), after trading
+with another one, \(\L\) is necessarily a leaf. Since producing the totally ordered
+set of size \(m\) uses at most \BigO{ITLB} comparisons using our
+previous algorithm, after trading
 \tapemerge for the Hwang-Lin algorithm we get an algorithm
 solving the merging problem using \BigO{ITLB} queries.
 
