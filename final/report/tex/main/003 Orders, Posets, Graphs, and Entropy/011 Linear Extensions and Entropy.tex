@@ -8,17 +8,49 @@ total while \emph{extension} means that the original order $\leq$ is
 
 In our decision tree model, the number of linear extensions $e(\P)$ of a poset
 $\P$ is strongly related to the information contained in this poset. Since the
-total information is $\log(n!)$, the information we miss is $\log(e(\P))$, then
-the information we have is $\log(n!) - \log(e(\P))$.
+total information is $\log n!$, the information we miss is $\log e(\P)$, then
+the information we have is $\log n! - \log e(\P)$.
 
+Computing $e(\P)$ in the general case is \#P-complete
+(see \citet*{brightwell1991counting}). In the next chapter we talk about a
+problem called \supi (\SUPI). This problem can be solved using \BigO{ITLB}
+queries by an algorithm that
+iteratively chooses a `good' query. We will see later that a `good' query \(a \ask{\le} b\) can be
+found by computing the ratio of \(e(\P(a \le b))\) to \(e(\P)\) for all \((a,b)\) pairs, where
+\(\P(a \le b)\) denotes the poset obtained
+from \(\P\) after adding the constraint that \(a \le b\).
+Since it is unlikely that
+a polynomial-time algorithm for computing \(e(\P)\) exists, it is unlikely that the above algorithm
+can be implemented such that it runs in time polynomial in the input size.
 
-Note that computing $e(\P)$ in the general case is \#P-complete
-(see \citet*{brightwell1991counting}). Fortunately, \citet*{kahn:1995} give a good
-approximation of $e(\P)$ using the definition of entropy of a graph we
+Fortunately, \citet*{kahn:1995} give a good
+approximation of $e(\P)$ using the definition of entropy of a poset we
 introduced earlier,
 
-\begin{equation}
-\log\left(\frac{n!}{e(\P)}\right) = \log(n!) - \log(e(\P)) = n H(\P) +
-\BigO{n}.
+\begin{theorem}[\citet*{kahn:1995} (1995)]
 \label{eq:khankim1}
-\end{equation}
+For any poset \(\P\) of order \(n\),
+\begin{displaymath}
+\log e(\P) \le n H(\widetilde{\P}) \le \min\enum{\log e(\P) + \log e \cdot n, c_1
+\log e(\P)},
+\end{displaymath}
+where \(c_1 = (1 + 7 \log e) \approx 11.1\).
+\end{theorem}
+
+It is a good approximation because we have the guarantee that
+\(n H(\widetilde{\P}) = \BigTheta{e(\P)}\) and because we can compute
+\(H(\widetilde{\P})\) in polynomial time by solving the convex minimization
+problem given by \ref{eq:entropy:graph}.
+
+\citet*{cardinal:2013} improve the results of \ref{eq:khankim1} by showing that
+one can take \(c_1 = 2\), which is best possible.
+
+\begin{theorem}[\citet*{cardinal:2013} (2013)]
+For any poset \(\P\) of order \(n\),
+\begin{displaymath}
+n H(\widetilde{\P}) \le 2 \log e(\P).
+\end{displaymath}
+\end{theorem}
+
+In the next chapter we will see what kind of algorithms can be built upon
+these results.

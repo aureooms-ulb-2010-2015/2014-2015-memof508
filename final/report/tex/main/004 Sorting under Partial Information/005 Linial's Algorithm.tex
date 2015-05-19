@@ -65,11 +65,10 @@ proof using \(a_m\) and \(b_n\) instead of \(a_1\) and \(b_1\).
 
 \citet*{linial:1984} proposes the following polynomial-time algorithm. We
 compute the number of linear extensions of the width-\(2\) poset \(\P\) using
-the determinant counting formula. We do so also for every query we could use to
+the determinant counting formula (which we explain later). We do so also for every query we could use to
 retrieve more information on the total order \(\le\). We then use those counts
 to find a pair \((x,y)\) that satisfies \(\sfrac{1}{3} \le \frac{e(\P(x \le
-y))}{e(\P)} \le \sfrac{2}{3}\), where \(\P(x \le y)\) denotes the poset obtained
-from \(\P\) after adding the constraint that \(x \le y\). Once this pair is
+y))}{e(\P)} \le \sfrac{2}{3}\). Once this pair is
 identified, we can effectively make the query and update poset \(\P\) with the
 actual answer. We can then recurse on the newly obtained poset. Because of the
 successive uses of good queries, the recursion depth, and thus the number of
