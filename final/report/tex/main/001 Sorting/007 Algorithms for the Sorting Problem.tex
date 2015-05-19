@@ -111,7 +111,6 @@ explain how. There exist two main procedures to update the contents of a heap.
 The first one is \emph{siftdown} which consists in \emph{sifting} a node down
 the tree until it is smaller or equal to all of its children. Below are the
 steps of the \emph{siftdown} algorithm with input node \(N\):
-
 \begin{algorithm}
 \item[1.] If \(N\) is a leaf of the tree the algorithm stops.
 \item[2.] Compute \(C = \min \text{children}(N)\).
@@ -123,7 +122,6 @@ steps of the \emph{siftdown} algorithm with input node \(N\):
 The second one is \emph{siftup}. This operation is similar to \emph{siftdown}.
 We \emph{sift} a node up the tree until it is larger or equal to its parent.
 Below are the steps of the algorithm:
-
 \begin{algorithm}
 \item[1.] If \(N\) is the root of the tree the algorithm stops.
 \item[2.] Compute \(P = \text{parent}(N)\).
