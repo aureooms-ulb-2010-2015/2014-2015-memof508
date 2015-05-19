@@ -3,9 +3,10 @@
 The first appearance of this problem dates back to 1976. In
 \citet*{fredman:1976}, an algorithm making $\BigO{\log e(\P) + 2n}$ queries was
 featured. Fredman applies this algorithm to a problem he attributes to Elwyn
-Berlekamp: sorting the set $X + Y = \enum{x + y \st x \in X, y \in Y}$. However
-$\BigO{\log e(\P)} \neq \BigO{n}$, so this algorithm was not matching the ITLB
-for sub-linear $\log e(\P)$. Moreover, the algorithm needs exponential time to
+Berlekamp: sorting the set $X + Y = \enum{x + y \st x \in X, y \in Y}$.
+However,
+since \(\log e(\P)\) can be quite small, this algorithm was not matching the ITLB
+for $\log e(\P)$ sublinear in \(n\). Moreover, the algorithm needs exponential time to
 choose the right comparison to perform.
 
 From that point, further research had to be made in order to get an algorithm
@@ -17,14 +18,14 @@ there always exists a query of the form \(a \ask{\leq} b\) with \(a,b \in \P\)
 such that the fraction of linear extensions in which $a$ is smaller than $b$
 lies in the interval $(\sfrac{3}{11}, \sfrac{8}{11})$. This is a relaxation of
 the well-known \onethirdtwothird conjecture, a conjecture formulated
-independently by M. Fredman, N. Linial, and R. Stanley, see
+independently by Fredman, Linial, and Stanley, see
 \citet*{linial:1984}. Note that, a simpler proof yielding weaker
 bounds was given by \citet*{kahn1991balancing} and better bounds were later
 given by \citet*{brightwell1995balancing}, and \citet*{brightwell1999balanced}.
 In fact, the only requirement for a practical use (without proving the
 conjecture) was to prove that it was true for an interval $(q, 1-q)$, because
 then iteratively choosing such a comparison yields an algorithm that performs
-$\BigO{\log e(\P)}$ comparisons (precisely $\log_{q^{-1}} e(\P)$). However, the
+$\BigO{\log e(\P)}$ comparisons (precisely $\log_{(1-q)^{-1}} e(\P)$). However, the
 algorithm proposed by \citet*{kahn1984balancing} does not find this
 \emph{optimal} query in polynomial time.
 
@@ -38,15 +39,14 @@ extensions of $\P$ in which $a$ comes before $b$ is between $\sfrac{1}{3}$ and
 $\sfrac{2}{3}$ of the total number of linear extensions of $\P$.
 \end{conjecture}
 
-The question of its correctness still remains and as far as we know the
-$\sfrac{1}{3}$ bound is tight since we have proofs that the conjecture holds
-for certain classes of posets. \citet*{linial:1984} for example gives a proof
+The question of its correctness remains open and the
+$\sfrac{1}{3}$ bound would be best possible. \citet*{linial:1984} gives a proof
 for width-\(2\) posets. Also, there are results due to
 \citet*{peczarski:2006} for some classes of partial orders verifying the
 conjecture showing that the proportion of partial orders contained in those
 classes approaches $1$ as $n$ grows. We can conclude that the proportion of
 $n$-element partial orders obeying the \onethirdtwothird conjecture approaches
-$1$.
+$1$ as \(n \to \infty\).
 
 Recent findings in the domain include \citet*{zaguia:2011} and
 \citet*{peczarski:2008}.
