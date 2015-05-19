@@ -1,13 +1,22 @@
-
 \section{Algorithms}
 
-
-\citet*{kahn:1995} gave the the first polynomial-time algorithm achieving the
-bound $\BigO{\log e(\P)}$ up to a constant factor in 1995. The idea of their
-algorithm is to solve a convex optimization problem to compute the entropy
-\(H(\P)\). With \ref{eq:khankim1} this entropy can be used to approximate
-\(e(\P)\) which can help to choose a good query. With this technique, one can
-choose a good query at each step in polynomial-time. However, this algorithm
+\citet*{kahn:1995} gave the first polynomial-time algorithm achieving the bound
+$\BigO{\log e(\P)}$ in 1995. The idea of their algorithm is to solve a convex
+optimization problem at each step to find a good query to perform. The answer
+to a good query reduces the entropy \(H(\widetilde{\P})\) by at least
+\(\sfrac{c}{n}\), where \(c\) is at least \(\log(1+\sfrac{17}{112}) \approx
+0.2\). \citet*{kahn:1995} show that a good query always exists (provided
+\(\P\) is not already sorted). This guarantees that the algorithm uses
+\BigO{n H(\widetilde{\P})} queries. By \ref{eq:khankim1} we have that \(n
+H(\widetilde{\P})\) approximates \(e(\P)\) up to a constant factor and thus the
+algorithm uses \BigO{\log e(\P)} queries. \citet*{kahn:1995} show that a good
+query can be found in \BigO{n^2} time by looking at the primal solution given
+by a convex optimization algorithm when computing \(H(\P)\) (using
+\ref{eq:entropy:graph} as the objective function). The algorithm completes
+after \(\BigO{\log e(\P)} = \BigO{n \log n}\) steps. Since a convex
+optimization problem can be solved in polynomial time, the algorithm runs in
+polynomial time.
+However, this algorithm
 is not practical as (for the moment) it requires to use the ellipsoid
 algorithm as a subroutine.
 
