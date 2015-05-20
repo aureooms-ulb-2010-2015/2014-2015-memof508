@@ -10,15 +10,15 @@ to \citet*{linial:1984}. Unfortunately, in this implementation the
 computational complexity cannot be split into a preprocessing phase and a query
 phase. Nevertheless it is still interesting to understand the ideas behind it.
 
-This procedure solves the problem of Merging under Partial Information, or
-\concept{MUPI}. Note that MUPI is a special case of SUPI. The difference with
+This procedure solves the problem of Merging under Partial Information
+(\define{\MUPI}). Note that \MUPI is a special case of SUPI. The difference with
 SUPI is that together with the input poset \(\P\) we are given two chains \(\A
 = (\chain{a_1}{a_m})\) and \(\B = (\chain{b_1}{b_n})\) such that \(\A \cup \B =
 \P\), \ie \(\enum{\A,\B}\) is a chain cover of \(\P\), implying that \(\P\) is
 of width \(2\). We give a formal definition of this problem,
 
-\begin{problem}
-Given a poset \(\P\) and two disjoint chains \(\A\) and \(\B\) such that \(\A \cup \B =
+\begin{problem}[Merging under Partial Information]
+Given a poset \(\P\) and two disjoint chains \(\A\) and \(\B\) of \(\P\) such that \(\A \cup \B =
 \P\), find a linear extension of \(\P\).
 \end{problem}
 
@@ -26,7 +26,7 @@ Given a poset \(\P\) and two disjoint chains \(\A\) and \(\B\) such that \(\A \c
 \centering
 \includegraphics[height=0.2\textheight]{fig/supi/mupi}
 \caption{A poset \(\P\) covered by two chains \(\A\) and \(\B\),
-input of the MUPI problem.}
+input of the \MUPI problem.}
 \label{fig:supi:mupi}
 \end{figure}
 
@@ -34,7 +34,7 @@ input of the MUPI problem.}
 for width-\(2\) posets, \ie posets that can be covered by two chains. Since one
 can always find a good query that when answered invalidates at
 least one-third of the possible linear extensions of \(\P\), it is possible to design a
-\BigO{\log e(\P)} algorithm that solves the MUPI problem.
+\BigO{\log e(\P)} algorithm that solves the \MUPI problem.
 
 \begin{theorem}
 Given a poset \(\P\) covered by two chains \(\A\) and \(\B\), we can always find
