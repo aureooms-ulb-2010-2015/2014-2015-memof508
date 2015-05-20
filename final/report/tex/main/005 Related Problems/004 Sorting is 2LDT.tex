@@ -14,7 +14,7 @@ pairs, this amounts to determining the sign of $a-b$. If we would like to rewrit
 the sorting problem definition in the same fashion we would come up with the
 following definition,
 
-\begin{problem}
+\begin{problem}[Sorting as a \twoLDT problem]
 Given a set $\S \subset \R$, $\card{\S} = n$, decide whether there exists a
 pair $(a,b) \in \S^2, a \neq b$ such that $a - b = 0$.
 \end{problem}
@@ -25,7 +25,7 @@ bit is that computing $a-b$ reveals the answer to the question $a \ask{\le} b$.
 
 Let us prove why this definition maps to the definition of the Sorting problem.
 
-\begin{theorem}\label{thm:related:sorting}
+\begin{theorem}[Sorting is a \twoLDT problem]\label{thm:related:sorting}
 Given a set \(\S \subset \R\), deciding whether there exists a pair \((a,b)
 \in \S^2, a \neq b\) such that \(a - b = 0\) amounts to finding the answers of all \(a
 \ask{\le} b\) queries.

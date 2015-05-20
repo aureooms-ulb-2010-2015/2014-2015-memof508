@@ -11,9 +11,9 @@ algorithm is built on top of the Hwang-Lin algorithm.
 Again, we compute the \ITLB as the logarithm of the number of possible solutions
 for this problem, \ie
 
-\begin{theorem}
+\begin{theorem}[\ITLB for Merging]
 The \concept{\ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
-\sum_{i=1}^{k} n_i$ is \BigOmega{\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}}.
+\sum_{i=1}^{k} n_i$ is \(\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}\).
 \end{theorem}
 
 \begin{proof}
@@ -37,7 +37,7 @@ $n$ elements minus the information we already have.}
 We start with the pseudo-code description of our algorithm. We then prove this
 algorithm solves the merging problem using \BigO{\ITLB} queries.
 
-\begin{algorithm}
+\begin{algorithm}%[Algorithm for the merging problem]
 \item[1.] Let \(\S_i\) and \(\S_j\) be two smallest sets from \(\S_1 ,
 \dots , \S_k\).
 \item[2.] Merge \(\S_i\) and \(\S_j\) with a \BigO{\ITLB} algorithm.
@@ -48,7 +48,7 @@ algorithm solves the merging problem using \BigO{\ITLB} queries.
 We use tools from Information Theory to prove that this algorithm has
 a query complexity of \BigO{\ITLB}. The first tool we use is Shannon's entropy of a random
 variable \(X\), \(H(X)\).
-\begin{definition}
+\begin{definition}[Shannon's entropy]
 \begin{displaymath}
 H(X) \bydef \sum_{x_i} p(x_i) \log \frac{1}{p(x_i)}.
 \end{displaymath}
@@ -60,7 +60,7 @@ coding of a random variable with respect to the average length of the messages
 encoding events emitted by this random variable. We assume the channel we
 use to transmit our messages is perfect:
 
-\begin{problem}
+\begin{problem}[Optimal coding of a random variable]
 Given a random variable \(X\) with possible events \(x_1,\ldots,x_n\) occurring
 with probability \(0 < p(x_i) \le 1, \sum_{x_i} p(x_i) = 1\), construct an
 instantaneous code, \ie a code where no code word is a prefix of another code
@@ -72,7 +72,7 @@ an event.
 The are several results on this subject which we summarize in the
 following theorem.
 
-\begin{theorem}
+\begin{theorem}[Optimality of Huffman codes]
 If we define \(l(x_i)\) to be the code
 length for event \(x_i\), then the average code length is
 \begin{displaymath}

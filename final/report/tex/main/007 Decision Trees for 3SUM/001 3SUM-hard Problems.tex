@@ -5,20 +5,20 @@ way that an efficient algorithm for those problems would provide efficient
 algorithms for the \threeSUM problem. Hence, a lower bound for \threeSUM would
 imply lower bounds for those other problems.
 
-One of these problems is the $3$-points-on-line problem in the plane,
+One of these problems is the \(3\)-points-on-line problem in the plane,
 
-\begin{problem}
-In the plane, the $3$-points-on-line problem consists in finding
-three collinear points $a$, $b$, and $c$, for $a, b~\text{and}~c \in \U, \card{\U} = n$.
+\begin{problem}[\(3\)-points-on-line problem]
+Given a finite set \(\U\) of points in the plane, decide if \(\U\) contains
+three collinear points.
 \end{problem}
 
-\begin{theorem}
-The three-set version of the $3$-points-on-line problem in the plane is \threeSUM-hard.
+\begin{theorem}[\threeSUM-hardness of the \(3\)-points-on-line problem]
+The three-set version of the \(3\)-points-on-line problem in the plane is \threeSUM-hard.
 \end{theorem}
 
 \begin{proof}
 The three-set version of \threeSUM is reducible to a three-set version of
-$3$-points-on-line by mapping all $a \in \A, b \in \B, c \in \C$ to the points
+\(3\)-points-on-line by mapping all $a \in \A, b \in \B, c \in \C$ to the points
 $a' = (a, a^3)$, $b' = (b, b^3)$, and $c' = (c, c^3)$. This mapping reduction
 takes linear time in the input size. Moreover, there is a direct mapping from a
 solution to the \(3\)-points-on-line instance that result of this reduction to

@@ -8,7 +8,7 @@ did in this section was modeling the Sorting \XY problem as the problem of
 Sorting under Partial Information. We then solved the problem with a
 straightforward algorithm.
 
-In \ref{tree:supi}, we have seen that there are algorithms solving the \SUPI
+In \Cref{tree:supi}, we have seen that there are algorithms solving the \SUPI
 problem in \BigO{\log e(\P)} comparisons. We wonder if it is possible to prove
 that, if we are only allowed to exploit the grid structure of the \XY poset,
 then Sorting \XY cannot be solved in less than \(n^2 \log n + \BigO{n}\)
@@ -22,23 +22,19 @@ conditions are met for a poset, we call this poset a bounded lattice. We say
 that the poset \XY is a \( n \times n \) bounded lattice.
 
 We show that,
-
-\begin{theorem}
-The number of linear extensions of the \( n \times n \) lattice is,
+\begin{theorem}[Number of linear extensions of the \( n \times n \) lattice]
+Given a \( n \times n \) lattice \(\P\),
 \begin{displaymath}
-e(\P) = \frac{(n^2)!}{\prod_{k=1}^{2n-1} k^{n - \abs{n-k}}}
+e(\P) = \frac{n^2!}{\prod_{k=1}^{2n-1} k^{n - \abs{n-k}}}.
 \end{displaymath}
 \end{theorem}
-
-note that one can use the superfactorial notation
-\( \SF(n) = n!\,(n-1)!\ldots 3!\,2!\,1! \)
-to make the formula slimmer,
-
+Note that an alternative way of writing \(e(\P)\) is
 \begin{displaymath}
-e(\P) = \frac{(n^2)! \, \SF(n-1)^2}{\SF(2n-1)}
+e(\P) = n^2! \cdot \mleft(\prod_{k=1}^{n-1} k!\mright)^2 \cdot
+\mleft(\prod_{k=1}^{2n-1} k!\mright)^{-1}.
 \end{displaymath}
 
-To do so, we introduce the notion of Ferrers diagrams and standard Young tableaux.
+To prove this theorem, we introduce the notion of Ferrers diagrams and standard Young tableaux.
 
 A Ferrers diagram can be seen as a set of square tiles arranged in a square
 box. They are arranged so that there cannot be any space between two tiles
@@ -77,7 +73,7 @@ diagram is \(\lambda = (4,2,2,1)\).}
 The number of standard Young tableaux for a given Ferrers diagram shape
 \(\lambda\) can be computed using the hook-length formula \(d_{\lambda}\),
 
-\begin{theorem}
+\begin{theorem}[\citet*{frame:1954}]
 \label{theorem:xy:lattice:hook}
 Let \(\lambda = (\lambda_1,\ldots,\lambda_m)\) be a partition of the natural
 number \(n\), \ie such that \(\sum_i \lambda_i = n\). The number of standard
@@ -169,19 +165,21 @@ etiquettes. If we are given \( n^2 \) distinct elements \( x_1 \) to
 fill our tableau with those elements and to each filled tableau corresponds a
 unique linear extension designated by \(\omega\).
 
-\nb{As a side note, the hook-length formula is closely related to
+As a side note, the hook-length formula is closely related to
 multidimensional Catalan numbers. The hook-length formula generates the numbers
 on the diagonal of the matrix containing the \(\nth{n}\) \(m\)-dimensional
 Catalan number at position \((m,n)\) \cite{OEIS:A060854}. The \(\nth{n}\)
 \(m\)-dimensional Catalan numbers gives the number of shortest paths in the
 \(m\)-dimensional unit grid from \( (0,\ldots,0) \) to \( (n,\ldots,n) \) such
 that if \( (x_1,\ldots,x_m) \) is on a path then \( x_1 \le x_2 \le \ldots \le
-x_m\).}
+x_m\).
 
-We now show that,
-
-\begin{theorem}
-\( \log e(\P) = \BigOmega{n^2 \log n} \)
+We now prove that,
+\begin{theorem}[\ITLB for the problem of sorting a \(n \times n\) lattice]
+Given a \( n \times n \) lattice \(\P\),
+\begin{displaymath}
+\log e(\P) = \BigOmega{n^2 \log n}
+\end{displaymath}
 \end{theorem}
 
 \begin{proof}
@@ -203,4 +201,4 @@ consider the information contained in the poset structure, \ie if we only
 exploit \( X_i \le X_{i'} \land Y_j \le \Y_{j'} \implies X_i +
 Y_j \le X_{i'} + Y_{j'}\). Moreover, to sort a poset having the same structure,
 the trivial \mergesort technique explained earlier is optimal.
-In \ref{tree:xy:counting} we show that there is indeed more information available.
+In \Cref{tree:xy:counting} we show that there is indeed more information available.

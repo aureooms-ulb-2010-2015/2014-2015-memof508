@@ -49,7 +49,7 @@
 \newcommand\makethm[0]{
 	\newpage\cleardoublepage\phantomsection
 	\addcontentsline{toc}{chapter}{\listtheoremname}
-	\listoftheorems
+	\listoftheorems[ignoreall,show={theorem,problem}]
 }
 
 %\renewcommand{\qedsymbol}{\rule{0.7em}{0.7em}}
@@ -91,8 +91,6 @@
 }
 
 
-\usepackage{array,tabularx,tablefootnote}
-
 \newenvironment{conditions}
   {\par\vspace{\abovedisplayskip}\noindent
    \tabularx{\columnwidth}{>{$}l<{$} @{${}={}$} >{\raggedright\arraybackslash}X}}
@@ -101,14 +99,3 @@
 % fix footnotes multiple places ref
 
 \newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
-
-
-\usepackage{xfrac}
-\usepackage{amsfonts, amssymb, bm}
-%\usepackage[bold-style=ISO]{unicode-math}
-
-%\usepackage{unicode-math}
-%\setmathfont{xits-math.otf}
-%\setmathfont[range={\mathcal,\mathbfcal},StylisticSet=1]{xits-math.otf}
-
-

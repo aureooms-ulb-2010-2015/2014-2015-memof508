@@ -2,7 +2,7 @@
 \label{tree:related:xy4ldt}
 
 Similarly to how the sorting problem is a linear degeneracy testing problem,
-Sorting $X+Y$ is a \fourLDT problem. Let us define the \fourLDT problem,
+Sorting \XY is a \fourLDT problem. Let us define \fourLDT,
 
 \begin{problem}[\fourLDT]
 Given a set $\S \subset \R$, $\card{\S} = n$, and real coefficients $\alpha_0,
@@ -11,12 +11,12 @@ Given a set $\S \subset \R$, $\card{\S} = n$, and real coefficients $\alpha_0,
 $\alpha_0 + \alpha_1 a + \alpha_2 b + \alpha_3 c + \alpha_4 d = 0$.
 \end{problem}
 
-When sorting $X+Y$ we need to determine whether $a + b \le c + d$ for all
+When sorting \XY we need to determine whether $a + b \le c + d$ for all
 $(a,b,c,d) \in (X \times Y)^2$, this sums up to determining the sign of $(a+b) -
 (c+d)$, i.e. asking questions of the kind $a + b - c - d \ask{\le} 0$. We can thus
-reformulate sorting $X+Y$ the following way,
+reformulate sorting \XY the following way,
 
-\begin{problem}
+\begin{problem}[Sorting \XY as a \fourLDT problem]
 Given a set $\S \subset \R$, $\card{\S} = n$, decide whether there exists a
 \(4\)-tuple \((a,b,c,d) \in \S^4, a \neq c \lor b \neq d\) such
 that $a + b - c - d = 0$.
@@ -25,7 +25,7 @@ that $a + b - c - d = 0$.
 Again, we want to prove that this problem is equivalent to Sorting \XY. We now
 state and prove a more general theorem than \ref{thm:related:sorting}.
 
-\begin{theorem}\label{thm:related:sortingxy}
+\begin{theorem}[Sorting \XY is a \fourLDT problem]\label{thm:related:sortingxy}
 Given a point \(p = (p_1, \ldots, p_n)\) and an arrangement of hyperplanes
 \(\H\) in \(\R^n\), deciding whether \(p\) lies on one of the hyperplanes of the
 arrangement amounts to finding the cell of the arrangement containing \(p\).
@@ -58,6 +58,6 @@ We can see that Sorting \XY is a special case of the point location problem in
 an arrangement of hyperplanes by mapping each possible query $a + b \ask{\le} c
 + d$ to a hyperplane $a + b - c - d = 0$.
 
-Sorting $X+Y$ problem instances are thus instances of \fourLDT
+Sorting \XY instances are thus instances of \fourLDT
 with $\alpha_0 = 0, \alpha_1 = \alpha_2 = 1, \alpha_3 = \alpha_4 = -1$ and
 $\S = X \cup Y$.

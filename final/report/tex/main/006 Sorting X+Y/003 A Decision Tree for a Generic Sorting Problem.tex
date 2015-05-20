@@ -9,7 +9,7 @@ sorting \XY problem.
 
 \citet{fredman:1976} defines a generic sorting problem as follows,
 
-\begin{problem}
+\begin{problem}[Generic sorting problem]
 Let $\S = \enum{x_1, \ldots, x_n}$ be an $n$-element set. We define a sorting
 problem on these element to be a pair $(\Gamma, P)$, where $\Gamma$ is a
 subset of the $n!$ possible linear orderings on $\S$, and
@@ -38,7 +38,7 @@ extensions. As $P$ is the same for every $\Gamma$ in this case, we
 always write $N(\Gamma)$ to mean $N(\Gamma, P)$.
 
 \citet{fredman:1976} proves the following theorem,
-\begin{theorem}[Fredman 1976 \cite{fredman:1976}]\label{theorem:fredman:1976}
+\begin{theorem}[\citet*{fredman:1976}]\label{theorem:fredman:1976}
 A poset of cardinality $n$, whose linear extension is known to be contained in
 $\Gamma$ can be sorted with $N(\Gamma) = \log \card{\Gamma} + 2n$ pairwise
 comparisons.
@@ -90,7 +90,7 @@ tantamount to the determination of $b_k$. In other words, asking whether $x_k
 
 To prove the theorem, \citet{fredman:1976} gives an algorithm whose existence
 implies an even more general result,
-\begin{lemma}[Fredman 1976 \cite{fredman:1976}]
+\begin{lemma}[\citet*{fredman:1976}]
 Given $n \ge 1$, let $\S$ be a finite set of $n$-tuples with unrestricted
 positive integer coordinates. Given an unknown $n$-tuple in $\S$, we can
 determine its components, \(b_1, b_2, \ldots\), in that order, by making queries
