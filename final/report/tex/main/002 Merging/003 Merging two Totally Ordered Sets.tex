@@ -4,17 +4,15 @@
 We now analyze the \ITLB for the problem of merging two totally ordered sets of
 different sizes and give a description of a \BigO{\ITLB} algorithm.
 
-\subsection*{\ITLB}
+\subsection{\ITLB}
 \label{tree:merging:k=2:ITLB}
 
 Analogously to what we did in \Cref{tree:sorting}, we compute the
 logarithm of the number of possible solutions for this problem, \ie
-
 \begin{theorem}[\ITLB for the problem of merging two totally ordered sets]
 The \ITLB for the merging problem when \(k = 2\) with \(\card{\S_1} = m, \card{\S_2}
 = n\) is \BigOmega{\log \binom{m+n}{m}}.
 \end{theorem}
-
 \begin{proof}
 We have to choose the $m$ positions among $m+n$ in $\S'$ for the elements of
 $\S_1$ and then fill the remaining $(m+n) - m = n$ positions with the elements
@@ -22,28 +20,25 @@ of $\S_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$.
 Hence, the minimal height of the tree is at least $\log \binom{m+n}{m}$.
 \end{proof}
 
-\nb{Giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation
+Note that giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation
 when \(n \ge m\) gives us $(m+n) \log(m+n) - m \log m - n \log n - \BigO{\log
 n}$ which clearly expresses the information contained in the sorted sequence
-$\S'$ of $m+n$ elements minus the information we already have.}
+$\S'$ of $m+n$ elements minus the information we already have.
 
-
-\subsection*{The Hwang-Lin Algorithm}
+\subsection{The Hwang-Lin Algorithm}
 \label{tree:merging:k=2:alg}
 
 We analyze the \concept{\ITLB} of the Merging problem. Then we
 describe an algorithm whose complexity meets the \concept{\ITLB}. We begin by
 computing the general case expression of the \concept{\ITLB}.
-
 \begin{lemma}
 \begin{align*}
-\log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}\\
+\log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}
 \end{align*}
 \end{lemma}
-
 \begin{proof}
 \begin{align*}
-\log\binom{m+n}{m} &= \log\frac{(m+n)!}{m!n!}\\
+\log\binom{m+n}{m} &= \log\frac{(m+n)!}{m! \, n!}\\
 &= \log(m+n)! - \log m! - \log n!\\
 &= \BigTheta{(m+n) \log(m+n) - m \log m - n \log n}\\
 &= \BigTheta{(m+n) \log(m+n) - m \log m - n \log n + (n \log m - n \log m)}\\
@@ -51,7 +46,7 @@ computing the general case expression of the \concept{\ITLB}.
 &= \BigTheta{(m+n) \log\frac{m+n}{m} - n (\log n - \log m)}\\
 &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{m} - n (\log n - \log m)}\\
 &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{\sfrac{m}{m} \cdot n}}\\
-&= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}\\
+&= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}\qedhere
 \end{align*}
 \end{proof}
 
@@ -61,26 +56,24 @@ where \(m \leq n\).
 
 The first case we analyze is the case where $m = n$. This case is similar
 to what happens during the merge phase of the \mergesort algorithm.
-
 \begin{lemma}
 \begin{align*}
-m = n &\implies \log\binom{m+n}{m} = \BigTheta{m + n} = \BigTheta{n}\\
+m = n &\implies \log\binom{m+n}{m} = \BigTheta{m + n} = \BigTheta{n}
 \end{align*}
 \end{lemma}
-
 \begin{proof}
 \begin{align*}
 \log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}\\
 &= \BigTheta{m \log\frac{2m}{m} + n \log\frac{2n}{n}}\\
 &= \BigTheta{m \log 2 + n \log 2}\\
 &= \BigTheta{m + n}\\
-&= \BigTheta{n}\\
+&= \BigTheta{n}\qedhere
 \end{align*}
 \end{proof}
 
 An algorithm using at most \(n+m-1\) queries is \tapemerge. \tapemerge is the
 merge procedure that \mergesort uses (see step \step{5} of the \mergesort
-algorithm in \ref{tree:sorting:alg}), \ie given two linearly ordered sets sort
+algorithm in \Cref{tree:sorting:alg}), \ie given two linearly ordered sets sort
 their union by iteratively removing the smallest element it contains. The union
 of the two linearly ordered sets contains \(n+m\) elements. Hence, this
 algorithm runs in \(n+m\) iterations. Because the algorithm only needs to
@@ -91,13 +84,11 @@ element left. Hence, no query is used during the last iteration and the maximum
 number of queries this algorithm uses is \(n+m-1\).
 
 Additionally we show what happens when \(m = c n\) for some \(0 < c \le 1\).
-
 \begin{lemma}
 \begin{align*}
-m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{n}\\
+m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{n}
 \end{align*}
 \end{lemma}
-
 \begin{proof}
 \begin{align*}
 \log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}\\
@@ -107,7 +98,7 @@ m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{
 &= \BigTheta{(1+c)n \log \frac{(1+c)n}{n} - cn \log c}\\
 &= \BigTheta{(1+c)n \log (1+c) - cn \log c}\\
 &= \BigTheta{(1+c)n \log (1+c) + cn \log \frac{1}{c}}\\
-&= \BigTheta{n}\\
+&= \BigTheta{n}\qedhere
 \end{align*}
 \end{proof}
 
@@ -116,66 +107,56 @@ In conclusion, the only way the \concept{\ITLB} could be \SmallO{n} is if \(m =
 
 Now we want to see what the bound becomes when $n$ start to grow relatively to
 $m$. In the following proof we assume that $m$ is negligible compared to $n$.
-
 \begin{lemma}
 \begin{align*}
-m = \SmallO{n} &\implies \log\binom{m+n}{m} = \BigTheta{m \log\frac{n}{m}}\\
+m = \SmallO{n} &\implies \log\binom{m+n}{m} = \BigTheta{m \log\frac{n}{m}}
 \end{align*}
 \end{lemma}
-
 \begin{proof}
 \begin{align*}
 \log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}\\
 &= \BigTheta{m \log\frac{n}{m} + n \log\frac{n}{n}}\\
-&= \BigTheta{m \log\frac{n}{m}}\\
+&= \BigTheta{m \log\frac{n}{m}}\qedhere
 \end{align*}
 \end{proof}
-
 
 This could be intuitively understood as doing $m$ binary searches on sets of
 size $\frac{n}{m}$.
 
-
 Now observe what happens when $m = 1$.
-
 \begin{lemma}
 \begin{align*}
-m = 1 &\implies \log\binom{m+n}{m} = \BigTheta{\log n}\\
+m = 1 &\implies \log\binom{m+n}{m} = \BigTheta{\log n}
 \end{align*}
 \end{lemma}
-
 \begin{proof}
 \begin{align*}
 \log\binom{m+n}{m} &= \BigTheta{m \log\frac{n}{m}}\\
-&= \BigTheta{\log n}\\
+&= \BigTheta{\log n}\qedhere
 \end{align*}
 \end{proof}
 
-An algorithm performing \BigO{\log n} queries is Binary Search.
-
+An algorithm performing \BigO{\log n} queries is \binarysearch.
 
 In conclusion, we need an algorithm performing \BigO{m \log\frac{n}{m}} queries.
 Ideally this algorithm should compete with Sequential Merge for the case where
-$m = n$ and with Binary Search for the case where $m = 1$.
-
+$m = n$ and with \binarysearch for the case where $m = 1$.
 
 So far we have explored special cases, it would be nice if we could
 combine the different solutions to build an algorithm of complexity \BigO{\log
 \binom{m+n}{m}} that works for any input.
 
 The idea is that the algorithm should behave like:
-
 \begin{itemize}
-\item \tapemerge when $\frac{n}{m} = 1$;
+\item \tapemerge when $m = cn$, for some \(0 < c \le 1\);
 \item $m$ binary searches on sets of size $\frac{n}{m}$ when $m = \SmallO{n}$;
-\item Binary Search when \(m = 1\).
+\item \binarysearch when \(m = 1\).
 \end{itemize}
 
 \citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm. Their
 algorithm merges two linearly ordered sets \(\A = \tuple{a_1,\dots,a_m}\) and
 \(\B = \tuple{b_1,\dots,b_n}\) with the constraint \(m \le n\). Below is a
 description of the algorithm:
-
 \begin{algorithm}[Hwang-Lin algorithm]
 \item[1.] If \(m = 0\) the algorithm stops.
 \item[2.] Let \(\alpha = \floor{\log \frac{n}{m}}\) and \(x = n - 2^{\alpha} + 1\).
@@ -183,7 +164,7 @@ description of the algorithm:
 \item[4.] If \(a_m \le b_x\), remove all elements \(b_x,\dots,b_n\) from
 \(\B\).
 \item[5.] Otherwise, find the insertion position of \(a_m\) in
-\(b_{x+1},\dots,b_{n}\) using binary search. Remove \(a_m\) from \(\A\) and
+\(b_{x+1},\dots,b_{n}\) using \binarysearch. Remove \(a_m\) from \(\A\) and
 remove from \(\B\) the set of all elements that lie after the insertion
 position of \(a_m\) in \(\B\).
 \item[6.] If now \(m > n\) swap the roles of \(\A\) and \(\B\).
@@ -194,7 +175,7 @@ In summary, the algorithm searches the position of the last element of \(\A\)
 in the \(2^{\alpha}\) largest elements of \(\B\). If \(a_m\) is smaller or
 equal to all these elements, which can be checked in a single comparison, then
 the algorithm discards these elements from \(\B\). Otherwise the algorithm uses
-binary search on \(2^{\alpha}-1\) elements to find the insertion position of
+\binarysearch on \(2^{\alpha}-1\) elements to find the insertion position of
 \(a_m\) in \(\B\). In both cases, the last step of the algorithm is to recurse
 on the updated sets \(\A\) and \(\B\). The algorithm ensures that \(m \le n\)
 before each recursive call.
@@ -202,11 +183,11 @@ before each recursive call.
 \citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm has a complexity
 at most \(\ceil{\ITLB} + m - 1 = \BigO{\ITLB}\). The trick that allows to
 get so close to the \concept{\ITLB} with this algorithm resides in the choice of
-\(\alpha\). Indeed the binary search step uses at most \(\alpha\) comparisons
+\(\alpha\). Indeed \binarysearch uses at most \(\alpha\) comparisons
 when \(\alpha \in \N\) and when the number of elements to search
 from is \(2^{\alpha}-1\).
 
-\nb{We can check that this algorithm matches the \concept{\ITLB} found for our
+We can check that this algorithm matches the \concept{\ITLB} found for our
 special cases. For example, \(2^\alpha\) is \emph{almost} \(\frac{n}{m}\),
 which makes the Hwang-Lin algorithm match our description of a good algorithm
-for the case \(m = \SmallO{n}\).}
+for the case \(m = \SmallO{n}\).
