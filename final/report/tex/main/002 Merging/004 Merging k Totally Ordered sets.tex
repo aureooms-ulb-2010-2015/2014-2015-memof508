@@ -1,18 +1,18 @@
 \section{Merging $k$ Totally Ordered Sets}
 \label{tree:merging:kgeq3}
 
-In this last section, we give the ITLB of the merging
-problem and a \BigO{ITLB} algorithm solving this problem. This last
+In this last section, we give the \ITLB of the merging
+problem and a \BigO{\ITLB} algorithm solving this problem. This last
 algorithm is built on top of the Hwang-Lin algorithm.
 
-\subsection*{ITLB}
+\subsection*{\ITLB}
 \label{tree:merging:kgeq3:ITLB}
 
-Again, we compute the ITLB as the logarithm of the number of possible solutions
+Again, we compute the \ITLB as the logarithm of the number of possible solutions
 for this problem, \ie
 
 \begin{theorem}
-The \concept{ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
+The \concept{\ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
 \sum_{i=1}^{k} n_i$ is \BigOmega{\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}}.
 \end{theorem}
 
@@ -35,18 +35,18 @@ $n$ elements minus the information we already have.}
 \label{tree:merging:kgeq3:alg}
 
 We start with the pseudo-code description of our algorithm. We then prove this
-algorithm solves the merging problem using \BigO{ITLB} queries.
+algorithm solves the merging problem using \BigO{\ITLB} queries.
 
 \begin{algorithm}
 \item[1.] Let \(\S_i\) and \(\S_j\) be two smallest sets from \(\S_1 ,
 \dots , \S_k\).
-\item[2.] Merge \(\S_i\) and \(\S_j\) with a \BigO{ITLB} algorithm.
+\item[2.] Merge \(\S_i\) and \(\S_j\) with a \BigO{\ITLB} algorithm.
 \item[3.] Merge \((\enum{\S_1 , \dots , \S_k} \setminus \enum{\S_i,\S_j} )
 \cup \enum{\S_i \cup \S_j}\).
 \end{algorithm}
 
 We use tools from Information Theory to prove that this algorithm has
-a query complexity of \BigO{ITLB}. The first tool we use is Shannon's entropy of a random
+a query complexity of \BigO{\ITLB}. The first tool we use is Shannon's entropy of a random
 variable \(X\), \(H(X)\).
 \begin{definition}
 \begin{displaymath}
@@ -141,22 +141,22 @@ by our algorithm. Since,
 n H(\S) \le n L_H(\S) \le n H(\S) + n,
 \end{displaymath}
 our algorithm requires at most \(n \log n - \sum\limits_i \card{\S_i} \log \card{\S_i} +
-n\) comparisons which is \(\concept{ITLB} + \BigO{n}\).
+n\) comparisons which is \(\concept{\ITLB} + \BigO{n}\).
 
-To handle sublinear \concept{ITLB} we need to resort to a last trick. The only
-way the \concept{ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
+To handle sublinear \concept{\ITLB} we need to resort to a last trick. The only
+way the \concept{\ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
 \(\L\) we merge have sizes \(m\) and \(n\) respectively such that \(m =
 \SmallO{n}\). Otherwise merging them would require \BigOmega{n} comparisons.
 If \(m = \SmallO{n}\), then we can use the Hwang-Lin algorithm to merge those
-two nodes using \(\BigO{m \log \frac{n}{m}} = \BigO{ITLB}\) comparisons. Moreover, the set
+two nodes using \(\BigO{m \log \frac{n}{m}} = \BigO{\ITLB}\) comparisons. Moreover, the set
 \(\L\) can only be a leaf of the Huffman tree. Indeed, it cannot be the result
 of a merge operation between two \BigO{m} sized nodes. Since this is the only
 kind of merge operation that is allowed before having merged the set \(\U\)
 with another one, \(\L\) is necessarily a leaf. Since producing the totally ordered
-set of size \(m\) uses at most \BigO{ITLB} comparisons using our
+set of size \(m\) uses at most \BigO{\ITLB} comparisons using our
 previous algorithm, after trading
 \tapemerge for the Hwang-Lin algorithm we get an algorithm
-solving the merging problem using \BigO{ITLB} queries.
+solving the merging problem using \BigO{\ITLB} queries.
 
 Our algorithm is thus building the Huffman tree and then merges the two deepest
 leaves of the Huffman tree using the Hwang-Lin algorithm until there is only
@@ -175,5 +175,5 @@ The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps producing
 information we already have. Since those steps do not need to be processed, and
 since they normally would have required us to use \(\BigO{n \log n}\) queries, we have a
 total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} =
-\BigO{ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set
+\BigO{\ITLB}$ where $n_i$ is the cardinality of the $i$-th totally ordered set
 of the input.

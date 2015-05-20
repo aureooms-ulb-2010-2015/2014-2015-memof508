@@ -1,17 +1,17 @@
 \section{Merging two Totally Ordered Sets}
 \label{tree:merging:k=2}
 
-We now analyze the ITLB for the problem of merging two totally ordered sets of
-different sizes and give a description of a \BigO{ITLB} algorithm.
+We now analyze the \ITLB for the problem of merging two totally ordered sets of
+different sizes and give a description of a \BigO{\ITLB} algorithm.
 
-\subsection*{ITLB}
+\subsection*{\ITLB}
 \label{tree:merging:k=2:ITLB}
 
 Analogously to what we did in \Cref{tree:sorting}, we compute the
 logarithm of the number of possible solutions for this problem, \ie
 
 \begin{theorem}
-The ITLB for the merging problem when \(k = 2\) with \(\card{\S_1} = m, \card{\S_2}
+The \ITLB for the merging problem when \(k = 2\) with \(\card{\S_1} = m, \card{\S_2}
 = n\) is \BigOmega{\log \binom{m+n}{m}}.
 \end{theorem}
 
@@ -31,9 +31,9 @@ $\S'$ of $m+n$ elements minus the information we already have.}
 \subsection*{The Hwang-Lin Algorithm}
 \label{tree:merging:k=2:alg}
 
-We analyze the \concept{ITLB} of the Merging problem. Then we
-describe an algorithm whose complexity meets the \concept{ITLB}. We begin by
-computing the general case expression of the \concept{ITLB}.
+We analyze the \concept{\ITLB} of the Merging problem. Then we
+describe an algorithm whose complexity meets the \concept{\ITLB}. We begin by
+computing the general case expression of the \concept{\ITLB}.
 
 \begin{lemma}
 \begin{align*}
@@ -111,7 +111,7 @@ m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{
 \end{align*}
 \end{proof}
 
-In conclusion, the only way the \concept{ITLB} could be \SmallO{n} is if \(m =
+In conclusion, the only way the \concept{\ITLB} could be \SmallO{n} is if \(m =
 \SmallO{n}\). This result will be useful for the next section.
 
 Now we want to see what the bound becomes when $n$ start to grow relatively to
@@ -200,13 +200,13 @@ on the updated sets \(\A\) and \(\B\). The algorithm ensures that \(m \le n\)
 before each recursive call.
 
 \citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm has a complexity
-at most \(\ceil{\text{ITLB}} + m - 1 = \BigO{ITLB}\). The trick that allows to
-get so close to the \concept{ITLB} with this algorithm resides in the choice of
+at most \(\ceil{\ITLB} + m - 1 = \BigO{\ITLB}\). The trick that allows to
+get so close to the \concept{\ITLB} with this algorithm resides in the choice of
 \(\alpha\). Indeed the binary search step uses at most \(\alpha\) comparisons
 when \(\alpha \in \N\) and when the number of elements to search
 from is \(2^{\alpha}-1\).
 
-\nb{We can check that this algorithm matches the \concept{ITLB} found for our
+\nb{We can check that this algorithm matches the \concept{\ITLB} found for our
 special cases. For example, \(2^\alpha\) is \emph{almost} \(\frac{n}{m}\),
 which makes the Hwang-Lin algorithm match our description of a good algorithm
 for the case \(m = \SmallO{n}\).}

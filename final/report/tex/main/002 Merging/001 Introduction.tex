@@ -16,16 +16,16 @@ smallest element out of the two input sequences heads and adding it to the end
 of the output sequence. This algorithm is the merge procedure of the \mergesort
 algorithm and is called \tapemerge. \tapemerge has \BigO{n} complexity for
 both comparisons and other computation operations. However, the query
-complexity of \tapemerge does not match the ITLB of the merging problem for all
+complexity of \tapemerge does not match the \ITLB of the merging problem for all
 inputs. In this chapter, we explain how we can beat the \tapemerge algorithm
 with cleverer techniques and how to apply these results to the problem of
 merging \(k\) sorted sequences.
 
 In the first section, we give a formal statement of the merging problem, \ie
 the problem of merging \(k\) sorted sequences of different sizes. In the second
-section, we analyze the ITLB for the problem of merging two sorted sequences of
+section, we analyze the \ITLB for the problem of merging two sorted sequences of
 different sizes and give a description of the Hwang-Lin algorithm
 \cite{DBLP:journals/siamcomp/HwangL72} that solves this problem using
-\BigO{ITLB} queries. In the last section, we give the ITLB of the merging
-problem and a \BigO{ITLB} algorithm solving this problem. This last
+\BigO{\ITLB} queries. In the last section, we give the \ITLB of the merging
+problem and a \BigO{\ITLB} algorithm solving this problem. This last
 algorithm is built on top of the Hwang-Lin algorithm.
