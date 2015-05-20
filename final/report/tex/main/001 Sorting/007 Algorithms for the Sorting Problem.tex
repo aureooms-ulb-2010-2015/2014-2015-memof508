@@ -2,18 +2,17 @@
 \label{tree:sorting:alg}
 
 We now detail three algorithms that can be used to solve the sorting
-problem efficiently. According to our model, remember \ref{tree:sorting:model},
+problem efficiently. According to our model, remember \Cref{tree:sorting:model},
 we only consider comparison-based sorting algorithms.
-
-\nb{In the following paragraphs and subsections we use the words minimum,
-smaller
-and smallest as well as the symbol \(\le\). If one replaces minimum by maximum,
-smaller by larger, smallest by largest and \(\le\) by \(\ge\) in those paragraphs and subsections,
-their content remains valid.}
 
 Before we start, let us make a quick observation. The sorting problem can
 easily be solved using at most \(\binom{n}{2} = \BigO{n^2}\) queries. A first
-way to achieve this bound is by iteratively computing and removing the minimum
+way to achieve this bound is by iteratively computing and removing the
+minimum\footnote{In the following paragraphs we use the words minimum,
+smaller
+and smallest as well as the symbol \(\le\). If one replaces minimum by maximum,
+smaller by larger, smallest by largest and \(\le\) by \(\ge\) in those paragraphs,
+their content remains valid.}
 element from the input set. A second way is to iteratively
 extend a sorted sequence by insertion of an element taken (and removed) from
 the input set. \selectionsort and \bubblesort are two algorithms based on the
@@ -38,7 +37,7 @@ that \(l \le u \Forall l \in \L, u \in U\). Once \(\L\) and \(\U\) are known,
 the algorithm sorts these two sets recursively. A rigorous definition of the
 algorithm is the following:
 
-\begin{algorithm}
+\begin{algorithm}[\quicksort]
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Choose a pivot element \(p \in \S\) and compare it with all other
 elements of \(\S\) by querying the oracle \(n - 1\) times.
@@ -73,7 +72,7 @@ the partition step before solving the two subproblems, in \mergesort we
 first solve two subproblems and then recombine them with a merge step that
 requires \BigO{n} comparisons:
 
-\begin{algorithm}
+\begin{algorithm}[\mergesort]
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Arbitrarily partition \(\S\) into two disjoint subsets \(\L\) and
 \(\U\) such that \(\card{\L} = \ceil{\frac{n}{2}}\) and \(\card{\U} =
@@ -108,10 +107,10 @@ from a set \(\S\). A heap can be seen as a complete binary tree where a node
 is smaller or equal to its children. The last condition is called the heap property.
 Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.  Let us
 explain how. There exist two main procedures to update the contents of a heap.
-The first one is \emph{siftdown} which consists in \emph{sifting} a node down
+The first one is \siftdown which consists in \emph{sifting} a node down
 the tree until it is smaller or equal to all of its children. Below are the
-steps of the \emph{siftdown} algorithm with input node \(N\):
-\begin{algorithm}
+steps of the \siftdown algorithm with input node \(N\):
+\begin{algorithm}[\siftdown]
 \item[1.] If \(N\) is a leaf of the tree the algorithm stops.
 \item[2.] Compute \(C = \min \text{children}(N)\).
 \item[3.] If \(N \le C\) the algorithm stops.
@@ -119,10 +118,10 @@ steps of the \emph{siftdown} algorithm with input node \(N\):
 \item[5.] Sift down \(N\) again.
 \end{algorithm}
 
-The second one is \emph{siftup}. This operation is similar to \emph{siftdown}.
+The second one is \siftup. This operation is similar to \siftdown.
 We \emph{sift} a node up the tree until it is larger or equal to its parent.
 Below are the steps of the algorithm:
-\begin{algorithm}
+\begin{algorithm}[\siftup]
 \item[1.] If \(N\) is the root of the tree the algorithm stops.
 \item[2.] Compute \(P = \text{parent}(N)\).
 \item[3.] If \(N \ge P\) the algorithm stops.
@@ -144,7 +143,7 @@ property. This tree has \(\ceil{\frac{n}{2}}\) leaves, at most
 \(\ceil{\frac{n}{4}}\) nodes of height \(1\), at most \(\ceil{\frac{n}{8}}\)
 nodes of height \(2\), \dots, \ie at most \(\ceil{\frac{n}{2^{1+h}}}\) nodes
 of height \(h\).
-One applies \emph{siftdown} to each node of the tree right-to-left,
+One applies \siftdown to each node of the tree right-to-left,
 bottom-to-top, starting from the rightmost leaf and ending at the root. The
 total number of comparisons is at most
 
@@ -166,7 +165,7 @@ H(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
 which is approximately twice as much comparisons than what can be found by
 solving the recurrence relation for the \mergesort algorithm (see
 \citet*{OEIS:A001855}). Note that in the \heapsort algorithm we did not use the
-\emph{siftup} operation. There exists \cite{wegener:1993} a variation of the
+\siftup operation. There exists \cite{wegener:1993} a variation of the
 extracting step leading to an algorithm called bottom-up \heapsort that uses at
 most \(1.5~n \log n + \BigO{n}\) comparisons.
 

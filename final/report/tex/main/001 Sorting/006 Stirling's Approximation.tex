@@ -28,7 +28,7 @@ there should not be such symbols in the \emph{most satisfactory} formula.
 So, is there a better way? Not always. Considering the general case, only a few
 rare counting functions admit a formula that satisfies us. But, for
 the example we gave, there is:
-\begin{theorem}[Stirling's approximation (1730)]
+\begin{theorem}[Stirling's approximation 1730]
 \label{tree:sorting:theorem/stirling}
 \begin{align*}
 n! &\simeq \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n.
@@ -36,8 +36,9 @@ n! &\simeq \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n.
 \end{theorem}
 Where \(\simeq\) means that the ratio of the two sides tends to \(1\) as \(n\)
 tends to infinity.
-
-This satisfactory formula is known as Stirling's approximation. Details
+This satisfactory\footnote{We consider this formula satisfactory even though it is
+an approximation. Since we are interested in studying asymptotical complexity
+of problems and algorithms this difference does not matter.} formula is known as Stirling's approximation. Details
 about the proof can be found in \citet*{feller1967direct}.
 
 \ref{tree:sorting:theorem/stirling} gives rise to several corollaries from
@@ -59,7 +60,6 @@ of the way these problems are optimally tackled (divide and conquer).
 
 Note that another way of looking at \ref{tree:sorting:corollary/stirling} is
 saying that for some constant $c \in \R, c > 0$ and for some $N \in \R, N > 0$,
-
 \begin{displaymath}
 c \cdot n \log n \leq \log(n!) \leq n \log n, \Forall n \geq N.
 \end{displaymath}

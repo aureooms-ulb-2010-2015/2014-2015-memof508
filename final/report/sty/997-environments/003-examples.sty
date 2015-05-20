@@ -1,0 +1,13 @@
+\newcounter{example}[chapter]
+\renewcommand{\theexample}{\thechapter.\arabic{example}}%
+\newenvironment{example}[1][]
+  {\refstepcounter{example}%
+   \par%
+   \vspace{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space above
+ \noindent\textbf{Example~\theexample}%
+   \begin{enumerate}[label=\textbf{\alph*.}, ref=Example~\theexample.\alph*, #1]}% \begin{example}
+  {\end{enumerate}}% \end{example}
+
+
+\def\exampleautorefname{Examples}
+

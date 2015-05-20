@@ -1,14 +1,30 @@
 
 % ALGORITHMS
 
-\newenvironment{algorithm}%
+\newenvironment{steps}%
 {%
-\vspace{0.5cm}%
+\vspace{0.25cm}%
 \begin{adjustwidth}{0.3cm}{0cm}%
 \begin{description}%
 }
 {%
 \end{description}%
 \end{adjustwidth}%
-\vspace{0.5cm}%
+\vspace{0.1cm}%
 }
+
+\newcounter{algorithm}[chapter]
+\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}%
+\newenvironment{algorithm}[1][]
+  {\refstepcounter{algorithm}%
+   \par%
+   \vspace{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space above
+ \noindent\textbf{Algorithm~\thealgorithm}\ifx&#1&\else~(#1)\fi\textbf{.}%
+   \begin{steps}}%\begin{algorithm}
+  {\end{steps}%
+\vspace{.5\baselineskip\@plus.2\baselineskip\@minus.2\baselineskip}% Space below
+}% \end{algorithm}
+
+
+\def\algorithmautorefname{Algorithms}
+

@@ -176,7 +176,7 @@ algorithm merges two linearly ordered sets \(\A = \tuple{a_1,\dots,a_m}\) and
 \(\B = \tuple{b_1,\dots,b_n}\) with the constraint \(m \le n\). Below is a
 description of the algorithm:
 
-\begin{algorithm}
+\begin{algorithm}[Hwang-Lin algorithm]
 \item[1.] If \(m = 0\) the algorithm stops.
 \item[2.] Let \(\alpha = \floor{\log \frac{n}{m}}\) and \(x = n - 2^{\alpha} + 1\).
 \item[3.] Compare \(a_m\) with \(b_x\).
