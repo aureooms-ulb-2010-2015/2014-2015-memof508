@@ -12,18 +12,18 @@ Again, we compute the \ITLB as the logarithm of the number of possible solutions
 for this problem, \ie
 \begin{theorem}[\ITLB for Merging]
 The \concept{\ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
-\sum_{i=1}^{k} n_i$ is \(\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}\).
+\sum_{i=1}^{k} n_i$ is \(\log \frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}\).
 \end{theorem}
 \begin{proof}
 We have to choose the $n_1$ positions among $n$ in $\S'$ for the elements of
 $\S_1$ and then recursively make this choice on the remaining $n - n_1$
 positions with the elements of \(\S_2 \cup \dots \cup \S_k\). The number of
-leaves of the decision tree is $\frac{n!}{n_1! \cdot n_2! \cdots n_k!}$. Hence, the
-worst-case minimal height of the tree is $\log \frac{n!}{n_1! \cdot n_2! \cdots
-n_k!}$.
+leaves of the decision tree is $\frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}$. Hence, the
+worst-case minimal height of the tree is $\log \frac{n!}{n_1! \, n_2! \, \cdots
+\, n_k!}$.
 \end{proof}
 
-Note that giving $\log \frac{n!}{n_1! \cdot n_2! \cdots n_k!}$ in the form of the
+Note that giving $\log \frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}$ in the form of the
 Stirling's approximation gives us \(n \log n - \sum_{i=1}^{k} n_i \log n_i -
 \BigO{n}\)
 which clearly expresses the information contained in the sorted sequence $\S'$ of
@@ -128,7 +128,7 @@ sets associated to \(u\) leaves of the tree. These leaves are
 \(\S_{i_1},\ldots,\S_{i_u}\) and have lengths
 \(\card{\S_{i_1}},\ldots,\card{\S_{i_u}}\). When two nodes are merged, it
 requires thus less than
-\(\card{\S_{i_1}}+\ldots+\card{\S_{i_u}}+\card{\S_{j_1}}+\ldots+\card{\S_{j_v}}\)
+\(\card{\S_{i_1}}+\cdots+\card{\S_{i_u}}+\card{\S_{j_1}}+\cdots+\card{\S_{j_v}}\)
 comparisons. We can rearrange these \(\card{\S_{i_w}}\) and conclude that
 \(\sum_i l(\S_i) \card{\S_i}\) is an upper bound on the number of comparisons used
 by our algorithm. Since
