@@ -26,8 +26,7 @@ account other types of operations. In the case of the Insertion Sort algorithm,
 the number of memory read and write operations in standard implementations is
 quadratic on average.}.
 
-\subsection*{\quicksort}
-
+\subsection{\quicksort}
 The first efficient algorithm we explain is \quicksort \cite{hoare:1962}.
 The idea behind the \quicksort algorithm is to divide the input set \(\S\),
 \(\card{\S} = n\), into two disjoint subsets \(\L\) and \(\U\) that can be
@@ -63,8 +62,7 @@ that selecting the pivot uniformly at random leads to an average case
 complexity of \(1.39~n \log n\) comparisons, and for real-world computers this
 approach tends to be more efficient than the safe one.
 
-\subsection*{\mergesort}
-
+\subsection{\mergesort}
 A second efficient algorithm is \mergesort
 \cite{goldstine:1948,leiserson:2001}. Like \quicksort, \mergesort is a
 divide-and-conquer algorithm. While in \quicksort one makes the comparisons from
@@ -98,8 +96,7 @@ M(n) = M(\ceil{\frac{n}{2}}) + M(\floor{\frac{n}{2}}) + n - 1 \le n \log n +
 n + \BigO{\log n}.
 \end{displaymath}
 
-\subsection*{\heapsort}
-
+\subsection{\heapsort}
 The last algorithm we explain is the \heapsort algorithm
 \cite{williams:1964}. A heap is a data structure that allows one to
 efficiently lookup (\BigO{1}) or remove (\BigO{\log n}) the smallest element
@@ -166,11 +163,10 @@ which is approximately twice as much comparisons than what can be found by
 solving the recurrence relation for the \mergesort algorithm (see
 \citet*{OEIS:A001855}). Note that in the \heapsort algorithm we did not use the
 \siftup operation. There exists \cite{wegener:1993} a variation of the
-extracting step leading to an algorithm called bottom-up \heapsort that uses at
+extracting step leading to an algorithm called \bottomupheapsort that uses at
 most \(1.5~n \log n + \BigO{n}\) comparisons.
 
-\subsection*{Other Algorithms}
-
+\subsection{Other Algorithms}
 There exists other interesting ideas to solve the sorting problem. For
 example: \shellsort \cite{shell:1959}, \smoothsort \cite{dijkstra:1982},
 \introsort \cite{musser:1997} and \timsort \cite{martelli:2006}.
@@ -187,7 +183,8 @@ version of the \quicksort algorithm as their sorting procedure. An exception is
 reason behind this choice is that objects in \Java can be different while
 having the same comparison ``key''. Since the \Java \mergesort algorithm is
 implemented as a stable sorting procedure, it offers the users the guarantee
-that the sorting algorithm does not reverse the ``input''-order of equal-``key'' objects.
+that the sorting algorithm does not reverse the \emph{input-order} of
+\emph{equal-key} objects.
 The classical \quicksort algorithm is not used in this case because it is not
 stable.
 
@@ -196,9 +193,9 @@ implementation by \citet*{yaroslavskiy:2009}. It is not the first time this
 approach is considered. Previous attempts \cite{sedgewick:1980} had concluded
 that a dual-pivot \quicksort was worse than the classical one in practice.
 Analysis of the version of \citet*{yaroslavskiy:2009} by \citet*{wild:2012}
-reveals that this new version uses \(1.32~n \log n - 2.46n + \BigO{\log n}\)
+reveals that this new version uses \(1.32n \log n - 2.46n + \BigO{\log n}\)
 comparisons on average. This is less than the classical \quicksort algorithm which uses
-\(1.39~n \log n - 1.51n + \BigO{\log n}\) comparisons on average. However, in practice one must also take into account
+\(1.39n \log n - 1.51n + \BigO{\log n}\) comparisons on average. However, in practice one must also take into account
 other kinds of operations. For example, the number of element swaps in the
 dual-pivot \quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
 element swaps of the classic \quicksort by \citeauthor{hoare:1962}. This
@@ -227,18 +224,15 @@ In addition to classical sorting algorithms, we may also mention that any data
 structure allowing to retrieve inserted elements in an ordered fashion
 (according to some total order) with insertion and retrieve operations in
 $\BigO{\log n}$ time complexity can be used to build an algorithm whose time
-complexity is $\BigO{n \log n}$. Examples are:
-\begin{itemize}
-\item \binarytreesort which uses a \emph{binary tree};
-\item \tournamentsort which uses a \emph{priority queue}.
-\end{itemize}
+complexity is $\BigO{n \log n}$. Examples are
+\binarytreesort which uses a \emph{binary tree} and
+\tournamentsort which uses a \emph{priority queue}.
 For example implementations of those data structures see
 \citet*{sleator:1985} for the binary tree, and
 \citet*{leiserson:2001} for the priority queue.
 
 
-\subsection*{Is the Sorting Problem a Solved Problem?}
-
+\subsection{Is the Sorting Problem a Solved Problem?}
 Although there has been an enormous amount of research directed towards sorting
 algorithms in the field of Computer Science, there still exists a linear term
 gap between the most efficient algorithms with respect to the number of
