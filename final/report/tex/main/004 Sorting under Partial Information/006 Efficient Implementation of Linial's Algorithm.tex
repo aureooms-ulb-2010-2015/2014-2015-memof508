@@ -114,7 +114,9 @@ algorithm with \(\B \gets \B \setminus \enum{b_1}\), then stop.
 roles of \(\A\) and \(\B\).
 \item[3.2.] If \(\frac{e(\P(a_1 < b_1))}{e(\P)} < \sfrac{1}{3}\),
 \item[3.2.1.] Compute \(r\) such that \(\sfrac{1}{3} \le \frac{e(\P(a_1 < b_r))}{e(\P)} \le \sfrac{2}{3}\).
-\item[3.2.2.] Query the oracle with \(a_1 \ask{<} b_r\).
+\item[3.2.2.] Query the oracle\footnote{The only steps where we query the
+oracle are \step{3.2.2} and
+\step{3.3.1}.\label{footnote:linial:query}} with \(a_1 \ask{<} b_r\).
 \item[3.2.3.] If \(b_r < a_1\) output
 \(b_1,\ldots,b_r\), run the algorithm with \(\B \gets \B
 \setminus \enum{b_1,\ldots,b_r}\), then stop.
@@ -123,13 +125,12 @@ roles of \(\A\) and \(\B\).
 \item[3.2.4.2.] Update \(K_{1,j} \gets K_{2,j}\) for \(1 \le j \le r\).
 \item[3.2.4.3.] Run the algorithm using the updated \(\P\) and \(K\), then stop.
 \item[3.3.] Otherwise,
-\item[3.3.1] Query the oracle with \(a_1 \ask{<} b_1\).
+\item[3.3.1] Query the oracle\footnote{See~\cref{footnote:linial:query}.} with \(a_1 \ask{<} b_1\).
 \item[3.3.2] If \(a_1 < b_1\) swap the roles of \(\A\) and \(\B\).
 \item[3.3.3] Output \(b_1\), run the algorithm with \(\B \gets \B \setminus
 \enum{b_1}\), then stop.
 \end{algorithm}
-The only steps where we query the oracle are step \step{3.2.2} and step
-\step{3.3.1}.
+
 
 As a final remark, it is possible to reduce the computational
 complexity of both the construction and the update steps of the dynamic program. If
