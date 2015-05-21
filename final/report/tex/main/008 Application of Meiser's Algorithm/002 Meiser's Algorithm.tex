@@ -18,7 +18,7 @@ of cardinality $\card{\H} = m = \binom{n}{k}$,
 effectively solving the \kSUM problem using \BigO{k n^3 \log^3 n} $n$-variate
 linear queries.
 
-For fixed $k$ we draw all hyperplanes having equation involving exactly $k$
+For fixed $k$, \(\H\) is the set of hyperplanes having equation involving exactly $k$
 coordinates of $\R^n$ with coefficient $1$, we have thus $\card{\H} =
 \binom{n}{k}$. We can do this without involving the input vertex at all, this
 costs us $0$ queries.
@@ -62,8 +62,8 @@ of \BigO{n^3 \log^2 n \log m} queries.
 
 \begin{theorem}[Clarkson]
 Given a set $\H$ of $m$ hyperplanes in $\R^n$ and $\epsilon$ with the
-constraint that $0 < \epsilon < 1$, there exists a subset $\NH \subset \H$ of
-size $\enetsize$ such that for every simplex $\simplex$ in $\R^n$: if the
+constraint that $0 < \epsilon < 1$, there exists a subset $\NH \subseteq \H$ of
+size $\BigO{\enetsize}$ such that for every simplex $\simplex$ in $\R^n$, if the
 number of hyperplanes of $\H$ intersecting $\simplex$ is strictly greater than
 $\epsilon \card{\H}$ then at least one of them belongs to $\NH$.
 \end{theorem}
@@ -74,7 +74,7 @@ construct $\NH$ with high probability using a random uniform sampling on $\H$,
 meaning the following corollary holds,
 
 \begin{corollary}
-If we choose $\enetsize$ hyperplanes uniformly at
+If we choose $\BigO{\enetsize}$ hyperplanes uniformly at
 random from our $m$ hyperplanes and denote this selection $\H^{*}$ then for
 any simplex intersected by more than $\epsilon \card{\H}$ hyperplanes of $\H$
 there is a high probability that at least one of them is contained in $\H^{*}$.
@@ -94,7 +94,7 @@ cardinality of $\Ht$ and we include an additional step where we replace cell
 $\cell$ with a simplex $\simplex$.
 
 Remember \(\Ht\) is the set of hyperplanes for which we query the oracle
-in the current step of the algorithm. We choose \(\card{\Ht} = \enetsize\) and
+in the current step of the algorithm. We choose \(\card{\Ht} = \BigO{\enetsize}\) and
 instead of discarding hyperplanes not meeting the cell $\cell$ of the
 arrangement $\arrangement(\Ht)$ containing $x$, we first refine the cell around
 point $x$. We do so by computing a simplex $\simplex$ inscribed in $\cell$ and
@@ -114,7 +114,7 @@ follows,
 \item[1.] Find a vertex $\nu$ of the cell containing $x$, $\nu$ is one of
 the vertices of our simplex. \textbf{($0$)}
 \item[2.] Compute $x'$, the projection of $x$ along $\vec{\nu x}$ on the
-opposite face of $\cell$. \textbf{($\enetsize$)}
+opposite face of $\cell$. \textbf{($\BigO{\enetsize}$)}
 \item[3.] Induction on $x'$ in $\R^{n-1}$, store result in \(\simplex\).
 \item[4.] Return the convex hull of \(\simplex \cup \enum{\nu}\).
 \end{algorithm}
@@ -147,7 +147,7 @@ input point $x$ to sort out what meets the $\simplex$ or not. The simplex is
 composed entirely of vertices and faces from the hyperplane arrangement
 $\arrangement(\Ht)$. Hence, its structure does not depend on $x$.
 
-Let us summarize the algorithm,
+Let us summarize the algorithm
 
 \begin{algorithm}[Meiser's algorithm]
 \item[input] $x \in \R^n$, the point to be located
@@ -165,7 +165,8 @@ simplex \textbf{($0$)}
 
 Since the induction depth is $\BigO{\log m}$, the total complexity of this algorithm
 is \BigO{n^3 \log^2 n \log m}. For our \kSUM problem, $m = \binom{n}{k}$,
-and thus the complexity is \BigO{k n^3 \log^3 n}.
+and thus the complexity is \BigO{k n^3 \log^3 n}. Note that the overall
+complexity in the Random Access Machine model is polynomial.
 
 In the next section we apply the same algorithm to solve the
 subset sum problem and see that, with this sufficiently powerful computing
