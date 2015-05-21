@@ -12,34 +12,28 @@ y$ question we might ask gives us exactly $1$ bit of information. In other
 words, we cannot deduce any $x \le y$ relation from this poset. Hence, it is
 totally unordered.
 
-\subsection*{(In)Comparability Graphs}
+\subsection{Comparability Graphs}
 
 To help understand the structure of a poset we introduce the comparability
 graph ${G}(\P)$ and the incomparability graph $\widetilde{G}(\P)$ of a poset
 \(\P\).
-
-Formally,
-
-\begin{quotation}
+\begin{definition}[Comparability graph]
 The comparability graph ${G}(\P)$ of a poset $\P$ is an undirected graph whose
 vertices are the poset elements, and in which two vertices are adjacent if and
 only if the elements are comparable.
-\end{quotation}
-
-\begin{quotation}
+\end{definition}
+\begin{definition}[incomparability graph]
 The incomparability graph $\widetilde{G}(\P)$ of a poset $\P$ is an undirected
 graph whose vertices are the poset elements, and in which two vertices are
 adjacent if and only if the elements are incomparable.
-\end{quotation}
-
-
+\end{definition}
 
 Those graphs explicitly represent all relations (or pairs of incomparable
 elements) which may be inferred from the Hasse diagram of $\P$. For example,
 the comparability graph of a totally ordered set is the complete graph. See
 \ref{fig:comp-graph} for a visual example.
 
-\nb{Note that, by abuse of notation, we write $G$ instead of ${G}(\P)$.}
+Note that, by abuse of notation, we write $G$ to mean ${G}(\P)$.
 
 
 \begin{figure}
@@ -51,42 +45,38 @@ the comparability graph of a totally ordered set is the complete graph. See
 
 
 
-\subsection*{Cliques and Stable Sets}
+\subsection{Cliques and Stable Sets}
 
 
 Now that we have new tools to represent a poset, we are interested in analyzing
 remarkable structures like we did before for Hasse diagrams. Indeed, we define
 hereunder the counterparts of chains and antichains in posets for
-(in)comparability graphs.
+comparability graphs.
 
-\begin{quotation}
+\begin{definition}[Clique]
 A clique $\C$ of graph $G$ is a subset of pairwise adjacent vertices in $G$,
 i.e. the subgraph induced by $\C$ is complete.
-\end{quotation}
-
+\end{definition}
 A clique in a comparability graph ${G}$ is a subset of comparable elements in
 $\P$, i.e. a chain in $\P$.
-
 A clique in an incomparability graph $\widetilde{G}$ is a subset of
 incomparable  elements in $\P$, i.e. an antichain in $\P$.
 
-\begin{quotation}
+\begin{definition}[Stable set]
 A set $\S$ is stable (or independent) if the vertices in $\S$ are pairwise
 nonadjacent, i.e. the subgraph induced by $\S$ has $\card{\S}$ components.
-\end{quotation}
-
+\end{definition}
 A stable set in a comparability graph ${G}$ is a subset of incomparable
 elements in $\P$, i.e. an antichain in $\P$.
-
 A stable set in an incomparability graph $\widetilde{G}$ is a subset of
 comparable elements in $\P$, i.e. a chain in $\P$.
 
 
-\nb{A stable set in ${G}$ is a clique in $\widetilde{G}$ and vice versa.}
+A stable set in ${G}$ is a clique in $\widetilde{G}$ and vice versa.
 
 
 
-\subsection*{$\operatorname{STAB}(G)$}
+\subsection{$\operatorname{STAB}(G)$}
 \label{tree:poset:graph:stab}
 
 In what follows we show that from the internal structure of a graph $G$
@@ -121,7 +111,7 @@ polytope) of stable set characteristic vectors $\chi^{\S} \in \R^n$.
 
 
 
-\subsection*{Entropy for Comparability Graphs}
+\subsection{Entropy for Comparability Graphs}
 
 The entropy of a graph can be defined in several ways, see
 \citet*{mowshowitz2012entropy} and \citet*{simonyi1995graph}.
@@ -130,16 +120,17 @@ Here we define the entropy of a comparability graph $G$ as a function of the
 stable sets $G$ possesses. In order to do so, we look at every vector in
 $\operatorname{STAB}(G)$ and we keep the vector that gives the lowest entropy
 value for a given entropy function. This vector is the discrete distribution
-look-alike object we talked about in \ref{tree:poset:graph:stab} and the
+look-alike object we talked about in the previous subsection and the
 entropy value is called the entropy of graph $G$, denoted ${H}(G)$.
 
 Formally, we define the entropy of comparability graph $G$ as
-
+\begin{definition}[Entropy of a graph]
 \begin{equation}
 {H}(G) \bydef \min_{x \in \operatorname{STAB}(G)}~ -\frac{1}{n} \sum_{v \in
 V} \log x_v.
 \label{eq:entropy:graph}
 \end{equation}
+\end{definition}
 
 Note that any $x^*$ which minimizes \ref{eq:entropy:graph} also minimizes the
 sum on $\log \frac{1}{x_v}$.
@@ -149,13 +140,25 @@ The definition of entropy of graphs was first introduced by
 \citet*{csiszar:1990}.
 
 
-\subsection*{Entropy for Posets}
+\subsection{Entropy for Posets}
 
 As we defined $H(G)$ in \ref{eq:entropy:graph}, we write $H(\P)$ to mean
 $H(G(\P))$. We give a similar definition for \(H(\widetilde{\P})\).
+\begin{definition}[Entropy of a poset]
 \begin{displaymath}
 {H}(\P) \bydef {H}({G}(\P)).
 \end{displaymath}
+\end{definition}
+\begin{definition}[Negative entropy of a poset]
 \begin{displaymath}
 {H}(\widetilde{\P}) \bydef {H}(\widetilde{G}(\P)).
 \end{displaymath}
+\end{definition}
+
+Note that since comparability graphs are perfect \cite{berge:1984}, we have
+\begin{theorem}[Complementarity of entropies for posets]
+For any poset of order \(n\),
+\begin{displaymath}
+H(\P) + H(\widetilde{\P}) = \log n.
+\end{displaymath}
+\end{theorem}

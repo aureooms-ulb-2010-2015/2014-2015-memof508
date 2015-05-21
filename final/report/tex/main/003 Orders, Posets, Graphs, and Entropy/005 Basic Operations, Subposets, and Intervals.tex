@@ -24,57 +24,57 @@ Unlike the binary operations, we might consider the case where $\le_{\T} \neq
 \le_{\S}$ and others. The former are called induced subposets and the latter
 weak subposets.
 
-Quoting from \citet*{Stanley:2011:ECV:2124415},
-
-\begin{quotation}
-
+\begin{definition}[Induced subposet]
 By an induced subposet of $\P$, we mean a subset $\Q$ of $\P$ and a partial
 ordering of $\Q$ such that for $s, t \in \Q$ we have $s \leq t$ in $\Q$ if and
 only if $s \leq t$ in $\P$. We then say the subset $\Q$ of $\P$ has the induced
 order.
-
-\end{quotation}
+\end{definition}
 
 This definition is similar to the definition of an induced subgraph. If we
-represents a poset $\P$ as a directed graph $G = (V, E)$ (see
-\ref{tree:poset:graph}), each edge represents an element of an order relation
+represents a poset $\P$ as a directed graph $G$ (see
+\Cref{tree:poset:graph}), each edge represents an element of an order relation
 and when we remove a vertex from one of those graphs we also have to remove
 incident edges since one of their endpoints is missing. Considering that $\P$ is
-finite, there are $2^{\card{V}}$ induced subgraphs of $G$, thus the poset $\P$ has
-exactly $2^{\card{\P}}$ induced subposets.
-
-\nb{Note that when using the expression ``a subposet of $\P$'', we always
-mean ``an induced subposet of $\P$''.}
+finite, there are $2^{\card{V(G)}}$ induced subgraphs of $G$, thus the poset $\P$ has
+exactly $2^{\card{\P}}$ induced subposets. Note that when using the expression
+``a subposet of $\P$'', we always mean ``an induced subposet of $\P$''.
 
 The set of weak subposets is a superset of the set of induced subposets where
 arbitrary edge deletion in the graph associated with a poset is allowed.
-
-\nb{All induced subposets are also weak subposets.}
-
+All induced subposets are also weak subposets.
+\begin{definition}[Weak subposet]
 A weak subposet of $\P$ is thus a subset $\Q$ of the elements of $\P$ and a
 partial ordering of $\Q$ such that if $s \leq t$ in $\Q$, then $s \leq t$ in $\P$.
+If $\Q$ is a weak subposet of $\P$ with $\P = \Q$ as sets, then we call $\P$ a
+refinement of $\Q$ (only the order relations differ).
+\end{definition}
 
-\nb{If $\Q$ is a weak subposet of $\P$ with $\P = \Q$ as sets, then we call $\P$ a
-refinement of $\Q$ (only the order relations differ).}
-
-
+We give the remaining definitions for the sake of completeness.
+\begin{definition}[Closed interval]
 A special type of subposet of $\P$ is the (closed) interval $[s, t] = \left\{{u
 \in \P \st s \leq u \leq t}\right\}$, defined whenever $s \leq t$. The interval
 $[s, s]$ consists of the single point $s$.
+By this definition the empty set is not regarded as a closed interval since
+partial order relations are reflexive.
+\end{definition}
 
-\nb{By this definition the empty set is not regarded as a closed interval since
-partial order relations are reflexive.}
-
-Similarly we can define the open interval $(s, t) = \left\{{u \in \P \st s < u <
+\begin{definition}[Open interval]
+We give a similar definition to the open interval.
+The open interval $(s, t) = \left\{{u \in \P \st s < u <
 t}\right\}$, so $(s, s) = \emptyset$.
+\end{definition}
 
+\begin{definition}[Locally finite poset]
 If every interval of $\P$ is finite, then $\P$ is called a locally finite poset,
 e.g. $\P = (\N, \le)$ is locally finite while $\Q = (\R, \le)$ is
 not.
+\end{definition}
 
-
+\begin{definition}[Convex subposet]
 We also define a subposet $\Q$ of $\P$ to be convex if $t \in \Q$ whenever $s < t
 < u$ in $\P$ and $s, u \in \Q$. Thus an interval is convex. The difference with a
 closed interval is that the number of minimal/maximal elements can be greater than 2.
+\end{definition}
 
 %TODO figure of convex, interval

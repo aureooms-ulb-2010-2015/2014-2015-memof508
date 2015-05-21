@@ -63,16 +63,16 @@ prove that the construction of this mapping is possible.
 	\label{fig:poset:iso:a}
 \end{figure}
 
-\ref{fig:poset:iso:a} shows two small diagrams for the example we just gave.
+\ref{fig:poset:iso:a} shows two small
+diagrams\footnote{The diagrams of \ref{fig:poset:iso:a} are Hasse diagrams. In those diagrams, we
+notice that edges that can be deduced by the transitivity property are not
+drawn. The topic of Hasse diagrams is covered in detail in
+\Cref{tree:poset:hasse}.}
+for the example we just gave.
 Those diagrams provide an illustration of what we mean by \emph{posets having
 the same structure}. Looking at a poset ($\P$ or $\Q$), an edge from an upper
 node $x$ to a lower node $y$ implies that $x R y$ holds, where $R$ is the order
 of the considered poset.
-
-\nb{\ref{fig:poset:iso:a} shows two Hasse diagrams. In those diagrams, we
-notice that edges that can be deduced by the transitivity property are not
-drawn. The topic of Hasse diagrams is covered in detail in
-\ref{tree:poset:hasse}.}
 
 We currently only gave examples of finite posets. We could show what can be
 achieved with infinite posets. For this example we choose $\S = \T = \R$,
@@ -87,18 +87,15 @@ isomorphic to uncountable sets and vice versa. Another general remark is that
 those posets must have the same bounds, e.g. a closed interval cannot be
 isomorphic to an open interval and vice versa because a closed interval has a
 least and greatest element, while an open one has not (see
-\ref{tree:poset:leastandgreatest} for an illustration).
+\Cref{tree:poset:leastandgreatest} for an illustration).
 
-Now that we see what isomorphism means for posets, we can quote the definition
-from \citet*{Stanley:2011:ECV:2124415},
-
-\begin{quotation}
-
+Now that we see what isomorphism means for posets, we can give a formal
+definition.
+\begin{definition}[Isomorphic posets]
 Two posets $\P$ and $\Q$ are \define{isomorphic}, denoted $\P \cong \Q$, if
 there exists an \emph{order-preserving bijection} $\phi : \P \to \Q$ whose
 inverse is order-preserving; that is, $$s \leq t~\text{in}~\P \iff \phi(s) \leq
 \phi(t)~\text{in}~\Q.$$ For example, if $B_{\S}$ denotes the poset of all subsets
 of the set $\S$ ordered by inclusion, then $B_{\S} \cong B_{\T}$ whenever $\card{\S} =
 \card{\T}$.
-
-\end{quotation}
+\end{definition}
