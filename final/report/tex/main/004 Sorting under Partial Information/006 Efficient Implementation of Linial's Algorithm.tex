@@ -1,7 +1,6 @@
 \section{Efficient Implementation of Linial's Algorithm}
 
-In this section we present original developments on Linial's work
-\cite{linial:1984}.
+In this section we present original developments on Linial's work~\cite{linial:1984}.
 We explain
 how to reduce the complexity of Linial's algorithm to \BigO{n^2} preprocessing
 time and \BigO{n \log e(P)} running time.
@@ -59,7 +58,7 @@ e(\P(a_1 < b_r)) = e(\P) - e(\P(b_r < a_1)) = e(\P) - e(\P \setminus \enum{b_1,\
 \end{displaymath}
 we have
 \begin{displaymath}
-e(\P(a_1 < b_r)) = K_{1,1} - K_{1,r+1}.
+e(\P(a_1 < b_r)) = K_{1,1} - K_{1,r+1}.\qedhere
 \end{displaymath}
 \end{proof}
 Note that other values \(e(\P(a_i < b_j))\) for any pair \((a_i,b_j)\)
@@ -100,16 +99,14 @@ extension compatible with the unknown total order \(<\). The algorithm receives 
 input the poset \(\P\) covered by two chains \(\A =
 (\chain{a_1}{a_{\card{\A}}})\) and \(\B = (\chain{b_1}{b_{\card{\B}}})\), the oracle
 \(\ask{<}\) and a precomputed \(\card{\A} \times \card{\B}\) tableau \(K\).
-
-\nb{Several times during the algorithm we use an instruction that swaps the
+\begin{algorithm}[Efficient implementation of Linial's algorithm]
+\item[1.] If \(\card{\A} = 0 \text{ and } \card{\B} = 0\) the algorithm stops.
+\item[2.1.] If \(\card{\B} = 0\) or \(a_1 <_{\P} b_1\) swap\footnote{Several times during the algorithm we use an instruction that swaps the
 roles of \(\A\) and \(\B\). The intent is to avoid duplication of
 instructions that would bloat the description. A side effect of this swap
 instruction is that it exchanges
 the roles of rows and columns in the tableau \(K\).}
-
-\begin{algorithm}[Efficient implementation of Linial's algorithm]
-\item[1.] If \(\card{\A} = 0 \text{ and } \card{\B} = 0\) the algorithm stops.
-\item[2.1.] If \(\card{\B} = 0\) or \(a_1 <_{\P} b_1\) swap the roles of \(\A\) and \(\B\).
+the roles of \(\A\) and \(\B\).
 \item[2.2.] If \(\card{\A} = 0\) or \(b_1 <_{\P} a_1\) output
 \(b_1\), run the
 algorithm with \(\B \gets \B \setminus \enum{b_1}\), then stop.
@@ -131,9 +128,8 @@ roles of \(\A\) and \(\B\).
 \item[3.3.3] Output \(b_1\), run the algorithm with \(\B \gets \B \setminus
 \enum{b_1}\), then stop.
 \end{algorithm}
-
-\nb{The only steps where we query the oracle are step \step{3.2.2} and step
-\step{3.3.1}.}
+The only steps where we query the oracle are step \step{3.2.2} and step
+\step{3.3.1}.
 
 As a final remark, it is possible to reduce the computational
 complexity of both the construction and the update steps of the dynamic program. If
