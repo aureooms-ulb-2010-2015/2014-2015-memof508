@@ -7,12 +7,12 @@ It is clear that we could use this information to ease the overall computation
 process. If we look at any \BigO{\ITLB} algorithm, they all start from
 $0$ bits of information and end up producing a totally ordered set containing
 $\ITLB = \BigO{n \log n}$ bits of information. We already showed in
-\ref{tree:sorting:ITLB} that for any algorithm, there exists an instance of the
+\Cref{tree:sorting:ITLB} that for any algorithm, there exists an instance of the
 problem which forces the algorithm to ask \BigOmega{n \log n} questions.
 Starting from a poset whose order is completely unknown, such an algorithm
 thus iteratively updates this poset by retrieving information and make sure it
 reuses it well. By reusing the information efficiently, it is able to
-choose ``good'' questions to ask.
+choose \emph{good} questions to ask.
 
 
 In \quicksort this is achieved by recursively building linear extensions of weak
@@ -33,8 +33,8 @@ reality their cardinalities can only differ by $1$). We saw in
 \(2n-1\) queries \BigO{n}. For each merge operation, the input
 contains $2 \log n!$ bits of information while the output contains $\log (2n)!$
 bits of information, so we must find \(\log (2n)! - 2 \log n!\) bits of
-information. For asymptotically large \(n\), it corresponds to approximately \(2n \log 2n -
-2n \log n = 2n (\log n + \log 2 - \log n) = 2n\) bits of information, which is
+information. For asymptotically large \(n\), it corresponds to approximately
+\(2 n - \sfrac{1}{2} \log n - 0.826\) bits of information, which is
 consistent with our previous results. So, regarding reuse of retrieved
 information the \mergesort algorithm is asymptotically optimal.
 
