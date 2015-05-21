@@ -23,7 +23,6 @@ Unlike the binary operations, we might consider the case where $\le_{\T} \neq
 \le_{\S}$. Two main types of subposets emerge: subposets for which $\le_{\T} =
 \le_{\S}$ and others. The former are called induced subposets and the latter
 weak subposets.
-
 \begin{definition}[Induced subposet]
 By an induced subposet of $\P$, we mean a subset $\Q$ of $\P$ and a partial
 ordering of $\Q$ such that for $s, t \in \Q$ we have $s \leq t$ in $\Q$ if and
@@ -58,19 +57,16 @@ $[s, s]$ consists of the single point $s$.
 By this definition the empty set is not regarded as a closed interval since
 partial order relations are reflexive.
 \end{definition}
-
 \begin{definition}[Open interval]
 We give a similar definition to the open interval.
 The open interval $(s, t) = \left\{{u \in \P \st s < u <
 t}\right\}$, so $(s, s) = \emptyset$.
 \end{definition}
-
 \begin{definition}[Locally finite poset]
 If every interval of $\P$ is finite, then $\P$ is called a locally finite poset,
 e.g. $\P = (\N, \le)$ is locally finite while $\Q = (\R, \le)$ is
 not.
 \end{definition}
-
 \begin{definition}[Convex subposet]
 We also define a subposet $\Q$ of $\P$ to be convex if $t \in \Q$ whenever $s < t
 < u$ in $\P$ and $s, u \in \Q$. Thus an interval is convex. The difference with a
