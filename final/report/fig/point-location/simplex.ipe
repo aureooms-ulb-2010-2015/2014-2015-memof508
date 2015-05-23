@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20150523201504" modified="D:20150523230158"/>
+<info created="D:20150523201504" modified="D:20150523235957"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -241,11 +241,11 @@ h
 372 440 m
 584 664 l
 </path>
-<path stroke="black" fill="black" dash="dotted">
+<path matrix="1 0 0 1.04444 0 -20.2667" stroke="black" fill="black" dash="dotted">
 512 456 m
 504 816 l
 </path>
-<path stroke="green" fill="black" dash="dotted">
+<path matrix="1.07874 0 0 1.09091 -4.72441 -68.3636" stroke="green" fill="black" dash="dotted">
 568 708 m
 60 752 l
 </path>
@@ -253,7 +253,7 @@ h
 172 812 m
 484 448 l
 </path>
-<path stroke="green" fill="black" dash="dotted">
+<path matrix="1.08475 0 0 1.07692 -7.79661 -47.0769" stroke="green" fill="black" dash="dotted">
 92 612 m
 564 664 l
 </path>
@@ -265,13 +265,12 @@ h
 416 752 m
 304 528 l
 </path>
-<text transformations="translations" pos="356 668" stroke="black" type="label" width="11.497" height="8.896" depth="0" valign="baseline" size="huge">$x$</text>
 <path matrix="1.13393 0 0 1 -10.7143 0" stroke="darkblue" fill="darkblue">
 80 528 m
 528 528 l
 528 528 l
 </path>
-<path matrix="2.25 0 0 2.25 -320 -620" stroke="darkblue" fill="darkblue">
+<path matrix="3 0 0 3 -488 -1040" stroke="darkblue" fill="darkblue">
 256 496 m
 192 624 l
 192 624 l
@@ -281,16 +280,16 @@ h
 320 560 l
 320 560 l
 </path>
-<path stroke="darkblue" fill="darkblue">
+<path matrix="1.7 0 0 1.7 -286.4 -528" stroke="darkblue" fill="darkblue">
 272 800 m
 512 720 l
 512 720 l
 </path>
-<path stroke="darkblue" fill="darkblue">
+<path matrix="1.15 0 0 1.15 -62.4 -69.6" stroke="darkblue" fill="darkblue">
 416 464 m
 496 784 l
 </path>
-<path matrix="1.66667 0 0 1.66667 -245.333 -544" stroke="darkblue" fill="darkblue">
+<path matrix="1.75 0 0 1.75 -287.999 -596" stroke="darkblue" fill="darkblue">
 368 816 m
 512 624 l
 512 624 l
@@ -300,7 +299,6 @@ h
 328 720 l
 </path>
 <text matrix="1 0 0 1 108 -84" transformations="translations" pos="168 780" stroke="darkcyan" type="label" width="29.397" height="14.347" depth="4.02" valign="baseline" size="huge">$\nabla f$</text>
-<text matrix="1 0 0 1 -68 -132" transformations="translations" pos="356 668" stroke="black" type="label" width="15.94" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;$</text>
 <path stroke="darkorange" dash="dashed">
 240 528 m
 416 752 l
@@ -308,11 +306,11 @@ h
 240 528 l
 240 528 l
 </path>
-<path stroke="darkblue" fill="darkblue">
+<path matrix="1.1875 0 0 1.1875 -45 -156" stroke="darkblue" fill="darkblue">
 112 512 m
 240 832 l
 </path>
-<path stroke="darkblue" fill="darkblue">
+<path matrix="1.02885 0 0 1.02857 -2.19231 -19.6571" stroke="darkblue" fill="darkblue">
 76 688 m
 492 828 l
 </path>
@@ -393,5 +391,7 @@ h
 <text matrix="1 0 0 1 52 -104" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="18.505" height="15.468" depth="0" valign="baseline" size="huge">$\mathcal{S}&apos;$</text>
 <text matrix="1 0 0 1 16 12" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="14.062" height="14.119" depth="0" valign="baseline" size="huge">$\mathcal{S}$</text>
 <text matrix="1 0 0 1 316 200" transformations="translations" pos="168 480" stroke="darkblue" type="label" width="17.649" height="17.302" depth="0" valign="baseline" size="huge">$\widetilde{\mathcal{H}}$</text>
+<text matrix="1 0 0 1 0 -8" transformations="translations" pos="356 668" stroke="black" type="label" width="11.497" height="8.896" depth="0" valign="baseline" size="huge">$x$</text>
+<text matrix="1 0 0 1 -64 -136" transformations="translations" pos="356 668" stroke="black" type="label" width="15.94" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;$</text>
 </page>
 </ipe>

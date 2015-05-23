@@ -107,9 +107,22 @@ all steps is \BigO{n^2 \log^2 n \log m}. However, we
 still need to explicit how we find a simplex $\simplex$ containing $x$ and
 inscribed in $\cell$.
 
+\begin{figure}
+\begin{center}
+\includegraphics[trim=110 40 50 30,clip=true,height=0.35\textheight]{fig/point-location/simplex.eps}
+\caption{
+A complete step of Meiser's algorithm. The blue lines are hyperplanes of the
+set \(\widetilde{\H}\). \(\nabla f\) is the gradient of the objective function
+chosen to find the first vertex of the simplex. The green dotted lines are the
+hyperplanes from \(\H \setminus \widetilde{\H}\) that meet \(\S\), those are
+the only hyperplanes that are left to process after this step.
+}
+\label{fig:meiser:step}
+\end{center}
+\end{figure}
+
 We now explain how to build $\simplex$. The algorithm can be sketched as
 follows,
-
 \begin{algorithm}[Building \(\simplex\)]
 \item[input] A point \(x\) and a set of hyperplanes \(\widetilde{\H}\) in
 \(\R^n\).
@@ -157,8 +170,8 @@ input point $x$ to sort out what meets the $\simplex$ or not. The simplex is
 composed entirely of vertices and faces from the hyperplane arrangement
 $\arrangement(\Ht)$. Hence, its structure does not depend on $x$.
 
+\ref{fig:meiser:step} shows a complete step of Meiser's algorithm.
 Let us summarize the algorithm
-
 \begin{algorithm}[Meiser's algorithm]
 \item[input] $x \in \R^n$, the point to be located
 \item[1.] Compute the position of $\BigO{n^2 \log^2 n}$ hyperplanes relatively to
