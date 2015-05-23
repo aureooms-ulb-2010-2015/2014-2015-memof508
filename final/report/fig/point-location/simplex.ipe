@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20150523201504" modified="D:20150523201504"/>
+<info created="D:20150523201504" modified="D:20150523230158"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -232,15 +232,46 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" matrix="1.13393 0 0 1 -10.7143 0" stroke="black" fill="black">
+<text layer="alpha" matrix="1 0 0 1 0 -12" transformations="translations" pos="420 768" stroke="red" type="label" width="11.3" height="8.896" depth="0" valign="baseline" size="huge">$\nu$</text>
+<path stroke="black" fill="black" dash="dotted">
+28 824 m
+248 464 l
+</path>
+<path stroke="black" fill="black" dash="dotted">
+372 440 m
+584 664 l
+</path>
+<path stroke="black" fill="black" dash="dotted">
+512 456 m
+504 816 l
+</path>
+<path stroke="green" fill="black" dash="dotted">
+568 708 m
+60 752 l
+</path>
+<path stroke="green" fill="black" dash="dotted">
+172 812 m
+484 448 l
+</path>
+<path stroke="green" fill="black" dash="dotted">
+92 612 m
+564 664 l
+</path>
+<path stroke="green" fill="black" dash="dotted">
+568 472 m
+72 568 l
+</path>
+<path stroke="seagreen" fill="seagreen" dash="dashed">
+416 752 m
+304 528 l
+</path>
+<text transformations="translations" pos="356 668" stroke="black" type="label" width="11.497" height="8.896" depth="0" valign="baseline" size="huge">$x$</text>
+<path matrix="1.13393 0 0 1 -10.7143 0" stroke="darkblue" fill="darkblue">
 80 528 m
 528 528 l
 528 528 l
 </path>
-<path stroke="black" fill="black">
-4 0 0 4 240 528 e
-</path>
-<path matrix="2.25 0 0 2.25 -320 -620" stroke="black" fill="black">
+<path matrix="2.25 0 0 2.25 -320 -620" stroke="darkblue" fill="darkblue">
 256 496 m
 192 624 l
 192 624 l
@@ -250,32 +281,42 @@ h
 320 560 l
 320 560 l
 </path>
-<path matrix="1 0 0 1 -64 128" stroke="black" fill="black">
-4 0 0 4 432 528 e
-</path>
-<path stroke="black" fill="black">
+<path stroke="darkblue" fill="darkblue">
 272 800 m
 512 720 l
 512 720 l
 </path>
-<path stroke="black" fill="black">
+<path stroke="darkblue" fill="darkblue">
 416 464 m
 496 784 l
 </path>
-<path matrix="1.66667 0 0 1.66667 -245.333 -544" stroke="black" fill="black">
+<path matrix="1.66667 0 0 1.66667 -245.333 -544" stroke="darkblue" fill="darkblue">
 368 816 m
 512 624 l
 512 624 l
 </path>
-<path stroke="violet" fill="violet" arrow="normal/normal">
+<path stroke="darkcyan" fill="violet" arrow="normal/normal">
 280 656 m
 328 720 l
 </path>
-<text matrix="1 0 0 1 0 -12" transformations="translations" pos="420 768" stroke="red" type="label" width="11.3" height="8.896" depth="0" valign="baseline" size="huge">$\nu$</text>
-<path matrix="1 0 0 1 -16 224" stroke="red" fill="red">
-4 0 0 4 432 528 e
+<text matrix="1 0 0 1 108 -84" transformations="translations" pos="168 780" stroke="darkcyan" type="label" width="29.397" height="14.347" depth="4.02" valign="baseline" size="huge">$\nabla f$</text>
+<text matrix="1 0 0 1 -68 -132" transformations="translations" pos="356 668" stroke="black" type="label" width="15.94" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;$</text>
+<path stroke="darkorange" dash="dashed">
+240 528 m
+416 752 l
+432 528 l
+240 528 l
+240 528 l
 </path>
-<path matrix="1.25 0 0 0 -26 528" stroke="violet" fill="violet" arrow="normal/normal">
+<path stroke="darkblue" fill="darkblue">
+112 512 m
+240 832 l
+</path>
+<path stroke="darkblue" fill="darkblue">
+76 688 m
+492 828 l
+</path>
+<path matrix="1.25 0 0 0 -26 528" stroke="darkcyan" fill="violet" arrow="normal/normal">
 280 656 m
 328 720 l
 </path>
@@ -284,38 +325,73 @@ h
 320 560 l
 320 560 l
 </path>
-<path stroke="red" fill="red">
+<path matrix="1 0 0 1 -64 128" stroke="black" fill="black">
 4 0 0 4 432 528 e
 </path>
-<text matrix="1 0 0 1 108 -84" transformations="translations" pos="168 780" stroke="violet" type="label" width="29.397" height="14.347" depth="4.02" valign="baseline" size="huge">$\nabla f$</text>
-<text matrix="1 0 0 1 164 -272" transformations="translations" pos="168 780" stroke="violet" type="label" width="33.841" height="15.466" depth="4.02" valign="baseline" size="huge">$\nabla f&apos;$</text>
-<text transformations="translations" pos="356 668" stroke="black" type="label" width="11.497" height="8.896" depth="0" valign="baseline" size="huge">$x$</text>
-<text matrix="1 0 0 1 -68 -132" transformations="translations" pos="356 668" stroke="black" type="label" width="15.94" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;$</text>
 <text matrix="1 0 0 1 16 -236" transformations="translations" pos="420 768" stroke="red" type="label" width="15.743" height="15.468" depth="0" valign="baseline" size="huge">$\nu&apos;$</text>
-<text matrix="1 0 0 1 -180 -164" transformations="translations" pos="356 668" stroke="black" type="label" width="19.886" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;&apos;$</text>
-<text matrix="1 0 0 1 44 -88" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
-<text matrix="1 0 0 1 52 -52" transformations="translations" pos="168 556" stroke="red" type="label" width="19.688" height="15.468" depth="0" valign="baseline" size="huge">$\nu&apos;&apos;$</text>
-<path matrix="1 0 0 1 -16 -44" stroke="red" fill="red">
-256 576 m
-4 0 0 -4 256 572 256 568 a
-</path>
-<path stroke="red" dash="dashed">
-240 528 m
-416 752 l
-432 528 l
-240 528 l
-240 528 l
-</path>
 <path stroke="black" fill="black">
 4 0 0 4 304 528 e
 </path>
-<path stroke="black" fill="black">
-112 512 m
-240 832 l
+<path fill="red">
+412 756 m
+412 748 l
+420 748 l
+420 756 l
+h
 </path>
-<path stroke="black" fill="black">
-76 688 m
-492 828 l
+<path fill="red">
+428 532 m
+428 528 l
+436 528 l
+436 532 l
+h
 </path>
+<path fill="darkblue">
+436 524 m
+436 528 l
+428 528 l
+428 524 l
+h
+</path>
+<path fill="darkblue">
+240 528 m
+240 524 l
+244 524 l
+244 528 l
+h
+</path>
+<path fill="darkorange">
+240 532 m
+240 528 l
+244 528 l
+244 532 l
+h
+</path>
+<path fill="black">
+236 532 m
+236 528 l
+240 528 l
+240 532 l
+h
+</path>
+<path fill="red">
+236 528 m
+236 524 l
+240 524 l
+240 528 l
+h
+</path>
+<text matrix="1 0 0 1 -4 -12" transformations="translations" pos="400 716" stroke="seagreen" type="label" width="18.994" height="12.271" depth="0" valign="baseline" size="LARGE">$\vec{\nu x}$</text>
+<text matrix="1 0 0 1 0 -184" transformations="translations" pos="400 716" stroke="seagreen" type="label" width="26.565" height="16.474" depth="0" valign="baseline" size="LARGE">$\vec{\nu&apos; x&apos;}$</text>
+<text matrix="1 0 0 1 108 -52" transformations="translations" pos="168 556" stroke="red" type="label" width="19.688" height="15.468" depth="0" valign="baseline" size="huge">$\nu&apos;&apos;$</text>
+<text matrix="1 0 0 1 -124 -164" transformations="translations" pos="356 668" stroke="black" type="label" width="19.886" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;&apos;$</text>
+<text matrix="1 0 0 1 100 -92" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
+<text matrix="1 0 0 1 56 -92" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
+<text matrix="1 0 0 1 -92 -104" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="22.45" height="15.468" depth="0" valign="baseline" size="huge">$\mathcal{S}&apos;&apos;$</text>
+<text matrix="1 0 0 1 268 24" transformations="translations" pos="168 480" stroke="darkblue" type="label" width="22.093" height="17.302" depth="0" valign="baseline" size="huge">$\widetilde{\mathcal{H}}&apos;$</text>
+<text matrix="1 0 0 1 176 -244" transformations="translations" pos="168 780" stroke="darkcyan" type="label" width="33.841" height="15.466" depth="4.02" valign="baseline" size="huge">$\nabla f&apos;$</text>
+<text matrix="1 0 0 1 52 -104" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="18.505" height="15.468" depth="0" valign="baseline" size="huge">$\mathcal{S}&apos;$</text>
+<text matrix="1 0 0 1 16 12" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="14.062" height="14.119" depth="0" valign="baseline" size="huge">$\mathcal{S}$</text>
+<text matrix="1 0 0 1 316 200" transformations="translations" pos="168 480" stroke="darkblue" type="label" width="17.649" height="17.302" depth="0" valign="baseline" size="huge">$\widetilde{\mathcal{H}}$</text>
 </page>
 </ipe>
