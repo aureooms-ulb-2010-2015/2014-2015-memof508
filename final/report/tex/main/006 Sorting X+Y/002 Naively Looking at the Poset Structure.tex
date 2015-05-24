@@ -2,8 +2,9 @@
 \label{tree:xy:grid}
 
 In the previous section, we have shown how one could derive a poset structure
-from the \XY set. We also saw that one can sort this \XY poset with the Huffman
-Merging algorithm using \(n^2 \log n + \BigO{n}\) comparisons. Indeed, what we
+from the \XY set. We also saw that one can sort this \XY poset with
+merging algorithm of \Cref{tree:merging:kgeq3}
+using at most \(n^2 \log n + \BigO{n}\) comparisons. Indeed, what we
 did in this section was modeling the Sorting \XY problem as the problem of
 Sorting under Partial Information. We then solved the problem with a
 straightforward algorithm.
@@ -36,38 +37,41 @@ e(\P) = n^2! \cdot \mleft(\prod_{k=1}^{n-1} k!\mright)^2 \cdot
 
 To prove this theorem, we introduce the notion of Ferrers diagrams and standard Young tableaux.
 
-A Ferrers diagram can be seen as a set of square tiles arranged in a square
-box. They are arranged so that there cannot be any space between two tiles
+A Ferrers diagram can be seen as a set of square tiles arranged in a
+rectangular
+box divided in rows and columns. They are arranged so that there cannot be any space between two tiles
 lying on the same row or column and there can never be a row that contains more
 tiles than another row above it. Moreover, there cannot be space left between
 the left side of the box and the first tile of each row. An example of a
 Ferrers diagram is given in \ref{fig:xy:lattice:ferrers}.
 
-A Young tableau is a special kind of numbering of the tiles of a Ferrers
+A Young tableau is a special way of labelling the \(n\) tiles of a Ferrers
 diagram. If a Ferrers diagram is made of $n$ tiles, then a Young tableau drawn
-on this diagram number its tiles from $1$ to $n$. We add the
-condition that if one reads tile numbers of rows (from left to right) or
-columns (from top to bottom) one should only encounter increasing sequences of
-numbers. We refer to Young tableaux respecting this condition as standard Young
-tableaux. An example of a standard Young tableau is given in
+on this diagram labels its tiles with the numbers from $1$ to $n$. We call
+\emph{standard} a Young tableau having the following property:
+if one reads tile labels of rows (from left to right) or
+columns (from top to bottom) of this tableau, one should only encounter increasing sequences of
+numbers. An example of a standard Young tableau is given in
 \ref{fig:xy:lattice:young}.
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.49\textwidth}
+\begin{subfigure}[t]{0.47\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/lattice/ferrers}
-	\caption{Example of a Ferrers diagram with $9$ tiles. The shape of this
+	\subcaption{Example of a Ferrers diagram with $9$ tiles. The shape of this
 diagram is \(\lambda = (4,2,2,1)\).}
 	\label{fig:xy:lattice:ferrers}
 \end{subfigure}
-\begin{subfigure}[b]{0.49\textwidth}
+~
+\begin{subfigure}[t]{0.47\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/lattice/young}
-	\caption{Example of a standard Young tableau in the Ferrers diagram of
+	\subcaption{Example of a standard Young tableau in the Ferrers diagram of
 \ref{fig:xy:lattice:ferrers}.}
 	\label{fig:xy:lattice:young}
 \end{subfigure}
+\caption{Ferrers diagrams and Young tableaux.}
 \end{figure}
 
 The number of standard Young tableaux for a given Ferrers diagram shape
@@ -91,27 +95,39 @@ at each tile and highlights the hook bending at \((2,1)\).
 
 \begin{figure}
 \centering
-\begin{subfigure}[b]{0.49\textwidth}
+\begin{subfigure}[t]{0.47\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/lattice/hooks}
-	\caption{Ferrers diagram with hook length for each tile. The highlighted
+	\subcaption{Ferrers diagram with hook length for each tile. The highlighted
 region is the hook bending at \((2,1)\).}
 	\label{fig:xy:lattice:hooks}
 \end{subfigure}
-\begin{subfigure}[b]{0.49\textwidth}
+~
+\begin{subfigure}[t]{0.47\textwidth}
 \centering
 	\includegraphics[width=0.4\textwidth]{fig/x+y/lattice/corners}
-	\caption{Ferrers diagram with corners highlighted.}
+	\subcaption{Ferrers diagram with corners highlighted.}
 	\label{fig:xy:lattice:corners}
 \end{subfigure}
+\caption{Hooks and corners in Ferrers diagrams.}
 \end{figure}
 
-The hook-length formula is attributed to \citet*{frame:1954}. Multiple ways to
+The hook-length formula\footnote{
+As a side note, the hook-length formula is closely related to
+multidimensional Catalan numbers. The hook-length formula generates the numbers
+on the diagonal of the matrix containing the \(\nth{n}\) \(m\)-dimensional
+Catalan number at position \((m,n)\) \cite{OEIS:A060854}. The \(\nth{n}\)
+\(m\)-dimensional Catalan numbers gives the number of shortest paths in the
+\(m\)-dimensional unit grid from \( (0,\ldots,0) \) to \( (n,\ldots,n) \) such
+that if \( (x_1,\ldots,x_m) \) is on a path then \( x_1 \le x_2 \le \ldots \le
+x_m\).
+}
+is attributed to \citet*{frame:1954}. Multiple ways to
 prove \ref{theorem:xy:lattice:hook} are available in the literature. For more
 information, one could start with \citet*{greene:1979} which gives a nice
 probabilistic proof and pointers for further reading.
 
-We give a little insight into the proof found in \citet*{greene:1979}.
+We give some insight into the proof given by \citet*{greene:1979}.
 \ref{fig:xy:lattice:corners} highlights corners of a Ferrers diagram. A Young
 tableau drawn in this diagram can only have its maximal element arranged in
 one of these corner tiles, otherwise we would obtain a row or a column that is
@@ -138,41 +154,32 @@ They show that each term of the sum in \ref{equation:xy:lattice:walk} is
 the probability for a single hook walk to end in each of the corners, proving
 the theorem.
 
-A \( n \times n \) bounded lattice can be regarded as a \( n \times n \)
-standard Young tableau, i.e. a Young tableau of shape
+We now return to our original problem. A \( n \times n \) bounded lattice can be regarded as a \( n \times n \)
+standard Young tableau, \ie a Young tableau of shape
 \( \lambda = \enum{ \lambda_1 , \ldots , \lambda_n } \)
 with
-\( \lambda_i = n, \Forall i = 1 \ldots n \)
-. Hence, we have
-\( d_{\lambda} = e(\P) \). \ref{fig:xy:lattice:xyhooks} shows the hook lengths
+\( \lambda_i = n, \Forall i = 1, \ldots, n \).
+\ref{fig:xy:lattice:xyhooks} shows the hook lengths
 for the \( n \times n \) lattice, and thus for the \XY poset.
-
 \begin{figure}
 \centering
-\includegraphics[width=0.3\textwidth]{fig/x+y/lattice/xyhooks}
+\includegraphics[width=0.24\textwidth]{fig/x+y/lattice/xyhooks}
 \caption{Hook lengths for the \( n \times n \) lattice.}
 \label{fig:xy:lattice:xyhooks}
 \end{figure}
-
-We still need to show that counting tableaux is the same as counting linear
-extensions. We etiquette all \( n^2 \) nodes of \(\P\), the Hasse diagram of
-\XY, with the numbers \(1\) to \( n^2 \) in any order. Suppose that we are
+We need to show that counting tableaux is the same as counting linear
+extensions. We label all \( n^2 \) nodes of \(\P\), the Hasse diagram of
+\XY, with distinct etiquettes \(1,\ldots,n^2\). Suppose that we are
 given a unique linear extension of \(\P\) that can be represented as a tuple
 \( \omega = ( j_1 , \ldots , j_{n^2}) \)
 with all \( j_i \) distinct and between \(1\) and \( n^2 \) using our
-etiquettes. If we are given \( n^2 \) distinct elements \( x_1 \) to
-\( x_{n^2} \) then according to our proof, there are \( d_{\lambda} \) ways to
-fill our tableau with those elements and to each filled tableau corresponds a
-unique linear extension designated by \(\omega\).
-
-As a side note, the hook-length formula is closely related to
-multidimensional Catalan numbers. The hook-length formula generates the numbers
-on the diagonal of the matrix containing the \(\nth{n}\) \(m\)-dimensional
-Catalan number at position \((m,n)\) \cite{OEIS:A060854}. The \(\nth{n}\)
-\(m\)-dimensional Catalan numbers gives the number of shortest paths in the
-\(m\)-dimensional unit grid from \( (0,\ldots,0) \) to \( (n,\ldots,n) \) such
-that if \( (x_1,\ldots,x_m) \) is on a path then \( x_1 \le x_2 \le \ldots \le
-x_m\).
+etiquettes. If we are given \( n^2 \) distinct numbers \( x_1,\ldots,x_{n^2} \)
+then, according to our proof, there are \( d_{\lambda} \) ways to
+fill our tableau with those numbers and to each filled tableau corresponds a
+unique linear extension designated by \(\omega\). Hence,
+\begin{displaymath}
+e(\P) = d_{\lambda}.
+\end{displaymath}
 
 We now prove that,
 \begin{theorem}[\ITLB for the problem of sorting a \(n \times n\) lattice]
@@ -184,7 +191,7 @@ Given a \( n \times n \) lattice \(\P\),
 
 \begin{proof}
 Using Stirling's approximation,
-\begin{align}
+\begin{align*}
 e(\P) &= \frac{(n^2)!}{1 \cdot 2 \cdot 2 \cdot \cdots \cdot (2n-2) \cdot (2n-2) \cdot (2n-1)}\\
 e(\P) &\ge \frac{(n^2)!}{(2n)^{n^2}}\\
 \ln e(\P) &\ge \ln \group{\frac{(n^2)!}{(2n)^{n^2}}}\\
@@ -193,12 +200,11 @@ e(\P) &\ge \frac{(n^2)!}{(2n)^{n^2}}\\
 \lim_{n \to \infty} \ln e(\P) &\ge \ln{\sqrt{2\pi}} + \ln n - n^2 \ln e + 2 n^2
 \ln n - n^2 \ln n - n^2 \ln 2\\
 \lim_{n \to \infty} \ln e(\P) &\ge n^2 \ln n - n^2 \ln (2\euler) + \ln n + \ln \sqrt{2\pi}
-\end{align}
+\end{align*}
 \end{proof}
 
 Thus, solving \XY in \SmallO{n^2 \log n} comparisons is not possible if we only
-consider the information contained in the poset structure, \ie if we only
-exploit \( X_i \le X_{i'} \land Y_j \le \Y_{j'} \implies X_i +
-Y_j \le X_{i'} + Y_{j'}\). Moreover, to sort a poset having the same structure,
-the trivial \mergesort technique explained earlier is optimal.
-In \Cref{tree:xy:counting} we show that there is indeed more information available.
+consider the information contained in the poset structure. Moreover, to sort a
+poset having the same structure, the merging technique explained earlier is
+optimal. In \Cref{tree:xy:counting} we show that there is indeed more
+information available.

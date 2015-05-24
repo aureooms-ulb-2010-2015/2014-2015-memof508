@@ -4,8 +4,8 @@
 In this section we expose an algorithm due to \citet*{fredman:1976}
 that solves sorting problems making at most $\log\card{\Gamma} + 2n$ queries,
 where $\Gamma$ is the set of possible linear extensions of the input. In the
-next section we show how this algorithm can be used in the context of the
-sorting \XY problem.
+next section we show how this algorithm can be used in the context of
+Sorting \XY.
 
 \citet{fredman:1976} defines a generic sorting problem as follows,
 
@@ -34,7 +34,7 @@ with \(\Gamma\). We denote this complexity by $N(\Gamma, P)$.
 Since the final goal is to sort \XY, we are only interested in the case
 where $P$ is a partition of $\Gamma$ into singleton sets, as we desire to
 compute the correct linear extension of \XY out of all its feasible linear
-extensions. As $P$ is the same for every $\Gamma$ in this case, we
+extensions. Since $P$ is the same for every $\Gamma$ in this case, we
 always write $N(\Gamma)$ to mean $N(\Gamma, P)$.
 
 \citet{fredman:1976} proves the following theorem,
@@ -78,15 +78,17 @@ The location number $b_k$ is defined formally as $b_k = \card{\enum{x_j \st j
 of iteration $k$ that are smaller or equal to $k$. Since $x_k \le x_k$ is
 always true, $b_k$ is at least $1$ and since $\card{\enum{x_j \st j \le k}} =
 k$, $b_k$ is at most $k$. We thus have,
-$$ 1 \le b_k \le k$$
-and we say $b_k$ is the location number of $x_k$ after it is inserted into
-$x_{i_1} < \ldots < x_{i_{k-1}}$.
+\begin{displaymath}
+1 \le b_k \le k.
+\end{displaymath}
+We say $b_k$ is the location number of $x_k$ after its insertion into
+$x_{i_1} < \cdots < x_{i_{k-1}}$.
 
 We have established a correspondence between orderings on sets of cardinality
 $n$ and $n$-tuples $(b_1, \ldots, b_n)$ with $1 \le b_i \le i$. Hence, $\Gamma$
 can be represented as a set of $n$-tuples of $b_k$ and inserting $x_k$ is
 tantamount to the determination of $b_k$. In other words, asking whether $x_k
-\ask{\le} x_{i_J}$ is equivalent to asking whether $b_k \ask{\le} J$.
+\ask{\le} x_{i_j}$ is equivalent to asking whether $b_k \ask{\le} j$.
 
 To prove the theorem, \citet{fredman:1976} gives an algorithm whose existence
 implies an even more general result,
@@ -94,7 +96,7 @@ implies an even more general result,
 Given $n \ge 1$, let $\S$ be a finite set of $n$-tuples with unrestricted
 positive integer coordinates. Given an unknown $n$-tuple \(b\) in $\S$, we can
 determine its components, \(b_1, b_2, \ldots\), in that order, by making queries
-of the form \(b_i \ask{\le} J, J \in \N\), and with a total of no more than $\log \card{\S}
+of the form \(b_i \ask{\le} j, j \in \N\), and with a total of no more than $\log \card{\S}
 + 2n$ such queries.
 \end{lemma}
 We show how to implement an algorithm matching the above description. First, in
@@ -113,7 +115,7 @@ mean $b'_i$ for the sake of simplicity.
 We now list the steps of the recursive algorithm,
 \begin{algorithm}[\citet*{fredman:1976}]
 
-\item[Input] $\S$, a set of $n$-tuples with unrestricted positive integer
+\item[input] $\S$, a set of $n$-tuples with unrestricted positive integer
 coordinates.
 
 \item[1.] Let $\S(k) \bydef \card{\enum{(b_1, \ldots) \in \S \st b_1 = k}}$,
@@ -129,7 +131,7 @@ l$ to be the number of interval midpoints lying to the left of $r$.
 \item[3.] Search and find $b_1 = i$ by applying binary search to the partitioned
 interval using queries of the form \(b_1 \ask{\le} J(q)\).
 
-\item[Induction] If $n > 1$, we call the procedure again with\\
+\item[induction] If $n > 1$, we call the procedure again with\\
 $\enum{(b_2, \ldots, b_n) \st (b_1, b_2, \ldots, b_n) \in \S \text{ and } b_1 =
 i}$ as the input set.
 
@@ -139,10 +141,10 @@ The goal of step \step{1} is to offer a mapping between outputs of $J(q)$ and
 the possible original values for $b_1$. After the substitution of $i_j$ with
 $j$, asking $b_1 \ask{\le} J(q)$ means asking $b_1 \ask{\le} i_{J(q)}$
 before the substitution takes place. Hence, without loss of generality we can
-now assume \(i_j = j\). The value $N_j$ expresses the frequency or ``number of
-occurrences'' of $b_1 = j$ in the set $\S$, therefore
+now assume \(i_j = j\). The value $N_j$ expresses the frequency or \emph{number of
+occurrences} of $b_1 = j$ in the set $\S$, therefore
 \begin{displaymath}
-\sum\limits_{j=1}^{l} N_j = \card{\S}.
+\sum_{j=1}^{l} N_j = \card{\S}.
 \end{displaymath}
 
 In step \step{2} we partition $(0,1]$ in a way that allows binary search to
@@ -184,9 +186,9 @@ simple lemma,
 \label{lemma:xy:dt:qi}
 All query intervals we consider can be written $(\frac{c}{2^{r-1}},
 \frac{c+1}{2^{r-1}}]$ for some integer $c$ with $0 \le c \le 2^{r-1}$.
-Moreover, for all such intervals containing the \(\nth{i}\) midpoint.
+Moreover, for all such intervals containing the \(\nth{i}\) midpoint
 \begin{displaymath}
-J\mleft(\frac{c}{2^{r-1}}\mright) < i \le J\mleft(\frac{c+1}{2^{r-1}}\mright)
+J\bigg(\frac{c}{2^{r-1}}\bigg) < i \le J\bigg(\frac{c+1}{2^{r-1}}\bigg).
 \end{displaymath}
 \end{lemma}
 
@@ -215,7 +217,7 @@ not possible for the query interval, which has radius \( \frac{c+1-c}{2^{r-1}}
 the same time escape the \(\nth{i}\) interval. Hence, the \(\nth{i}\) midpoint
 is the only midpoint inside the query interval. We conclude that,
 \begin{displaymath}
-i-1 = J\mleft(\frac{c}{2^{r-1}}\mright) < b_1 \le J\mleft(\frac{c+1}{2^{r-1}}\mright) = i
+i-1 = J\bigg(\frac{c}{2^{r-1}}\bigg) < b_1 \le J\bigg(\frac{c+1}{2^{r-1}}\bigg) = i,
 \end{displaymath}
 thus $b_1 = i$ and the search ends before performing a $\nth{r}$ query.
 
