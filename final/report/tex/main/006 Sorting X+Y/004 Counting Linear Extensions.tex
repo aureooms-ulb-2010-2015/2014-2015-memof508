@@ -5,8 +5,7 @@ We now state a theorem due to \citet*{buck:1943} that allows us to conclude
 this chapter with the result that the decision tree complexity of sorting \XY
 is \BigO{n^2}.
 
-The theorem goes as follows,
-
+The theorem goes as follows
 \begin{theorem}[\citet*{buck:1943}]\label{theorem:xy:counting}
 Consider the partition of space defined by an arrangement of $m$ hyperplanes in
 $\R^d$.
@@ -21,8 +20,9 @@ To use this theorem, we now model the sort \XY problem as a point location probl
 arrangement of hyperplanes. Each instance of the problem is consisting of two
 sets of real numbers $\X$ and $\Y$, both of cardinality $n$. An instance can
 thus be encoded as a vertex in $\R^{2n}$. Here is a possible encoding,
-
-$$x = (\X_1, \ldots, \X_n, \Y_1, \ldots, \Y_n)$$
+\begin{displaymath}
+x = (\X_1, \ldots, \X_n, \Y_1, \ldots, \Y_n).
+\end{displaymath}
 
 For every combination $(\X_{i_1}, \X_{j_1}, \Y_{i_2}, \Y_{j_2})$ of $4$
 components of this vertex we want to know whether $\X_{i_1} + \Y_{i_2} \le
@@ -36,3 +36,6 @@ $\BigO{(n^4)^{2n}} = \BigO{n^{8n}}$ regions. Hence, for \XY, $\card{\Gamma} =
 \BigO{n^{8n}}$ and by using the algorithm of Fredman to find the correct
 $n^2$-tuple, the decision tree complexity is
 $\BigO{n \log n + n^2} = \BigO{n^2}$.
+
+In the next section we give a visual proof for a simplified version of
+Buck's theorem.
