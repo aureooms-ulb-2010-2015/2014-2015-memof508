@@ -1,5 +1,24 @@
-\section{A First Approach using \mergesort}
+\section{A First Approach by Merging}
 \label{tree:xy:merge}
+
+In our first approach, we sort \XY using half
+the comparisons required by the \ITLB for Sorting. We do so by exploiting the
+\emph{poset structure of \XY}.
+We thus solve this problem in a strictly faster way than sorting a set of size
+\(n^2\)
+with a classical sorting algorithm, by taking advantage of some of the information we already have.
+
+The \ITLB for sorting a set of size \(N\) is
+\begin{displaymath}
+\log N! \simeq N \log N - 1.44 N + \BigO{\log N}.
+\end{displaymath}
+Sorting \XY without information requires thus at least
+\begin{displaymath}
+\log n^2! \simeq 2 n^2 \log n - 1.44 n^2 + \BigO{\log n}
+\end{displaymath}
+queries.
+In the next paragraphs we show that it is possible to sort \XY
+with at most \(n^2 \log n + \BigO{n^2}\).
 
 \begin{figure}
 \centering
@@ -23,89 +42,58 @@
 \centering
 \includegraphics[width=0.5\textwidth,angle=90]{fig/x+y/poset/mergexy}
 \caption{Resolution of the \mergesort algorithm. The circled part
-corresponds to the starting point of a trivial Sorting \XY algorithm.}
+corresponds to the starting point of our first Sorting \XY algorithm on an
+input of size \(4 \times 4\).}
 \label{fig:xy:poset:mergexy}
 \end{figure}
 
 We define the poset structure of \XY (or simply the \XY poset) to be the poset
 containing the information that we can extract from the transitivity of the
-total order on \(X \cup Y\). If we only exploit
-\(X_i \le X_{i'} \land Y_j \le \Y_{j'} \implies X_i + Y_j \le X_{i'} + Y_{j'}\)
-we obtain the posets represented by the Hasse diagrams (\Cref{tree:poset:hasse})
-in \ref{fig:xy:poset:diagrams}.
-
-In this first attempt, we use the poset structure on the elements
-in \XY to reduce by a factor of $2$ the number of comparisons
-required to sort \XY compared to the execution of the \mergesort algorithm
-without knowledge of this structure.
-
-In \Cref{tree:related:xy} we saw \ref{fig:related:xy} which shows us all the order
-relations between elements of \XY. Now, we show that chains and antichains
-in \XY obey a regular pattern. To illustrate this, we take the $4 \times 4$
-\XY problem. We highlight a possible selection of disjoint chains in
-\ref{fig:xy:poset:chains} and the set of maximal antichains in
-\ref{fig:xy:poset:antichains}.
-
-Now we solve this problem in a strictly faster way than sorting all
-of its elements, by taking advantage of some of the information we already have.
-
-First, we show that sorting \XY without information using the \mergesort algorithm would use $2
-n^2 \log n$ comparisons. The exact upper bound on the number
-of comparisons required to solve an instance of size \(N\) with this algorithm
-is given by the formula
-\begin{align*}
-T(N) &= N - 1 + T(\floor{\sfrac{N}{2}}) + T(\ceil{\sfrac{N}{2}})\\
-T(0) &= T(1) = 0.
-\end{align*}
-Note that there is a non recursive way to express \(T(N)\) (\citet*{OEIS:A001855}) which is
+total order on \(X \cup Y\). If we only exploit the fact that
 \begin{displaymath}
-T(N) = \sum_{k=1}^{N} \ceil{\log k}.
+X_i \le X_{i'} \land Y_j \le \Y_{j'} \implies X_i + Y_j \le X_{i'} + Y_{j'}
 \end{displaymath}
-We have
-\begin{displaymath}
-\lim_{N\to\infty}\frac{T(N)}{\log N!} =
-\lim_{N\to\infty}\frac{\sum_{k=1}^{N}\ceil{\log k}}{ \sum_{k=1}^{N} \log k} = 1
-\end{displaymath}
-and thus, by Stirling's approximation, the \mergesort algorithm requires at
-most \(N \log N\) comparisons for large \(N\). When we sort \XY, we have \(N =
-n^2\), and thus
-\[N \log N = n^2 \log n^2 = 2 n^2 \log n.\]
-Indeed, we give here an example where \(n\) is a power of \(2\) but it is not
-difficult to convince oneself that for large \(n\) the complexity added
-by the ceiling and flooring functions fade away.
+we obtain the poset represented by the Hasse diagram (\Cref{tree:poset:hasse})
+in \ref{fig:related:xy} (\Cref{tree:related:xy}).
+Chains and antichains
+in the \XY poset obey a regular pattern. To illustrate this, we take the $4 \times 4$
+\XY poset. We highlight a possible selection of disjoint chains in
+\ref{fig:xy:poset:chains} and the set of maximal antichains found by a greedy
+algorithm in \ref{fig:xy:poset:antichains}.
 
-We now show that it is possible to sort \XY with half the comparisons. The
-\mergesort algorithm has this particularity that at the end of every step of
-the recursion we are left with several total orders on disjoint subsets of the
-set to sort. To illustrate, if we organize steps in stages we obtain what is
-shown in \ref{fig:xy:poset:mergexy}.
-
+To illustrate our approach, we show in \ref{fig:xy:poset:mergexy} the steps of
+the \mergesort algorithm on an input of size \(16\).
 What is highlighted in \ref{fig:xy:poset:mergexy} is a subset of the
 information we have when knowing the structure of \XY, \ie the chains of
-\ref{fig:xy:poset:chains}. It means that the stage we
+\ref{fig:xy:poset:chains}. It means that the step we
 highlighted can be attained without any comparison if the set to sort is \XY
 and if we know its structure. Note that if not known a priori, this structure
-can be revealed for the cost of \(2n \log n\) comparisons, using a standard \(n
-\log n\) comparison sorting algorithm to sort sets \(X\) and \(Y\).
+can be revealed for the cost of \(2n \log n + \BigO{n}\) comparisons, using a standard \(n
+\log n + \BigO{n}\) comparison sorting algorithm to sort sets \(X\) and \(Y\).
 
-Remember that in \mergesort there are $\log N$ stages. At stage $i$ we have
+In \mergesort there are $\log N$ steps. At step $i$ we have
 built $2^{i}$ total orders on disjoint subsets of size $2^{\log N - i}$. Since
-the stage represented in \ref{fig:xy:poset:mergexy} shows $n$ total orders on
-disjoint subsets of size $n$, and that the total number of elements in $X+Y$ is
+the step represented in \ref{fig:xy:poset:mergexy} shows $n$ total orders on
+disjoint subsets of size $n$, and that the total number of elements in \XY is
 $N = n^2$ we can conclude that \ref{fig:xy:poset:mergexy} shows us step
-$\sfrac{1}{2} \log N$. It should be possible to prove from scratch that
-starting the algorithm at the median step saves us half the comparisons, for
-\(n\) large enough. However we rely on the results we gave
-in \Cref{tree:merging:kgeq3} to prove that it is indeed the case.
-
+$\sfrac{1}{2} \log N$. Indeed, we give here an example where \(n\) is a power
+of \(2\)
+but it is not difficult to convince oneself that starting
+the algorithm at the median step
+saves us half the comparisons, for \(n\) large enough. However we rely on the
+results we gave in \Cref{tree:merging:kgeq3} to prove that it is possible to
+reuse this subset of the partial information optimally.
+\begin{theorem}
+Sorting \XY requires at most \(n^2 \log n + \BigO{n}\) queries to be made.
+\end{theorem}
 \begin{proof}
-Note that if \(2n^2 \log n\) is the total amount of information to retrieve,
+Note that if \(\log n^2!\) is the total amount of information to retrieve,
 then recycling the information contained in the \(n\) chains of length \(n\)
-gives us \(n \cdot n \log n = n^2 \log n\) bits of information already in our
-possession. We already saw that we can reuse this information optimally using
+gives us \(n \cdot \log n! \simeq n^2 \log n - \BigO{n^2}\) bits of information already in our
+possession. We saw in \Cref{tree:merging:kgeq3} that we can reuse this information optimally using
 the Huffman code based merging algorithm.
 \end{proof}
 
 Since this algorithm reuses only a fraction of the available information, the
 question of the optimality of this approach remains. We give an answer to this
-question in the next section.
+question in the next sections.
