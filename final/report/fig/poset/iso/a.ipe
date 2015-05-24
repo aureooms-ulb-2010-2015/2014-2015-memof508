@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20140806212321" modified="D:20140807214841"/>
+<info created="D:20140806212321" modified="D:20150525000612"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -259,14 +259,14 @@ h
 288 452 l
 288 452 l
 </path>
-<text matrix="1 0 0 1 48 -8" transformations="translations" pos="280 488" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$4$</text>
-<text matrix="1 0 0 1 16 -36" transformations="translations" pos="240 484" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$2$</text>
-<text matrix="1 0 0 1 64 -48" transformations="translations" pos="264 464" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$1$</text>
-<text matrix="1 0 0 1 24 -44" transformations="translations" pos="232 460" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$1$</text>
-<text matrix="1 0 0 1 104 -32" transformations="translations" pos="224 480" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$2$</text>
-<text matrix="1 0 0 1 -12 -24" transformations="translations" pos="268 504" stroke="black" type="label" width="9" height="13" depth="0" valign="baseline" size="huge">$3$</text>
-<text matrix="1 0 0 1 0 28" transformations="translations" pos="264 484" stroke="black" type="label" width="19" height="16" depth="0" valign="baseline" size="Huge">$P$</text>
-<text matrix="1 0 0 1 48 40" transformations="translations" pos="264 472" stroke="black" type="label" width="19" height="16.18" depth="4.82" valign="baseline" size="Huge">$Q$</text>
+<text matrix="1 0 0 1 48 -12" transformations="translations" pos="280 488" stroke="black" type="label" width="7.024" height="9.245" depth="0" valign="baseline" size="Large">$4$</text>
+<text matrix="1 0 0 1 16 -40" transformations="translations" pos="240 484" stroke="black" type="label" width="7.024" height="9.245" depth="0" valign="baseline" size="Large">$2$</text>
+<text matrix="1 0 0 1 64 -52" transformations="translations" pos="264 464" stroke="black" type="label" width="7.024" height="9.245" depth="0" valign="baseline" size="Large">$1$</text>
+<text matrix="1 0 0 1 24 -48" transformations="translations" pos="232 460" stroke="black" type="label" width="7.024" height="9.245" depth="0" valign="baseline" size="Large">$1$</text>
+<text matrix="1 0 0 1 104 -36" transformations="translations" pos="224 480" stroke="black" type="label" width="7.024" height="9.245" depth="0" valign="baseline" size="Large">$2$</text>
+<text matrix="1 0 0 1 -12 -28" transformations="translations" pos="268 504" stroke="black" type="label" width="7.024" height="9.245" depth="0" valign="baseline" size="Large">$3$</text>
+<text matrix="1 0 0 1 0 16" transformations="translations" pos="264 484" stroke="black" type="label" width="16.071" height="14.119" depth="0" valign="baseline" size="huge">$\mathcal{P}$</text>
+<text matrix="1 0 0 1 48 28" transformations="translations" pos="264 472" stroke="black" type="label" width="16.874" height="14.118" depth="2.01" valign="baseline" size="huge">$\mathcal{Q}$</text>
 <path matrix="1 0 0 1 -16 0" stroke="black">
 288 476 m
 288 452 l

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20140810163420" modified="D:20140810163420"/>
+<info created="D:20140810163420" modified="D:20150525002106"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -232,35 +232,35 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black" fill="black">
+<path layer="alpha" matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 4 0 0 4 96 736 e
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 4 0 0 4 128 736 e
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 4 0 0 4 96 704 e
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 4 0 0 4 128 704 e
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 96 736 m
 96 704 l
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 96 704 m
 128 736 l
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black">
 128 736 m
 128 704 l
 </path>
-<text matrix="1 0 0 1 -8 4" transformations="translations" pos="88 736" stroke="black" type="label" width="8" height="7" depth="0" valign="baseline" size="LARGE">$a$</text>
-<text matrix="1 0 0 1 52 36" transformations="translations" pos="84 704" stroke="black" type="label" width="7" height="11" depth="0" valign="baseline" size="LARGE">$b$</text>
-<text matrix="1 0 0 1 -56 -40" transformations="translations" pos="136 736" stroke="black" type="label" width="7" height="7" depth="0" valign="baseline" size="LARGE">$c$</text>
-<text matrix="1 0 0 1 -4 -8" transformations="translations" pos="140 704" stroke="black" type="label" width="8" height="11" depth="0" valign="baseline" size="LARGE">$d$</text>
-<path stroke="black" fill="black" dash="dashed">
+<text matrix="1 0 0 1 -24 4" transformations="translations" pos="88 736" stroke="black" type="label" width="8.849" height="7.412" depth="0" valign="baseline" size="LARGE">$a$</text>
+<text matrix="1 0 0 1 36 36" transformations="translations" pos="84 704" stroke="black" type="label" width="7.167" height="11.955" depth="0" valign="baseline" size="LARGE">$b$</text>
+<text matrix="1 0 0 1 -72 -40" transformations="translations" pos="136 736" stroke="black" type="label" width="7.255" height="7.412" depth="0" valign="baseline" size="LARGE">$c$</text>
+<text matrix="1 0 0 1 -20 -8" transformations="translations" pos="140 704" stroke="black" type="label" width="8.759" height="11.955" depth="0" valign="baseline" size="LARGE">$d$</text>
+<path matrix="1 0 0 1 -16 0" stroke="black" fill="black" dash="dashed">
 96 736 m
 128 736 l
 </path>
@@ -276,10 +276,10 @@ h
 <path matrix="1 0 0 1 80 -16" stroke="black" fill="black">
 4 0 0 4 128 704 e
 </path>
-<text matrix="1 0 0 1 88 20" transformations="translations" pos="88 736" stroke="black" type="label" width="8" height="7" depth="0" valign="baseline" size="LARGE">$a$</text>
-<text matrix="1 0 0 1 92 20" transformations="translations" pos="84 704" stroke="black" type="label" width="7" height="11" depth="0" valign="baseline" size="LARGE">$b$</text>
-<text matrix="1 0 0 1 24 -56" transformations="translations" pos="136 736" stroke="black" type="label" width="7" height="7" depth="0" valign="baseline" size="LARGE">$c$</text>
-<text matrix="1 0 0 1 76 -24" transformations="translations" pos="140 704" stroke="black" type="label" width="8" height="11" depth="0" valign="baseline" size="LARGE">$d$</text>
+<text matrix="1 0 0 1 88 20" transformations="translations" pos="88 736" stroke="black" type="label" width="8.849" height="7.412" depth="0" valign="baseline" size="LARGE">$a$</text>
+<text matrix="1 0 0 1 92 20" transformations="translations" pos="84 704" stroke="black" type="label" width="7.167" height="11.955" depth="0" valign="baseline" size="LARGE">$b$</text>
+<text matrix="1 0 0 1 24 -56" transformations="translations" pos="136 736" stroke="black" type="label" width="7.255" height="7.412" depth="0" valign="baseline" size="LARGE">$c$</text>
+<text matrix="1 0 0 1 76 -24" transformations="translations" pos="140 704" stroke="black" type="label" width="8.759" height="11.955" depth="0" valign="baseline" size="LARGE">$d$</text>
 <path matrix="1 0 0 1 0 -16" stroke="black" fill="black">
 192 768 m
 192 736 l
@@ -296,33 +296,41 @@ h
 176 688 m
 208 688 l
 </path>
-<path matrix="1 0 0 1 176 16" stroke="black" fill="black">
+<path matrix="1 0 0 1 176 32" stroke="black" fill="black">
 4 0 0 4 96 736 e
 </path>
-<path matrix="1 0 0 1 144 -16" stroke="black" fill="black">
+<path matrix="1 0 0 1 144 0" stroke="black" fill="black">
 4 0 0 4 128 736 e
 </path>
-<path matrix="1 0 0 1 176 -16" stroke="black" fill="black">
+<path matrix="1 0 0 1 176 0" stroke="black" fill="black">
 4 0 0 4 96 704 e
 </path>
-<path matrix="1 0 0 1 144 -48" stroke="black" fill="black">
+<path matrix="1 0 0 1 144 -32" stroke="black" fill="black">
 4 0 0 4 128 704 e
 </path>
-<text matrix="1 0 0 1 168 16" transformations="translations" pos="88 736" stroke="black" type="label" width="8" height="7" depth="0" valign="baseline" size="LARGE">$a$</text>
-<text matrix="1 0 0 1 172 16" transformations="translations" pos="84 704" stroke="black" type="label" width="7" height="11" depth="0" valign="baseline" size="LARGE">$b$</text>
-<text matrix="1 0 0 1 120 -48" transformations="translations" pos="136 736" stroke="black" type="label" width="7" height="7" depth="0" valign="baseline" size="LARGE">$c$</text>
-<text matrix="1 0 0 1 116 -48" transformations="translations" pos="140 704" stroke="black" type="label" width="8" height="11" depth="0" valign="baseline" size="LARGE">$d$</text>
-<path matrix="1 0 0 1 80 -16" stroke="black" fill="black">
+<text matrix="1 0 0 1 168 32" transformations="translations" pos="88 736" stroke="black" type="label" width="8.849" height="7.412" depth="0" valign="baseline" size="LARGE">$a$</text>
+<text matrix="1 0 0 1 172 32" transformations="translations" pos="84 704" stroke="black" type="label" width="7.167" height="11.955" depth="0" valign="baseline" size="LARGE">$b$</text>
+<text matrix="1 0 0 1 120 -32" transformations="translations" pos="136 736" stroke="black" type="label" width="7.255" height="7.412" depth="0" valign="baseline" size="LARGE">$c$</text>
+<text matrix="1 0 0 1 116 -32" transformations="translations" pos="140 704" stroke="black" type="label" width="8.759" height="11.955" depth="0" valign="baseline" size="LARGE">$d$</text>
+<path matrix="1 0 0 1 80 0" stroke="black" fill="black">
 192 768 m
 192 736 l
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 0 16" stroke="black" fill="black">
 272 720 m
 272 688 l
 </path>
-<path stroke="black" fill="black">
+<path matrix="1 0 0 1 0 16" stroke="black" fill="black">
 272 688 m
 272 656 l
+</path>
+<path stroke="black" fill="black" pen="heavier" arrow="normal/normal">
+144 720 m
+160 720 l
+</path>
+<path matrix="1 0 0 1 80 0" stroke="black" fill="black" pen="heavier" arrow="normal/normal">
+144 720 m
+160 720 l
 </path>
 </page>
 </ipe>
