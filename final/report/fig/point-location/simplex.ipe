@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20150523201504" modified="D:20150523235957"/>
+<info created="D:20150523201504" modified="D:20150525004344"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -381,11 +381,11 @@ h
 </path>
 <text matrix="1 0 0 1 -4 -12" transformations="translations" pos="400 716" stroke="seagreen" type="label" width="18.994" height="12.271" depth="0" valign="baseline" size="LARGE">$\vec{\nu x}$</text>
 <text matrix="1 0 0 1 0 -184" transformations="translations" pos="400 716" stroke="seagreen" type="label" width="26.565" height="16.474" depth="0" valign="baseline" size="LARGE">$\vec{\nu&apos; x&apos;}$</text>
-<text matrix="1 0 0 1 108 -52" transformations="translations" pos="168 556" stroke="red" type="label" width="19.688" height="15.468" depth="0" valign="baseline" size="huge">$\nu&apos;&apos;$</text>
-<text matrix="1 0 0 1 -124 -164" transformations="translations" pos="356 668" stroke="black" type="label" width="19.886" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;&apos;$</text>
-<text matrix="1 0 0 1 100 -92" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
-<text matrix="1 0 0 1 56 -92" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
-<text matrix="1 0 0 1 -92 -104" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="22.45" height="15.468" depth="0" valign="baseline" size="huge">$\mathcal{S}&apos;&apos;$</text>
+<text matrix="1 0 0 1 76 -24" transformations="translations" pos="168 556" stroke="red" type="label" width="19.688" height="15.468" depth="0" valign="baseline" size="huge">$\nu&apos;&apos;$</text>
+<text matrix="1 0 0 1 -156 -136" transformations="translations" pos="356 668" stroke="black" type="label" width="19.886" height="15.468" depth="0" valign="baseline" size="huge">$x&apos;&apos;$</text>
+<text matrix="1 0 0 1 68 -64" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
+<text matrix="1 0 0 1 24 -64" transformations="translations" pos="156 596" stroke="black" type="label" width="14.874" height="7.347" depth="0" valign="baseline" size="huge">$=$</text>
+<text matrix="1 0 0 1 -124 -76" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="22.45" height="15.468" depth="0" valign="baseline" size="huge">$\mathcal{S}&apos;&apos;$</text>
 <text matrix="1 0 0 1 268 24" transformations="translations" pos="168 480" stroke="darkblue" type="label" width="22.093" height="17.302" depth="0" valign="baseline" size="huge">$\widetilde{\mathcal{H}}&apos;$</text>
 <text matrix="1 0 0 1 176 -244" transformations="translations" pos="168 780" stroke="darkcyan" type="label" width="33.841" height="15.466" depth="4.02" valign="baseline" size="huge">$\nabla f&apos;$</text>
 <text matrix="1 0 0 1 52 -104" transformations="translations" pos="276 608" stroke="darkorange" type="label" width="18.505" height="15.468" depth="0" valign="baseline" size="huge">$\mathcal{S}&apos;$</text>
