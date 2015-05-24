@@ -1,7 +1,6 @@
 \section{Sorting is a \twoLDT problem}
 
-As we now show, Sorting is a \twoLDT problem. Let us define \twoLDT,
-
+We show that Sorting is a \twoLDT problem. Let us define \twoLDT
 \begin{problem}[\twoLDT]
 Given a set $\S \subset \R$, $\card{\S} = n$, and real coefficients $\alpha_0,
 \alpha_1, \alpha_2$, decide whether there exists a pair $(a,b) \in \S^2$ such that
@@ -11,8 +10,7 @@ $\alpha_0 + \alpha_1 a + \alpha_2 b = 0$.
 In the sorting problem we need to determine whether $a \le b$ for all $(a,b)$
 pairs, this amounts to determining the sign of $a-b$. If we would like to rewrite
 the sorting problem definition in the same fashion we would come up with the
-following definition,
-
+following definition
 \begin{problem}[Sorting as a \twoLDT problem]
 Given a set $\S \subset \R$, $\card{\S} = n$, decide whether there exists a
 pair $(a,b) \in \S^2, a \neq b$ such that $a - b = 0$.
@@ -23,13 +21,11 @@ pairs \((a,b)\), and so there cannot be such pair \((a,b)\), but, the important
 bit is that computing $a-b$ reveals the answer to the question $a \ask{\le} b$.
 
 Let us prove why this definition maps to the definition of the Sorting problem.
-
 \begin{theorem}[Sorting is a \twoLDT problem]\label{thm:related:sorting}
 Given a set \(\S \subset \R\), deciding whether there exists a pair \((a,b)
 \in \S^2, a \neq b\) such that \(a - b = 0\) amounts to finding the answers of all \(a
 \ask{\le} b\) queries.
 \end{theorem}
-
 \begin{proof}
 We assume there is no such pair without loss of generality.
 Suppose we have a pair \((a,b) \in \S^2, a \neq b\) for which we

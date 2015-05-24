@@ -2,8 +2,7 @@
 \label{tree:related:xy4ldt}
 
 Similarly to how the sorting problem is a linear degeneracy testing problem,
-Sorting \XY is a \fourLDT problem. Let us define \fourLDT,
-
+Sorting \XY is a \fourLDT problem. Let us define \fourLDT
 \begin{problem}[\fourLDT]
 Given a set $\S \subset \R$, $\card{\S} = n$, and real coefficients $\alpha_0,
 \alpha_1, \alpha_2, \alpha_3, \alpha_4$, decide whether there exists a
@@ -14,23 +13,20 @@ $\alpha_0 + \alpha_1 a + \alpha_2 b + \alpha_3 c + \alpha_4 d = 0$.
 When sorting \XY we need to determine whether $a + b \le c + d$ for all
 $(a,b,c,d) \in (X \times Y)^2$, this sums up to determining the sign of $(a+b) -
 (c+d)$, i.e. asking questions of the kind $a + b - c - d \ask{\le} 0$. We can thus
-reformulate sorting \XY the following way,
-
+reformulate sorting \XY the following way
 \begin{problem}[Sorting \XY as a \fourLDT problem]
 Given a set $\S \subset \R$, $\card{\S} = n$, decide whether there exists a
 \(4\)-tuple \((a,b,c,d) \in \S^4, a \neq c \lor b \neq d\) such
 that $a + b - c - d = 0$.
 \end{problem}
 
-Again, we want to prove that this problem is equivalent to Sorting \XY. We now
+Again, we want to prove that this problem is equivalent to Sorting \XY. We
 state and prove a more general theorem than \ref{thm:related:sorting}.
-
 \begin{theorem}[The search and decision versions of the point location problem are equivalent]\label{thm:related:sortingxy}
 Given a point \(p = (p_1, \ldots, p_n)\) and an arrangement of hyperplanes
 \(\H\) in \(\R^n\), deciding whether \(p\) lies on one of the hyperplanes of the
 arrangement amounts to finding the cell of the arrangement containing \(p\).
 \end{theorem}
-
 \begin{proof}
 We assume \(p\) does not lie on any of the hyperplanes without loss of generality.
 Suppose we have a hyperplane \(H \in \H, H = a_1 x_1 + \cdots + a_n x_n = 0\) for which we

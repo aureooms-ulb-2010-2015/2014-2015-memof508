@@ -15,7 +15,7 @@ The relevant section from this reference is numbered \textbf{3.4} and titled
 $\pv(x) \in
 \signset^{m}$ of $x$ inside the
 arrangement of hyperplanes $\arrangement(\H)$.
-In this chapter, we show how to solve \kSUM using \BigO{k n^3 \log^3 n} $n$-variate
+We show how to solve \kSUM using \BigO{k n^3 \log^3 n} $n$-variate
 linear queries with this algorithm.
 
 For \(k\) fixed,
@@ -86,7 +86,7 @@ is less or equal to $\epsilon \card{\H}$.
 \end{corollary}
 
 We can use this corollary in the algorithm we were describing earlier. We
-now make two changes to the previous algorithm, we explicitly define the
+make two changes to the previous algorithm, we explicitly define the
 cardinality of $\Ht$ and we include an additional step where we replace cell
 $\cell$ with a simplex $\simplex$.
 
@@ -97,15 +97,15 @@ arrangement $\arrangement(\Ht)$ containing $x$, we first refine the cell around
 point $x$. We do so by computing a simplex $\simplex$ inscribed in $\cell$ and
 containing \(x\). Then we discard hyperplanes that do not meet this simplex.
 
-By proceeding this way we have now the guarantee that we keep at most a
+By proceeding this way we have the guarantee that we keep at most a
 constant fraction \(\epsilon\) of the hyperplanes and thus the total number of
 queries made to determine the enclosing cell of
 all steps is \BigO{n^2 \log^2 n \log m}. However, we
 still need to explicit how we find a simplex $\simplex$ containing $x$ and
 inscribed in $\cell$.
 
-We now explain how to build $\simplex$. The algorithm can be sketched as
-follows,
+We explain how to build $\simplex$. The algorithm can be sketched as
+follows
 \begin{algorithm}[Building \(\simplex\)]
 \item[input] A point \(x\) and a set of hyperplanes \(\widetilde{\H}\) in
 \(\R^n\).

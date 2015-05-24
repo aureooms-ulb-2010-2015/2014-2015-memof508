@@ -1,7 +1,7 @@
 \section{Algorithms for the Sorting Problem}
 \label{tree:sorting:alg}
 
-We now detail three algorithms that can be used to solve the sorting
+We detail three algorithms that can be used to solve the sorting
 problem efficiently. According to our model, remember \Cref{tree:sorting:model},
 we only consider comparison-based sorting algorithms.
 
@@ -33,9 +33,7 @@ The idea behind the \quicksort algorithm is to divide the input set \(\S\),
 sorted independently from one another. To enforce this independence condition,
 the first part of the algorithm consists in computing \(\L\) and \(\U\) such
 that \(l \le u \Forall l \in \L, u \in U\). Once \(\L\) and \(\U\) are known,
-the algorithm sorts these two sets recursively. A rigorous definition of the
-algorithm is the following:
-
+the algorithm sorts these two sets recursively.
 \begin{algorithm}[\quicksort]
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Choose a pivot element \(p \in \S\) and compare it with all other
@@ -68,8 +66,7 @@ A second efficient algorithm is \mergesort
 divide-and-conquer algorithm. While in \quicksort one makes the comparisons from
 the partition step before solving the two subproblems, in \mergesort we
 first solve two subproblems and then recombine them with a merge step that
-requires \BigO{n} comparisons:
-
+requires \BigO{n} comparisons.
 \begin{algorithm}[\mergesort]
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
 \item[2.] Arbitrarily partition \(\S\) into two disjoint subsets \(\L\) and
@@ -106,7 +103,7 @@ Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.  Let us
 explain how. There exist two main procedures to update the contents of a heap.
 The first one is \siftdown which consists in \emph{sifting} a node down
 the tree until it is smaller or equal to all of its children. Below are the
-steps of the \siftdown algorithm with input node \(N\):
+steps of the \siftdown algorithm with input node \(N\)
 \begin{algorithm}[\siftdown]
 \item[1.] If \(N\) is a leaf of the tree the algorithm stops.
 \item[2.] Compute \(C = \min \text{children}(N)\).
@@ -117,7 +114,6 @@ steps of the \siftdown algorithm with input node \(N\):
 
 The second one is \siftup. This operation is similar to \siftdown.
 We \emph{sift} a node up the tree until it is larger or equal to its parent.
-Below are the steps of the algorithm:
 \begin{algorithm}[\siftup]
 \item[1.] If \(N\) is the root of the tree the algorithm stops.
 \item[2.] Compute \(P = \text{parent}(N)\).
@@ -175,7 +171,7 @@ Considering practical uses of sorting algorithms, \quicksort is one of the most
 efficient algorithms on real-world computers due to its simplicity and cache
 locality of its operations, even though \quicksort has a higher
 multiplicative factor than \mergesort regarding the number of
-comparisons and even though \quicksort has a quadratic worst-case complexity. Nowadays, standard libraries of the most
+comparisons and even though \quicksort has a quadratic worst-case complexity. Standard libraries of the most
 popular programming languages (\Java (up to \Java 6), \CC, \CXX) use their own
 version of the \quicksort algorithm as their sorting procedure. An exception is
 \Python which uses the \timsort algorithm since 2002. Note also that up to \Java
@@ -199,7 +195,7 @@ comparisons on average. This is less than the classical \quicksort algorithm whi
 other kinds of operations. For example, the number of element swaps in the
 dual-pivot \quicksort of \citeauthor{yaroslavskiy:2009} is twice the number of
 element swaps of the classic \quicksort by \citeauthor{hoare:1962}. This
-algorithm is now used as the sorting procedure of arrays of primitive type for
+algorithm is used as the sorting procedure of arrays of primitive type for
 the \Java language (since \Java 7). Although it performs more
 swaps \cite{wild:2012}, and uses more Java bytecodes \cite{wild:2013}, the
 dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
@@ -238,7 +234,7 @@ algorithms in the field of Computer Science, there still exists a linear term
 gap between the most efficient algorithms with respect to the number of
 comparisons and the \concept{\ITLB} for the sorting problem.
 
-Out of the algorithms we showed in this chapter, \mergesort is one of the
+Out of the algorithms we explained, \mergesort is one of the
 sorting algorithms whose query complexity comes closest
 to the \concept{\ITLB}, \ie
 \begin{displaymath}

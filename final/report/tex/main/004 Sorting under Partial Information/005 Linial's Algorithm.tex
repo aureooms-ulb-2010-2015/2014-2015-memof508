@@ -4,8 +4,8 @@ A useful procedure is one that merges two linearly ordered sets without
 discarding the information existing between elements of these two sets. In
 \citet*{cardinal:2013} an implementation of such a procedure is defined. Their
 implementation allows one to concentrate the computational complexity
-in the preprocessing phase of their other algorithms. In this chapter
-we detail another possible implementation of such a procedure that is due
+in the preprocessing phase of their other algorithms.
+We detail another possible implementation of such a procedure that is due
 to \citet*{linial:1984}. Unfortunately, in this implementation the
 computational complexity cannot be split into a preprocessing phase and a query
 phase. Nevertheless it is still interesting to understand the ideas behind it.
@@ -15,7 +15,7 @@ This procedure solves the problem of Merging under Partial Information
 \SUPI is that together with the input poset \(\P\) we are given two chains \(\A
 = (\chain{a_1}{a_m})\) and \(\B = (\chain{b_1}{b_n})\) such that \(\A \cup \B =
 \P\), \ie \(\enum{\A,\B}\) is a chain cover of \(\P\), implying that \(\P\) is
-of width \(2\). We give a formal definition of this problem,
+of width \(2\). We give a formal definition of this problem
 \begin{problem}[Merging under Partial Information]
 Given a poset \(\P\) and two disjoint chains \(\A\) and \(\B\) of \(\P\) such that \(\A \cup \B =
 \P\), find a linear extension of \(\P\).
@@ -124,7 +124,7 @@ outcomes of a merging algorithm on input \((\S_1,\S_2)\), \(\card{\S_1} = m,
 \(\nth{i}\) element of \(\S_1\) into \(\S_2\) is bounded by \(\alpha_i \le j <
 \beta_i\).
 
-We now make a few observations to show that Linial's algorithm runs in
+We make a few observations to show that Linial's algorithm runs in
 polynomial time:
 \begin{enumerate}
 \item The values \(\beta_i - \alpha_j\) and \(j - i + 1\) are bounded

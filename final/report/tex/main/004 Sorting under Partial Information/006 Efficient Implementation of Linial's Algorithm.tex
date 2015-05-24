@@ -1,6 +1,6 @@
 \section{Efficient Implementation of Linial's Algorithm}
 
-In this section we present original developments on Linial's work~\cite{linial:1984}.
+We present original developments on Linial's work~\cite{linial:1984}.
 We explain
 how to reduce the complexity of Linial's algorithm to \BigO{n^2} preprocessing
 time and \BigO{n \log e(P)} running time.
@@ -8,7 +8,7 @@ time and \BigO{n \log e(P)} running time.
 As an anonymous referee pointed out in the peer review of
 \citet*{cardinal:2013}, it is possible to implement Linial's algorithm
 using dynamic programming instead of binomial coefficients and
-determinants. We now expose a recurrence relation that can be used to compute
+determinants. We expose a recurrence relation that can be used to compute
 \(e(\P)\) using dynamic programming.
 
 We look at \(a_1\) and \(b_1\), the smallest elements of \(\A\) and \(\B\)
@@ -70,7 +70,7 @@ e(\P)\).
 
 We can thus use the dynamic program to find a good query to perform instead of
 computing determinants.
-Moreover, we now prove that we can update the information obtained via the dynamic program
+Moreover, we prove that we can update the information obtained via the dynamic program
 with the answer to a query in \BigO{n} time.
 \begin{proof}
 Suppose we have computed \(e(\P)\) and all \(e(\P(a_1 < b_r))\) and
@@ -78,9 +78,9 @@ Suppose we have computed \(e(\P)\) and all \(e(\P(a_1 < b_r))\) and
 thanks to Linial's proof of the \onethirdtwothird conjecture for width-\(2\)
 posets, we find a good query \(a_1 \ask{<} b_r\) or \(b_1 \ask{<} a_r\) to perform.
 Depending on the outcome of this query we update the tableau of the dynamic
-program. We now assume the good query was of the type \(a_1 \ask{<} b_r\)
+program. We assume the good query was of the type \(a_1 \ask{<} b_r\)
 without loss of generality. If \(b_r < a_1\) then we do not have to update anything,
-the chain \(\chain{b_1}{b_r}\) can now simply be ignored. Otherwise, \(a_1 <
+the chain \(\chain{b_1}{b_r}\) can simply be ignored. Otherwise, \(a_1 <
 b_r\) and
 unless \(r = 1\) we have to update at most \(\max\enum{\card{\A}, \card{\B}}\) cells of the dynamic program
 tableau. The
@@ -93,7 +93,7 @@ values \(K_{1,1}, \ldots, K_{1,r-1}\). This is the only case where we have to
 update the tableau and the number of cells to update is \BigO{n}.
 \end{proof}
 
-We now detail an implementation of the processing part of the algorithm. For the sake of simplicity,
+We detail an implementation of the processing part of the algorithm. For the sake of simplicity,
 we consider a recursive implementation. This implementation outputs a linear
 extension compatible with the unknown total order \(<\). The algorithm receives as
 input the poset \(\P\) covered by two chains \(\A =

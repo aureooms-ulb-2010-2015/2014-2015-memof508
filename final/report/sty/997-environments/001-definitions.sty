@@ -40,11 +40,12 @@
 \theoremstyle{slplain}
 
 \newtheorem{theorem}{\theoremname}[chapter]
-\newtheorem{definition}[theorem]{\definitionname}
 \newtheorem{lemma}[theorem]{\lemmaname}
-\newtheorem{problem}[theorem]{\problemname}
 \newtheorem{corollary}[theorem]{\corollaryname}
-\newtheorem{conjecture}[theorem]{\conjecturename}
+
+\newtheorem{definition}{\definitionname}[chapter]
+\newtheorem{problem}{\problemname}[chapter]
+\newtheorem{conjecture}{\conjecturename}[chapter]
 
 \newcommand\makethm[0]{
 	\newpage\cleardoublepage\phantomsection

@@ -1,15 +1,14 @@
 \section{Merging $k$ Totally Ordered Sets}
 \label{tree:merging:kgeq3}
 
-In this last section, we give the \ITLB of the merging
-problem and a \BigO{\ITLB} algorithm solving this problem. This last
+We give the \ITLB and a \BigO{\ITLB} algorithm for Merging. The
 algorithm is built on top of the Hwang-Lin algorithm.
 
 \subsection{\ITLB}
 \label{tree:merging:kgeq3:ITLB}
 
 Again, we compute the \ITLB as the logarithm of the number of possible solutions
-for this problem, \ie
+for this problem.
 \begin{theorem}[\ITLB for Merging]
 The \concept{\ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
 \sum_{i=1}^{k} n_i$ is \(\log \frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}\).
@@ -56,7 +55,7 @@ Let us take some time to expose the relation between constructions of Huffman
 codes and runs of our algorithm. First, we define the problem of optimal
 coding of a random variable with respect to the average length of the messages
 encoding events emitted by this random variable. We assume the channel we
-use to transmit our messages is perfect:
+use to transmit our messages is perfect.
 \begin{problem}[Optimal coding of a random variable]
 Given a random variable \(X\) with possible events \(x_1,\ldots,x_n\) occurring
 with probability \(0 < p(x_i) \le 1, \sum_{x_i} p(x_i) = 1\), construct an
@@ -94,7 +93,7 @@ replacement operation until the pool contains only one element. This last
 element is the root of the tree. Since at each step we replace two nodes by
 one, after \(n-1\) of these steps the tree is constructed.
 
-Now we make the parallel with our merging algorithm. If we want to merge
+We make the parallel with our merging algorithm. If we want to merge
 multiple totally ordered sets \(\S_1,\ldots,\S_k\) having different lengths we can use a similar
 approach. To each set \(\S_i\) we assign a fake event with probability
 \(\frac{\card{\S_i}}{n}\). The Shannon entropy of the random variable
@@ -112,7 +111,7 @@ The definition of \(p(\S_i)\) is consistent with the invariant of
 the Huffman tree construction algorithm since merging two totally ordered sets
 \(\S_i\) and \(\S_j\) produces a new one of size \(\card{\S_i} + \card{\S_j}\).
 
-Now we prove that for a merging algorithm that would iteratively merge the two
+We prove that for a merging algorithm that would iteratively merge the two
 smallest remaining totally ordered sets, the number of comparisons used is at
 most \(n L_H(\S)\). To make this explicit, we rearrange the terms of \(L_H(\S)\),
 \begin{displaymath}

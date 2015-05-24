@@ -1,14 +1,13 @@
 \section{A Decision Tree for a Generic Sorting Problem}
 \label{tree:xy:dt}
 
-In this section we expose an algorithm due to \citet*{fredman:1976}
+We expose an algorithm due to \citet*{fredman:1976}
 that solves sorting problems making at most $\log\card{\Gamma} + 2n$ queries,
 where $\Gamma$ is the set of possible linear extensions of the input. In the
 next section we show how this algorithm can be used in the context of
 Sorting \XY.
 
-\citet{fredman:1976} defines a generic sorting problem as follows,
-
+\citet{fredman:1976} defines a generic sorting problem as follows
 \begin{problem}[Generic sorting problem]
 Let $\S = \enum{x_1, \ldots, x_n}$ be an $n$-element set. We define a sorting
 problem on these element to be a pair $(\Gamma, P)$, where $\Gamma$ is a
@@ -37,7 +36,7 @@ compute the correct linear extension of \XY out of all its feasible linear
 extensions. Since $P$ is the same for every $\Gamma$ in this case, we
 always write $N(\Gamma)$ to mean $N(\Gamma, P)$.
 
-\citet{fredman:1976} proves the following theorem,
+\citet{fredman:1976} proves the following theorem
 \begin{theorem}[\citet*{fredman:1976}]\label{theorem:fredman:1976}
 A poset of cardinality $n$, whose linear extension is known to be contained in
 $\Gamma$ can be sorted with $N(\Gamma) = \log \card{\Gamma} + 2n$ pairwise
@@ -53,12 +52,11 @@ Sorting \XY. This
 new lower bound is our $\card{\Gamma}$ in \ref{theorem:fredman:1976}.
 
 To prove the correctness of the theorem, \citet{fredman:1976} builds a biased
-insertion sort algorithm that we now explain.
+insertion sort algorithm that we explain in the next paragraphs.
 
 The algorithm we consider is an iterative algorithm running in \(n\)
 iterations. Suppose that at iteration \(k\) of the algorithm we have already sorted a
 subset of \(\S\) of size \(k-1\).
-
 \begin{displaymath}
 \underbrace{x_1, \ldots, x_{k-1}}_{\text{subset}}~:~\underbrace{x_{i_1} <
 \ldots < x_{i_{k-1}}}_{\text{relative ordering}}
@@ -91,7 +89,7 @@ tantamount to the determination of $b_k$. In other words, asking whether $x_k
 \ask{\le} x_{i_j}$ is equivalent to asking whether $b_k \ask{\le} j$.
 
 To prove the theorem, \citet{fredman:1976} gives an algorithm whose existence
-implies an even more general result,
+implies an even more general result.
 \begin{lemma}[\citet*{fredman:1976}]
 Given $n \ge 1$, let $\S$ be a finite set of $n$-tuples with unrestricted
 positive integer coordinates. Given an unknown $n$-tuple \(b\) in $\S$, we can
@@ -112,7 +110,7 @@ already computed prefix since it cannot change and instead of writing $(b_k,
 b_{k+1}$, \etc. From here on till the end of this section we write $b_i$ to
 mean $b'_i$ for the sake of simplicity.
 
-We now list the steps of the recursive algorithm,
+We list the steps of the recursive algorithm
 \begin{algorithm}[\citet*{fredman:1976}]
 
 \item[input] $\S$, a set of $n$-tuples with unrestricted positive integer
@@ -141,7 +139,7 @@ The goal of step \step{1} is to offer a mapping between outputs of $J(q)$ and
 the possible original values for $b_1$. After the substitution of $i_j$ with
 $j$, asking $b_1 \ask{\le} J(q)$ means asking $b_1 \ask{\le} i_{J(q)}$
 before the substitution takes place. Hence, without loss of generality we can
-now assume \(i_j = j\). The value $N_j$ expresses the frequency or \emph{number of
+assume \(i_j = j\). The value $N_j$ expresses the frequency or \emph{number of
 occurrences} of $b_1 = j$ in the set $\S$, therefore
 \begin{displaymath}
 \sum_{j=1}^{l} N_j = \card{\S}.
@@ -169,7 +167,7 @@ is $(\frac{1}{2},1]$ and the next question $b_1 \ask{\le} J(\frac{3}{4})$,
 contains only one of the interval midpoints of our partitioned
 $(0,1]$ interval.
 
-We now prove that if we have to perform $r$ queries before finding such an
+We prove that if we have to perform $r$ queries before finding such an
 interval, $b_1 = J(q)$ for all $q$ in this interval, then $N_{b_1} \le
 \frac{4\card{\S}}{2^r}$. Suppose that $b_1 = i$ and that the length of the
 $\nth{i}$ interval, containing the $\nth{i}$ midpoint, is
@@ -179,9 +177,8 @@ $\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius $> \frac{2}{2^r} =
 After having made $r-1$ queries, our current query
 interval has length $\sfrac{1}{2^{r-1}}$. This query interval must be one of
 all the possible $2^{r-1}$ intervals of the partition of $(0,1]$ in adjacent
-intervals of length $\sfrac{1}{2^{r-1}}$ starting at $0$. We now prove a rather
-simple lemma,
-
+intervals of length $\sfrac{1}{2^{r-1}}$ starting at $0$. We prove a rather
+simple lemma
 \begin{lemma}
 \label{lemma:xy:dt:qi}
 All query intervals we consider can be written $(\frac{c}{2^{r-1}},
@@ -194,13 +191,13 @@ J\bigg(\frac{c}{2^{r-1}}\bigg) < i \le J\bigg(\frac{c+1}{2^{r-1}}\bigg).
 
 \begin{proof}
 At the beginning of the binary search algorithm, the search interval is
-$(0,1]$. It excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). We now
+$(0,1]$. It excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). Let us
 assume the current query interval is \((L,R]\). If during the search a
 question \(b \ask{\le} J(q)\) gets a ``yes'' answer then we update the upper
 bound and get a new query interval \((L,q]\). Otherwise, \(b > J(q)\) and we
 can update the lower bound and the query interval becomes \((q,R]\). In both
 cases the lower bound remains excluded. At the beginning of the algorithm,
-\(r - 1 = 0\), \(L=0\) and \(R=1\), hence \(c = 0\). Now for any query
+\(r - 1 = 0\), \(L=0\) and \(R=1\), hence \(c = 0\). For any query
 interval $(\frac{c}{2^{r-1}}, \frac{c+1}{2^{r-1}}]$ the query point is \(q =
 \frac{\sfrac{(c + (c + 1))}{2}}{2^{r-1}} = \frac{2c + 1}{2^r}\). Depending on the
 outcome of the query \(b \ask{\le} J(q)\) the new query interval is
@@ -209,7 +206,7 @@ either \((\frac{2c}{2^{r}}, \frac{2c+1}{2^{r}}]\) or \((\frac{2c+1}{2^{r}},
 \end{proof}
 
 To be valid, the current query interval must contain the \(\nth{i}\)
-midpoint. Now, if this query interval contained more than the \(\nth{i}\)
+midpoint. If this query interval contained more than the \(\nth{i}\)
 midpoint, the algorithm would have to use at least one additional query.
 Since the radius of the \(\nth{i}\) interval is \(> \sfrac{1}{2^{r-1}}\) it is
 not possible for the query interval, which has radius \( \frac{c+1-c}{2^{r-1}}

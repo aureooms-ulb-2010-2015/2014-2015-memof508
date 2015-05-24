@@ -1,14 +1,14 @@
 \section{Merging two Totally Ordered Sets}
 \label{tree:merging:k=2}
 
-We now analyze the \ITLB for the problem of merging two totally ordered sets of
+We analyze the \ITLB for the problem of merging two totally ordered sets of
 different sizes and give a description of a \BigO{\ITLB} algorithm.
 
 \subsection{\ITLB}
 \label{tree:merging:k=2:ITLB}
 
 Analogously to what we did in \Cref{tree:sorting}, we compute the
-logarithm of the number of possible solutions for this problem, \ie
+logarithm of the number of possible solutions for this problem.
 \begin{theorem}[\ITLB for the problem of merging two totally ordered sets]
 The \ITLB for the merging problem when \(k = 2\) with \(\card{\S_1} = m, \card{\S_2}
 = n\) is \BigOmega{\log \binom{m+n}{m}}.
@@ -105,7 +105,7 @@ m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{
 In conclusion, the only way the \concept{\ITLB} could be \SmallO{n} is if \(m =
 \SmallO{n}\). This result will be useful for the next section.
 
-Now we want to see what the bound becomes when $n$ start to grow relatively to
+We want to see what the bound becomes when $n$ start to grow relatively to
 $m$. In the following proof we assume that $m$ is negligible compared to $n$.
 \begin{lemma}
 \begin{align*}
@@ -123,7 +123,7 @@ m = \SmallO{n} &\implies \log\binom{m+n}{m} = \BigTheta{m \log\frac{n}{m}}
 This could be intuitively understood as doing $m$ binary searches on sets of
 size $\frac{n}{m}$.
 
-Now observe what happens when $m = 1$.
+We observe what happens when $m = 1$.
 \begin{lemma}
 \begin{align*}
 m = 1 &\implies \log\binom{m+n}{m} = \BigTheta{\log n}
@@ -156,7 +156,7 @@ The idea is that the algorithm should behave like:
 \citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm. Their
 algorithm merges two linearly ordered sets \(\A = \tuple{a_1,\dots,a_m}\) and
 \(\B = \tuple{b_1,\dots,b_n}\) with the constraint \(m \le n\). Below is a
-description of the algorithm:
+description of the algorithm
 \begin{algorithm}[Hwang-Lin algorithm]
 \item[1.] If \(m = 0\) the algorithm stops.
 \item[2.] Let \(\alpha = \floor{\log \frac{n}{m}}\) and \(x = n - 2^{\alpha} + 1\).
