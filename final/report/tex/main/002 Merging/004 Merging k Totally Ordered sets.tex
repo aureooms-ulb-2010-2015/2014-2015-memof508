@@ -10,7 +10,7 @@ algorithm is built on top of the Hwang-Lin algorithm.
 Again, we compute the \ITLB as the logarithm of the number of possible solutions
 for this problem.
 \begin{theorem}[\ITLB for Merging]
-The \concept{\ITLB} for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
+The \ITLB for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
 \sum_{i=1}^{k} n_i$ is \(\log \frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}\).
 \end{theorem}
 \begin{proof}
@@ -135,10 +135,10 @@ by our algorithm. Since
 n H(\S) \le n L_H(\S) \le n H(\S) + n,
 \end{displaymath}
 our algorithm requires at most \(n \log n - \sum_i \card{\S_i} \log \card{\S_i} +
-n\) comparisons which is \(\concept{\ITLB} + \BigO{n}\).
+n\) comparisons which is \(\ITLB + \BigO{n}\).
 
-To handle sublinear \concept{\ITLB} we need to resort to a last trick. The only
-way the \concept{\ITLB} can be \SmallO{n} is if the last two nodes \(\U\) and
+To handle sublinear \ITLB we need to resort to a last trick. The only
+way the \ITLB can be \SmallO{n} is if the last two nodes \(\U\) and
 \(\L\) we merge have sizes \(m\) and \(n\) respectively such that \(m =
 \SmallO{n}\). Otherwise merging them would require \BigOmega{n} comparisons.
 If \(m = \SmallO{n}\), then we can use the Hwang-Lin algorithm to merge those

@@ -28,9 +28,9 @@ $\S'$ of $m+n$ elements minus the information we already have.
 \subsection{The Hwang-Lin Algorithm}
 \label{tree:merging:k=2:alg}
 
-We analyze the \concept{\ITLB} of the Merging problem. Then we
-describe an algorithm whose complexity meets the \concept{\ITLB}. We begin by
-computing the general case expression of the \concept{\ITLB}.
+We analyze the \ITLB of the Merging problem. Then we
+describe an algorithm whose complexity meets the \ITLB. We begin by
+computing the general case expression of the \ITLB.
 \begin{lemma}
 \begin{align*}
 \log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}
@@ -102,7 +102,7 @@ m = c n \text{ such that } 0 < c \le 1 &\implies \log\binom{m+n}{m} = \BigTheta{
 \end{align*}
 \end{proof}
 
-In conclusion, the only way the \concept{\ITLB} could be \SmallO{n} is if \(m =
+In conclusion, the only way the \ITLB could be \SmallO{n} is if \(m =
 \SmallO{n}\). This result will be useful for the next section.
 
 We want to see what the bound becomes when $n$ start to grow relatively to
@@ -182,12 +182,12 @@ before each recursive call.
 
 \citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm has a complexity
 at most \(\ceil{\ITLB} + m - 1 = \BigO{\ITLB}\). The trick that allows to
-get so close to the \concept{\ITLB} with this algorithm resides in the choice of
+get so close to the \ITLB with this algorithm resides in the choice of
 \(\alpha\). Indeed \binarysearch uses at most \(\alpha\) comparisons
 when \(\alpha \in \N\) and when the number of elements to search
 from is \(2^{\alpha}-1\).
 
-We can check that this algorithm matches the \concept{\ITLB} found for our
+We can check that this algorithm matches the \ITLB found for our
 special cases. For example, \(2^\alpha\) is \emph{almost} \(\frac{n}{m}\),
 which makes the Hwang-Lin algorithm match our description of a good algorithm
 for the case \(m = \SmallO{n}\).
