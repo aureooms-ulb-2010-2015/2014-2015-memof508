@@ -5,17 +5,14 @@ way that an efficient algorithm for those problems would provide efficient
 algorithms for the \threeSUM problem. Hence, a lower bound for \threeSUM would
 imply lower bounds for those other problems.
 
-One of these problems is the \(3\)-points-on-line problem in the plane,
-
+One of these problems is the \(3\)-points-on-line problem in the plane
 \begin{problem}[\(3\)-points-on-line problem]
 Given a finite set \(\U\) of points in \(\R^2\), decide if \(\U\) contains
 three collinear points.
 \end{problem}
-
 \begin{theorem}[\threeSUM-hardness of the \(3\)-points-on-line problem]
 The \(3\)-points-on-line problem in the plane is \threeSUM-hard.
 \end{theorem}
-
 \begin{proof}
 A \threeSUM instance \(\S\) is reducible to
 a \(3\)-points-on-line instance \(\S' = \enum{ (x,x^3) \st x \in \S}\). This reduction

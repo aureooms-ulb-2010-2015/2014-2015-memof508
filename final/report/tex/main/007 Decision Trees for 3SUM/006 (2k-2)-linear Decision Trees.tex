@@ -10,8 +10,7 @@ short argument to explain that the same kind of technique can be applied when
 \citet*{gronlund:2014} gives a better lower bound, for odd \(k\), using
 \((2k-2)\)-linear decision trees.
 
-The goal of this section is to prove the following result,
-
+The goal of this section is to prove the following result
 \begin{theorem}[\citet*{gronlund:2014}]
 When $k \ge 3$ is odd, there is a $(2k-2)$-linear decision tree for \kLDT with
 depth \BigO{n^{\sfrac{k}{2}} \sqrt{\log n}}.
@@ -24,20 +23,12 @@ with \(k \ge 3\) odd in time \BigO{n^\frac{k+1}{2}}.
 
 Given an input set \(\S\) of \(n\) real numbers, a set of \(k\) real
 coefficient \( \enum{\alpha_1,\ldots,\alpha_k}\), and a real term \(\alpha_0\)
-we construct the sets \(\A\), \(\B\), and \(\C\) as follows,
-
-\begin{displaymath}
-\A = \enum{\alpha_0 + \alpha_1 s_1 + \cdots + \alpha_{\frac{k-1}{2}} s_{\frac{k-1}{2}} \st s_i \in \S}
-\end{displaymath}
-
-\begin{displaymath}
-\B = \enum{\alpha_{\frac{k+1}{2}} s_{\frac{k+1}{2}} + \cdots + \alpha_{k-1} s_{k-1} \st s_i \in \S}
-\end{displaymath}
-
-\begin{displaymath}
-\C = \enum{\alpha_k s_k \st s_k \in \S}
-\end{displaymath}
-
+we construct the sets \(\A\), \(\B\), and \(\C\) as follows
+\begin{align*}
+\A &= \bigg\{\alpha_0 + \alpha_1 s_1 + \cdots + \alpha_{\frac{k-1}{2}} s_{\frac{k-1}{2}} \st s_i \in \S\bigg\},\\
+\B &= \bigg\{\alpha_{\frac{k+1}{2}} s_{\frac{k+1}{2}} + \cdots + \alpha_{k-1} s_{k-1} \st s_i \in \S\bigg\},\\
+\C &= \bigg\{\alpha_k s_k \st s_k \in \S\bigg\}.
+\end{align*}
 Each element of \(\A\) and \(\B\) has exactly \(\frac{k-1}{2}\) linear terms.
 Elements of \(\A\) have an additional \(\alpha_0\) independent term. Looking
 at all possible combinations of \(s_i\) with \(\alpha_j\) we know that

@@ -1,29 +1,23 @@
 \section{\(4\)-linear Decision Trees}
 
-In \cite{gronlund:2014}, \citeauthor{gronlund:2014} build a decision tree
+\citet*{gronlund:2014} build a decision tree
 solving the \threeSUM problem using a subquadratic number of linear queries.
 Moreover, two algorithms solving the \threeSUM problem in subquadratic time on
 a Random Access Machine are
 given.
-
-Those results refute the long-lived conjecture stating that the \threeSUM problem
+These results refute the long-lived conjecture stating that \threeSUM
 cannot be solved in subquadratic time on a \emph{Random Access Machine}.
 
 In the classical quadratic algorithm for \threeSUM, $3$-linear queries of the
 form \emph{do these $3$ numbers sum up to $0$} are used. In their first
 algorithm, breaking the \BigOmega{n^2} bound on the number of queries,
 \citeauthor{gronlund:2014} use $4$-linear queries.
-
-We list hereunder the steps of an algorithm deciding the one-set
+We list hereunder the steps of this algorithm. The algorithm decides the one-set
 version of \threeSUM with input set $\A$, $\card{\A} = n$. By looking at the
 number of queries this algorithm requires to finish, we prove the
 decision tree complexity of \threeSUM is \BigO{n^{\sfrac{3}{2}}
 \sqrt{\log n}}.
-
-The algorithm goes as follows,
-
 \begin{algorithm}[\citet*{gronlund:2014}]
-
 \item[1.] Sort $\A$ in increasing order as $\A(1) < \ldots < \A(n)$.
 
 \item[2.] Partition $\A$ into $\ceil{\sfrac{n}{g}}$ groups $\A_1, \ldots,
@@ -51,11 +45,10 @@ the group index of $\A(k)$.
 $\hi$, otherwise increment $\lo$.
 
 \item[6.] Report ``no solution'' and halt.
-
 \end{algorithm}
 
-The algorithm is arranged in two phases. The first phase, steps \step{1}
-through \step{4}, is a preprocessing phase where we build a data structure
+The algorithm is arranged in two phases. In the first phase, steps \step{1}
+through \step{4}, we build a data structure
 for efficient lookups in preparation of the second phase. The second phase, steps
 \step{5} through \step{6}, consists of a loop where we search
 for all $a, b \le \A(k)$ such that $a + b + \A(k) = 0$ using the efficient lookup
@@ -99,7 +92,7 @@ We say that step \step{3} is a comparison efficient way of accomplishing step
 
 \citet*{gronlund:2014} generalize this result further by reducing \kLDT to an
 unbalanced \threeSUM problem, and apply a three-set version of their decision
-tree to solve it. The details for this reduction technique are explained in
+tree to solve it. The details of this reduction technique are explained in
 the next section.
 
 Finally, for the case of $k = 3$, they provide two subquadratic \threeSUM

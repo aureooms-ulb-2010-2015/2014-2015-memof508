@@ -6,14 +6,14 @@ proof for the \kLDT problem in the $k$-linear decision tree model is featured.
 In the case of $k$ even, a bound of \BigOmega{n^{\frac{k}{2}}} is given. For
 odd $k$, the bound is \BigOmega{n^{\frac{k+1}{2}}}.
 
-Their result is stated as follows,
+Their result is stated as follows
 \begin{theorem}[\citet*{erickson:1999}]
 The optimal depth of a \(k\)-linear decision tree that solves
 a \kLDT problem is \BigTheta{n^{\ceil{k/2}}}.
 \end{theorem}
 
 The proof uses an adversary argument which can be explained geometrically. As
-we show later, we can solve \(k\)-variable linear satisfiability problems
+we show later, we can solve \kLDT problems
 by modeling them as point location problems in an arrangement of hyperplanes.
 Solving a point location problem in an arrangement of hyperplanes amounts to
 determine which cell of the arrangement contains the input point. The adversary
@@ -21,7 +21,7 @@ argument of \citet*{erickson:1999} is that there exists a cell having
 \BigOmega{n^{\ceil{k/2}}} boundary facets and thus if the input point is inside
 that cell, then an algorithm must check if the point is on any of the facets of
 that cell. If the algorithm stops without doing so, an adversary could freely
-move the point from the inside of the cell to its border, changing the output
+move the point from the inside of the cell to its boundary, changing the output
 without the algorithm noticing it.
 
 For information, we hereunder detail the classical \BigO{n^2} algorithm for
@@ -30,8 +30,6 @@ For information, we hereunder detail the classical \BigO{n^2} algorithm for
 handle the three-set version of \threeSUM, \ie the case where $a$, $b$ and $c$
 are taken from the three sets $\A$, $\B$ and $\C$ instead of a single set $\U$.
 The description comes from \citet*{gronlund:2014}.
-
-
 \begin{algorithm}[\BigO{n^2} algorithm for \threeSUM]
 \item[1.] Sort $\A$ and $\B$ in increasing order as $\A_1 < \ldots <
 \A_{\card{\A}}$ and $\B_1 < \ldots < \B_{\card{\B}}$
