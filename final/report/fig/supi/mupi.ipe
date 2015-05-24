@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20150228111724" modified="D:20150228111724"/>
+<info created="D:20150228111724" modified="D:20150525002501"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -267,7 +267,7 @@ h
 352 736 m
 352 576 l
 </path>
-<text matrix="1 0 0 1 -4 0" transformations="translations" pos="348 760" stroke="black" type="label" width="19.689" height="16.938" depth="0" valign="baseline" size="Huge">$B$</text>
+<text matrix="1 0 0 1 -4 0" transformations="translations" pos="348 760" stroke="black" type="label" width="17.034" height="16.938" depth="0" valign="baseline" size="Huge">$\mathcal{B}$</text>
 <path stroke="black" fill="black" pen="ultrafat">
 288 672 m
 352 640 l
@@ -290,6 +290,6 @@ h
 <path matrix="1 0 0 1 64 0" stroke="black" fill="black" pen="ultrafat">
 4 0 0 4 288 672 e
 </path>
-<text matrix="1 0 0 1 -4 0" transformations="translations" pos="284 760" stroke="black" type="label" width="18.194" height="16.938" depth="0" valign="baseline" size="Huge">$A$</text>
+<text matrix="1 0 0 1 -4 0" transformations="translations" pos="284 760" stroke="black" type="label" width="19.792" height="16.938" depth="0" valign="baseline" size="Huge">$\mathcal{A}$</text>
 </page>
 </ipe>
