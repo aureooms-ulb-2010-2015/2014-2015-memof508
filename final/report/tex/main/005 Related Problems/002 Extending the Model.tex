@@ -9,17 +9,17 @@ comparison. In the following sections we consider that a comparison can be made
 between more than two elements. A comparison between three elements could be
 for example \(2a - 3b + c \ask{\le} 0\). Decisions based on the result of such
 a comparison depend on the sign of the expression \(2a - 3b + c\) \ie whether
-this sum is smaller than, equal to or greater than \(0\).
+this expression is smaller than, equal to or greater than \(0\).
 
 In this model, we are only allowed to query for linear combinations of
 input elements and those linear combinations can involve at most \(k\) of those
-elements. We call this generic model the \(k\)-linear decision tree model.
+elements. We call this generic model the \(k\)-linear Decision Tree Model.
 
-As a concrete example, let us take the sorting \XY problem we just introduced.
+As a concrete example, let us take the problem of sorting \XY we just introduced.
 The set \XY contains all pairwise sums of elements of \(X\) with elements of
 \(Y\). Thus, if we want to sort \XY we could make queries of the form \((x_i +
 y_j) \ask{\le} (x_{i'} + y_{j'})\) and this can be rewritten as \( x_i +
 y_j - x_{i'} - y_{j'} \ask{\le} 0\) to fit our new model. Solving the problem
 this way would involve \(4\)-linear queries. Therefore, we would be working in
 the \(4\)-linear decision tree model. Of course, we take the conditional here
-because sorting \XY is in no way forcing us to use \(k=4\).
+because the definition of the problem is in no way forcing us to use \(k=4\).
