@@ -1,6 +1,10 @@
 \section{Reduction to a Point Location Problem}
 
-We now describe a problem which can be used to model
+We now describe a problem\footnote{%
+Note that we already used some of the ideas of this section several times in
+the previous chapters.%
+}
+which can be used to model
 various kind of set sum problems, including subset sum, \kSUM, and \kLDT.
 
 Given a set of hyperplanes \(\H\) and a point \(x\) in the \(n\)-dimensional
@@ -9,10 +13,8 @@ to the arrangement of hyperplanes \(\A(\H)\). This arrangement divides the space
 into cells of dimension \(0,\ldots,n-1\) and the goal is to determine which
 cell contains the point \(x\). This amounts to determining for each
 hyperplane \(H_i\) whether the point \(x\) lies above, on, or below \(H_i\).
-
 Formally, we define the point location problem in an arrangement of hyperplanes as
-follows,
-
+follows
 \begin{problem}[Point location problem in an arrangement of hyperplanes]
 Given a point $x \in \R^n$ and an arrangement of hyperplanes $\H = \enum{ H_i
 \st 1 \leq i \leq m }$ determine the position vector of $x$, $\pv(x) \in
@@ -21,27 +23,24 @@ H_i^{\sigma}$, where we define $H_i^{0}$, $H_i^{-}$ and $H_i^{+}$ to be
 respectively $H_i$ itself, the half-space below $H_i$ and the half-space above
 $H_i$.
 \end{problem}
-
-In the \kSUM problem, we are trying to find all subsets \(\S_i\) of the
-universe \(\U = \enum{u_1,\ldots,u_n}\) satisfying the following constraints:
-\(\U\) is a finite subset of \(\R\) of cardinality \(n\), every subset $\S_i$
-of $\U$ must contain exactly $k$ elements of $\U$ and the sum of those $k$
-elements must be equal to $0$. For a given such subset $\S$ we name those elements
+In the \kSUM problem, we want to decide whether there exists a subset \(\S\) of the
+universe set \(\U = \enum{u_1,\ldots,u_n} \subset \R\) such that
+$\S$
+contains exactly $k$ elements of $\U$ and the sum of those $k$
+elements is equal to $0$. For a given such subset $\S$ we name those elements
 $s_1, \dots, s_k$.
 
-We now describe a procedure to convert any instance of the \kSUM problem into an
+We give a procedure to convert any instance of the \kSUM problem into an
 instance of the point location problem in an arrangement of hyperplanes.
-
 By agreeing on an order of the elements of $\U$ (e.g. the total order on
 the real numbers) we can associate a unique $n$-tuple to each universe set $\U$,
 and thus a unique point $x$ in $\R^n$ for each $\U$.
-
 For each $\S_i = \left\{s_1, \dots, s_k\right\}$ we need to find whether the sum $s_1
 + \dots + s_k$ is equal to zero. In our new representation of the problem this
 boils down to finding whether our point $x$ lies on the hyperplane of
 equation $x_{i_1} + \dots + x_{i_k} = 0$. There are less than $n^k$ such
 hyperplanes, and to solve the problem
-we have to find on which of them the point $x$ lies.
+we have to decide whether \(x\) lies on one of them.
 
 We just showed how to reduce \kSUM to a
 point location problem in an arrangement of hyperplanes. In the next section,

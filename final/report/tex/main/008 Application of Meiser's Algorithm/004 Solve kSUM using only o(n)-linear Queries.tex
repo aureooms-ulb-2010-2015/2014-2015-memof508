@@ -1,9 +1,11 @@
 \section{Solve \kSUM using only \SmallO{n}-linear Queries}
 
-We have seen that using Meiser's algorithm, one can solve the \kSUM problem
-with \BigO{n^3 \log^3 n} queries. We have also seen that the queries the
-algorithm is required to make can involve up to \(n\) linear terms and are thus
-\(n\)-linear. We show that it is possible to restrict ourselves to
+We have seen that using Meiser's algorithm one can solve the \kSUM problem
+with \BigO{n^3 \log^3 n} queries. During the construction of the simplex we
+need at each step of this algorithm, we use projection operations on
+the input point and the query hyperplanes. It is thus possible that some query we perform
+involves up to \(n\) linear terms of the input.
+We show that we can restrict ourselves to
 \SmallO{n}-linear queries with the addition of a factor \(n\) to the complexity
 of the algorithm.
 

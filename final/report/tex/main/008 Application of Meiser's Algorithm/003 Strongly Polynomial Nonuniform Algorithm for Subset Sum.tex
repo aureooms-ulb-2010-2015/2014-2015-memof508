@@ -2,11 +2,11 @@
 
 We now apply Meiser's algorithm to the subset sum problem. In the subset sum
 problem with input set $\S \subset \R$ of cardinality $\card{\S} = n$ we want to
-find all subsets $\S' \subseteq \S$ whose elements sum up to zero. Hence, we have
+decide whether there exists a subset $\S' \subseteq \S$ whose elements sum up to zero. Hence, we have
 to search through $2^n$ subsets of $\S$. Reducing to the point location problem
 in an arrangement of hyperplanes, we have now to locate input point $x \in
 \R^n$ inside an arrangement of $2^n$ hyperplanes, i.e. all hyperplanes with
-equation having combinations of $0$ or $1$ as coefficients. Meiser's algorithm
+equation having combinations of $0$ and $1$ as coefficients. Meiser's algorithm
 solves this problem using only \BigO{n^4 \log^2 n} queries, i.e. $\poly$-time
 in our decision tree model.
 
@@ -14,13 +14,13 @@ The subset sum problem is of interest here because it is an NP-complete problem
 \cite{karp:1972}, while our model of computation gives a polynomial time
 algorithm. When the algorithm is described in \cite{burgisser:1997} it is not
 assumed that the analysis is made in a different model than the classical
-bit-model but rather that the dimension of $\R^n$, $n$, is not part of the input
+RAM model but rather that the dimension of $\R^n$, $n$, is not part of the input
 but known in advance, allowing one to construct an efficient data structure for
 $\arrangement(\H)$ for any instance of the problem with fixed $n$.
 This is a consequence of the nonuniformity of the model we use as we explained
 in \Cref{tree:sorting:nonuniformity}. In our case, the algorithm is
 also strongly polynomial since the computations involved produce only real
-numbers whose size is bounded by the size of the input.
+numbers whose sizes are bounded by the size of the input.
 
 \citet*{meiser:1993,burgisser:1997} give other examples of
 NP-complete problems that can be solved with Meiser's algorithm in poly(\(n\))

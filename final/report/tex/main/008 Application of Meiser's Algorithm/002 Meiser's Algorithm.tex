@@ -1,25 +1,26 @@
 \section{Meiser's Algorithm}
 
-\nb{For this section, notation is strongly inspired by the notation
-used for the detailed explanation of the same problem in \citet*{burgisser:1997}.
-The relevant section from this reference is numbered \textbf{3.4} and titled
-\emph{Fast Point Location in Arrangement of Hyperplanes}. The algorithm we
-explain is due to Meiser and can be found in \cite{meiser:1993}.}
-
 Since the beginning of this writing, we were only interested by the number of
 questions we ask to an oracle, and we will continue to take the same point of
 view here. We wonder how many times we need to ask an oracle whether a point
 lies above, on or under a certain hyperplane.
 
-The algorithm we describe determines the position vector $\pv(x) \in
-\signset^{m}$ of input vertex $x \in \R^n$ inside an
-arrangement of hyperplanes $\arrangement(\H)$ with $\H$ as a set of hyperplanes
-of cardinality $\card{\H} = m = \binom{n}{k}$,
-effectively solving the \kSUM problem using \BigO{k n^3 \log^3 n} $n$-variate
-linear queries.
+Given a set of hyperplanes \(\H\) and an input vertex \(x\) in \(\R^n\),
+Meiser's algorithm \cite{meiser:1993} determines the position vector\footnote{
+For this section, notation is strongly inspired by the notation
+used for the detailed explanation of the same problem in \citet*{burgisser:1997}.
+The relevant section from this reference is numbered \textbf{3.4} and titled
+\emph{Fast Point Location in Arrangement of Hyperplanes}.
+}
+$\pv(x) \in
+\signset^{m}$ of $x$ inside the
+arrangement of hyperplanes $\arrangement(\H)$.
+In this chapter, we show how to solve \kSUM using \BigO{k n^3 \log^3 n} $n$-variate
+linear queries with this algorithm.
 
-For fixed $k$, \(\H\) is the set of hyperplanes having equation involving exactly $k$
-coordinates of $\R^n$ with coefficient $1$, we have thus $\card{\H} =
+For \(k\) fixed,
+\(\H\) is the set of hyperplanes having equation involving exactly $k$
+coordinates of $\R^n$ with coefficient $1$, we have thus $\card{\H} = m =
 \binom{n}{k}$. We can do this without involving the input vertex at all, this
 costs us $0$ queries.
 
@@ -32,22 +33,22 @@ hyperplane $H_i$ itself. The $i^{th}$ component of the position vector is
 $\pv_i(x) = \sigma$ if and only if $x \in \His$.
 
 Our first idea to determine the components of $\pv(x)$ is to iteratively
-select a random subset of size \BigO{\poly(n)} consisting of hyperplanes of the
-arrangement $\arrangement(\Ht)$ for which the relative position of $x$ has not yet been
-determined and compute a position vector for this subset. Once we have located
-vertex $x$ inside $\Ht$ we have effectively determined in
-which cell of the arrangement $\arrangement(\Ht)$ $x$ lies.
+select a random subset of hyperplanes \(\Ht\) of size \BigO{\poly(n)}
+for which the relative position of $x$ has not yet been
+determined. Once we have
+computed the position vector of \(x\) for this subset \(\Ht\)
+we have effectively determined in
+which cell\footnote{Note that we always consider that \(x\) is inside a cell that is bounded.
+This can be implicitly or explicitly simulated.}
+of the arrangement $\arrangement(\Ht)$ $x$ lies.
 
 We are left with hyperplanes of the set $\H \setminus \Ht$. They can be
-partitioned in two disjoint sets: set $\M$ of hyperplanes that meet the cell of
-$\Ht$ containing $x$ and set $\O$ for the others. The relative position of $x$
+partitioned in two disjoint sets: a set $\M$ of hyperplanes that meet the cell of
+$\Ht$ containing $x$ and a set $\O$ for the others. The relative position of $x$
 to each hyperplane belonging to $\O$ can be deduced without the need to query
 the oracle, the answer to the queries we would make can be computed by looking
 at the structure of the arrangement. For the first group of hyperplanes
 we call the procedure again with $\H \gets \M$.
-
-\nb{Note that we always consider that \(x\) is inside a cell that is bounded.
-This can be implicitly or explicitly simulated.}
 
 If we stop our explanation here we still have a worst-case \BigO{m}
 bound on the number of queries made. Hopefully, the next step of our
@@ -55,12 +56,10 @@ explanation shows that it is possible to lower this bound.
 
 The problem we have with our current algorithm is that there is no guarantee
 on the number of queries we avoid at each step.
-
 We use a result on \enets, attributed to Ken Clarkson by
 \citet{burgisser:1997}, to make our algorithm achieve an upper bound
 of \BigO{n^3 \log^2 n \log m} queries.
-
-\begin{theorem}[Clarkson]
+\begin{theorem}[Clarkson]\label{thm:meiser:clarkson}
 Given a set $\H$ of $m$ hyperplanes in $\R^n$ and $\epsilon$ with the
 constraint that $0 < \epsilon < 1$, there exists a subset $\NH \subseteq \H$ of
 size $\BigO{\enetsize}$ such that for every simplex $\simplex$ in $\R^n$, if the
@@ -68,11 +67,10 @@ number of hyperplanes of $\H$ intersecting $\simplex$ is strictly greater than
 $\epsilon \card{\H}$ then at least one of them belongs to $\NH$.
 \end{theorem}
 
-By applying a theorem due to \citet*{haussler:1987} on Vapnik-Chervonenkis
-dimension and range spaces lemmas, \citet{burgisser:1997} also prove that it is possible to
+By applying a theorem due to \citet*{haussler:1987},
+\citet{burgisser:1997} also prove (in addition to \ref{thm:meiser:clarkson}) that it is possible to
 construct $\NH$ with high probability using a random uniform sampling on $\H$,
-meaning the following corollary holds,
-
+meaning the following corollary holds
 \begin{corollary}
 If we choose $\BigO{\enetsize}$ hyperplanes uniformly at
 random from our $m$ hyperplanes and denote this selection $\H^{*}$ then for
@@ -80,10 +78,9 @@ any simplex intersected by more than $\epsilon \card{\H}$ hyperplanes of $\H$
 there is a high probability that at least one of them is contained in $\H^{*}$.
 \end{corollary}
 
-If we take the contraposition of this corollary we obtain the following one,
-
+If we take the contraposition of this corollary we obtain the following one
 \begin{corollary}
-If there is no hyperplane $\in \H^{*}$ intersecting a given simplex then, with
+If there is no hyperplane in $\H^{*}$ intersecting a given simplex, then, with
 high probability, the number of hyperplanes of $\H$ intersecting the simplex
 is less or equal to $\epsilon \card{\H}$.
 \end{corollary}
@@ -106,20 +103,6 @@ queries made to determine the enclosing cell of
 all steps is \BigO{n^2 \log^2 n \log m}. However, we
 still need to explicit how we find a simplex $\simplex$ containing $x$ and
 inscribed in $\cell$.
-
-\begin{figure}
-\begin{center}
-\includegraphics[trim=110 40 50 30,clip=true,height=0.35\textheight]{fig/point-location/simplex.eps}
-\caption{
-A complete step of Meiser's algorithm. The blue lines are hyperplanes of the
-set \(\widetilde{\H}\). \(\nabla f\) is the gradient of the objective function
-chosen to find the first vertex of the simplex. The green dotted lines are the
-hyperplanes from \(\H \setminus \widetilde{\H}\) that meet \(\S\), those are
-the only hyperplanes that are left to process after this step.
-}
-\label{fig:meiser:step}
-\end{center}
-\end{figure}
 
 We now explain how to build $\simplex$. The algorithm can be sketched as
 follows,
@@ -166,9 +149,23 @@ The recursion depth is $n$, the dimension of $R^n$, and thus the total number
 of queries made to compute $\simplex$ is \BigO{n^3 \log^2 n}.
 
 Remember that once we have the simplex $\simplex$, we do not need to query the
-input point $x$ to sort out what meets the $\simplex$ or not. The simplex is
+input point $x$ to sort out which hyperplanes meet $\simplex$. The simplex is
 composed entirely of vertices and faces from the hyperplane arrangement
 $\arrangement(\Ht)$. Hence, its structure does not depend on $x$.
+
+\begin{figure}
+\begin{center}
+\includegraphics[trim=110 40 50 30,clip=true,height=0.3\textheight]{fig/point-location/simplex.eps}
+\caption{
+A complete step of Meiser's algorithm. The blue lines are hyperplanes of the
+set \(\widetilde{\H}\). \(\nabla f\) is the gradient of the objective function
+chosen to find the first vertex of the simplex. The green dotted lines are the
+hyperplanes from \(\H \setminus \widetilde{\H}\) that meet \(\S\), those are
+the only hyperplanes that are left to process after this step.
+}
+\label{fig:meiser:step}
+\end{center}
+\end{figure}
 
 \ref{fig:meiser:step} shows a complete step of Meiser's algorithm.
 Let us summarize the algorithm
@@ -192,6 +189,6 @@ and thus the complexity is \BigO{k n^3 \log^3 n}. Note that the overall
 complexity in the Random Access Machine model is polynomial.
 
 In the next section we apply the same algorithm to solve the
-subset sum problem and see that, with this sufficiently powerful computing
-model, it is possible to solve the subset sum problem in polynomial time.
+subset sum problem and show that in our sufficiently powerful computing
+model the subset sum problem has polynomial complexity.
 
