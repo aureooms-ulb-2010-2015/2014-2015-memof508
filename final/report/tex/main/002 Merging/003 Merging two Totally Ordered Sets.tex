@@ -33,7 +33,7 @@ describe an algorithm whose complexity meets the \ITLB. We begin by
 computing the general case expression of the \ITLB.
 \begin{lemma}
 \begin{align*}
-\log\binom{m+n}{m} &= \BigTheta{m \log\frac{m+n}{m} + n \log\frac{m+n}{n}}
+\log\binom{m+n}{m} &= \Theta\mleft(m \log\frac{m+n}{m} + n \log\frac{m+n}{n}\mright)
 \end{align*}
 \end{lemma}
 \begin{proof}
@@ -109,7 +109,7 @@ We want to see what the bound becomes when $n$ start to grow relatively to
 $m$. In the following proof we assume that $m$ is negligible compared to $n$.
 \begin{lemma}
 \begin{align*}
-m = \SmallO{n} &\implies \log\binom{m+n}{m} = \BigTheta{m \log\frac{n}{m}}
+m = \SmallO{n} &\implies \log\binom{m+n}{m} = \Theta\mleft(m \log\frac{n}{m}\mright)
 \end{align*}
 \end{lemma}
 \begin{proof}

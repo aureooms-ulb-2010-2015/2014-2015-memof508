@@ -113,8 +113,8 @@ follows
 the vertices of our simplex.
 \item[2.] Compute $x'$, the projection of $x$ along $\vec{\nu x}$ on the
 boundary of \(\cell\). \textbf{($\BigO{\enetsize}$)}
-\item[3.] Let \(H_{\theta}\) denote the hyperplane in \(\widetilde{\H}\) of
-this boundary. Compute \(\widetilde{\H}'\) as the intersection of all
+\item[3.] Let \(H_{\theta}\) denote the hyperplane in \(\widetilde{\H}\)
+containing \(x'\). Compute \(\widetilde{\H}'\) as the intersection of all
 hyperplanes of \(\widetilde{\H} \setminus \enum{H_{\theta}}\) with
 \(H_{\theta}\).
 \item[4.] Induction on \(x'\) and \(\widetilde{\H}'\) in $\R^{n-1}$, store result in \(\simplex'\).
