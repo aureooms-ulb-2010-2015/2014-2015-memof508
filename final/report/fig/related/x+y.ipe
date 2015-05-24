@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.4">
-<info created="D:20140810205437" modified="D:20140810205437"/>
+<info created="D:20140810205437" modified="D:20150525003545"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -296,13 +296,13 @@ h
 96 768 m
 160 704 l
 </path>
-<text matrix="1 0 0 1 96 -160" transformations="translations" pos="80 800" stroke="black" type="label" width="55" height="9.42" depth="2.58" valign="baseline" size="LARGE">$x_1 + \dots$</text>
-<text matrix="1 0 0 1 96 -96" transformations="translations" pos="80 768" stroke="black" type="label" width="55" height="9.42" depth="2.58" valign="baseline" size="LARGE">$x_2 + \dots$</text>
-<text matrix="1 0 0 1 96 -32" transformations="translations" pos="80 736" stroke="black" type="label" width="55" height="9.42" depth="2.58" valign="baseline" size="LARGE">$x_3 + \dots$</text>
-<text matrix="1 0 0 1 96 32" transformations="translations" pos="80 704" stroke="black" type="label" width="55" height="9.42" depth="2.58" valign="baseline" size="LARGE">$x_4 + \dots$</text>
-<text matrix="1 0 0 1 36 -196" transformations="translations" pos="96 816" stroke="black" type="label" width="54" height="9.65" depth="3.35" valign="baseline" size="LARGE">$\dots + y_1$</text>
-<text matrix="1 0 0 1 -28 -132" transformations="translations" pos="128 784" stroke="black" type="label" width="54" height="9.65" depth="3.35" valign="baseline" size="LARGE">$\dots + y_2$</text>
-<text matrix="1 0 0 1 -92 -68" transformations="translations" pos="160 752" stroke="black" type="label" width="54" height="9.65" depth="3.35" valign="baseline" size="LARGE">$\dots + y_3$</text>
-<text matrix="1 0 0 1 -24 4" transformations="translations" pos="92 808" stroke="black" type="label" width="50" height="9.65" depth="3.35" valign="baseline" size="LARGE">$x_4 + y_3$</text>
+<text matrix="1 0 0 1 96 -164" transformations="translations" pos="80 800" stroke="black" type="label" width="66.823" height="11.641" depth="3.1" valign="baseline" size="huge">$x_1 + \dots$</text>
+<text matrix="1 0 0 1 96 -100" transformations="translations" pos="80 768" stroke="black" type="label" width="66.823" height="11.641" depth="3.1" valign="baseline" size="huge">$x_2 + \dots$</text>
+<text matrix="1 0 0 1 96 -36" transformations="translations" pos="80 736" stroke="black" type="label" width="66.823" height="11.641" depth="3.1" valign="baseline" size="huge">$x_3 + \dots$</text>
+<text matrix="1 0 0 1 96 28" transformations="translations" pos="80 704" stroke="black" type="label" width="66.823" height="11.641" depth="3.1" valign="baseline" size="huge">$x_4 + \dots$</text>
+<text matrix="1 0 0 1 8 -204" transformations="translations" pos="96 816" stroke="black" type="label" width="65.191" height="11.64" depth="4.02" valign="baseline" size="huge">$\dots + y_1$</text>
+<text matrix="1 0 0 1 -56 -140" transformations="translations" pos="128 784" stroke="black" type="label" width="65.191" height="11.64" depth="4.02" valign="baseline" size="huge">$\dots + y_2$</text>
+<text matrix="1 0 0 1 -120 -76" transformations="translations" pos="160 752" stroke="black" type="label" width="65.191" height="11.64" depth="4.02" valign="baseline" size="huge">$\dots + y_3$</text>
+<text matrix="1 0 0 1 -28 4" transformations="translations" pos="92 808" stroke="black" type="label" width="60.462" height="11.64" depth="4.02" valign="baseline" size="huge">$x_4 + y_3$</text>
 </page>
 </ipe>
