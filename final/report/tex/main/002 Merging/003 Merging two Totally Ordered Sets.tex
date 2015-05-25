@@ -54,7 +54,7 @@ In order to feed our intuition on this expression we analyze its behavior
 on several special cases. Without loss of generality, we consider the cases
 where \(m \leq n\).
 
-The first case we analyze is the case where $m = n$. This case is similar
+The first case we analyze is the case $m = n$. This case is similar
 to what happens during the merge phase of the \mergesort algorithm.
 \begin{lemma}
 \begin{align*}
@@ -139,8 +139,8 @@ m = 1 &\implies \log\binom{m+n}{m} = \BigTheta{\log n}
 An algorithm performing \BigO{\log n} queries is \binarysearch.
 
 In conclusion, we need an algorithm performing \BigO{m \log\frac{n}{m}} queries.
-Ideally this algorithm should compete with Sequential Merge for the case where
-$m = n$ and with \binarysearch for the case where $m = 1$.
+Ideally this algorithm should compete with Sequential Merge for the case
+$m = n$ and with \binarysearch for the case $m = 1$.
 
 So far we have explored special cases, it would be nice if we could
 combine the different solutions to build an algorithm of complexity \BigO{\log

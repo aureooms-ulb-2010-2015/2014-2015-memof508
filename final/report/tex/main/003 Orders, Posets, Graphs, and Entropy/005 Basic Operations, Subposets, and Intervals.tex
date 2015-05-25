@@ -11,7 +11,7 @@ when $\le_{\S} = \le_{\T}$. For example, when we run the algorithm \mergesort at
 recursion step we merge (read ``make the union of'') two posets having the same
 total order. We thus only define those operations for posets having the same
 order relation, and the result of any of those three binary operations on $\P$
-and $\Q$ is a new poset $(\U, \le_{\U})$ where $\U = \S~\text{op}~\T$,
+and $\Q$ is a new poset $(\U, \le_{\U})$, where $\U = \S~\text{op}~\T$,
 \(\text{op} \in \enum{\cup,\cap,\setminus}\) and $\le_{\U} =
 \le_{\S} = \le_{\T}$.
 
@@ -20,7 +20,7 @@ In the same way we handled the binary operations we might look at how we can
 define what a subposet is. For what follows, $\P = (\S, \le_{\S})$ is a poset
 and $\Q = (\T, \le_{\T})$ a subposet of $\P$.
 
-Unlike the binary operations, we might consider the case where $\le_{\T} \neq
+Unlike the binary operations, we might consider the case $\le_{\T} \neq
 \le_{\S}$. Two main types of subposets emerge: subposets for which $\le_{\T} =
 \le_{\S}$ and others. The former are called induced subposets and the latter
 weak subposets.
