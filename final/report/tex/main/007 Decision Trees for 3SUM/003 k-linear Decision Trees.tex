@@ -31,8 +31,8 @@ handle the three-set version of \threeSUM, \ie the case where $a$, $b$ and $c$
 are taken from the three sets $\A$, $\B$ and $\C$ instead of a single set $\U$.
 The description comes from \citet*{gronlund:2014}.
 \begin{algorithm}[\BigO{n^2} algorithm for \threeSUM]
-\item[1.] Sort $\A$ and $\B$ in increasing order as $\A_1 < \ldots <
-\A_{\card{\A}}$ and $\B_1 < \ldots < \B_{\card{\B}}$
+\item[1.] Sort $\A$ and $\B$ in increasing order as $\A_1 < \cdots <
+\A_{\card{\A}}$ and $\B_1 < \cdots < \B_{\card{\B}}$
 \item[2.] For each $c \in \C$,
 \item[2.1.] Initialize $\lo \gets 1$ and $\hi \gets \card{\B}$
 \item[2.2.] Repeat until $\lo > \card{\A}$ or $\hi < 1$:

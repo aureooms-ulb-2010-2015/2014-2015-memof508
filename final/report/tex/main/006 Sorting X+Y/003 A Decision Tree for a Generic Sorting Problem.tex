@@ -13,7 +13,7 @@ Let $\S = \enum{x_1, \ldots, x_n}$ be an $n$-element set. We define a sorting
 problem on these element to be a pair $(\Gamma, P)$, where $\Gamma$ is a
 subset of the $n!$ possible linear orderings on $\S$, and
 $P$ is a family $\family{\A_1, \ldots, \A_r}$ of disjoint nonempty sets that
-partition $\Gamma$, so that $\Gamma = \A_1 \cup \ldots \cup \A_r$. Given an
+partition $\Gamma$, so that $\Gamma = \A_1 \cup \cdots \cup \A_r$. Given an
 (unknown) ordering $\omega \in \Gamma$, we want to determine to which set $\A_j$ the
 ordering $\omega$ belongs by performing a sequence of comparisons between
 pairs of elements, $x_i \ask{\le} x_j$. A comparison algorithm is said to
@@ -59,11 +59,11 @@ iterations. Suppose that at iteration \(k\) of the algorithm we have already sor
 subset of \(\S\) of size \(k-1\).
 \begin{displaymath}
 \underbrace{x_1, \ldots, x_{k-1}}_{\text{subset}}~:~\underbrace{x_{i_1} <
-\ldots < x_{i_{k-1}}}_{\text{relative ordering}}
+\cdots < x_{i_{k-1}}}_{\text{relative ordering}}
 \end{displaymath}
 
 What we do at iteration $k$ is insert $x_k$ at the appropriate location
-in the already existing relative ordering to extend it to $x_{i_1} < \ldots <
+in the already existing relative ordering to extend it to $x_{i_1} < \cdots <
 x_{i_k}$.
 
 We want to reformulate this insertion process using an equivalent formulation
@@ -117,7 +117,7 @@ We list the steps of the recursive algorithm
 coordinates.
 
 \item[1.] Let $\S(k) \bydef \card{\enum{(b_1, \ldots) \in \S \st b_1 = k}}$,
-since $\S$ is a finite set, there are finitely many values $i_1 < \ldots < i_l$
+since $\S$ is a finite set, there are finitely many values $i_1 < \cdots < i_l$
 such that $\S(i_j) > 0$. We map each $i_j$ to $j$
 and we write $N_j = \S(i_j)$. Using this mapping we can, without loss of
 generality, assume \(i_j = j\).
@@ -228,7 +228,7 @@ the \(n\)-tuple to be found and hence the size of the feasible solutions set
 is \(1\). We have
 \begin{displaymath}
 1 \le \frac{4\card{\S_n}}{2^{r_n}} \le \frac{4^2\card{\S_{n-1}}}{2^{r_n +
-r_{n-1}}} \le \ldots \le \frac{4^n\card{\S_1}}{2^{\sum_{i=1}^{n} r_i}},
+r_{n-1}}} \le \cdots \le \frac{4^n\card{\S_1}}{2^{\sum_{i=1}^{n} r_i}},
 \end{displaymath}
 and since \(\S_1 = \S\) we get
 \begin{displaymath}
