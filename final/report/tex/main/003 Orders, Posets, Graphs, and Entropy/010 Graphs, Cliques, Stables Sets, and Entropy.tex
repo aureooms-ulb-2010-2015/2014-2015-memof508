@@ -97,14 +97,14 @@ is a stable set. The characteristic vector $\chi^{\S}$ is a point in $\R^n$ wher
 In other words $\chi^{\S}$ is a binary inclusion/exclusion representation of the
 stable set $\S$.
 \begin{equation}
-\operatorname{STAB}(G) \bydef \operatorname{conv}\enum{\chi^{\S} \in \R^V \st
+\operatorname{STAB}(G) \bydef \operatorname{conv}\enum{\chi^{\S} \in \R^{V(G)} \st
 \S\text{ stable set in }G}
 \label{eq:stab}
 \end{equation}
 
 Formally, \ref{eq:stab} is the definition of the \emph{stable set polytope} of
-an arbitrary graph $G$ with vertex set $V = \enum{v_1, \ldots, v_n }$
-and order $n$ ($\R^V = \R^n, n = \card{V}$) i.e. the convex hull (an $n$-dimensional
+an arbitrary graph $G$ with vertex set $V(G) = \enum{v_1, \ldots, v_n }$
+and order $n$ ($\R^{V(G)} = \R^n, n = \card{V(G)}$) i.e. the convex hull (an $n$-dimensional
 polytope) of stable set characteristic vectors $\chi^{\S} \in \R^n$.
 
 
@@ -125,7 +125,7 @@ Formally, we define the entropy of comparability graph $G$ as
 \begin{definition}[Entropy of a graph]
 \begin{equation}
 {H}(G) \bydef \min_{x \in \operatorname{STAB}(G)}~ -\frac{1}{n} \sum_{v \in
-V} \log x_v.
+V(G)} \log x_v.
 \label{eq:entropy:graph}
 \end{equation}
 \end{definition}
