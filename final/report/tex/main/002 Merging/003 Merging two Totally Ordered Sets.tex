@@ -20,7 +20,7 @@ of $\S_2$. The number of leaves of the decision tree is $\binom{m+n}{m}$.
 Hence, the minimal height of the tree is at least $\log \binom{m+n}{m}$.
 \end{proof}
 
-Note that giving $\log \binom{m+n}{m}$ in the form of the Stirling's approximation
+Note that giving $\log \binom{m+n}{m}$ in the form of Stirling's approximation
 when \(n \ge m\) gives us $(m+n) \log(m+n) - m \log m - n \log n - \BigO{\log
 n}$ which clearly expresses the information contained in the sorted list
 $\S'$ of $m+n$ elements minus the information we already have.
@@ -173,7 +173,7 @@ position of \(a_1\) in \(\B\).
 In summary, the algorithm searches the position of the first element of \(\A\)
 in the \(2^{\alpha}\) smallest elements of \(\B\). If \(a_1\) is greater or
 equal to all these elements, which can be checked in a single comparison, then
-the algorithm discards these elements from \(\B\). Otherwise the algorithm uses
+the algorithm discards these elements. Otherwise the algorithm uses
 \binarysearch on \(2^{\alpha}-1\) elements to find the insertion position of
 \(a_1\) in \(\B\). In both cases, the last step of the algorithm is to recurse
 on the updated sets \(\A\) and \(\B\). The first step of the algorithm ensures that

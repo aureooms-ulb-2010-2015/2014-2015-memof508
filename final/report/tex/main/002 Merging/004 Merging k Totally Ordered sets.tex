@@ -14,7 +14,7 @@ The \ITLB for the merging problem when $k \ge 2$ with $|\S_i| = n_i$ and $n =
 \sum_{i=1}^{k} n_i$ is \(\log \frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}\).
 \end{theorem}
 \begin{proof}
-We have to choose the $n_1$ positions among $n$ in $\S'$ for the elements of
+We choose the $n_1$ positions among $n$ in $\S'$ for the elements of
 $\S_1$ and then recursively make this choice on the remaining $n - n_1$
 positions with the elements of \(\S_2 \cup \dots \cup \S_k\). The number of
 leaves of the decision tree is $\frac{n!}{n_1! \, n_2! \, \cdots \, n_k!}$. Hence, the
@@ -168,6 +168,5 @@ We provide a visual way of understanding these results. Looking at
 The dashed lines in \ref{tree:merging:fig/huffman-2} represent steps producing
 information we already have. Since those steps do not need to be processed, and
 since they normally would have required us to use \(\BigO{n \log n}\) queries, we have a
-total complexity of $\BigO{n \log n - \sum_{i=1}^{k} n_i \log n_i} =
-\BigO{\ITLB}$, where $n_i$ is the cardinality of the $i$-th totally ordered set
+total complexity of $\log n! - \sum_{i=1}^{k} \log n_i! = \ITLB$, where $n_i$ is the cardinality of the $i$-th totally ordered set
 of the input.
