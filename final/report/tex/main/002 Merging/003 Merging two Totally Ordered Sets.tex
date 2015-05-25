@@ -29,8 +29,9 @@ $\S'$ of $m+n$ elements minus the information we already have.
 \label{tree:merging:k=2:alg}
 
 We analyze the \ITLB of the Merging problem. Then we
-describe an algorithm whose complexity meets the \ITLB. We begin by
-computing the general case expression of the \ITLB.
+describe an algorithm whose complexity meets the \ITLB.
+
+We begin by computing the general case expression of the \ITLB
 \begin{lemma}
 \begin{align*}
 \log\binom{m+n}{m} &= \Theta\mleft(m \log\frac{m+n}{m} + n \log\frac{m+n}{n}\mright)
@@ -153,31 +154,30 @@ The idea is that the algorithm should behave like:
 \end{itemize}
 
 \citet*{DBLP:journals/siamcomp/HwangL72} give such an algorithm. Their
-algorithm merges two linearly ordered sets \(\A = \tuple{a_1,\dots,a_m}\) and
-\(\B = \tuple{b_1,\dots,b_n}\) with the constraint \(m \le n\). Below is a
+algorithm merges two linearly ordered sets \(\A = \tuple{a_1,\ldots,a_m}\) and
+\(\B = \tuple{b_1,\ldots,b_n}\). Below is a
 description of the algorithm
 \begin{algorithm}[Hwang-Lin algorithm]
-\item[1.] If \(m = 0\) the algorithm stops.
-\item[2.] Let \(\alpha = \floor{\log \frac{n}{m}}\) and \(x = n - 2^{\alpha} + 1\).
-\item[3.] Compare \(a_m\) with \(b_x\).
-\item[4.] If \(a_m \le b_x\), remove all elements \(b_x,\dots,b_n\) from
-\(\B\).
-\item[5.] Otherwise, find the insertion position of \(a_m\) in
-\(b_{x+1},\dots,b_{n}\) using \binarysearch. Remove \(a_m\) from \(\A\) and
-remove from \(\B\) the set of all elements that lie after the insertion
-position of \(a_m\) in \(\B\).
-\item[6.] If now \(m > n\) swap the roles of \(\A\) and \(\B\).
+\item[1.] If \(\card{\A} > \card{\B}\) swap the roles of \(\A\) and \(\B\).
+\item[2.] If \(\A = \emptyset\) the algorithm stops.
+\item[3.] Let \(\alpha = \floor{\log \frac{\card{\B}}{\card{A}}}\) and \(x = 2^{\alpha}\).
+\item[4.] Compare \(a_1\) with \(b_x\).
+\item[5.] If \(a_1 \ge b_x\), remove all elements \(b_1,\ldots,b_x\) from \(\B\).
+\item[6.] Otherwise, find the insertion position of \(a_1\) in
+\(b_{1},\ldots,b_{x-1}\) using \binarysearch. Remove \(a_1\) from \(\A\) and
+remove from \(\B\) the set of all elements that lie before the insertion
+position of \(a_1\) in \(\B\).
 \item[7.] Merge \(\A\) and \(\B\).
 \end{algorithm}
 
-In summary, the algorithm searches the position of the last element of \(\A\)
-in the \(2^{\alpha}\) largest elements of \(\B\). If \(a_m\) is smaller or
+In summary, the algorithm searches the position of the first element of \(\A\)
+in the \(2^{\alpha}\) smallest elements of \(\B\). If \(a_1\) is greater or
 equal to all these elements, which can be checked in a single comparison, then
 the algorithm discards these elements from \(\B\). Otherwise the algorithm uses
 \binarysearch on \(2^{\alpha}-1\) elements to find the insertion position of
-\(a_m\) in \(\B\). In both cases, the last step of the algorithm is to recurse
-on the updated sets \(\A\) and \(\B\). The algorithm ensures that \(m \le n\)
-before each recursive call.
+\(a_1\) in \(\B\). In both cases, the last step of the algorithm is to recurse
+on the updated sets \(\A\) and \(\B\). The first step of the algorithm ensures that
+\(\card{\A} \le \card{\B}\).
 
 \citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm has a complexity
 at most \(\ceil{\ITLB} + m - 1 = \BigO{\ITLB}\). The trick that allows to
