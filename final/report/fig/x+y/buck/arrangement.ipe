@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70005" creator="Ipe 7.1.1">
-<info created="D:20150201202019" modified="D:20150201211707"/>
+<ipe version="70005" creator="Ipe 7.1.4">
+<info created="D:20150201202019" modified="D:20150525191311"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -233,7 +233,7 @@ h
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
 <text layer="alpha" matrix="1 0 0 1 88 4" transformations="translations" pos="104 748" stroke="black" type="label" width="38.611" height="11.955" depth="0" valign="baseline" size="LARGE">$d = 0$</text>
-<text matrix="1 0 0 1 -44 -4" transformations="translations" pos="364 756" stroke="black" type="label" width="48.83" height="11.757" depth="4.26" valign="baseline" size="LARGE">$\Phi_0^n = 1$</text>
+<text matrix="1 0 0 1 -44 -4" transformations="translations" pos="364 756" stroke="black" type="label" width="69.951" height="12.896" depth="4.29" valign="baseline" size="LARGE">$\Phi_0(n) = 1$</text>
 <path matrix="1.07692 0 0 1 -29.5385 16" stroke="black" fill="darkred" pen="ultrafat">
 176 688 m
 384 688 l
@@ -251,7 +251,7 @@ h
 4 0 0 4 272 760 e
 </path>
 <text matrix="1 0 0 1 -24 -44" transformations="translations" pos="104 748" stroke="black" type="label" width="38.611" height="11.955" depth="0" valign="baseline" size="LARGE">$d = 1$</text>
-<text matrix="1 0 0 1 44 -48" transformations="translations" pos="364 756" stroke="black" type="label" width="78.936" height="11.757" depth="4.26" valign="baseline" size="LARGE">$\Phi_1^n = 1 + n$</text>
+<text matrix="1 0 0 1 44 -48" transformations="translations" pos="364 756" stroke="black" type="label" width="100.057" height="12.896" depth="4.29" valign="baseline" size="LARGE">$\Phi_1(n) = 1 + n$</text>
 <path matrix="1 0 0 1 0 -240" stroke="darkred" fill="darkred" pen="ultrafat">
 176 688 m
 384 688 l
@@ -261,7 +261,7 @@ h
 144 688 l
 </path>
 <text matrix="1 0 0 1 -28 -300" transformations="translations" pos="104 748" stroke="black" type="label" width="38.611" height="11.955" depth="0" valign="baseline" size="LARGE">$d = 2$</text>
-<text matrix="1 0 0 1 44 -304" transformations="translations" pos="364 756" stroke="black" type="label" width="117.867" height="13.267" depth="5.94" valign="baseline" size="LARGE">$\Phi_2^n = 1 + n + {n \choose 2}$</text>
+<text matrix="1 0 0 1 44 -304" transformations="translations" pos="364 756" stroke="black" type="label" width="138.988" height="13.267" depth="5.94" valign="baseline" size="LARGE">$\Phi_2(n) = 1 + n + {n \choose 2}$</text>
 <path matrix="0.806387 -0.0358213 0.0359008 0.804599 -34.5059 13.9026" stroke="black" fill="black" pen="ultrafat">
 176 528 m
 512 712 l

@@ -11,13 +11,13 @@ Consider the partition of space defined by an arrangement of \(n\) hyperplanes
 in \(\R^d\). The number of cells (or \(d\)-cells, regions of dimension \(d\))
 is at most
 \begin{displaymath}
-\Phi_d^n = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{d}
+\Phi_d(n) = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{d}
 \end{displaymath}
 \end{theorem}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{fig/x+y/buck/arrangement}
+\includegraphics[width=0.7\textwidth,trim=-50 0 0 0]{fig/x+y/buck/arrangement}
 \caption{Induction steps in the second proof of \citet*{matousek:2002}.}
 \label{fig:xy:buck:arrangement}
 \end{figure}
@@ -35,7 +35,7 @@ intersected by an imaginary additional hyperplane \(H_{\theta}\) having all
 hyperplanes of the arrangement on one side of the vertices. The subset \(\U\) contains the
 remaining cells.
 \begin{displaymath}
-\card{\L} = \Phi_{d-1}^n \text{ since this is exactly the configuration for } \R^{d-1}
+\card{\L} = \Phi_{d-1}(n) \text{ since this is exactly the configuration for } \R^{d-1}
 \end{displaymath}
 \begin{displaymath}
 \card{\U} = \binom{n}{d} \text{ since \dots}
@@ -53,9 +53,9 @@ hyperplanes.
 
 \citet*{matousek:2002} also shows that
 \begin{displaymath}
-\Phi_d^n = \Phi_d^{n-1} + \Phi_{d-1}^{n-1}
+\Phi_d(n) = \Phi_d(n-1) + \Phi_{d-1}(n-1)
 \end{displaymath}
-in the first, more rigorous, proof. The term \(\Phi_d^{n-1}\) can be understood as the
+in the first, more rigorous, proof. The term \(\Phi_d(n-1)\) can be understood as the
 number of cells of an arrangement of \(n-1\) hyperplanes that were existing
-before the addition of an \(\nth{n}\) hyperplane. Then, the term \(\Phi_{d-1}^{n-1}\)
+before the addition of an \(\nth{n}\) hyperplane. Then, the term \(\Phi_{d-1}(n-1)\)
 counts the number of cells that are cut in two by the \(\nth{n}\) hyperplane.
