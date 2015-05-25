@@ -85,13 +85,14 @@ saves us half the comparisons, for \(n\) large enough. However we rely on the
 results we gave in \Cref{tree:merging:kgeq3} to prove that it is possible to
 reuse this subset of the partial information optimally.
 \begin{theorem}[A first upper bound for Sorting \XY]
-Sorting \XY requires at most \(n^2 \log n + \BigO{n}\) queries to be made.
+Sorting \XY requires at most \(n^2 \log n + \BigO{n^2}\) queries to be made.
 \end{theorem}
 \begin{proof}
 Note that if \(\log n^2!\) is the total amount of information to retrieve,
 then recycling the information contained in the \(n\) chains of length \(n\)
 gives us \(n \cdot \log n! \simeq n^2 \log n - \BigO{n^2}\) bits of information already in our
-possession. We saw in \Cref{tree:merging:kgeq3} that we can reuse this information optimally using
+possession. We saw in \Cref{tree:merging:kgeq3} that we can reuse this
+information optimally (up to a linear term in the input size) using
 the Huffman code based merging algorithm.
 \end{proof}
 
