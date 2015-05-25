@@ -15,8 +15,9 @@ there always exists an instance of the problem that forces our
 algorithm to ask \(\ceil{\log(n!)}\) questions to the oracle.
 \end{theorem}
 \begin{proof}
-A sequence \(s\) of length \(n\) has \(n!\) permutations. The decision tree has thus
-\(n!\) leaves. Hence, the minimal height of the tree is at least \(\log(n!)\).
+A list \(\S\) of length \(n\) has \(n!\) permutations. A decision tree that sorts
+\(\S\) has thus
+\(n!\) leaves. Hence, the minimal height of such a tree is at least \(\log(n!)\).
 \end{proof}
 
 This lower bound is our goal to attain in terms of number of comparisons

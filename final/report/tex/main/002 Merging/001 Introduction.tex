@@ -9,21 +9,21 @@ sorted lists as output''}, which are not the only algorithms that we
 consider.
 
 We explain our motivation with the following observation.
-If we want to build a sorted output sequence from two sorted input sequences, a
-common, practical and simple way to do it is to read both input sequences
+If we want to build a sorted output list from two sorted input lists, a
+common, practical and simple way to do it is to read both input lists
 sequentially, as if they were priority queues, iteratively removing the
-smallest element out of the two input sequences heads and adding it to the end
-of the output sequence. This algorithm is the merge procedure of the \mergesort
+smallest element out of the two input lists heads and adding it to the end
+of the output list. This algorithm is the merge procedure of the \mergesort
 algorithm and is called \tapemerge. \tapemerge has \BigO{n} complexity for
 both comparisons and other computation operations. However, the query
 complexity of \tapemerge does not match the \ITLB of the merging problem for all
 inputs. In this chapter, we explain how we can beat the \tapemerge algorithm
 with cleverer techniques and how to apply these results to the problem of
-merging \(k\) sorted sequences.
+merging \(k\) sorted lists.
 
 In the first section, we give a formal statement of the merging problem, \ie
-the problem of merging \(k\) sorted sequences of different sizes. In the second
-section, we analyze the \ITLB for the problem of merging two sorted sequences of
+the problem of merging \(k\) sorted lists of different sizes. In the second
+section, we analyze the \ITLB for the problem of merging two sorted lists of
 different sizes and give a description of the Hwang-Lin algorithm
 \cite{DBLP:journals/siamcomp/HwangL72} that solves this problem using
 \BigO{\ITLB} queries. In the last section, we give the \ITLB of the merging

@@ -14,7 +14,7 @@ and smallest as well as the symbol \(\le\). If one replaces minimum by maximum,
 smaller by larger, smallest by largest and \(\le\) by \(\ge\) in those paragraphs,
 their content remains valid.}
 element from the input set. A second way is to iteratively
-extend a sorted sequence by insertion of an element taken (and removed) from
+extend a sorted list by insertion of an element taken (and removed) from
 the input set. \selectionsort and \bubblesort are two algorithms based on the
 first method. \insertionsort is an algorithm based on the second method.
 Because the complexity of these algorithms does not meet the \ITLB, we need
@@ -199,7 +199,7 @@ dual-pivot version of \citet*{yaroslavskiy:2009} outperformed the previous
 \quicksort implementation experimentally. Note that the stable \mergesort
 algorithm of \Java 7 was changed for a \timsort implementation, which is
 also stable. One of the subtleties of the \timsort algorithm is that it tries
-to exploit already sorted subsequences of the input. On a nearly sorted (or
+to exploit already sorted sublists of the input. On a nearly sorted (or
 reverse sorted) input the \timsort algorithms runs in \BigO{n} time.
 
 A remark concerning \shellsort. The average time complexity of \shellsort is not
