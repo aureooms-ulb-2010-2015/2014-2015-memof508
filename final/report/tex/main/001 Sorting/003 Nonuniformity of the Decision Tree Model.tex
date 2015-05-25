@@ -1,7 +1,7 @@
 \section{Nonuniformity of the Decision Tree Model}
 \label{tree:sorting:nonuniformity}
 
-A nonuniform model of computation is a model where inputs of different lengths
+A \emph{nonuniform model of computation} is a model where inputs of different lengths
 can be processed by different algorithms. In contrast with models equivalent to
 the Universal Turing Machine, where one algorithm can solve a problem on inputs
 of any size, in a nonuniform model one can have one algorithm per possible size
@@ -18,12 +18,12 @@ decision tree model is nonuniform.
 \label{fig:sorting:nonuniformity:circuit}
 \end{figure}
 
-Another example of such a model is circuit complexity. A Boolean circuit,
+Another example of such a model is circuit complexity. A \emph{Boolean circuit},
 see \ref{fig:sorting:nonuniformity:circuit}, can be seen as an algorithm with
 fixed size input and fixed size output. Since we want to solve problems of any
 size, to each computational problem we assign a family of Boolean circuits
 \(C_1,C_2,\ldots,C_n,\ldots\) that solve instances of the problem for every
-possible input size. We say that this circuit family is P-uniform if there
+possible input size. We say that this circuit family is \emph{P-uniform} if there
 exists a Turing machine running in time polynomial in \(n\) for which \(n\) is
 the input and \(C_n\) is the output.
 
@@ -57,5 +57,5 @@ exist such problems for which constructing \(C_n\) takes time exponential
 in \(n\). Hence, the circuit families for those problems are not P-uniform. As
 a last remark, note that the complexity class consisting of problems for which
 \(h\) is at most polynomial in \(n\) while constructing \(C_n\) is at most
-exponential in \(n\) is called P/poly.
+exponential in \(n\) is \emph{P/poly}.
 

@@ -2,7 +2,7 @@
 \label{tree:sorting:alg}
 
 We detail three algorithms that can be used to solve the sorting
-problem efficiently. According to our model, remember \Cref{tree:sorting:model},
+problem efficiently. According to the model defined in \Cref{tree:sorting:model},
 we only consider comparison-based sorting algorithms.
 
 Before we start, let us make a quick observation. The sorting problem can
@@ -32,7 +32,7 @@ The idea behind the \quicksort algorithm is to divide the input set \(\S\),
 \(\card{\S} = n\), into two disjoint subsets \(\L\) and \(\U\) that can be
 sorted independently from one another. To enforce this independence condition,
 the first part of the algorithm consists in computing \(\L\) and \(\U\) such
-that \(l \le u \Forall l \in \L, u \in U\). Once \(\L\) and \(\U\) are known,
+that \(l \le u, \Forall l \in \L, u \in U\). Once \(\L\) and \(\U\) are known,
 the algorithm sorts these two sets recursively.
 \begin{algorithm}[\quicksort]
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
@@ -44,7 +44,7 @@ elements of \(\S\) by querying the oracle \(n - 1\) times.
 \item[5.] Sort \(\U\).
 \end{algorithm}
 
-The \quicksort algorithm is a divide-and-conquer algorithm: it splits a bigger
+The \quicksort algorithm is a \emph{divide-and-conquer algorithm}: it splits a bigger
 problem into several smaller problems whose solutions can be combined to build
 the solution of the bigger problem. Ideally, \(p\) would be chosen to be the
 median element of \(\S\) so that \(\card{\L} = \ceil{\frac{n-1}{2}}\) and
@@ -53,11 +53,11 @@ algorithm would be bounded by \(\floor{\log \card{S}}\) resulting in a
 worst-case complexity of \BigO{n \log n}. However, if \(p\) can be any element
 of \(\S\), then, in the worst case, \(p\) is the minimum (or maximum) element of
 \(\S\), and \(\L\) (or \(\U\)) is empty. In this case, \quicksort behaves like
-the Selection sort algorithm and its worst-case complexity degrades to
+the \selectionsort algorithm and its worst-case complexity degrades to
 \BigO{n^2}. It is possible \cite{blum:1973} to compute a good pivot or even the
 median element in \BigO{n} comparisons. However, it was shown \cite{hoare:1962}
 that selecting the pivot uniformly at random leads to an average case
-complexity of \(1.39~n \log n\) comparisons, and for real-world computers this
+complexity of \(1.39n \log n - \BigO{n}\) comparisons, and for real-world computers this
 approach tends to be more efficient than the safe one.
 
 \subsection{\mergesort}
@@ -86,8 +86,7 @@ element of \(\U\). Hence, each iteration requires a single comparison.
 Unlike the previous algorithm, we always obtain a balanced partition of
 \(\S\) out of the partitioning step. Hence, the worst-case complexity of this
 algorithm is \BigO{n \log n}. Another way to obtain this complexity measure
-is to solve the following recurrence relation:
-
+is to solve the following recurrence relation (\citet*{OEIS:A001855}):
 \begin{displaymath}
 M(n) = M(\ceil{\frac{n}{2}}) + M(\floor{\frac{n}{2}}) + n - 1 \le n \log n +
 n + \BigO{\log n}.
@@ -95,12 +94,12 @@ n + \BigO{\log n}.
 
 \subsection{\heapsort}
 The last algorithm we explain is the \heapsort algorithm
-\cite{williams:1964}. A heap is a data structure that allows one to
+\cite{williams:1964}. A \emph{heap} is a data structure that allows one to
 efficiently lookup (\BigO{1}) or remove (\BigO{\log n}) the smallest element
 from a set \(\S\). A heap can be seen as a complete binary tree where a node
 is smaller or equal to its children. The last condition is called the heap property.
-Constructing a heap for \(\S\) can be done in \BigO{n} comparisons.  Let us
-explain how. There exist two main procedures to update the contents of a heap.
+
+There exist two main procedures to update the contents of a heap.
 The first one is \siftdown which consists in \emph{sifting} a node down
 the tree until it is smaller or equal to all of its children. Below are the
 steps of the \siftdown algorithm with input node \(N\)
@@ -111,7 +110,6 @@ steps of the \siftdown algorithm with input node \(N\)
 \item[4.] Otherwise, swap \(C\) and \(N\).
 \item[5.] Sift down \(N\) again.
 \end{algorithm}
-
 The second one is \siftup. This operation is similar to \siftdown.
 We \emph{sift} a node up the tree until it is larger or equal to its parent.
 \begin{algorithm}[\siftup]
@@ -130,7 +128,9 @@ of the tree if the last level is complete) and then sifts up this new node.
 Since a complete tree is balanced, sifting down a node in a binary heap uses
 at most \(2 \ceil{\log n}\) comparisons while sifting up a node uses at most
 \(\ceil{\log n}\)
-comparisons. However, it is possible to build a heap using \SmallO{n \log n}
+comparisons.
+
+However, it is possible to build a heap using \SmallO{n \log n}
 comparisons. Assume we have a complete tree that does not respect the heap
 property. This tree has \(\ceil{\frac{n}{2}}\) leaves, at most
 \(\ceil{\frac{n}{4}}\) nodes of height \(1\), at most \(\ceil{\frac{n}{8}}\)
@@ -139,7 +139,6 @@ of height \(h\).
 One applies \siftdown to each node of the tree right-to-left,
 bottom-to-top, starting from the rightmost leaf and ending at the root. The
 total number of comparisons is at most
-
 \begin{displaymath}
 2 \cdot ( 0 \cdot \left\lceil\frac{n}{2}\right\rceil + 1 \cdot
 \left\lceil\frac{n}{4}\right\rceil + 2 \cdot
@@ -150,20 +149,18 @@ To sort \(\S\) using a heap, one builds a heap with \BigO{n} comparisons and
 then iteratively extracts the minimum of this heap and restores the heap
 property with \(2\ceil{\log (n-1)}\) comparisons. The maximum number of
 comparisons involved in these extraction steps is
-
 \begin{displaymath}
 H(n) = 2 \sum_{i=2}^{n-1} \ceil{\log i} \le 2 ( \log (n-1)! + n - 2 ),
 \end{displaymath}
-
 which is approximately twice as much comparisons than what can be found by
-solving the recurrence relation for the \mergesort algorithm (see
-\citet*{OEIS:A001855}). Note that in the \heapsort algorithm we did not use the
+solving the recurrence relation for the \mergesort algorithm.
+Note that in the \heapsort algorithm we did not use the
 \siftup operation. There exists \cite{wegener:1993} a variation of the
 extracting step leading to an algorithm called \bottomupheapsort that uses at
 most \(1.5~n \log n + \BigO{n}\) comparisons.
 
 \subsection{Other Algorithms}
-There exists other interesting ideas to solve the sorting problem. For
+There exist other interesting ideas to solve the sorting problem. For
 example: \shellsort \cite{shell:1959}, \smoothsort \cite{dijkstra:1982},
 \introsort \cite{musser:1997} and \timsort \cite{martelli:2006}.
 
@@ -252,7 +249,7 @@ algorithm~\cite{ford:1959,hwang:1969,knuth1998art} is the
 best-known sorting algorithm for this purpose. The bounds achieved by the
 Ford-Johnson algorithm are
 \begin{displaymath}
-n \log n - 1.415 n + \frac{1}{2} + \BigO{1} \le F(n) \le n \log n - 1.329 n +
+n \log n - 1.415 n + \frac{1}{2} \log n + \BigO{1} \le F(n) \le n \log n - 1.329 n +
 \frac{1}{2} \log n + \BigO{1},
 \end{displaymath}
 where

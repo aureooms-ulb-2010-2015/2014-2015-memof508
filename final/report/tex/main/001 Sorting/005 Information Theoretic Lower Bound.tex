@@ -1,14 +1,16 @@
-\section{Information Theoretic Lower Bound}
+\section{Information-Theoretic Lower Bound}
 \label{tree:sorting:ITLB}
 
-We give the Information Theoretic Lower Bound for the sorting problem. The
-Information Theoretic Lower Bound (\ITLB) is defined as the minimal depth of any
-decision tree solving the problem. Generally speaking, the value of this lower
+The \emph{information-theoretic lower bound} (\ITLB) of a problem
+is the minimal depth of any
+decision tree solving this problem. Generally speaking, the value of this lower
 bound is the logarithm\footnote{Throughout this document, \(\log x\) denotes the binary logarithm of \(x\).}
-in base \(2\) of the number of feasible solutions.
+in base \(2\) of the number of feasible solutions for this problem.
+
+We give the \ITLB for the sorting problem
 \begin{theorem}[\ITLB for Sorting]
-The Information Theoretic Lower Bound for the sorting problem is
-\(\log(n!)\). This means that, for any deterministic algorithm we may think of,
+The \ITLB for the sorting problem is
+\(\log(n!)\). For any deterministic algorithm we may think of
 there always exists an instance of the problem that forces our
 algorithm to ask \(\ceil{\log(n!)}\) questions to the oracle.
 \end{theorem}
