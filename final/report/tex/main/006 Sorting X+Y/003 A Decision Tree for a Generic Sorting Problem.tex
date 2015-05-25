@@ -191,8 +191,8 @@ J\bigg(\frac{c}{2^{r-1}}\bigg) < i \le J\bigg(\frac{c+1}{2^{r-1}}\bigg).
 
 \begin{proof}
 At the beginning of the binary search algorithm, the search interval is
-$(0,1]$. It excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\). Let us
-assume the current query interval is \((L,R]\). If during the search a
+$(0,1]$. It excludes \(0\) because \(J(0) = 0\) while \(b_1 \ge 1\).
+Suppose that the current query interval is \((L,R]\). If during the search a
 question \(b \ask{\le} J(q)\) gets a ``yes'' answer then we update the upper
 bound and get a new query interval \((L,q]\). Otherwise, \(b > J(q)\) and we
 can update the lower bound and the query interval becomes \((q,R]\). In both
