@@ -69,7 +69,7 @@ first solve two subproblems and then recombine them with a merge step that
 requires \BigO{n} comparisons.
 \begin{algorithm}[\mergesort]
 \item[1.] If \(n < 2\) then \(\S\) is sorted and the algorithm stops.
-\item[2.] Arbitrarily partition \(\S\) into two disjoint subsets \(\L\) and
+\item[2.] Partition \(\S\) into two disjoint subsets \(\L\) and
 \(\U\) such that \(\card{\L} = \ceil{\frac{n}{2}}\) and \(\card{\U} =
 \floor{\frac{n}{2}}\).
 \item[3.] Sort \(\L\).
