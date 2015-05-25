@@ -28,7 +28,7 @@ algorithm matches the \ITLB for all \SUPI instances.
 
 \begin{table}
 	\begin{center}
-	\caption{We denote by $E(n)$ the time needed for the ellipsoid algorithm
+	\caption{We denote by $\operatorname{EA}(n)$ the time needed for the ellipsoid algorithm
 to compute the entropy of a poset of order $n$. The original bound given by
 \citet*{kahn:1995} on the number of comparisons performed by their algorithm is
 $54.45 \cdot \log e(\P)$. The improved bound given in the table is a byproduct
@@ -39,7 +39,7 @@ that the hidden constant may depend on $\epsilon$.}
 
 	\hline
 	Algorithm & Global Complexity & Number of comparisons\\\hline\hline
-	\citet*{kahn:1995} & $\BigO{n \log n \cdot E(n)}$ & $\leq 9.82 \cdot \log
+	\citet*{kahn:1995} & $\BigO{n \log n \cdot \operatorname{EA}(n)}$ & $\leq 9.82 \cdot \log
 e(\P)$\\\hline\hline
 	\citet*{cardinal:2013} \textbf{1} & $ \BigO{n^{2}} $ & $\BigO{\log n \cdot
 \log e(\P)}$ \\\hline
