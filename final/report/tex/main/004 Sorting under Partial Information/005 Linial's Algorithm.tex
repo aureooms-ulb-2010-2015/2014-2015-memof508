@@ -87,9 +87,9 @@ where the minimum and maximum of an empty set are taken to be \(n + 1\) and
 0            & if  \(n < 0\)  or \(k < 0\)  or \(k > n\)\\
 1            & if \(k = 0\)  or \(k = n\)\\
 \binom{n}{k} & otherwise\\
-\end{dcases*}.
+\end{dcases*},
 \end{displaymath}
-Thus, the number of linear extensions of \(\P\) is given by
+then the number of linear extensions of \(\P\) is given by
 \begin{displaymath}
 e(\P) =
 \begin{vmatrix}
@@ -109,7 +109,7 @@ j_{k-1}\) and \(i_{k} + j_{k} = i_{k-1} + j_{k-1} + 1\) for all \(1 \le k \le m
 With these constraints alone we obtain a count of \(\binom{m+n}{n} =
 \binom{m+n}{m} \) different paths\footnote{Note that if \(m = n\) and if we add
 the condition that \(i_{k} \le j_{k} \Forall 1 \le k \le m + n\) then the path
-count corresponds to the \(\nth{n}\) Catalan number \(C_n\).}.
+count corresponds to the \(\nth{n}\) Catalan number.}.
 \citet*{mohanty:1979} adds the constraint that \(\alpha_i \le j < \beta_i\) for
 all path positions \((i,j)\) with \(i \neq 0\), where \(0 \le
 \alpha_1 \le \cdots \le \alpha_m \le n + 1\), \(0 \le \beta_1 \le \cdots \le

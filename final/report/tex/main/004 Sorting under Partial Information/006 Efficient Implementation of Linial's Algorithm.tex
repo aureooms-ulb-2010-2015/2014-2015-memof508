@@ -82,7 +82,7 @@ program. We may assume the good query was of the type \(a_1 \ask{<} b_r\)
 without loss of generality. If \(b_r < a_1\) then we do not have to update anything,
 the chain \(\chain{b_1}{b_r}\) can simply be ignored. Otherwise, \(a_1 <
 b_r\) and
-unless \(r = 1\) we have to update at most \(\max\enum{\card{\A}, \card{\B}}\) cells of the dynamic program
+unless \(r = 1\) we have to update at most \(\card{\A}\) cells of the dynamic program
 tableau. The
 cells to update are \(K_{1,1}\) through \(K_{1,r}\). The
 new value to assign to \(K_{1,r}\) is \(K_{2,r}\) because if \(a_1 < b_r\)
