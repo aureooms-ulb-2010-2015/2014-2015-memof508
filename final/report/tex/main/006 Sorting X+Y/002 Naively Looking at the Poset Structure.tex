@@ -37,7 +37,7 @@ e(\P) = n^2! \cdot \mleft(\prod_{k=1}^{n-1} k!\mright)^2 \cdot
 
 To prove this theorem, we introduce the notion of Ferrers diagrams and standard Young tableaux.
 
-A Ferrers diagram can be seen as a set of square tiles arranged in a
+A \emph{Ferrers diagram} can be seen as a set of square tiles arranged in a
 rectangular
 box divided in rows and columns. They are arranged so that there cannot be any space between two tiles
 lying on the same row or column and there can never be a row that contains more
@@ -45,7 +45,7 @@ tiles than another row above it. Moreover, there cannot be space left between
 the left side of the box and the first tile of each row. An example of a
 Ferrers diagram is given in \ref{fig:xy:lattice:ferrers}.
 
-A Young tableau is a special way of labelling the \(n\) tiles of a Ferrers
+A \emph{Young tableau} is a special way of labelling the \(n\) tiles of a Ferrers
 diagram. If a Ferrers diagram is made of $n$ tiles, then a Young tableau drawn
 on this diagram labels its tiles with the numbers from $1$ to $n$. We call
 \emph{standard} a Young tableau having the following property:
@@ -86,8 +86,8 @@ d_{\lambda} = \frac{n!}{\prod_{(i,j) \in \lambda} h_{\lambda}(i,j)}
 \end{displaymath}
 \end{theorem}
 
-\(h_{\lambda}(i,j)\) denotes the length of an imaginary \emph{hook} bending at
-\((i,j)\). The hook \(H_{\lambda}(i,j)\) is a subset of the tiles of
+\(h_{\lambda}(i,j)\) denotes the length of an imaginary hook bending at
+\((i,j)\). The \emph{hook} \(H_{\lambda}(i,j)\) is a subset of the tiles of
 \(\lambda\) containing all tiles \((a,b)\) such that \(a = i\) and \(b \ge j\)
 or \(b = j\) and \(a \ge i\). \ref{fig:xy:lattice:hooks} shows the hook length
 at each tile and highlights the hook bending at \((2,1)\).
@@ -126,10 +126,11 @@ information, one could start with \citet*{greene:1979} which gives a nice
 probabilistic proof and pointers for further reading.
 
 We give some insight into the proof given by \citet*{greene:1979}.
-\ref{fig:xy:lattice:corners} highlights corners of a Ferrers diagram. A Young
+\ref{fig:xy:lattice:corners} highlights \emph{corners} of a Ferrers diagram. A
+standard Young
 tableau drawn in this diagram can only have its largest label given to
 one of these corner tiles, otherwise we would obtain a row or a column that is
-not increasing. The number of ways of arranging the Young tableau in the
+not increasing. The number of ways of arranging the standard Young tableau in the
 Ferrers diagram of shape \(\lambda\) is thus the sum of possible tableaux of
 size \(n-1\) over all shapes \(\lambda \setminus \gamma\) where the largest
 label of our tableau of size \(n\) was given to corner \(\gamma\) of
@@ -153,7 +154,7 @@ the probability for a single hook walk to end in each of the corners, proving
 the theorem.
 
 We return to our original problem. A \( n \times n \) bounded lattice can be regarded as a \( n \times n \)
-standard Young tableau, \ie a Young tableau of shape
+standard Young tableau, \ie a standard Young tableau of shape
 \( \lambda = \enum{ \lambda_1 , \ldots , \lambda_n } \)
 with
 \( \lambda_i = n, \Forall i \in \enum{1, \ldots, n}\).
