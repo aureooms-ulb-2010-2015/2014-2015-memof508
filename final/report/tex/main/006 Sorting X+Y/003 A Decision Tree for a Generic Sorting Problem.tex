@@ -171,7 +171,7 @@ We prove that if we have to perform $r$ queries before finding such an
 interval, $b_1 = J(q)$ for all $q$ in this interval, then $N_{b_1} \le
 \frac{4\card{\S}}{2^r}$. Suppose that $b_1 = i$ and that the length of the
 $\nth{i}$ interval, containing the $\nth{i}$ midpoint, is
-$\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius $> \frac{2}{2^r} =
+$\frac{N_i}{\card{\S}} > \frac{4}{2^r}$, thus has radius greater than $\frac{2}{2^r} =
 \frac{1}{2^{r-1}}$.
 
 After having made $r-1$ queries, our current query
@@ -208,7 +208,7 @@ either \((\frac{2c}{2^{r}}, \frac{2c+1}{2^{r}}]\) or \((\frac{2c+1}{2^{r}},
 To be valid, the current query interval must contain the \(\nth{i}\)
 midpoint. If this query interval contained more than the \(\nth{i}\)
 midpoint, the algorithm would have to use at least one additional query.
-Since the radius of the \(\nth{i}\) interval is \(> \sfrac{1}{2^{r-1}}\) it is
+Since the radius of the \(\nth{i}\) interval is greater than \(\sfrac{1}{2^{r-1}}\) it is
 not possible for the query interval, which has radius \( \frac{c+1-c}{2^{r-1}}
  = \frac{1}{2^{r-1}}\) to contain the \(\nth{i}\) midpoint and at
 the same time escape the \(\nth{i}\) interval. Hence, the \(\nth{i}\) midpoint

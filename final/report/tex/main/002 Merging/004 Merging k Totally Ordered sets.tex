@@ -85,10 +85,10 @@ H(X) \le L_H(X) \le H(X) + 1.
 \(L_H(X)\) is achieved by constructing a Huffman tree. The method to build this
 tree is the following. We start with \(n\) leaves, one for each possible event
 \(x_i\). We assign a weight of \(p(x_i)\) to each of these leaves. The current
-structure is not quite a tree but a pool of disconnected nodes. Then, one
-replaces two nodes of the pool with smallest weight by a new one which
+structure is not quite a tree but a pool of disconnected nodes. We
+replace two nodes of the pool with smallest weight by a new one which
 acts as their parent in the Huffman tree. The weight of this new node is
-the sum of the weights of its children. One repeats this
+the sum of the weights of its children. We repeat this
 replacement operation until the pool contains only one element. This last
 element is the root of the tree. Since at each step we replace two nodes by
 one, after \(n-1\) of these steps the tree is constructed.
