@@ -89,7 +89,7 @@ For example, we can iteratively extract a maximum chain of the input poset
 computing a so-called greedy chain decomposition. Once this is done, we
 erase all the relations of the input existing between elements of two different
 chains of the decomposition. One can then merge the chains using the optimal
-Huffman Merging algorithm we described in \Cref{tree:merging:kgeq3}.
+merging algorithm we described in \Cref{tree:merging:kgeq3}.
 \ref{fig:supi/alg2} illustrates this technique and is in fact a description of
 Algorithm \textbf{2} of \citet{cardinal:2013}. The two other algorithms of
 \citet*{cardinal:2013} are variants of this approach.
@@ -110,10 +110,10 @@ those problems is explained in detail in \cite{DBLP:conf/birthday/CardinalF13}.
 
 
 Note that randomized algorithms also exist for this purpose. The idea is to
-evaluate the quality of a comparison by generating a sample of possible linear
-extensions, count the number of times the answer to this question \(x
-\ask{\le} y\) is true and then only ask the question if the ratio of
-this count over the total number of sampled linear extensions lies within a
+evaluate the quality of a query \(x \ask{\le} y\) by generating a sample of possible linear
+extensions, count the number of times \(x \le y\) in the sample
+and then only ask the question if the ratio of
+this count over the size of the sample lies within a
 fixed interval $[q, 1-q], 0 < q \le \frac{1}{3}$. See \citet*{huber2006fast} for
 more.
 

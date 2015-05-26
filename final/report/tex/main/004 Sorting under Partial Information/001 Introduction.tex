@@ -12,7 +12,7 @@ problem which forces the algorithm to ask \BigOmega{n \log n} questions.
 Starting from a poset whose order is completely unknown, such an algorithm
 thus iteratively updates this poset by retrieving information and make sure it
 reuses it well. By reusing the information efficiently, it is able to
-choose \emph{good} questions to ask.
+choose ``good'' questions to ask.
 
 
 In \quicksort this is achieved by recursively building linear extensions of weak
@@ -30,7 +30,7 @@ iteratively merging totally ordered sets $\P$ and $\Q$, and for the sake of
 simplicity we consider that those sets have the same cardinality $n$  (in
 reality their cardinalities can only differ by $1$). We saw in
 \Cref{tree:merging:k=2} that each of these steps can be computed with at most
-\(2n-1\) queries \BigO{n}. For each merge operation, the input
+\(2n-1\) queries. For each merge operation, the input
 contains $2 \log n!$ bits of information while the output contains $\log (2n)!$
 bits of information, so we must find \(\log (2n)! - 2 \log n!\) bits of
 information. For asymptotically large \(n\), it corresponds to approximately
