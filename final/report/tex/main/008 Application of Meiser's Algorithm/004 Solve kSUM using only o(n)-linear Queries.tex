@@ -17,7 +17,7 @@ of the algorithm.
 \end{figure}
 
 We look at \ref{fig:point-location:on:blocks}. We represent input set \(\S\)
-using a vector \(\enum{x_1,\ldots,x_n}\) of size \(n\). The trick is the
+as a vector of size \(n\). The trick is the
 following. Instead of using Meiser's algorithm once to solve the problem of
 size \(n\), we divide the input vector in blocks of size \(g\) and solve a
 \kSUM problem for all combinations of \(k\) blocks. There are \(\sfrac{n}{g}\)
@@ -60,4 +60,4 @@ queries and a total complexity of
 \log^3 (kn^{1-\frac{\alpha}{k}}) }.
 Like the lower bound given by \citet*{ailon:2005}, it gives us a
 ``parameterizable trade-off''
-between time-complexity and query-complexity.
+between time complexity and query complexity.

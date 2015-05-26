@@ -179,8 +179,8 @@ the algorithm discards these elements. Otherwise the algorithm uses
 on the updated sets \(\A\) and \(\B\). The first step of the algorithm ensures that
 \(\card{\A} \le \card{\B}\).
 
-\citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm has a complexity
-at most \(\ceil{\ITLB} + m - 1 = \BigO{\ITLB}\). The trick that allows to
+\citet*{DBLP:journals/siamcomp/HwangL72} prove this algorithm uses at most
+\(\ceil{\ITLB} + m - 1 = \BigO{\ITLB}\) queries. The trick that allows to
 get so close to the \ITLB with this algorithm resides in the choice of
 \(\alpha\). Indeed \binarysearch uses at most \(\alpha\) comparisons
 when \(\alpha \in \N\) and when the number of elements to search
