@@ -1,21 +1,22 @@
 \section{Linear Extensions and Entropy}
 
-A linear extension of a partial order $\leq$ is a total order $\leq^*$
+A \emph{linear extension} of a partial order $\leq$ is a total order $\leq^*$
 compatible with $\leq$. \emph{Linear} means that the order $\leq^*$ must be
 total while \emph{extension} means that the original order $\leq$ is
 ``preserved'' \ie when \(x \leq^* y\) for all pair \((x,y)\) such that \(x
 \leq y\).
 
 In our decision tree model, the number of linear extensions $e(\P)$ of a poset
-$\P$ is strongly related to the information contained in this poset. Since the
-total information is $\log n!$, the information we miss is $\log e(\P)$, then
-the information we have is $\log n! - \log e(\P)$.
+$\P$ is strongly related to the information contained in this poset. If we
+want to sort \(\P\) for example, the
+total information we need is $\log n!$, the information we have is $\log e(\P)$,
+and the information we miss is $\log n! - \log e(\P)$.
 
 Computing $e(\P)$ in the general case is \#P-complete
 (see \citet*{brightwell1991counting}). In the next chapter we discuss a
-problem called Sorting under Partial Information (\SUPI). This problem can be solved using \BigO{\ITLB}
+problem called Sorting under Partial Information. This problem can be solved using \BigO{\ITLB}
 queries by an algorithm that
-iteratively chooses a `good' query. We will see later that a `good' query \(a \ask{\le} b\) can be
+iteratively chooses a ``good'' query. We will see later that a ``good'' query \(a \ask{\le} b\) can be
 found by computing the ratio of \(e(\P(a \le b))\) to \(e(\P)\) for all \((a,b)\) pairs, where
 \(\P(a \le b)\) denotes the poset obtained
 from \(\P\) after adding the constraint that \(a \le b\).

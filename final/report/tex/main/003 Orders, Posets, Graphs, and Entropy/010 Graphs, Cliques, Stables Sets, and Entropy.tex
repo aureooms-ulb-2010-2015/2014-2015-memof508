@@ -15,7 +15,10 @@ totally unordered.
 \subsection{Comparability Graphs}
 
 To help understand the structure of a poset we introduce the comparability
-graph ${G}(\P)$ and the incomparability graph $\widetilde{G}(\P)$ of a poset
+graph ${G}(\P)$\footnote{
+Note that, by abuse of notation, we write $G$ to mean ${G}(\P)$.
+}
+and the incomparability graph $\widetilde{G}(\P)$ of a poset
 \(\P\).
 \begin{definition}[Comparability graph]
 The comparability graph ${G}(\P)$ of a poset $\P$ is an undirected graph whose
@@ -33,7 +36,6 @@ elements) which may be inferred from the Hasse diagram of $\P$. For example,
 the comparability graph of a totally ordered set is the complete graph. See
 \ref{fig:comp-graph} for a visual example.
 
-Note that, by abuse of notation, we write $G$ to mean ${G}(\P)$.
 
 
 \begin{figure}
@@ -82,10 +84,10 @@ expressed using its stable sets we can deduce a discrete distribution
 look-alike object. With the help of this object we are able to compute the
 entropy of the graph $G$.
 
-We look at our graph $G$ as a \emph{composition of the
-stable sets it contains}. We define $\operatorname{STAB}(G)$ to be \emph{the set of convex
-combinations of stable sets} of $G$.
-The set $\operatorname{STAB}(G)$ contains all convex combinations (positive,
+We look at our graph $G$ as a ``composition of the
+stable sets it contains''. We define $\operatorname{STAB}(G)$ to be the set of convex
+combinations of stable sets of $G$.
+This set contains all convex combinations (positive,
 coefficients summing up to $1$) of characteristic vectors $\chi^{\S}$, where $\S$
 is a stable set. The characteristic vector $\chi^{\S}$ is a point in $\R^n$ where
 \begin{displaymath}
