@@ -34,8 +34,8 @@ $\pv_i(x) = \sigma$ if and only if $x \in \His$.
 
 Our first idea to determine the components of $\pv(x)$ is to iteratively
 select a random subset of hyperplanes \(\Ht\) of size \BigO{\poly(n)}
-for which the relative position of $x$ has not yet been
-determined. Once we have
+for which the relative position of $x$ is not
+determined yet. Once we have
 computed the position vector of \(x\) for this subset \(\Ht\)
 we have effectively determined in
 which cell\footnote{Note that we always consider that \(x\) is inside a cell that is bounded.
@@ -136,8 +136,7 @@ $\vec{\nu x}$. This is done by projecting $x$ on every hyperplane of $\Ht$ and
 then computing the distance between $x$ and his projections, keeping the
 projection that is the closest in the correct direction as the projection
 on $\cell$. Each such projection and distance computation counts as one query
-since this computation could be used to forge a query that should have been
-forwarded to the oracle.
+since this computation could be used to forge a query.
 
 Step \step{3} prepares the induction step by computing the arrangement of
 hyperplanes \(\A(\widetilde{H}')\) in \(\R^{n-1}\). Like step \step{1}, this
