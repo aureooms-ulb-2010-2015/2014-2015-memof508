@@ -150,9 +150,9 @@ be efficient with respect to the complexity of the remaining induction steps.
 The partitioning procedure assigns interval sizes to possible values for
 $b_1$ proportional to their frequency in $\S$. Hence, if the interval
 associated with $b_1 = i$ is large, we have to make a small number of
-queries to find it but the cardinality of $\S$ at the next induction step
+queries to find it and the cardinality of $\S$ at the next induction step
 remains large. Otherwise, if the same interval is small, the number of queries
-required to find it is large but in this case, the induction step
+required to find it is large, but, in this case, the induction step
 handles a smaller set \(\S\).
 
 The only step where we make queries is \step{3}. We use binary
