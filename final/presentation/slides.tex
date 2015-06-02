@@ -205,7 +205,110 @@ model}.
 
 \section{Application of Meiser's Algorithm}
 \begin{frame}\frametitle{\insertsection}\justifying
+\begin{probl}[Point location problem in an arrangement of hyperplanes]
+Given a point $x \in \R^n$ and a set of hyperplanes $\H = \enum{ H_i
+\st 1 \leq i \leq m }$ determine the position vector of $x$, $\pv(x) \in
+\signset^n$, where $\pv_i(x) = \sigma, \sigma \in \signset$ iff $x \in
+H_i^{\sigma}$. We define $H_i^{0}$, $H_i^{-}$ and $H_i^{+}$ to be
+respectively $H_i$ itself, the half-space below $H_i$ and the half-space above
+$H_i$.
+\end{probl}\pause
+We can convert any instance of the \(k\)-\textsf{LDT} problem into an
+instance of the point location problem in an arrangement of hyperplanes.
+By agreeing on an order of the elements of \(\S\) (for example, the total order on
+the real numbers) we can associate a unique \(n\)-tuple to each set \(\S\),
+and thus a unique point \(x\) in \(\R^n\) for each \(\S\).
+For each \(k\)-tuple \((s_1, \ldots, s_k)\) we need to find whether
+\(\alpha_0 + \alpha_1 s_1 + \dots + \alpha_k s_k\)
+is equal to zero. In our new representation of the problem this
+boils down to deciding whether our point \(x\) lies on the hyperplane of
+equation \(\alpha_0 + \alpha_1 s_1 + \dots + \alpha_k s_k = 0\). There are \(n^k\) such
+hyperplanes, and to solve the problem
+we have to decide whether \(x\) lies on one of them.
 \end{frame}
 
 
+\begin{frame}\frametitle{\insertsection}\justifying
+\begin{thm}[(Clarkson)]\label{thm:meiser:clarkson}
+Given a set $\H$ of $m$ hyperplanes in $\R^n$ and $\epsilon$ with the
+constraint that $0 < \epsilon < 1$, there exists a subset $\NH \subseteq \H$ of
+size $\BigO{\enetsize}$ such that for every simplex $\simplex$ in $\R^n$, if the
+number of hyperplanes of $\H$ intersecting $\simplex$ is strictly greater than
+$\epsilon \card{\H}$ then at least one of them belongs to $\NH$.
+\end{thm}\pause
+\begin{overlayarea}{\textwidth}{0.4\textheight}
+\only<2>{\begin{cor}
+If we choose $\BigO{\enetsize}$ hyperplanes uniformly at
+random from \(\H\) and denote this selection $\H^{*}$ then for
+any simplex intersected by more than $\epsilon \card{\H}$ hyperplanes of $\H$
+there is a high probability that at least one of them is contained in $\H^{*}$.
+\end{cor}}
+\only<3>{\begin{cor}
+If we choose $\BigO{\enetsize}$ hyperplanes uniformly at
+random from \(\H\) and denote this selection $\H^{*}$ and
+if there is no hyperplane in $\H^{*}$ intersecting a given simplex, then, with
+high probability, the number of hyperplanes of $\H$ intersecting the simplex
+is less or equal to $\epsilon \card{\H}$.
+\end{cor}}
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}\justifying
+\begin{figure}
+\begin{center}
+\includegraphics[trim=110 40 50 30,clip=true,height=0.6\textheight]{../report/fig/point-location/simplex.eps}
+\caption{
+A complete step of Meiser's algorithm. The blue lines are hyperplanes of the
+set \(\widetilde{\H}\). The gradient of the objective function
+chosen to find the first vertex of the simplex is \(\nabla f\). The green dotted lines are the
+hyperplanes from \(\H \setminus \widetilde{\H}\) that meet \(\S\), those are
+the only hyperplanes that are left to process after this step.
+}
+\end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}\justifying
+\begin{algo}[(Building \(\simplex\))]
+\item[input] A point \(x\) and a set of hyperplanes \(\widetilde{\H}\) in
+\(\R^n\).
+\item[1.] Find a vertex $\nu$ of the cell containing $x$, $\nu$ is one of
+the vertices of our simplex.
+\item[2.] Compute $x'$, the projection of $x$ along $\vec{\nu x}$ on the
+boundary of \(\cell\).
+\item[3.] Let \(H_{\theta}\) denote the hyperplane in \(\widetilde{\H}\)
+containing \(x'\). Compute \(\widetilde{\H}'\) as the intersection of all
+hyperplanes of \(\widetilde{\H} \setminus \enum{H_{\theta}}\) with
+\(H_{\theta}\).
+\item[4.] Induction on \(x'\) and \(\widetilde{\H}'\) in $\R^{n-1}$, store result in \(\simplex'\).
+\item[5.] Return \(\simplex\), the convex hull of \(\simplex' \cup \enum{\nu}\).
+\end{algo}\pause
+We choose \(\card{\Ht} = \BigO{\enetsize}\) and compute  the cell $\cell$ of the
+arrangement $\arrangement(\Ht)$ containing $x$, then we refine the cell around
+point $x$. We do so by computing a simplex $\simplex$ inscribed in $\cell$ and
+containing \(x\). Then we discard hyperplanes that do not meet this simplex.
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}\justifying
+\begin{algo}[(Meiser's algorithm)]
+\item[input] $x \in \R^n$, the point to be located.
+\item[1.] Compute the position of $\BigO{n^2 \log^2 n}$ hyperplanes relatively to
+$x$, effectively computing cell $\cell$ containing $x$.
+\item[2.] Recursively build simplex $\simplex$ containing $x$ and inscribed in
+$\cell$.
+\item[3.] For any hyperplane $H_i$ not meeting the simplex, deduce $\pv_i(x)$.
+\item[4.] Discard all hyperplanes that do not meet the inside of the
+simplex.
+\item[5.] Recurse on hyperplanes that are left.
+\end{algo}\pause
+
+Since the complexity of step \step{1} is \BigO{n^2 \log^2 n}, the complexity of step
+\step{2} is \BigO{n^3 \log^2 n}, the complexity of steps \step{3} and \step{4}
+is \(0\),
+and the induction depth is $\BigO{\log m}$, the total complexity of this algorithm
+is \BigO{n^3 \log^2 n \log m}. For our \(k\)-\textsf{LDT} problem, \(m = n^k\),
+and thus the complexity is \BigO{k n^3 \log^3 n}. Note that the overall
+complexity in the Random Access Machine model is polynomial.
+
+\end{frame}
 \end{document}

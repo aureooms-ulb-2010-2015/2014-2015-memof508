@@ -14,7 +14,25 @@
 \captionsetup[figure]{labelformat=empty,font={footnotesize}}
 \usepackage{pstricks,pstricks-add}
 
-\usepackage[vlined,linesnumbered]{algorithm2e}
+% ALGORITHMS
+\usepackage{changepage}
+\newcommand\step[1]{%
+	\textbf{#1}%
+}
+
+\newenvironment{steps}%
+{%
+\vspace*{0.35cm}%
+\begin{adjustwidth}{0.3cm}{0cm}%
+\begin{description}%
+}
+{%
+\end{description}%
+\end{adjustwidth}%
+\vspace*{0.0cm}%
+\vrule width 0pt
+}
+
 
 % FONT ADJUSTMENT
 \renewcommand{\rmdefault}{lmr}
@@ -24,12 +42,6 @@
 \xdefinecolor{prussianblue}{RGB}{0,57,96}
 
 % NEW COMMANDS
-\newcommand{\F}{{\mathbb F}}
-\newcommand{\Cn}{{\mathbb C^n}}
-\newcommand{\opt}{{\mathsf{OPT}}}
-\newcommand{\acc}{\`}
-\newcommand\restr[2]{\ensuremath{\left.#1\right|_{#2}}}
-
 \newcommand\bblue[1]{\textbf{\color{prussianblue}#1}}
 \newcommand\bred[1]{\textbf{\color{Red3}#1}}
 \newcommand\bgreen[1]{\textbf{\color{SpringGreen4}#1}}
@@ -65,7 +77,7 @@
 \newenvironment{rem}{\begin{dbox}{Remark}}{\end{dbox}}
 \newenvironment{lem}[1][]{\begin{abox}{Lemma #1}}{\end{abox}}
 \newenvironment{thm}[1][]{\begin{abox}{Theorem #1}}{\end{abox}}
-\newenvironment{algo}[2][]{\begin{albox}{Algorithm #1: #2}\IncMargin{2em}\begin{algorithm}[H]}{\end{algorithm}\end{albox}}
+\newenvironment{algo}[1][]{\begin{albox}{Algorithm #1}\begin{steps}}{\end{steps}\end{albox}}
 \newenvironment{cor}[1][]{\begin{abox}{Corollary #1}}{\end{abox}}
 \newenvironment{probl}[1][]{\begin{abox}{#1}}{\end{abox}}
 \newenvironment{prop}[1][]{\begin{abox}{Proposition #1}}{\end{abox}}
@@ -85,6 +97,18 @@
 
 % maths
 
+
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}(#1)}}
+\newcommand{\BigOe}[1]{\ensuremath{\operatorname{O}_{\epsilon}(#1)}}
+\newcommand{\SmallO}[1]{\ensuremath{\operatorname{o}(#1)}}
+\newcommand{\BigOmega}[1]{\ensuremath{\Omega(#1)}}
+\newcommand{\SmallOmega}[1]{\ensuremath{\omega(#1)}}
+\newcommand{\BigTheta}[1]{\ensuremath{\Theta(#1)}}
+
+\newcommand{\ITLB}[0]{\texorpdfstring{\textsc{ITLB}\xspace}{ITLB\xspace}}
+
+\newcommand\st{\colon\,}
+
 \newcommand{\set}[1]{\mathcal{#1}}
 \newcommand{\enum}[1]{\left\{#1\right\}}
 \newcommand{\ask}[1]{\mathop{#1}^{?}}
@@ -95,4 +119,25 @@
 \def\S{\set{S}}
 \def\P{\set{P}}
 \newcommand\R{\mathbb{R}}
+\newcommand\arrangement{\mathcal{A}}
+\def\H{\set{H}}
+\newcommand\Him{H_i^{-}}
+\newcommand\Hiz{H_i^{0}}
+\newcommand\Hip{H_i^{+}}
+\newcommand\His{H_i^{\sigma}}
+\newcommand\Ht{\widetilde{\H}}
 
+\def\M{\set{M}}
+\def\O{\set{O}}
+\newcommand\NH{\set{N}}
+
+\newcommand\pv{\mathit{pv}}
+\newcommand\signset{\enum{-, 0, +}}
+
+
+\newcommand\cell{C}
+\newcommand\simplex{S}
+
+\newcommand\enet{$\epsilon$-net}
+\newcommand\enets{$\epsilon$-nets}
+\newcommand\enetsize{\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}}
