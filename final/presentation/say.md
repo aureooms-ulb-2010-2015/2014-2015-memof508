@@ -2,7 +2,7 @@
 # Title page
 
 The subject I am going to present is called
-	*Lower Bounds and Algorithms in the Decision Tree Model*.
+	*Lower Bounds and Algorithms in the Linear Decision Tree Model*.
 
 
 
@@ -95,7 +95,7 @@ questions.
 
 Note that
 
-since an instance of a problem can have variable size
+since instances of a problem can have variable sizes
 
 A lower bound or an upper bound is in general expressed as a function of the input size.
 
