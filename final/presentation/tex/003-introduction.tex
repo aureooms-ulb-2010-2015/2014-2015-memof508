@@ -1,4 +1,58 @@
 \section{Introduction}
 \begin{frame}\frametitle{\insertsection}\justifying
-Explain linear decision tree model and \textsc{ITLB}.
+Explain linear decision tree model and \textsc{ITLB}.\pause
+\begin{ebox}{Linear decision tree model and \textsc{ITLB}}
+\parbox[b][4cm][c]{.5\textwidth}{\centering
+\only<2->{A partially ordered set for which we want to find a linear extension.}
+}\hspace{3mm}
+\parbox[b][4cm][t]{.5\textwidth}{
+\psset{unit=.05cm}
+\begin{pspicture}(-20,48)(70,0)
+{\psset{linewidth=1.0pt}
+\only<2->{\psset{linecolor=black}
+
+%\psdots(50,90) root
+% left subtree
+\psline(13,32)(5,25)
+\psline(5,25)(0,20)
+\psline(5,25)(10,20)
+\psdots(0,20)
+\psdots(10,20)
+% right subtree
+\psline(13,32)(23,22)
+% right left subtree
+\psline(23,22)(13,12)
+\psline(13,12)(8,7)
+\psline(13,12)(18,7)
+\psdots(18,7)
+% right left left subtree
+\psline(8,7)(3,0)
+\psline(8,7)(13,0)
+\psdots(3,0)
+\psdots(13,0)
+% right right subtree
+\psline(23,22)(33,12)
+\psline(33,12)(26,2)
+\psline(33,12)(40,2)
+\psdots(26,2)
+\psdots(40,2)
+
+}
+\only<3->{\psset{linecolor=black}
+\psdots(-7,-8.5)
+\uput{5pt}[0](-7,-8){\(=\) feasible solutions}
+}
+\only<4->{\psset{linecolor=black}
+\psdots(40,-18)
+\uput{0pt}[0](-9,-18){\(\textsc{ITLB} = \log(\#~~~)\)}
+}
+\only<5->{\psset{linecolor=black}
+\psline{<->}(50,0)(50,32)
+\uput{5pt}[0](50,16){\(h \ge \textsc{ITLB}\)}
+}
+}
+\end{pspicture}
+}
+\end{ebox}
+
 \end{frame}
