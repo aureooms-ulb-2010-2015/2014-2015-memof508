@@ -153,13 +153,13 @@
 \newcommand{\ksum}[1][k]{\textsf{#1SUM}}
 \newcommand{\kldt}[1][k]{\textsf{#1LDT}}
 
-\def\twoSUM{\texorpdfstring{\ksum[2]}{2SUM}}
-\def\threeSUM{\texorpdfstring{\ksum[3]}{3SUM}}
-\def\fourSUM{\texorpdfstring{\ksum[4]}{4SUM}}
-\def\twoLDT{\texorpdfstring{\kldt[2]}{2LDT}}
-\def\fourLDT{\texorpdfstring{\kldt[4]}{4LDT}}
-\def\kSUM{\texorpdfstring{\mbox{\(k\)-\textsf{SUM}}}{k-SUM}}
-\def\kLDT{\texorpdfstring{\mbox{\(k\)-\textsf{LDT}}}{k-LDT}}
+\newcommand\twoSUM{\texorpdfstring{\ksum[2]}{2SUM}}
+\newcommand\threeSUM{\texorpdfstring{\ksum[3]}{3SUM}}
+\newcommand\fourSUM{\texorpdfstring{\ksum[4]}{4SUM}}
+\newcommand\twoLDT{\texorpdfstring{\kldt[2]}{2LDT}}
+\newcommand\fourLDT{\texorpdfstring{\kldt[4]}{4LDT}}
+\newcommand\kSUM{\texorpdfstring{\(k\)-\protect\textsf{SUM}}{k-SUM}}
+\newcommand\kLDT{\texorpdfstring{\(k\)-\protect\textsf{LDT}}{k-LDT}}
 
 % SUPI
 
@@ -171,5 +171,6 @@
 
 \newcommand{\POP}{\pblm{POP}}
 %\newcommand{\pop}{\pblm{Sorting under Partial Information}}
+
 
 

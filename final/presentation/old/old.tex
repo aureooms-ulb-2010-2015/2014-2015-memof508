@@ -1,36 +1,3 @@
-\documentclass[10pt,xcolor=x11names,dvipsnames,hyperref={colorlinks=false,breaklinks=true,bookmarks=true}]{beamer}
-\usepackage{stylesheet}
-%\usepackage{pgfpages}
-%\setbeameroption{show notes on second screen}
-
-\begin{document}
-
-% TITLE, AUTHOR, DATE, INSTITUTE
-\title[]{\textbf{Lower Bounds and Algorithms\\ in the\\ Linear Decision Tree Model\vspace{3mm}}}
-\author[]{\large AURÉLIEN OOMS\\ADVISOR: PROF. JEAN CARDINAL\vspace{5mm}}
-\institute[]{%
-\footnotesize MÉMOIRE PRÉSENTÉ EN VUE DE L'OBTENTION\\
-DU DIPLÔME DU MASTER EN SCIENCES INFORMATIQUES\\
-ANNÉE ACADÉMIQUE 2014~-~2015\\[3mm]
-\small UNIVERSITÉ LIBRE DE BRUXELLES}
-\date{}
-
-\begin{frame}
-\titlepage{}
-\end{frame}
-
-\section{Introduction}
-\begin{frame}\frametitle{\insertsection}\justifying
-\bblue{\large Master's thesis contents}
-\begin{itemize}[label={\color{prussianblue}$\bullet$},itemsep=6pt]
-\item Sorting, Merging and Sorting under Partial Information\pause
-\item Linial's algorithm (\citet*{linial:1984} + {\only<7->{\color{SpringGreen4}}efficient implementation})\pause
-\item Sorting \(X+Y\) (naive approach + \citet*{fredman:1976})\pause
-\item \threeSUM{}, \kSUM{}, \kLDT{} (\citet*{gronlund:2014})\pause
-\item {\only<7->{\color{SpringGreen4}}Application} of Meiser's Algorithm (\citet*{meiser:1993})\pause
-\item {\only<7->{\color{SpringGreen4}}Solve \kSUM{} using only \SmallO{n} linear queries}
-\end{itemize}
-\end{frame}
 
 \begin{frame}\frametitle{\insertsection}\justifying
 We focus on studying the complexity of problems and solving problems
@@ -323,8 +290,3 @@ and thus the complexity is \BigO{k n^3 \log^3 n}. Note that the overall
 complexity in the Random Access Machine model is polynomial.
 
 \end{frame}
-
-\begin{frame}\frametitle{References}\justifying
-\bibliography{../report/bibliography}
-\end{frame}
-\end{document}

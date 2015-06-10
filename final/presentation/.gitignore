@@ -1,7 +1,3 @@
-slides.pdf
-slides.aux
-slides.nav
-slides.log
-slides.toc
-slides.out
-slides.snm
+slides.*
+stylesheet.sty
+bibliography.bib
