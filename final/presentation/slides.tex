@@ -21,6 +21,18 @@ ANNÉE ACADÉMIQUE 2014~-~2015\\[3mm]
 
 \section{Introduction}
 \begin{frame}\frametitle{\insertsection}\justifying
+\bblue{\large Master's thesis contents}
+\begin{itemize}[label={\color{prussianblue}$\bullet$},itemsep=6pt]
+\item Sorting, Merging and Sorting under Partial Information\pause
+\item Linial's algorithm (\citet*{linial:1984} + efficient implementation)\pause
+\item Sorting \(X+Y\) (naive approach + \citet*{fredman:1976})\pause
+\item \threeSUM{}, \kSUM{}, \kLDT{} (\citet*{gronlund:2014})\pause
+\item Application of Meiser's Algorithm (\citet*{meiser:1993})\pause
+\item Meiser's Algorithm using \SmallO{n} linear queries
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{\insertsection}\justifying
 We focus on studying the complexity of problems and solving problems
 in the linear decision tree model. In the model we use, solving a problem
 amounts to retrieve information. We are allowed to retrieve information
@@ -310,5 +322,10 @@ is \BigO{n^3 \log^2 n \log m}. For our \(k\)-\textsf{LDT} problem, \(m = n^k\),
 and thus the complexity is \BigO{k n^3 \log^3 n}. Note that the overall
 complexity in the Random Access Machine model is polynomial.
 
+\end{frame}
+
+\section{References}
+\begin{frame}\frametitle{\insertsection}\justifying
+\bibliography{../report/bibliography}
 \end{frame}
 \end{document}

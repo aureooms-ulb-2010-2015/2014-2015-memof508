@@ -141,3 +141,35 @@
 \newcommand\enet{$\epsilon$-net}
 \newcommand\enets{$\epsilon$-nets}
 \newcommand\enetsize{\frac{n^2}{\epsilon} \log^2 \frac{n}{\epsilon}}
+
+% bibliography
+
+\usepackage[numbers]{natbib}
+\bibliographystyle{apalike}
+\usepackage{breakcites}
+
+% kSUM
+
+\newcommand{\ksum}[1][k]{\textsf{#1SUM}}
+\newcommand{\kldt}[1][k]{\textsf{#1LDT}}
+
+\def\twoSUM{\texorpdfstring{\ksum[2]}{2SUM}}
+\def\threeSUM{\texorpdfstring{\ksum[3]}{3SUM}}
+\def\fourSUM{\texorpdfstring{\ksum[4]}{4SUM}}
+\def\twoLDT{\texorpdfstring{\kldt[2]}{2LDT}}
+\def\fourLDT{\texorpdfstring{\kldt[4]}{4LDT}}
+\def\kSUM{\texorpdfstring{\mbox{\(k\)-\textsf{SUM}}}{k-SUM}}
+\def\kLDT{\texorpdfstring{\mbox{\(k\)-\textsf{LDT}}}{k-LDT}}
+
+% SUPI
+
+\newcommand{\SUPI}{\pblm{SUPI}}
+%\newcommand{\supi}{\pblm{Sorting under Partial Information}}
+
+\newcommand{\MUPI}{\pblm{MUPI}}
+%\newcommand{\mupi}{\pblm{Merging under Partial Information}}
+
+\newcommand{\POP}{\pblm{POP}}
+%\newcommand{\pop}{\pblm{Sorting under Partial Information}}
+
+
