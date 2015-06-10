@@ -1,15 +1,56 @@
 \section{Introduction}
 \begin{frame}\frametitle{\insertsection}\justifying
-Explain linear decision tree model and \textsc{ITLB}.\pause
+\begin{defn}[(Decision Tree Model)]
+We are allowed to ask questions to an oracle \(\le\) that are answered
+``yes'' or ``no''. Each question asked to the oracle costs us a single unit.
+Every other operation can be carried out for free.
+\end{defn}\pause
 \begin{ebox}{Linear decision tree model and \textsc{ITLB}}
 \parbox[b][4cm][c]{.5\textwidth}{\centering
-\only<2->{A partially ordered set for which we want to find a linear extension.}
+\psset{unit=.05cm}
+\begin{pspicture}(0,32)(100,-16)
+{\psset{linewidth=1.0pt}
+\only<2->{\psset{linecolor=black}
+\uput{0}[0](25,35){\textbf{input} \(\S = \enum{x_1,\ldots,x_n}\)}
+}
+\only<3->{\psset{linecolor=black}
+\psline(10,10)(0,0)
+\psline(10,10)(20,0)
+\psline(20,20)(10,10)
+\psline(20,0)(15,-5)
+\psline(20,0)(25,-5)
+\psline(15,-5)(10,-10)
+\psline(15,-5)(20,-10)
+}
+\only<4->{\psset{linecolor=black}
+\pscircle[linestyle=dashed,dash=3pt 2pt](10,10){5}
+}
+\only<4>{\psset{linecolor=black}
+\uput{10}[0](10,10){\(x_i \ask{\le} x_j\)}
+}
+\only<5>{\psset{linecolor=black}
+\uput{10}[0](10,10){\(x_i - x_j \ask{\le} 0\)}
+}
+\only<6>{\psset{linecolor=black}
+\uput{10}[0](10,10){\(x_i - x_j - 3 x_k\ask{\le} 0\)}
+}
+\only<7>{\psset{linecolor=black}
+\uput{10}[0](10,10){\(x_i - x_j - 3 x_k\ask{\le} 4\)}
+}
+\only<8>{\psset{linecolor=black}
+\uput{10}[0](10,10){\(-4 + x_i - x_j - 3 x_k\ask{\le} 0\)}
+}
+\only<9->{\psset{linecolor=black}
+\uput{10}[0](10,10){\(\alpha_0 + \alpha_1 x_1 + \cdots + \alpha_n x_n \ask{\le} 0\)}
+}
+}
+\end{pspicture}
 }\hspace{3mm}
 \parbox[b][4cm][t]{.5\textwidth}{
 \psset{unit=.05cm}
-\begin{pspicture}(-20,48)(70,0)
+\begin{pspicture}(-10,48)(90,0)
 {\psset{linewidth=1.0pt}
-\only<2->{\psset{linecolor=black}
+\only<10->{\psset{linecolor=black}
 
 %\psdots(50,90) root
 % left subtree
@@ -38,15 +79,15 @@ Explain linear decision tree model and \textsc{ITLB}.\pause
 \psdots(40,2)
 
 }
-\only<3->{\psset{linecolor=black}
+\only<11->{\psset{linecolor=black}
 \psdots(-7,-8.5)
 \uput{5pt}[0](-7,-8){\(=\) feasible solutions}
 }
-\only<4->{\psset{linecolor=black}
+\only<12->{\psset{linecolor=black}
 \psdots(40,-18)
 \uput{0pt}[0](-9,-18){\(\textsc{ITLB} = \log(\#~~~)\)}
 }
-\only<5->{\psset{linecolor=black}
+\only<13->{\psset{linecolor=black}
 \psline{<->}(50,0)(50,32)
 \uput{5pt}[0](50,16){\(h \ge \textsc{ITLB}\)}
 }
