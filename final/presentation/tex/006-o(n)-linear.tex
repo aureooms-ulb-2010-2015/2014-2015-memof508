@@ -1,4 +1,61 @@
 \section{Solve \kSUM{} using only \SmallO{n}-linear queries}
 \begin{frame}\frametitle{\insertsection}\justifying
-split blocks figure + result
+
+\begin{center}
+\psset{unit=.1cm}
+\begin{pspicture}(0,15)(50,0)
+{\psset{linewidth=1.0pt}
+\psline(0,5)(50,5)
+\psline(0,10)(50,10)
+\psline(0,5)(0,10)
+\psline(50,5)(50,10)
+\psline{<->}(0,15)(50,15)
+\uput{2}[90](25,15){\(n\)}
+\psline{<->}(20,11)(25,11)
+\uput{2}[90](22.5,10){\(g\)}
+\psline(5,5)(5,10)
+\psline(10,5)(10,10)
+\psline(15,5)(15,10)
+\psline(20,5)(20,10)
+\psline(25,5)(25,10)
+\uput{0}[0](32.5,7.5){\(\cdots\)}
+\psline(45,5)(45,10)
+\uput{2}[-90](2.5,5){\(1\)}
+\uput{2}[-90](7.5,5){\(2\)}
+\uput{2}[-90](12.5,5){\(3\)}
+\uput{2}[-90](17.5,5){\(4\)}
+\uput{2}[-90](22.5,5){\(5\)}
+\uput{2}[-90](47.5,5){\(\ceil{\frac{n}{g}}\)}
+}
+\only<2->{
+\psdots(2.5,7.5)
+\psdots(12.5,7.5)
+\psdots(17.5,7.5)
+}
+\end{pspicture}
+\end{center}
+
+\begin{overlayarea}{\textwidth}{0.4\textheight}
+\only<3>{
+\bblue{\large For any \(g\)}\\
+\bblue{Complexity}
+\begin{displaymath}
+O\mleft(\group{\frac{n}{g}}^k (kg)^3 \log^3 (kg)\mright)
+\end{displaymath}
+\bblue{Query size}
+\begin{displaymath}
+kg
+\end{displaymath}}
+
+\only<4>{
+\bblue{\large For \(g = n^{\frac{k-1}{k}} = n^{1-\frac{1}{k}}\)}\\
+\bblue{Complexity}
+\begin{displaymath}
+O\Bigg(n (kn^{1-\frac{1}{k}})^3 \log^3 (kn^{1-\frac{1}{k}})\Bigg)
+\end{displaymath}
+\bblue{Query size}
+\begin{displaymath}
+kn^{1-\frac{1}{k}}
+\end{displaymath}}
+\end{overlayarea}
 \end{frame}
