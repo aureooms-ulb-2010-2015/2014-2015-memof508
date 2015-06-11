@@ -1,4 +1,88 @@
 \section{Application of Meiser's Algorithm}
 \begin{frame}\frametitle{\insertsection}\justifying
-geometric interpretation figure + problem definition
+
+\begin{ebox}{Point Location in an Arrangement of Hyperplanes}
+\parbox[b][4cm][c]{.5\textwidth}{\centering
+\psset{unit=.05cm}
+\begin{pspicture}(0,61)(80,-3)
+\only<3->{\psset{linewidth=1.0pt}
+\pspolygon*[linecolor=MediumOrchid2!50!white](41,51.5)(70.5,41.75)(44,10)
+}
+\only<2->{\psset{linewidth=1.0pt}
+\psdots(50,35)
+\uput{2}[45](50,35){\(x\)}
+}
+\only<4->{\psset{linewidth=1.0pt}
+\uput{0}[0](0,-5){\(\alpha_0 + \alpha_1 x_1 + \cdots + \alpha_n x_n = 0\)}
+\psline[linewidth=1pt,linearc=5]{->}(74,-2)(76,2)(79,5)
+\uput{1}[180](80,12){\(< 0\)}
+\uput{1}[0](80,12){\(> 0\)}
+}
+{\psset{linewidth=1.0pt}
+\psline(0,32)(50,64)
+\psline(90,36)(0,64)
+\psline(80,0)(81,64)
+\psline(35,0)(90,64)
+\psline(45,0)(40,64)
+}
+\end{pspicture}
+}\hspace{3mm}
+\parbox[b][4cm][t]{.32\textwidth}{
+\psset{unit=.05cm}
+\begin{pspicture}(-10,48)(50,0)
+{\psset{linewidth=1.0pt}
+\only<5->{\psset{linecolor=black}
+
+%\psdots(50,90) root
+% left subtree
+\psline(13,32)(5,25)
+\psline(5,25)(0,20)
+\psline(5,25)(10,20)
+\psdots(0,20)
+\psdots(10,20)
+% right subtree
+\psline(13,32)(23,22)
+% right left subtree
+\psline(23,22)(13,12)
+\psline(13,12)(8,7)
+\psline(13,12)(18,7)
+\psdots(18,7)
+% right left left subtree
+\psline(8,7)(3,0)
+\psline(8,7)(13,0)
+\psdots(3,0)
+\psdots(13,0)
+% right right subtree
+\psline(23,22)(33,12)
+\psline(33,12)(26,2)
+\psline(33,12)(40,2)
+\psdots(26,2)
+\psdots(40,2)
+
+}
+\only<6->{\psset{linecolor=black}
+\psdots(2,-8)
+\uput{0pt}[0](-7,-8){\(\#~~ = \Phi_d(m) = \BigO{m^d}\)}
+}
+\only<7->{\psset{linecolor=black}
+\uput{0pt}[0](-9,-18){\(\textsc{ITLB} = \BigO{d \log m}\)}
+}
+\only<8->{\psset{linecolor=black}
+\psline{<->}(50,0)(50,32)
+\uput{5pt}[0](50,16){\(h = \BigOmega{d \log m}\)}
+}
+}
+\end{pspicture}
+}
+
+
+\end{ebox}
+
+\begin{probl}[\(k\)-linear Degeneracy Testing (\(k\)-\textsf{LDT})]
+Given a set \(\S \subset \R\), \(\card{\S} = n\), and \(k+1\) real
+coefficients \(\alpha_0, \alpha_1, \ldots, \alpha_k \in \R\), decide whether
+there exists a \(k\)-tuple
+\((s_1, \ldots, s_k)\), \(s_i \in \S\), such that
+\(\alpha_0 + \sum_{i=1}^{k} \alpha_i s_i = 0\).
+\end{probl}
 \end{frame}
