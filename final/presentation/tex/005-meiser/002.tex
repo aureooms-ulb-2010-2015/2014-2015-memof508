@@ -1,0 +1,23 @@
+\begin{frame}\frametitle{\insertsection}\justifying
+\begin{algo}[\only<1-2>{(Idea of the algorithm)}\only<3->{(Meiser's algorithm)}]
+\item[input] $x \in \R^n$, the point to be located.
+\item[1.] Compute the position of \(x\) relative to a subset \(\H^{*}\)\only<3->{, {\color{Red3}\(\card{\H^{*}} = \BigO{n^2 \log^2 n}\)},} of \(\H\), finding the cell $\cell$ of \(\H^{*}\) containing $x$.
+\only<3->{{\color{Red3}\item[2.] Build simplex $\simplex$ containing $x$ and inscribed in
+$\cell$.}}
+\only<1-2>{\item[2.] For any hyperplane $H_i$ not meeting \(\cell\), deduce $\pv_i(x)$
+then discard the hyperplane.
+\item[3.] Recurse on hyperplanes that are left.
+}
+\only<3->{\item[3.] For any hyperplane $H_i$ not meeting {\color{Red3}\(\simplex\)}, deduce $\pv_i(x)$
+then discard the hyperplane.
+\item[4.] Recurse on the hyperplanes that are left.
+}
+\end{algo}\pause
+\begin{thm}[(\citet*{burgisser:1997})]
+If we choose $\BigO{\enetsize}$ hyperplanes uniformly at
+random from \(\H\) and denote this selection $\H^{*}$ and
+if there is no hyperplane in $\H^{*}$ intersecting a given simplex, then, with
+high probability, the number of hyperplanes of $\H$ intersecting the simplex
+is less or equal to $\epsilon \card{\H}$.
+\end{thm}
+\end{frame}
