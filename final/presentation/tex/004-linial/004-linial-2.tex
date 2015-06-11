@@ -1,0 +1,34 @@
+\begin{frame}\frametitle{\insertsection}\justifying
+\begin{ebox}{Using dynamic programming}
+\onslide<1->{\begin{displaymath}
+\A = \enum{a_1 < \cdots < a_m},
+\B = \enum{b_1 < \cdots < b_n},
+\P = (\A \cup \B, <_{\P})
+\end{displaymath}}
+\onslide<2->{\begin{displaymath}
+e(\P) =
+\begin{dcases*}
+1            & if \(\card{\A} = 0\) or \(\card{\B} = 0\)\\
+e(\P \setminus \enum{a_1}) & if \(a_1 <_{\P} b_1\)\\
+e(\P \setminus \enum{b_1}) & if \(b_1 <_{\P} a_1\)\\
+e(\P \setminus \enum{a_1}) + e(\P \setminus \enum{b_1}) & if \(a_1\) and \(b_1\) are
+incomparable in \(\P\)
+\end{dcases*}
+\end{displaymath}}
+\onslide<3->{\begin{center}
+\begin{tabular}{|*{5}{c|}}
+\hline
+\(e(\P)\)  & \only<3>{\(e(\P \setminus \enum{b_1})\)}\only<4>{\(e(\P(b_1 < a_1))\)} & \only<3>{\(e(\P \setminus \enum{b_2})\)}\only<4>{\(e(\P(b_2 < a_1))\)}  &\( \cdots \) & \(1\) \\
+\hline
+\only<3>{\(e(\P \setminus \enum{a_1})\)}\only<4>{\(e(\P(a_1 < b_1))\)}  & \( \ddots \) & & & \(\vdots\) \\
+\hline
+\only<3>{\(e(\P \setminus \enum{a_2})\)}\only<4>{\(e(\P(a_2 < b_1))\)}  & &\( \ddots\) & & \(\vdots\) \\
+\hline
+\(\vdots \) & & &\( \ddots\) &  \(\vdots\) \\
+\hline
+\(1\)  & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(1\) \\
+\hline
+\end{tabular}
+\end{center}}
+\end{ebox}
+\end{frame}
