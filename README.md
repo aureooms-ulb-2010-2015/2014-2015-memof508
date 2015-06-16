@@ -54,5 +54,5 @@ triangles. In *Foundations of Computer Science (FOCS), 2014 IEEE 55th
 Annual Symposium on*, pages 621–630. IEEE.
   4. Linial, N. (1984). The information-theoretic bound is good for merging.
 *SIAM Journal on Computing*, 13(4):795–801.
-  5. Meiser, S. (1993). Point location in arrangements of hyperplanes. *In-
-formation and Computation*, 106(2):286–303.
+  5. Meiser, S. (1993). Point location in arrangements of hyperplanes.
+*Information and Computation*, 106(2):286–303.
