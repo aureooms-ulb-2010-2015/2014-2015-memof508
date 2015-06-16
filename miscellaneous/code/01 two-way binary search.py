@@ -12,13 +12,13 @@ def binarysearch(k, v, i, j):
 	if i == j: return 0, i, 0
 
 	p = (i + j) // 2
-		
+
 	if k == v[p] : return 1, p, 2
 
 	elif k < v[p] : f, w, o = binarysearch(k, v, i, p)
 
 	else : f, w, o = binarysearch(k, v, p + 1, j)
-	
+
 	return f, w, o + 3
 
 
@@ -28,12 +28,12 @@ def twbinarysearch(k, a, b, v, i, j):
 	p = (i + j) // 2
 
 	f, w, o = binarysearch(v[p], k, a, b)
-		
+
 	if f == 1 : k[w] = True
 
 	o += twbinarysearch(k, a, w, v, i, p)
 	o += twbinarysearch(k, w + f, b, v, p + 1, j)
-	
+
 	return o
 
 
