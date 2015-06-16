@@ -42,7 +42,7 @@
   - **Application** of Meiser's Algorithm ([Meiser [5]](#main-references))
   - **Solve k-SUM using only o(n)-linear queries**
 
-## Main references
+## Main References
 
   1. Cardinal, J., Fiorini, S., Joret, G., Jungers, R. M., and Munro, J. I.
 (2013). Sorting under partial information (without the ellipsoid algorithm).
