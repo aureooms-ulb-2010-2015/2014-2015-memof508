@@ -45,8 +45,8 @@
 ## Main references
 
   1. Cardinal, J., Fiorini, S., Joret, G., Jungers, R. M., and Munro, J. I.
-(2013). Sorting under partial information (without the ellipsoid algo-
-rithm). *Combinatorica*, 33(6):655–697.
+(2013). Sorting under partial information (without the ellipsoid algorithm).
+*Combinatorica*, 33(6):655–697.
   2. Fredman, M. L. (1976). How good is the information theory bound in
 sorting? *Theoretical Computer Science*, 1(4):355–361.
   3. Grønlund, A. and Pettie, S. (2014). Threesomes, degenerates, and love
