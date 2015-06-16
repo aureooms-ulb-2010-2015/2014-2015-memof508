@@ -3,7 +3,7 @@
 
 ## Keywords
 
-### Problems related to sorting by comparisons
+### Problems in the Linear Decision Tree Model
 
   - Sorting
   - Merging
