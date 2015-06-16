@@ -35,11 +35,11 @@
 
 ## Outline
 
-  - Sorting, Merging and Sorting under Partial Information ([#main-references](Cardinal et al. [1]))
-  - Linial's algorithm ([#main-references](Linial [4]) + **efficient implementation**)
-  - Sorting *X+Y* (naive approach + [#main-references](Fredman [2]))
-  - 3SUM, k-SUM, k-LDT ([#main-references](Grønlund and Pettie [3]))
-  - **Application** of Meiser's Algorithm ([#main-references](Meiser [5]))
+  - Sorting, Merging and Sorting under Partial Information ([Cardinal et al. [1]](#main-references))
+  - Linial's algorithm ([Linial [4]](#main-references) + **efficient implementation**)
+  - Sorting *X+Y* (naive approach + [Fredman [2]](#main-references))
+  - 3SUM, k-SUM, k-LDT ([Grønlund and Pettie [3]](#main-references))
+  - **Application** of Meiser's Algorithm ([Meiser [5]](#main-references))
   - **Solve k-SUM using only o(n)-linear queries**
 
 ## Main references
