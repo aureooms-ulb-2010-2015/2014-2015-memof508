@@ -25,9 +25,9 @@
   - Quicksort
   - Mergesort
   - Heapsort
-  - Ford-Johnson's algorithm
+  - Ford-Johnson algorithm
   - Tape merge
-  - Hwang-Lin's algorithm
+  - Hwang-Lin algorithm
   - Linial's algorithm
   - Fredman's algorithm
   - Meiser's algorithm
