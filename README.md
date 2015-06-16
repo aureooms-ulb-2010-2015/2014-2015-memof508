@@ -1,62 +1,58 @@
 
-MEMOIR
-==
+# Lower Bounds and Algorithms in the Linear Decision Tree Model
 
-2014-2015 MS in Computer Science : Optimization and Algorithms
+## Keywords
 
-Sorting under Partial Information in the Decision Tree Model (SUPI)
+### Problems related to sorting by comparisons
 
-
-  - code          : implementation of encountered algorithms
-  - notes         : note taking for various papers
-  - spec          : 2013-2014 MEMOF403 course spec
-  - wolfram-alpha : formulae for wolfram alpha
-
+  - Sorting
+  - Merging
+  - Sorting under Partial Information, Merging under Partial Information
+  - 3SUM, k-SUM, k-LDT
+  - Point Location in an Arrangement of Hyperplanes
 
 
+### Lower bounds
 
-PREVIOUS NOTES
-==
-
-
-[http://web.stanford.edu/~pmcmahon/ThesisWritingTips.pdf]
-[http://arxiv.org/pdf/quant-ph/0412143v2.pdf]
-[http://arxiv.org/pdf/quant-ph/0305025v1.pdf]
+  - Information-theoretic lower bound
+  - Lower bounds for linear satisfiability problems (Erickson)
+  - Lower bounds for linear degeneracy testing (Ailon, Chazelle)
+  - Buck's theorem
 
 
-  - Average Case Analysis of the Merging Algorithm of Hwang and Lin
+### Algorithms
 
-    - \log_2 { n + m \choose n }, worst case -> n = m \log_2 { 2n \choose n } \log_2 \frac{2n!}{n!^2} O(n) (~2n)
-    - idea : interchange the role of the lists during computation (for random lists it's likely to happen only during the last steps of the computation)
-    - poll the array at app. \frac{m-j}{n-i} intervals
-    - O(n * log(m/n)) comp ?
-    - E ?
-
-  - Making Octants Colorful and Related Covering Decomposition Problems
-
-    - translate of a negative octant?
-    - k colors, a family of convex bodies, every coloration of points can be colored s.t. any body of the family containing at least p(k) points contains at keast one of each color
-    - duals + corollaries
-    - here p(k) = k^a where a <6
-    - online / semi-online not applicable
+  - Quicksort
+  - Mergesort
+  - Heapsort
+  - Ford-Johnson's algorithm
+  - Tape merge
+  - Hwang-Lin's algorithm
+  - Linial's algorithm
+  - Fredman's algorithm
+  - Meiser's algorithm
 
 
-  - On Generalized Comparison-Based Sorting Problems (alpha)
+## Outline
 
-    - sorting to and from a partial order
-    - partial order identification (open)
-    - sorting with forbidden comparisons (open)
-    - entropy :amount of information and uncertainty
-    - approximating the entropy : greedy (anti-)chain decompositions
-    - partial order production --> multiple selection
-    - sorting under partial information --> multiple merging
-    - page 8 downsets ??
+  - Sorting, Merging and Sorting under Partial Information ([#main-references](Cardinal et al. [1]))
+  - Linial's algorithm ([#main-references](Linial [4]) + **efficient implementation**)
+  - Sorting *X+Y* (naive approach + [#main-references](Fredman [2]))
+  - 3SUM, k-SUM, k-LDT ([#main-references](Grønlund and Pettie [3]))
+  - **Application** of Meiser's Algorithm ([#main-references](Meiser [5]))
+  - **Solve k-SUM using only o(n)-linear queries**
 
-  - Planning and Coding of Problems for an Electronic Computing Instrument Part II Volume II (April 1948)
+## Main references
 
-  - The Clique Problem in Ray intersection Graphs
-
-  - Two Probabilistics Results on Merging
-
-    - 1.618 < \frac{m}{n} \le 3
-    - idea : randomly chose between the two next elements of A to be compared with the current to-be-inserted element from B
+  1. Cardinal, J., Fiorini, S., Joret, G., Jungers, R. M., and Munro, J. I.
+(2013). Sorting under partial information (without the ellipsoid algo-
+rithm). *Combinatorica*, 33(6):655–697.
+  2. Fredman, M. L. (1976). How good is the information theory bound in
+sorting? *Theoretical Computer Science*, 1(4):355–361.
+  3. Grønlund, A. and Pettie, S. (2014). Threesomes, degenerates, and love
+triangles. In *Foundations of Computer Science (FOCS), 2014 IEEE 55th
+Annual Symposium on*, pages 621–630. IEEE.
+  4. Linial, N. (1984). The information-theoretic bound is good for merging.
+*SIAM Journal on Computing*, 13(4):795–801.
+  5. Meiser, S. (1993). Point location in arrangements of hyperplanes. *In-
+formation and Computation*, 106(2):286–303.
