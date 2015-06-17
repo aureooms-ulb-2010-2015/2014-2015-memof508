@@ -5,20 +5,27 @@
 \psset{unit=.05cm}
 \begin{pspicture}(-15,53)(65,-11)
 {\psset{linewidth=1.0pt}
-\only<1->{\psset{linecolor=black}
-\uput{0}[0](-17,52){\textbf{input} \(\P = (\S = \enum{x_1,\ldots,x_n},<_{\P})\)}
+\only<1-3>{\psset{linecolor=black}
+\uput{0}[0](-17,52){\textbf{input} \(\P = (\S = \enum{x_1,\ldots,x_N},<_{\P})\)}
 }
 \only<2->{\psset{fillstyle=solid,fillcolor=darkgray!3!white,linecolor=darkgray,linewidth=1.35pt}
 \uput{0}[90](5,39){\(\S\)}
 \psellipse(5,10)(15,27)
 }
-\only<4->{\psset{fillstyle=solid,fillcolor=MediumOrchid2!18!white,linecolor=MediumOrchid2,linewidth=1.35pt}
+\only<4->{
+\psset{fillstyle=solid,fillcolor=MediumOrchid2!18!white,linecolor=MediumOrchid2,linewidth=1.35pt}
 \uput{0}[90](0,26){\(\A\)}
 \psellipse(0,10)(5,10)
-}
-\only<5->{\psset{fillstyle=solid,fillcolor=DeepSkyBlue2!18!white,linecolor=DeepSkyBlue2,linewidth=1.35pt}
+
+\psset{fillstyle=solid,fillcolor=DeepSkyBlue2!18!white,linecolor=DeepSkyBlue2,linewidth=1.35pt}
 \uput{0}[90](10,26){\(\B\)}
 \psellipse(10,10)(5,15)
+}
+\only<4>{
+\uput{0}[0](-17,52){\textbf{input} \(\P = (\S = \A \cup \B, <_{\P})\)}
+}
+\only<5->{
+\uput{0}[0](-17,52){\textbf{input} \(\P = (\S = \enum{a_1<_{\P}\cdots<_{\P}a_m} \cup \enum{b_1<_{\P}\cdots<_{\P}b_n},<_{\P})\)}
 }
 \only<2->{\psset{linecolor=black}
 \psdots(0,5)
@@ -103,7 +110,7 @@
 
 \onslide<11->{%
 \begin{thm}[(\citet*{linial:1984})]
-Given a poset \(\P = (\enum{x_1,\ldots,x_n},<_{\P})\) covered by two chains
+Given a poset \(\P = (\enum{x_1,\ldots,x_N},<_{\P})\) covered by two chains
 \(\A\) and \(\B\), we can always find a query \(x_i \ask{<} x_j\) with \(x_i
 \in \A, x_j \in \B\) such that the probability that \(x_i < x_j\) lies in the
 interval \([\sfrac{1}{3}, \sfrac{2}{3}]\).
