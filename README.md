@@ -33,7 +33,7 @@
   - Meiser's algorithm
 
 
-## Outline
+## Contents
 
   - Sorting, Merging and Sorting under Partial Information ([Cardinal et al. [1]](#main-references))
   - Linial's algorithm ([Linial [4]](#main-references) + **efficient implementation**)
