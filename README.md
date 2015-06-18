@@ -1,6 +1,12 @@
 
 # Lower Bounds and Algorithms in the Linear Decision Tree Model
 
+## Files
+
+  - [Book cover](https://aureooms.github.io/files/memoir/cover.pdf)
+  - [Main file](https://aureooms.github.io/files/memoir/main.pdf)
+  - [Presentation slides](https://aureooms.github.io/files/memoir/slides.pdf)
+
 ## Keywords
 
 ### Problems in the Linear Decision Tree Model
