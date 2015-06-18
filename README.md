@@ -3,7 +3,7 @@
 
 ## Files
 
-  - [Book cover](https://aureooms.github.io/files/memoir/cover.pdf)
+  - [Print cover](https://aureooms.github.io/files/memoir/cover.pdf)
   - [Main file](https://aureooms.github.io/files/memoir/main.pdf)
   - [Presentation slides](https://aureooms.github.io/files/memoir/slides.pdf)
 
