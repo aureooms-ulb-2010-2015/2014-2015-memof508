@@ -1,7 +1,7 @@
 
 # Lower Bounds and Algorithms in the Linear Decision Tree Model
 
-## Files
+## Build
 
   - [Print cover](https://aureooms.github.io/files/memoir/cover.pdf)
   - [Main file](https://aureooms.github.io/files/memoir/main.pdf)
@@ -11,10 +11,10 @@
 
 ### Problems in the Linear Decision Tree Model
 
-  - Sorting
-  - Merging
+  - Sorting, Merging
   - Sorting under Partial Information, Merging under Partial Information
-  - 3SUM, k-SUM, k-LDT
+  - Sorting *X + Y*
+  - 3SUM, *k*-SUM, *k*-LDT, subset sum
   - Point Location in an Arrangement of Hyperplanes
 
 
