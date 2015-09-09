@@ -38,40 +38,40 @@ all: $(FILENAME).pdf
 
 $(FILENAME).pdf: $(FILENAME).tex $(STYLESHEET).sty $(BIBLIOGRAPHY).bib
 
-	echo -n "$(ACTION_COLOR)"link \#1"$(NO_COLOR) "
+	printf "$(ACTION_COLOR)link #1$(NO_COLOR) "
 	$(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err
-	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then printf "$(ERROR_STRING)\n" && cat sys.out && printf "$(NO_COLOR)"; fi;
 	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
-	if [ -e $(BIB)/.changed ]; then echo -n "\n$(ACTION_COLOR)"bibtex"$(NO_COLOR) " \
+	if [ -e $(BIB)/.changed ]; then printf "\n$(ACTION_COLOR)"bibtex"$(NO_COLOR) " \
 	&& $(BIBTEX) $(FILENAME) 1> sys.out && rm $(BIB)/.changed \
 	|| (touch sys.err && rm $(BIB)/.changed); fi
-	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then printf "$(ERROR_STRING)\n" && cat sys.out && printf "$(NO_COLOR)"; fi;
 	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
-	if [ -e $(FILENAME).idx ]; then echo -n "\n$(ACTION_COLOR)"makeindex"$(NO_COLOR) " \
+	if [ -e $(FILENAME).idx ]; then printf "\n$(ACTION_COLOR)"makeindex"$(NO_COLOR) " \
 	&& $(MAKEINDEX) $(FILENAME) 2> sys.out || touch sys.err; fi
-	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then printf "$(ERROR_STRING)\n" && cat sys.out && printf "$(NO_COLOR)"; fi;
 	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
-	echo -n "\n$(ACTION_COLOR)"link \#2"$(NO_COLOR) "
+	printf "\n$(ACTION_COLOR)link #2$(NO_COLOR) "
 	$(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err
-	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then printf "$(ERROR_STRING)\n" && cat sys.out && printf "$(NO_COLOR)"; fi;
 	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
-	if egrep -q $(RERUN) $(FILENAME).log ; then echo -n "\n$(ACTION_COLOR)"link \#3"$(NO_COLOR) " \
+	if egrep -q $(RERUN) $(FILENAME).log ; then printf "\n$(ACTION_COLOR)link #3$(NO_COLOR) " \
 	&& $(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err; fi
-	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n "$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then printf "$(ERROR_STRING)\n" && cat sys.out && printf "$(NO_COLOR)"; fi;
 	if [ -e sys.err ]; then rm -f sys.err sys.out && false; fi;
-	if egrep -q $(RERUN) $(FILENAME).log ; then echo -n "\n$(ACTION_COLOR)"link \#4"$(NO_COLOR) " \
+	if egrep -q $(RERUN) $(FILENAME).log ; then printf "\n$(ACTION_COLOR)link #4$(NO_COLOR) " \
 	&& $(LATEX) $(FILENAME).tex 1> sys.out || touch sys.err; fi
-	if [ -e sys.err ]; then echo "$(ERROR_STRING)" && cat sys.out && echo -n \
-	"$(NO_COLOR)"; elif [ -s sys.out ]; then echo "$(WARN_STRING)" && \
-	cat sys.out && echo -n "$(NO_COLOR)"; \
-	else echo "$(OK_STRING)$(NO_COLOR)"; fi;
+	if [ -e sys.err ]; then printf "$(ERROR_STRING)\n" && cat sys.out && printf \
+	"$(NO_COLOR)"; elif [ -s sys.out ]; then printf "$(WARN_STRING)\n" && \
+	cat sys.out && printf "$(NO_COLOR)"; \
+	else printf "$(OK_STRING)$(NO_COLOR)\n"; fi;
 	if [ -e sys.err ]; then rm -f sys.err sys.out && false; else rm -f \
 	sys.err sys.out; fi;
 	egrep -i $(UNDEFINED) $(FILENAME).log || true
 
 
 $(FILENAME).tex: $(TEXFILES)
-	echo "$(ACTION_COLOR)"tex files changed"$(NO_COLOR)"
+	printf "$(ACTION_COLOR)tex files changed$(NO_COLOR)\n"
 	$$ tex build $(TEX) $(FILENAME).tex
 
 ifeq ($(STYFILES),)
@@ -81,7 +81,7 @@ $(STYLESHEET).sty: $(STYFILES)
 else
 
 $(STYLESHEET).sty: $(STYFILES)
-	echo "$(ACTION_COLOR)"sty files changed"$(NO_COLOR)"
+	printf "$(ACTION_COLOR)sty files changed$(NO_COLOR)\n"
 	$$ txt concat $(STY) -o $(STYLESHEET).sty
 
 endif
@@ -93,7 +93,7 @@ $(BIBLIOGRAPHY).bib: $(BIBFILES)
 else
 
 $(BIBLIOGRAPHY).bib: $(BIBFILES)
-	echo "$(ACTION_COLOR)"bib files changed"$(NO_COLOR)"
+	printf "$(ACTION_COLOR)bib files changed$(NO_COLOR)\n"
 	$$ txt concat $(BIB) -o $(BIBLIOGRAPHY).bib
 	touch $(BIB)/.changed
 
