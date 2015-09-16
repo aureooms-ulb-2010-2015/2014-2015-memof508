@@ -1,4 +1,3 @@
-
 # Lower Bounds and Algorithms in the Linear Decision Tree Model
 
 ## Build
@@ -17,16 +16,13 @@
   - 3SUM, *k*-SUM, *k*-LDT, subset sum
   - Point Location in an Arrangement of Hyperplanes
 
-
 ### Lower bounds
 
   - Information-theoretic lower bound
   - Lower bounds for linear satisfiability problems (Erickson)
   - Lower bounds for linear degeneracy testing (Ailon, Chazelle)
-  - Buck's theorem
 
-
-### Algorithms
+### Algorithms and upper bounds
 
   - Quicksort
   - Mergesort
@@ -36,8 +32,8 @@
   - Hwang-Lin algorithm
   - Linial's algorithm
   - Fredman's algorithm
+  - Buck's theorem
   - Meiser's algorithm
-
 
 ## Contents
 
