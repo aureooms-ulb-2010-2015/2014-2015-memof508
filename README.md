@@ -2,9 +2,9 @@
 
 ## Build
 
-  - [Print cover](https://aureooms.github.io/files/memoir/cover.pdf)
-  - [Main file](https://aureooms.github.io/files/memoir/main.pdf)
-  - [Presentation slides](https://aureooms.github.io/files/memoir/slides.pdf)
+  - [Print cover](https://ipfs.io/ipfs/QmNgBre5P1EzNGxgDtdrAjNivWYu2Uy8D1fUXoJmrWUQMC)
+  - [Main file](https://ipfs.io/ipfs/QmeBB2gqCXmwem9MExNBnP8WhzBdodNFvvA4VQW6bhiy2y)
+  - [Presentation slides](https://ipfs.io/ipfs/QmTVLs4XYRxBDKvUsL8SUkwPABj2mQ8HDXyxyFCoTscBsf)
 
 ## Keywords
 
