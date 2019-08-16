@@ -73,7 +73,7 @@ $(FILENAME).tex: $(TEXFILES)
 
 $(STYLESHEET).sty: $(STYFILES)
 	echo "$(ACTION_COLOR)"sty files changed"$(NO_COLOR)"
-	$$ sty build $(STY) $(STYLESHEET).sty
+	$$ sty build $(STY) -o $(STYLESHEET).sty
 
 ifeq ($(BIBFILES),)
 bib/touch.bbl: $(BIBFILES)

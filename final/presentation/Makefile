@@ -72,7 +72,7 @@ $(FILENAME).pdf: $(FILENAME).tex $(STYLESHEET).sty $(BIBLIOGRAPHY).bib
 
 $(FILENAME).tex: $(TEXFILES)
 	echo "$(ACTION_COLOR)"tex files changed"$(NO_COLOR)"
-	$$ txt concat $(TEX) $(FILENAME).tex
+	$$ txt concat $(TEX) -o $(FILENAME).tex
 
 ifeq ($(STYFILES),)
 
@@ -82,7 +82,7 @@ else
 
 $(STYLESHEET).sty: $(STYFILES)
 	echo "$(ACTION_COLOR)"sty files changed"$(NO_COLOR)"
-	$$ txt concat $(STY) $(STYLESHEET).sty
+	$$ txt concat $(STY) -o $(STYLESHEET).sty
 
 endif
 
@@ -94,7 +94,7 @@ else
 
 $(BIBLIOGRAPHY).bib: $(BIBFILES)
 	echo "$(ACTION_COLOR)"bib files changed"$(NO_COLOR)"
-	$$ txt concat $(BIB) $(BIBLIOGRAPHY).bib
+	$$ txt concat $(BIB) -o $(BIBLIOGRAPHY).bib
 	touch $(BIB)/.changed
 
 endif
