@@ -2,9 +2,9 @@
 
 ## Build
 
-  - [Print cover](https://ipfs.c.ovfefe.cf/ipfs/QmNgBre5P1EzNGxgDtdrAjNivWYu2Uy8D1fUXoJmrWUQMC)
-  - [Main file](https://ipfs.c.ovfefe.cf/ipfs/QmeBB2gqCXmwem9MExNBnP8WhzBdodNFvvA4VQW6bhiy2y)
-  - [Presentation slides](https://ipfs.c.ovfefe.cf/ipfs/QmTVLs4XYRxBDKvUsL8SUkwPABj2mQ8HDXyxyFCoTscBsf)
+  - [Print cover](https://ipfs.io/ipfs/QmNgBre5P1EzNGxgDtdrAjNivWYu2Uy8D1fUXoJmrWUQMC)
+  - [Main file](https://ipfs.io/ipfs/QmeBB2gqCXmwem9MExNBnP8WhzBdodNFvvA4VQW6bhiy2y)
+  - [Presentation slides](https://ipfs.io/ipfs/QmTVLs4XYRxBDKvUsL8SUkwPABj2mQ8HDXyxyFCoTscBsf)
 
 ## Keywords
 
